@@ -5,10 +5,12 @@ import {Container, Cta, Logo} from 'components'
 
 const Wrapper = styled.header`
     position: fixed;
+    display: block;
     top: 0;
     left: 0;
     width: 100%;
     font-size: 14px;
+    z-index: 100;
 `
 const Content = styled.div`
     display: flex;

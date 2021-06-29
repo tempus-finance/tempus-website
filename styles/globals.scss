@@ -14,9 +14,18 @@ a {
   text-decoration: none;
 }
 
-* {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: transparent;
 }
+
 
 img {
   width: 100%;

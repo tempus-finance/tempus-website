@@ -21,6 +21,23 @@ h1, .f-h1 {
   }
 }
 
+
+h2, .f-h2 {
+  font-family: 'Aeonik', sans-serif;
+  font-size: 48px;
+  line-height: 1.066em;
+  font-weight: 500;
+  letter-spacing: -0.87px;
+  padding: 0;
+  margin: 0;
+
+  @media all and #{$lg}{
+    font-size: 60px;
+    line-height: 1.066em;
+    letter-spacing: -0.73px;
+  }
+}
+
 h3, .f-h3 {
   font-family: 'Aeonik', sans-serif;
   font-size: 30px;
