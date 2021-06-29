@@ -1,6 +1,7 @@
 const path = require('path')
+const withTM = require('next-transpile-modules')(['gsap', 'lodash-es'])
 
-module.exports = {
+module.exports = withTM({
   reactStrictMode: true,
   trailingSlash: true,
   
@@ -27,4 +28,4 @@ module.exports = {
     return routes
   },
 
-}
+})
