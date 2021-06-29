@@ -17,10 +17,12 @@ const Wrapper = styled.div`
 `
 
 const CopyContainer = styled.div`
-  width: calc(50% - 15px);
+  width: 100%;
   margin-top: 0px;
+  margin-bottom: 60px;
 
   @media ${breakpoints.md}{
+    width: calc(50% - 15px);
     max-width: 80%;
     margin-top: 10%;
   }

@@ -6,15 +6,21 @@ import {Cta} from 'components'
 import {breakpoints} from 'helpers/breakpoints'
 
 const Root = styled.div`
-  width: calc(50% - 15px);
+  width: 100%;
   background: rgba(0,0,0,0.15);
   border-radius: 25px;
-  padding: 60px;
+  padding: 30px 40px;
   margin-bottom: 30px;
   align-self: center;
 
-  &:nth-of-type(3) {
-    margin-top: -20%;
+
+  @media ${breakpoints.md}{
+    width: calc(50% - 15px);
+    padding: 60px;
+
+    &:nth-of-type(3) {
+      margin-top: -20%;
+    }
   }
 `
 

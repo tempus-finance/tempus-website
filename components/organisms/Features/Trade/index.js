@@ -5,10 +5,9 @@ import Single from '../Single'
 export default React.memo(function Trade({data}) {
   return (
     <Single data={data}>
-   
+
       <svg
-        width="251"
-        height="341"
+        viewBox='0 0 251 341'
         xmlns="http://www.w3.org/2000/svg">
         <defs>
           <path

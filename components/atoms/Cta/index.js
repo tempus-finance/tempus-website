@@ -8,7 +8,7 @@ const Btn = styled.a`
     height: 50px;
     padding: 0px 32px;
     background: ${colors.white};
-    border: solid 1px ${colors.black};
+    border: solid 2px ${colors.black};
     border-radius: 50px;
     color: ${colors.black};
     line-height: 46px;
@@ -17,7 +17,7 @@ const Btn = styled.a`
 `
 
 export default React.memo(function Cta({children, onClick, ...props}) {
-    
+
   return (
     <Btn
       {...props}
