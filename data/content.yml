@@ -152,3 +152,34 @@ team:
           href: https://twitter.com/aklamun
         - type: medium
           href: https://aklamun.medium.com/
+
+investors:
+  title: Investors
+  list:
+    - logo: images/investors/leminscap.png
+      alt: Lemniscap
+      url: https://lemniscap.com/
+
+    - logo: images/investors/divergence.png
+      alt: Divergence Ventures
+      url: https://www.div.vc
+
+    - logo: images/investors/tomahawk.png
+      alt: Tomahawk.VC
+      url: https://www.tomahawk.vc/
+
+    - logo: images/investors/gsr.png
+      alt: GSR
+      url: https://www.gsr.io/
+
+    - logo: images/investors/supernova.png
+      alt: Supernova Fund
+      url: https://supernova.fund/
+
+    - logo: images/investors/wintermute.png
+      alt: Wintermute
+      url: https://www.wintermute.com/
+
+    - logo: images/investors/launchub.png
+      alt: LAUNCHub Ventures
+      url: https://launchub.com/

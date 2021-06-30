@@ -1,7 +1,7 @@
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-import {Header, Hero, Features, Team} from 'components'
+import {Header, Hero, Features, Team, Investors} from 'components'
 
 
 gsap.registerPlugin(ScrollTrigger)
@@ -15,6 +15,7 @@ export default function Home() {
       <Hero />
       <Features />
       <Team />
+      <Investors />
     </>
   )
 }
