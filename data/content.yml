@@ -1,4 +1,4 @@
-hero: 
+hero:
   tagline: Trustless <br /> secondary <br /> markets <br /> on yield
 
 features:
@@ -11,3 +11,144 @@ features:
       subtitle: Deposit your yield bearing tokens for additional yield.
     - title: Fix
       subtitle: Lock in a fixed yield on your yield-bearing token.
+
+team:
+  title: Meet the team
+  core:
+    - name: David Garai
+      position: Core team
+      image: images/team/core/david.png
+      socials:
+        - type: linkedin
+          href: https://www.linkedin.com/in/davidgarai/
+        - type: twitter
+          href: https://twitter.com/davgarai
+        - type: medium
+          href: https://medium.com/@davidgarai
+
+    - name: Đorđe Mijović
+      position: Core team
+      image: images/team/core/dorde.png
+      socials:
+        - type: linkedin
+          href: https://www.linkedin.com/in/mijovic88
+        - type: twitter
+          href: https://twitter.com/mijovic988
+        - type: github
+          href: https://github.com/mijovic
+
+    - name: Lazar Mitić
+      position: Core team
+      image: images/team/core/lazar.png
+      socials:
+        - type: linkedin
+          href: https://www.linkedin.com/in/lazarmitic/
+        - type: twitter
+          href: https://twitter.com/LazarMiti2
+        - type: github
+          href: https://github.com/lazarmitic
+
+    - name: Yuval Weiss
+      position: Core team
+      image: images/team/core/yuval.png
+      socials:
+        - type: linkedin
+          href: https://www.linkedin.com/in/yuval-weiss-610b5816a/
+        - type: github
+          href: https://github.com/yuval-weiss
+
+    - name: Pujeet Manot
+      position: Core team
+      image: images/team/core/pujet.png
+      socials:
+        - type: linkedin
+          href: www.linkedin.com/in/pujeetmanot
+        - type: twitter
+          href: https://twitter.com/ManotPujeet
+        - type: medium
+          href: https://pujeetmanot.medium.com/
+
+    - name: Jorma Rebane
+      position: Core team
+      image: images/team/core/jorma.png
+      socials:
+        - type: linkedin
+          href: https://www.linkedin.com/in/jorma-rebane-319067126/
+        - type: twitter
+          href: https://twitter.com/jorma_rebane
+        - type: github
+          href: https://github.com/RedFox20
+
+    - name: Daniele Damiani
+      position: Core team
+      image: images/team/core/daniele.png
+      socials:
+        - type: linkedin
+          href: https://www.linkedin.com/in/danieledamiani/
+        - type: twitter
+          href: https://twitter.com/_danieledamiani
+        - type: github
+          href: https://github.com/danieledamiani
+
+    - name: Alex Beregszaszi
+      position: Core team
+      image: images/team/core/alex.png
+      socials:
+        - type: linkedin
+          href: https://www.linkedin.com/in/alexberegszaszi/
+        - type: twitter
+          href: https://twitter.com/alexberegszaszi
+        - type: medium
+          href: https://medium.com/@alexberegszaszi
+        - type: github
+          href: https://github.com/axic
+  investors:
+    - name: Jack Herrick
+      position: Angel investor
+      image: images/team/investors/jack.png
+      socials:
+        - type: twitter
+          href: https://twitter.com/JackH
+
+    - name: Thomas Bailey
+      position: Angel investor
+      image: images/team/investors/thomas.png
+      socials:
+        - type: linkedin
+          href: https://www.linkedin.com/in/thomas-bailey-b6827234/
+
+    - name: Freddie Farmer
+      position: Angel investor
+      image: images/team/investors/freddie.png
+      socials:
+        - type: linkedin
+          href: https://www.linkedin.com/in/freddiefarmer/
+        - type: twitter
+          href: https://twitter.com/FreddieFarmer
+
+    - name: Richard Dai
+      position: Angel investor
+      image: images/team/investors/richard.png
+      socials:
+        - type: linkedin
+          href: https://www.linkedin.com/in/richarddai01/
+        - type: twitter
+          href: https://twitter.com/RichardxDai
+
+    - name: David Choi
+      position: Angel investor
+      image: images/team/investors/david.png
+      socials:
+        - type: linkedin
+          href: https://www.linkedin.com/in/david-choi-a190975b
+
+    - name: Ariah Klages-Mundt
+      position: Advisor
+      image: images/team/investors/ariah.png
+      socials:
+        - type: linkedin
+          href: https://www.linkedin.com/in/aklagesmundt/
+        - type: twitter
+          href: https://twitter.com/aklamun
+        - type: medium
+          href: https://aklamun.medium.com/

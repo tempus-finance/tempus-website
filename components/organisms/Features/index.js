@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import {Container, Html} from 'components'
+import {Section, Container, Html} from 'components'
 
 import {useContent} from 'hooks'
 import {breakpoints} from 'helpers/breakpoints'
@@ -40,18 +40,20 @@ export default React.memo(function Hero () {
   const content = useContent('features')
 
   return (
-    <Container>
-      <Wrapper>
+    <Section>
+      <Container>
+        <Wrapper>
 
-        <CopyContainer>
-          <div className='f-h3'><Html>{content.title}</Html></div>
-          <div className='subtitle'>{content.subtitle}</div>
-        </CopyContainer>
+          <CopyContainer>
+            <div className='f-h3'><Html>{content.title}</Html></div>
+            <div className='subtitle'>{content.subtitle}</div>
+          </CopyContainer>
 
-        <Trade data={content.single[0]} />
-        <Earn data={content.single[1]} />
-        <Fix data={content.single[2]} />
-      </Wrapper>
-    </Container>
+          <Trade data={content.single[0]} />
+          <Earn data={content.single[1]} />
+          <Fix data={content.single[2]} />
+        </Wrapper>
+      </Container>
+    </Section>
   )
 })

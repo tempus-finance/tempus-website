@@ -10,7 +10,6 @@ const Root = styled.div`
     width: 100%;
     height: 100vh;
     align-items: center;
-    margin-top: 50px;
 
     .f-h1 {
         margin-bottom: 90px;
