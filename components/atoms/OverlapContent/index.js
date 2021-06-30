@@ -5,6 +5,7 @@ import map from 'lodash-es/map'
 
 const Root = styled.div`
   position:relative;
+  pointer-events: none;
 `
 
 const Item = styled.div`

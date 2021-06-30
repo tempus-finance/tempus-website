@@ -13,6 +13,7 @@ const Root = styled.div`
   flex-wrap: wrap;
 
   opacity: ${props => props.isActive ? 1 : 0};
+  pointer-events: ${props => props.isActive ? 'auto' : 'none'};
 
   /* grid-template-columns: repeat(2,1fr);
   gap: 30px 30px; */
