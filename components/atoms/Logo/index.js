@@ -1,12 +1,6 @@
-import React, {useEffect, useRef} from 'react'
-import {gsap} from 'gsap'
+import React from 'react'
 
 export default React.memo(function Logo() {
-  const ref = useRef()
-  useEffect(() => {
-    gsap.set(ref.current, {x: 10, y:5, scale: 1.1, rotateZ: 0.3, z: 2, rotateY: 2, rotateX: 0.1, perspective: 1002})
-  },[])
-
   return (
     <svg
       viewBox="0 0 183 50"
