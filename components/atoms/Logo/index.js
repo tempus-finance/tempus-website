@@ -13,7 +13,6 @@ export default React.memo(function Logo() {
         </filter>
       </defs>
       <g
-        ref={ref}
         id="Design"
         stroke="none"
         strokeWidth="1"
