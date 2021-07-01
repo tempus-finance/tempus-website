@@ -35,23 +35,31 @@ export default React.memo(function Cylinders(){
     <Root>
       <Row>
         <Single
+          heightBig={90}
+          heightSmall={20}
           fill={colors.green}
           type='mid'
           left={20}
           id={1}
           delay={0}/>
         <Single
+          heightBig={-10}
+          heightSmall={40}
           fill={colors.yellow}
           left={40}
           id={2}
           delay={0.5}/>
         <Single
+          heightBig={160}
+          heightSmall={30}
           left={60}
           type='mid'
           fill={colors.violet}
           id={3}
           delay={1}/>
         <Single
+          heightBig={50}
+          heightSmall={20}
           fill={colors.green}
           left={80}
           id={4}
@@ -60,22 +68,30 @@ export default React.memo(function Cylinders(){
 
       <Row bottom={20}>
         <Single
+          heightBig={70}
+          heightSmall={35}
           fill={colors.violet}
           left={35}
           id={5}
           delay={0.7}/>
         <Single
+          heightBig={120}
+          heightSmall={50}
           fill={colors.green}
           type='mid'
           left={55}
           id={6}
           delay={1.2}/>
         <Single
+          heightBig={70}
+          heightSmall={20}
           fill={colors.yellow}
           left={75}
           id={7}
           delay={1.7}/>
         <Single
+          heightBig={0}
+          heightSmall={170}
           fill={colors.violet}
           left={95}
           id={8}
