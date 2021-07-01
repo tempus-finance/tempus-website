@@ -5,6 +5,8 @@ import {Container, Html, Cta} from 'components'
 
 import {useContent} from 'hooks'
 
+import Cylinders from './Cylinders'
+
 const Root = styled.div`
     display: flex;
     width: 100%;
@@ -26,7 +28,9 @@ export default React.memo(function Hero () {
           <Html>{tagline}</Html>
         </div>
         <Cta>Launch app</Cta>
+
       </Container>
+      <Cylinders />
     </Root>
   )
 })
