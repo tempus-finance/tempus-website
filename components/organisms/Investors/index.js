@@ -1,18 +1,13 @@
 import React, {useRef} from 'react'
 import styled from 'styled-components'
 
-import {Section, Container} from 'components'
+import {Title, Section, Container} from 'components'
 
 import {useContent} from 'hooks'
 import {breakpoints} from 'helpers/breakpoints'
 
 import {colors} from 'data'
 
-
-const Title = styled.div`
-  text-align: center;
-  margin-bottom: 60px;
-`
 
 const Content = styled.div`
   display: flex;
@@ -78,7 +73,7 @@ export default React.memo(function Team() {
   return (
     <Section>
       <Container>
-        <Title className='f-h1'>{content.title}</Title>
+        <Title>{content.title}</Title>
 
         <Content>
           {nodes}

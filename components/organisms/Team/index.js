@@ -1,21 +1,13 @@
 import React, {useRef} from 'react'
 import styled from 'styled-components'
 
-import {Section, Container, OverlapContent} from 'components'
+import {Title, Section, Container, OverlapContent} from 'components'
 
 import {useContent, useSwitch} from 'hooks'
-import {breakpoints} from 'helpers/breakpoints'
-
-import Single from './Single'
 
 import {colors} from 'data'
 
 import Grid from './Grid'
-
-const Title = styled.div`
-  text-align: center;
-  margin-bottom: 60px;
-`
 
 const SwitchWrapper = styled.div`
   text-align: center;
@@ -33,7 +25,7 @@ export default React.memo(function Team() {
   return (
     <Section>
       <Container>
-        <Title className='f-h1'>{content.title}</Title>
+        <Title>{content.title}</Title>
         <SwitchWrapper>
           <SwitchComponent>
             <div data-switch='team'>Core team</div>

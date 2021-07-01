@@ -12,7 +12,7 @@ const Item = styled.div`
   position: absolute;
   width: 100%;
   left: 0;
-  top:0;
+  top: 0;
 `
 
 export default React.memo(function OverlapContent({children}){
