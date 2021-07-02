@@ -26,7 +26,7 @@ const Bg = styled.div`
     height: 40px;
     left: -260px;
     right: -260px;
-    background: white;
+    background: linear-gradient(to left, ${colors.white} 50%, ${colors.yellow} 51%);;
     color: black;
     border-top: solid 2px ${colors.black};
     border-bottom: solid 2px ${colors.black};
@@ -53,6 +53,7 @@ const Content = styled.div`
   height: 40px;
   border-radius: 20px;
   color: ${colors.black};
+  background: ${colors.white};
   text-align: center;
   font-weight: 700;
   line-height: 34px;
