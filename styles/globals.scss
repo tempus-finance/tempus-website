@@ -1,0 +1,39 @@
+@import './vars';
+@import './fonts';
+@import './typography';
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background: #066d59;
+  color: white;
+}
+
+#__next {
+  overflow: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: transparent;
+}
+
+img, svg {
+  width: 100%;
+  height: auto;
+}
+
+

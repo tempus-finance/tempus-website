@@ -1,0 +1,5 @@
+xs: "(min-width: 0px)"
+sm: "(min-width: 576px)"
+md: "(min-width: 769px)"
+lg: "(min-width: 1025px)"
+xl: "(min-width: 2001px)"
