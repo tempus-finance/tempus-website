@@ -12,15 +12,11 @@ const Root = styled.div`
   margin: 70px -15px 0 -15px;
   flex-wrap: wrap;
 
-  opacity: ${props => props.isActive ? 1 : 0};
   pointer-events: ${props => props.isActive ? 'auto' : 'none'};
-
-  /* grid-template-columns: repeat(2,1fr);
-  gap: 30px 30px; */
-
-  @media ${breakpoints.md}{
-    /* grid-template-columns: repeat(4,1fr); */
-  }
+  opacity: ${props => props.isActive ? 1 : 0};
+  transform: ${({isActive}) => isActive ? 'translateY(0px)' : 'translateY(10px)'};
+  transition: all 0.6s;
+  transition-delay: ${({isActive}) => isActive ? '0.3s' : '0s'};
 `
 
 export default React.memo(function Grid({color = colors.yellow, data, isActive}) {
