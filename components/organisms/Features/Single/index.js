@@ -19,9 +19,14 @@ const Root = styled.div`
     padding: 60px;
 
     &:nth-of-type(3) {
-      margin-top: -20%;
+      margin-top: -40%;
     }
   }
+`
+
+const SvgContainer = styled.div`
+  max-width: 250px;
+  margin: 0 auto;
 `
 
 const Title = styled.div`
@@ -45,7 +50,7 @@ const Subtitle = styled.div`
 export default React.memo(function Single({data, children}) {
   return (
     <Root>
-      <div>{children}</div>
+      <SvgContainer>{children}</SvgContainer>
       <Title className='f-h2'>{data.title}</Title>
       <Subtitle>{data.subtitle}</Subtitle>
       <div><Cta>Launch app</Cta></div>
