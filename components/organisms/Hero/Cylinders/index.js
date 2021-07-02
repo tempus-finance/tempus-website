@@ -52,7 +52,7 @@ export default React.memo(function Cylinders(){
           delay={0.5}/>
         <Single
           heightBig={160}
-          heightSmall={30}
+          heightSmall={50}
           left={60}
           type='mid'
           fill={colors.violet}
@@ -84,15 +84,16 @@ export default React.memo(function Cylinders(){
           id={6}
           delay={1.2}/>
         <Single
-          heightBig={70}
+          heightBig={-10}
           heightSmall={20}
           fill={colors.yellow}
           left={75}
           id={7}
           delay={1.7}/>
         <Single
+          type='mid'
           heightBig={0}
-          heightSmall={170}
+          heightSmall={10}
           fill={colors.violet}
           left={95}
           id={8}
