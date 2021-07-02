@@ -17,6 +17,7 @@ const Root = styled.div`
 
   @media ${breakpoints.md}{
     flex: 0 0 25%;
+    margin-bottom: 80px;
   }
 `
 
