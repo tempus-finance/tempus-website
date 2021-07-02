@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import {breakpoints} from 'helpers/breakpoints'
+
 
 import {Container, Html, Cta} from 'components'
 
@@ -10,11 +12,17 @@ import Cylinders from './Cylinders'
 const Root = styled.div`
     display: flex;
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 50px);
+    margin-top: 50px;
     align-items: center;
 
     .f-h1 {
         margin-bottom: 90px;
+    }
+
+    @media ${breakpoints.md}{
+      height: calc(100vh - 90px);
+      margin-top: 90px;
     }
 `
 
