@@ -59,9 +59,12 @@ export default React.memo(function TasksGroup({data, index, currentIndex, direct
     const duration = 0.5
 
     if(isActive){
-      gsap.fromTo(ref.current, {x: shift, autoAlpha: 0},{duration, x: 0, autoAlpha: 1, delay: 0.3})
+      gsap.fromTo(ref.current, {x: shift},{duration, x: 0, ease: 'Power1.easeOut', delay: 0.65})
+      gsap.fromTo(ref.current, {autoAlpha: 0}, {duration, autoAlpha: 1, ease: 'Power1.easeIn', delay: 0.65})
+
     }else if(wasActive){
-      gsap.to(ref.current, {duration, x: -shift, autoAlpha:0})
+      gsap.to(ref.current, {duration, x: -shift,  ease: 'Power1.easeIn'})
+      gsap.to(ref.current, {duration: duration * 0.9, autoAlpha:0, ease: 'Power1.easeOut'})
     }
   },[currentIndex])
 
