@@ -43,7 +43,8 @@ export default React.memo(function Cylinders(){
           id={1}
           delay={0}/>
         <Single
-          heightBig={-10}
+          type='small'
+          heightBig={130}
           heightSmall={40}
           fill={colors.yellow}
           left={40}

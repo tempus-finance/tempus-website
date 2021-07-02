@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import {CylinderBig, CylinderMid} from 'components'
+import {CylinderBig, CylinderMid, CylinderSmall} from 'components'
 
 
 const Root = styled.div`
@@ -15,7 +15,8 @@ const Root = styled.div`
 
 const Components = {
   big: CylinderBig,
-  mid: CylinderMid
+  mid: CylinderMid,
+  small: CylinderSmall
 }
 
 export default React.memo(function Single({type = 'big', left = 0, width = 10, delay, id, fill, heightBig = 120, heightSmall = 50}){
