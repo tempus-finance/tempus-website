@@ -20,7 +20,6 @@ const Root = styled.div`
 `
 
 export default React.memo(function Grid({color = colors.yellow, data, isActive}) {
-
   const peopleNodes = useMemo(() => {
     return data.map((el, i) => {
       return (
@@ -32,8 +31,6 @@ export default React.memo(function Grid({color = colors.yellow, data, isActive})
       )
     })
   }, [])
-
-
 
   return (
     <Root isActive={isActive}>

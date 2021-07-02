@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 
 import {breakpoints} from 'helpers/breakpoints'
@@ -29,6 +29,14 @@ export default React.memo(function Group({data, isActive}){
       setCurrentActive(i)
     }
   }
+
+  useEffect(() => {
+    if(!isActive){
+      setTimeout(() => {
+        setCurrentActive(undefined)
+      }, 200)
+    }
+  },[isActive])
 
   const items = data.items.map((el, i) => {
     return (
