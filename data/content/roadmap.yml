@@ -1,0 +1,39 @@
+title: Our roadmap
+
+sections:
+  - title: Q3 2021
+    tasks:
+      - description: Seed Round Financing
+        isDone: true
+      - description: Audit Readiness
+        isDone: true
+      - description: Aave Integration
+        isDone: false
+      - description: Ethereum Testnet Launch
+        isDone: false
+
+  - title: Q4 2021
+    tasks:
+      - description: First Audit
+        isDone: false
+      - description: Series A Financing
+        isDone: false
+      - description: Tempus ERC-20 Token Launch
+        isDone: true
+      - description: IDO / LBP Launch
+        isDone: false
+      - description: Uniswap Listing
+        isDone: true
+      - description: Uniswap Listing
+        isDone: false
+      - description: Ethereum Mainnet Launch
+        isDone: false
+
+  - title: Q1 2022
+    tasks:
+      - description: Second Audit
+        isDone: false
+      - description: Further Integrations
+        isDone: false
+      - description: CEX Listing
+        isDone: false

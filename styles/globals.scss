@@ -10,6 +10,10 @@ body {
   color: white;
 }
 
+#__next {
+  overflow: hidden;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -26,7 +30,6 @@ a {
   text-rendering: optimizeLegibility;
   -webkit-tap-highlight-color: transparent;
 }
-
 
 img, svg {
   width: 100%;

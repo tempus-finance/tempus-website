@@ -36,7 +36,6 @@ export default function useCylinderChoreography(props){
       },
       onComplete: () => {
         small.endValues.all = gsap.getProperty(small.all, "y")
-        console.log(small.endValues.all)
         big.endValues.all = gsap.getProperty(big.all, "y")
         startFloating()
       }
