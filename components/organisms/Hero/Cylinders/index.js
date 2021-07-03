@@ -30,7 +30,7 @@ const Row = styled.div`
 `
 
 // SIN(30°) = 0.5
-export default React.memo(function Cylinders({canPlayAnimation}){
+export default React.memo(function Cylinders(){
   return (
     <Root>
       <Row>
@@ -41,7 +41,7 @@ export default React.memo(function Cylinders({canPlayAnimation}){
           type='mid'
           left={20}
           id={1}
-          delay={0}/>
+          delay={2}/>
         <Single
           type='small'
           heightBig={130}
@@ -49,7 +49,7 @@ export default React.memo(function Cylinders({canPlayAnimation}){
           fill={colors.yellow}
           left={40}
           id={2}
-          delay={0.5}/>
+          delay={2.5}/>
         <Single
           heightBig={160}
           heightSmall={50}
@@ -57,15 +57,14 @@ export default React.memo(function Cylinders({canPlayAnimation}){
           type='mid'
           fill={colors.violet}
           id={3}
-          delay={1}/>
+          delay={3}/>
         <Single
-          canPlayAnimation={canPlayAnimation}
           heightBig={50}
           heightSmall={20}
           fill={colors.green}
           left={80}
           id={4}
-          delay={1.5}/>
+          delay={3.5}/>
       </Row>
 
       <Row bottom={20}>
@@ -75,7 +74,7 @@ export default React.memo(function Cylinders({canPlayAnimation}){
           fill={colors.violet}
           left={35}
           id={5}
-          delay={0.7}/>
+          delay={2.7}/>
         <Single
           heightBig={120}
           heightSmall={50}
@@ -83,14 +82,14 @@ export default React.memo(function Cylinders({canPlayAnimation}){
           type='mid'
           left={55}
           id={6}
-          delay={1.2}/>
+          delay={3.2}/>
         <Single
           heightBig={-10}
           heightSmall={20}
           fill={colors.yellow}
           left={75}
           id={7}
-          delay={1.7}/>
+          delay={3.7}/>
         <Single
           type='mid'
           heightBig={0}
@@ -98,7 +97,7 @@ export default React.memo(function Cylinders({canPlayAnimation}){
           fill={colors.violet}
           left={95}
           id={8}
-          delay={2}/>
+          delay={4}/>
       </Row>
     </Root>
   )

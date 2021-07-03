@@ -28,7 +28,7 @@ export default function useCylinderChoreography(props){
 
     tl.current = gsap.timeline({
       paused: !canPlayAnimation,
-      delay: 2 + delay,
+      delay,
       onUpdate: () => {
         // big.updateMask(bg.p)
         // big.updatePath(bg.p)
