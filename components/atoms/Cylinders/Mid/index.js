@@ -9,6 +9,7 @@ const Root = styled.svg`
   overflow: visible;
   transform: translate3d(0, 0, 0);
   opacity: 0;
+  pointer-events: none;
 `
 
 export default React.memo(function CylinderBig(props){
@@ -108,7 +109,7 @@ export default React.memo(function CylinderBig(props){
       return ns
     },
     big.updatePath = function (v) {
-      let ns = this.strings.path.replaceAll("1v98.42", `${v}v${98.42 - v}`)
+      let ns = this.strings.path.replaceAll("1v98.31", `${v}v${98.31 - v}`)
       ns = ns.replaceAll("V1", `V${v}`)
       this.path.setAttribute("d", ns)
 

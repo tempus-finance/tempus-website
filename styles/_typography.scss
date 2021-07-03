@@ -53,3 +53,17 @@ h3, .f-h3 {
     letter-spacing: -0.91px;
   }
 }
+
+h4, .f-h4 {
+  font-family: 'Aeonik', sans-serif;
+  font-size: 26px;
+  line-height: 1.0769em;
+  font-weight: 500;
+  padding: 0;
+  margin: 0;
+
+  @media all and #{$lg}{
+    font-size: 26px;
+    line-height: 1.0769em;
+  }
+}

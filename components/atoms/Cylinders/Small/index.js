@@ -9,6 +9,7 @@ const Root = styled.svg`
   overflow: visible;
   transform: translate3d(0, 0, 0);
   opacity: 0;
+  pointer-events: none;
 `
 
 export default React.memo(function CylinderBig(props){
@@ -182,13 +183,13 @@ export default React.memo(function CylinderBig(props){
               fillRule="nonzero"
               opacity=".25"
               mask={`url(#${bigMaskName})`}
-              d="M-7.142-158.89h25.507v280H-7.142z"/>
+              d="M-7.142-258.89h25.507v380H-7.142z"/>
             <path
               id="Rectangle"
               fill="#000000"
               fillRule="nonzero"
               mask={`url(#${bigMaskName})`}
-              d="M-16.324-134.89H9.183v256h-25.507z"/>
+              d="M-16.324-304.89H9.183v496h-25.507z"/>
           </g>
           <path
             d="M130.56 482.366c-7.9 0-15.3-1.75-20.82-4.94-5.22-3.02-8.34-7.42-8.34-11.66s2.88-8.08 8.34-11.23c5.46-3.15 12.92-5 20.82-5s15.3 1.76 20.82 5 8.34 7 8.34 11.23-3.11 8.64-8.32 11.66c-5.54 3.19-12.93 4.94-20.84 4.94z"

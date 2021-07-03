@@ -9,6 +9,7 @@ const Root = styled.svg`
   overflow: visible;
   transform: translate3d(0, 0, 0);
   opacity: 0;
+  pointer-events: none;
 `
 
 export default React.memo(function CylinderBig(props){
