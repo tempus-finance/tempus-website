@@ -1,5 +1,6 @@
-import React, {useRef} from 'react'
+import React, {useRef, useState, useEffect} from 'react'
 import styled from 'styled-components'
+import {ScrollTrigger} from 'gsap/ScrollTrigger'
 
 import {Section, Container, Cta} from 'components'
 
@@ -33,9 +34,7 @@ const Sub = styled.div`
       flex: 0 0 50%;
       margin-top: 120px;
     }
-
   }
-
 `
 
 const Desc = styled.div`
@@ -87,8 +86,10 @@ const Arrow = styled.div`
 `
 
 export default React.memo(function JoinUs() {
+  const ref = useRef()
   const form = useRef()
   const input = useRef()
+  const [isActive, setIsActive] = useState(false)
 
   const onSubmit = (e) => {
     e.preventDefault()
@@ -98,12 +99,28 @@ export default React.memo(function JoinUs() {
     }
   }
 
+  useEffect(() => {
+    ScrollTrigger.create({
+      trigger: ref.current,
+      start: () => "top 30%",
+      once: true,
+      onEnter: () => {
+        console.log('cfghijkolpòà')
+        setIsActive(true)
+      }
+    })
+
+  }, [])
+
+
   return (
-    <Section color={colors.black}>
+    <Section
+      color={colors.black}
+      ref={ref}>
       <Container>
         <TitleContainer>
           <Title>Be part <br />of Tempus</Title>
-          <Cylinders />
+          <Cylinders isActive={isActive}/>
         </TitleContainer>
 
         <Sub>

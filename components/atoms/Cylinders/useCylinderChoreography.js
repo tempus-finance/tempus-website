@@ -1,9 +1,10 @@
-import  {useEffect} from 'react'
+import  {useEffect, useRef} from 'react'
 import {gsap} from 'gsap'
 
 export default function useCylinderChoreography(props){
-  const {elm, delay, small, big, heightSmall, heightBig, resetGapSmall, smallShiftFromSvg} = props
-  const {globalTransformOrigin, smallTransformOrigin} = props
+  const {elm, delay, canPlayAnimation, small, big, heightSmall, heightBig} = props
+  const {globalTransformOrigin, smallTransformOrigin, resetGapSmall, smallShiftFromSvg} = props
+  const tl = useRef()
 
   useEffect(() => {
     let time = 0
@@ -25,7 +26,8 @@ export default function useCylinderChoreography(props){
     // const bg = { p: 0 }
     const sm = { p: 0 }
 
-    const mainTl = gsap.timeline({
+    tl.current = gsap.timeline({
+      paused: !canPlayAnimation,
       delay: 2 + delay,
       onUpdate: () => {
         // big.updateMask(bg.p)
@@ -47,7 +49,7 @@ export default function useCylinderChoreography(props){
     big.updatePath(-heightBig)
     gsap.set(big.top, {y: -heightBig})
 
-    mainTl
+    tl.current
       .to(parent, {duration: 0.4, opacity: 1})
       .fromTo(
         global,
@@ -75,4 +77,12 @@ export default function useCylinderChoreography(props){
       )
       .to(small.all, { duration: 2, y: '-=25' })
   },[])
+
+  useEffect(() => {
+    if(canPlayAnimation){
+      tl.current.play()
+    }
+  },[canPlayAnimation])
+
+  return tl
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import styled from 'styled-components'
 import {breakpoints} from 'helpers/breakpoints'
 
@@ -29,6 +29,13 @@ const Root = styled.div`
 export default React.memo(function Hero () {
   const {tagline} = useContent('hero')
 
+  const [canPlayAnimation, setCanPlayAnimation] = useState(false)
+
+  useEffect(() => {
+    window.scp = setCanPlayAnimation
+
+  },[])
+
   return (
     <Root >
       <Container>
@@ -38,7 +45,7 @@ export default React.memo(function Hero () {
         <Cta>Launch app</Cta>
 
       </Container>
-      <Cylinders />
+      <Cylinders canPlayAnimation={canPlayAnimation} />
     </Root>
   )
 })

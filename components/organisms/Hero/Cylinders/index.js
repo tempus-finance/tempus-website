@@ -30,7 +30,7 @@ const Row = styled.div`
 `
 
 // SIN(30°) = 0.5
-export default React.memo(function Cylinders(){
+export default React.memo(function Cylinders({canPlayAnimation}){
   return (
     <Root>
       <Row>
@@ -59,6 +59,7 @@ export default React.memo(function Cylinders(){
           id={3}
           delay={1}/>
         <Single
+          canPlayAnimation={canPlayAnimation}
           heightBig={50}
           heightSmall={20}
           fill={colors.green}
