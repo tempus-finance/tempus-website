@@ -105,13 +105,10 @@ export default React.memo(function JoinUs() {
       start: () => "top 30%",
       once: true,
       onEnter: () => {
-        console.log('cfghijkolpòà')
         setIsActive(true)
       }
     })
-
   }, [])
-
 
   return (
     <Section
