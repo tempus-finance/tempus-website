@@ -1,5 +1,7 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import styled from 'styled-components'
+import {Events} from 'helpers'
+
 
 import {Container, Cta, Logo} from 'components'
 

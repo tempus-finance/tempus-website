@@ -1,9 +1,13 @@
-import React, {useRef} from 'react'
+import React, {useEffect, useRef} from 'react'
 import styled from 'styled-components'
+
+import {gsap} from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 import {Title, Section, Container, OverlapContent} from 'components'
 
 import {useContent, useSwitch} from 'hooks'
+import {Events} from 'helpers'
 
 import {colors} from 'data'
 
@@ -21,6 +25,7 @@ const SwitchWrapper = styled.div`
 `
 
 export default React.memo(function Team() {
+  const ref = useRef()
   const content = useContent('faq')
   const {groups} = content
 
@@ -47,8 +52,23 @@ export default React.memo(function Team() {
     )
   })
 
+  useEffect(() => {
+    ScrollTrigger.create({
+      trigger: ref.current,
+      start: () => "top 30%",
+      onEnter: () => {
+        Events.emit('faq:enter')
+      },
+      onLeaveBack: () => {
+        Events.emit('faq:leaveBack')
+      },
+    })
+  }, [])
+
   return (
-    <Section color={colors.black}>
+    <Section
+      color={colors.black}
+      ref={ref}>
       <Container>
         <Title color={colors.black}>{content.title}</Title>
 
