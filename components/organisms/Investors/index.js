@@ -36,6 +36,8 @@ const Single = styled.a`
     border: solid 2px ${colors.black};
     background: ${colors.white};
     border-radius: 20px;
+    transform: translateY(0px);
+    transition: all 0.3s ease-in-out;
 
     img {
       width: 100%;
@@ -46,6 +48,9 @@ const Single = styled.a`
     @media ${breakpoints.md}{
       padding: 40px;
 
+      &:hover {
+        transform: translateY(-10px);
+      }
     }
   }
 `
