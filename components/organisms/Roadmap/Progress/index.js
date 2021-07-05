@@ -55,9 +55,9 @@ const BarsWrapper = styled.div`
   text-align: center;
   font-weight: 700;
   line-height: 34px;
-  width: calc(100% + 400px);
-  left: -200px;
-  padding: 0 200px;
+  width: calc(100% + 600px);
+  left: -300px;
+  padding: 0 300px;
   overflow: hidden;
 
   > div {
