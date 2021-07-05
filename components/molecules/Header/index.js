@@ -11,7 +11,6 @@ const Wrapper = styled.header`
     top: 0;
     left: 0;
     width: 100%;
-    font-size: 14px;
     z-index: 100;
 `
 const Content = styled.div`
@@ -28,6 +27,7 @@ const LogoWrapper = styled.div`
 
 const Link = styled.a`
     margin-right: 40px;
+    font-size: 14px;
 `
 
 export default React.memo(function Header(){

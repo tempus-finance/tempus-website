@@ -10,14 +10,20 @@ import {useContent} from 'hooks'
 import Cylinders from './Cylinders'
 
 const Root = styled.div`
+    position: relative;
     display: flex;
     width: 100%;
-    height: calc(100vh - 50px);
+    height: calc(100vh - 90px);
     margin-top: 50px;
     align-items: center;
 
     .f-h1 {
         margin-bottom: 90px;
+    }
+
+    @media ${breakpoints.sd}{
+      height: calc(100vh - 90px);
+      margin-top: 0px;
     }
 
     @media ${breakpoints.md}{
@@ -30,11 +36,6 @@ export default React.memo(function Hero () {
   const {tagline} = useContent('hero')
 
   const [canPlayAnimation, setCanPlayAnimation] = useState(false)
-
-  useEffect(() => {
-    window.scp = setCanPlayAnimation
-
-  },[])
 
   return (
     <Root >

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import {breakpoints} from 'helpers/breakpoints'
+import {breakpoints, useMediaQuery} from 'helpers/breakpoints'
 
 import Single from './Single'
 
@@ -9,10 +9,27 @@ import {colors} from 'data'
 
 const Root = styled.div`
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 80%;
+  top: 10%;
+  right: -40%;
+  width: 170%;
   height: 100%;
+
+  @media ${breakpoints.sm} {
+    top: 0%;
+    width: 120%;
+    right: 0;
+  }
+
+  @media ${breakpoints.md} {
+    width: 80%;
+    right: 0;
+  }
+
+  @media ${breakpoints.xl} {
+    top: 3%;
+    width: 75%;
+    right: 6%;
+  }
 `
 
 const Row = styled.div`
@@ -31,12 +48,27 @@ const Row = styled.div`
 
 // SIN(30°) = 0.5
 export default React.memo(function Cylinders(){
+  const {row, width} = useMediaQuery({
+    xs: {
+      row: [5, 25],
+      width: 15
+    },
+    md: {
+      row: [8, 28],
+      width: 15
+    },
+    xl: {
+      row: [2, 22],
+      width: 13
+    }
+  })
   return (
     <Root>
-      <Row>
+      <Row bottom={row[0]}>
         <Single
-          heightBig={90}
-          heightSmall={20}
+          width={width}
+          heightBig={-50}
+          heightSmall={10}
           fill={colors.green}
           type='mid'
           left={20}
@@ -44,57 +76,58 @@ export default React.memo(function Cylinders(){
           delay={2}/>
         <Single
           type='small'
-          heightBig={130}
+          width={width}
+          heightBig={50}
           heightSmall={40}
-          fill={colors.yellow}
-          left={40}
+          fill={colors.violet}
+          left={36}
           id={2}
           delay={2.5}/>
         <Single
-          heightBig={160}
+          width={width}
+          heightBig={60}
           heightSmall={50}
           left={60}
-          type='mid'
-          fill={colors.violet}
+          type='big'
+          fill={colors.green}
           id={3}
           delay={3}/>
-        <Single
-          heightBig={50}
-          heightSmall={20}
-          fill={colors.green}
-          left={80}
-          id={4}
-          delay={3.5}/>
       </Row>
 
-      <Row bottom={20}>
+      <Row bottom={row[1]}>
         <Single
-          heightBig={70}
+          width={width}
+          heightBig={40}
           heightSmall={35}
           fill={colors.violet}
+          type='small'
           left={35}
           id={5}
           delay={2.7}/>
         <Single
+          width={width}
           heightBig={120}
           heightSmall={50}
-          fill={colors.green}
+          fill={colors.yellow}
           type='mid'
           left={55}
           id={6}
           delay={3.2}/>
         <Single
-          heightBig={-10}
-          heightSmall={20}
-          fill={colors.yellow}
+          width={width}
+          heightBig={240}
+          heightSmall={70}
+          fill={colors.violet}
           left={75}
+          type='small'
           id={7}
           delay={3.7}/>
         <Single
-          type='mid'
-          heightBig={0}
-          heightSmall={10}
-          fill={colors.violet}
+          type='big'
+          width={width}
+          heightBig={180}
+          heightSmall={40}
+          fill={colors.yellow}
           left={95}
           id={8}
           delay={4}/>
