@@ -13,7 +13,7 @@ const Root = styled.svg`
 `
 
 export default React.memo(function CylinderBig(props){
-  const {delay = 0, id, fill = colors.yellow, heightBig = 0, heightSmall = 30, canPlayAnimation = true, delaySmall } = props
+  const {delay = 0, id, fill = colors.yellow, heightBig = 0, heightSmall = 30, canPlayAnimation = true, delaySmall, canFloat } = props
   const resetGapSmall = 23
   const smallShiftFromSvg = 80
   const globalTransformOrigin = "180px 548px"
@@ -29,6 +29,7 @@ export default React.memo(function CylinderBig(props){
 
   let [small] = useState({})
   let [big] = useState({})
+
 
   useEffect(() => {
     // CREATING THE ID using a random value in useMemo,
@@ -133,7 +134,8 @@ export default React.memo(function CylinderBig(props){
     globalTransformOrigin,
     smallTransformOrigin,
     canPlayAnimation,
-    delaySmall
+    delaySmall,
+    canFloat
   })
 
   return (

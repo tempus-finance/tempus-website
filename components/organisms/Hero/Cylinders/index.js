@@ -1,5 +1,6 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import styled from 'styled-components'
+import {ScrollTrigger} from 'gsap/ScrollTrigger'
 
 import {breakpoints, useMediaQuery} from 'helpers/breakpoints'
 
@@ -48,6 +49,17 @@ const Row = styled.div`
 
 // SIN(30°) = 0.5
 export default React.memo(function Cylinders(){
+  const [canFloat, setCanFloat] = useState(true)
+
+  useEffect(() => {
+    ScrollTrigger.create({
+      trigger: '#section-hero',
+      onToggle: (self) => {
+        setCanFloat(self.isActive)
+      }
+    })
+  },[])
+
   const {row, width} = useMediaQuery({
     xs: {
       row: [5, 25],
@@ -62,6 +74,7 @@ export default React.memo(function Cylinders(){
       width: 13
     }
   })
+
   return (
     <Root>
       <Row bottom={row[0]}>
@@ -73,6 +86,7 @@ export default React.memo(function Cylinders(){
           type='mid'
           left={20}
           id={1}
+          canFloat={canFloat}
           delay={2}/>
         <Single
           type='small'
@@ -82,6 +96,7 @@ export default React.memo(function Cylinders(){
           fill={colors.violet}
           left={36}
           id={2}
+          canFloat={canFloat}
           delay={2.5}/>
         <Single
           width={width}
@@ -91,6 +106,7 @@ export default React.memo(function Cylinders(){
           type='big'
           fill={colors.green}
           id={3}
+          canFloat={canFloat}
           delay={3}/>
       </Row>
 
@@ -103,6 +119,7 @@ export default React.memo(function Cylinders(){
           type='small'
           left={35}
           id={5}
+          canFloat={canFloat}
           delay={2.7}/>
         <Single
           width={width}
@@ -112,6 +129,7 @@ export default React.memo(function Cylinders(){
           type='mid'
           left={55}
           id={6}
+          canFloat={canFloat}
           delay={3.2}/>
         <Single
           width={width}
@@ -121,6 +139,7 @@ export default React.memo(function Cylinders(){
           left={75}
           type='small'
           id={7}
+          canFloat={canFloat}
           delay={3.7}/>
         <Single
           type='big'
@@ -130,6 +149,7 @@ export default React.memo(function Cylinders(){
           fill={colors.yellow}
           left={95}
           id={8}
+          canFloat={canFloat}
           delay={4}/>
       </Row>
     </Root>

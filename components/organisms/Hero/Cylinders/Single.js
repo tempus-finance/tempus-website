@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 
 import {CylinderBig, CylinderMid, CylinderSmall} from 'components'
@@ -19,7 +19,7 @@ const Components = {
   small: CylinderSmall
 }
 
-export default React.memo(function Single({type = 'big', left = 0, width = 10, delay, id, fill, heightBig = 120, heightSmall = 50, canPlayAnimation}){
+export default React.memo(function Single({type = 'big', left = 0, width = 10, delay, id, fill, heightBig = 120, heightSmall = 50, canPlayAnimation, canFloat}){
   const Component = Components[type]
 
   return (
@@ -32,6 +32,7 @@ export default React.memo(function Single({type = 'big', left = 0, width = 10, d
         heightBig={heightBig}
         heightSmall={heightSmall}
         delay={delay}
+        canFloat={canFloat}
         id={id} />
     </Root>
   )

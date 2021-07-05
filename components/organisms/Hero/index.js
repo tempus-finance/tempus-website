@@ -38,7 +38,7 @@ export default React.memo(function Hero () {
   const [canPlayAnimation, setCanPlayAnimation] = useState(false)
 
   return (
-    <Root >
+    <Root id='section-hero' >
       <Container>
         <div className='f-h1'>
           <Html>{tagline}</Html>

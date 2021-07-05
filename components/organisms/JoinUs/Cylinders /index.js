@@ -101,7 +101,7 @@ const Single = styled.div`
   }
 `
 
-export default React.memo(function Cylinders({isActive}){
+export default React.memo(function Cylinders({isActive, isSectionActive}){
   const canPlayAnimation = isActive
 
   const color1 = useMediaQuery({
@@ -119,6 +119,7 @@ export default React.memo(function Cylinders({isActive}){
           canPlayAnimation={canPlayAnimation}
           delay={0}
           delaySmall={0}
+          canFloat={isSectionActive}
         />
       </Single>
       <Single className='joinUs__cylinders--2'>
@@ -128,6 +129,7 @@ export default React.memo(function Cylinders({isActive}){
           canPlayAnimation={canPlayAnimation}
           delay={0.6}
           delaySmall={0}
+          canFloat={isSectionActive}
         />
       </Single>
       <Single className='joinUs__cylinders--3'>
@@ -138,6 +140,7 @@ export default React.memo(function Cylinders({isActive}){
           canPlayAnimation={canPlayAnimation}
           delay={1.2}
           delaySmall={0}
+          canFloat={isSectionActive}
         />
       </Single>
       <Single className='joinUs__cylinders--4'>
@@ -149,6 +152,7 @@ export default React.memo(function Cylinders({isActive}){
           canPlayAnimation={canPlayAnimation}
           delay={0.5}
           delaySmall={0}
+          canFloat={isSectionActive}
         />
       </Single>
       <Single className='joinUs__cylinders--5'>
@@ -158,6 +162,7 @@ export default React.memo(function Cylinders({isActive}){
           canPlayAnimation={canPlayAnimation}
           delay={0.4}
           delaySmall={0}
+          canFloat={isSectionActive}
         />
       </Single>
     </>

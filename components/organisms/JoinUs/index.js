@@ -90,6 +90,7 @@ export default React.memo(function JoinUs() {
   const form = useRef()
   const input = useRef()
   const [isActive, setIsActive] = useState(false)
+  const [isSectionActive, setIsSectionActive] = useState(false)
 
   const onSubmit = (e) => {
     e.preventDefault()
@@ -108,16 +109,27 @@ export default React.memo(function JoinUs() {
         setIsActive(true)
       }
     })
+
+    ScrollTrigger.create({
+      trigger: ref.current,
+      onToggle: (self) => {
+        setIsSectionActive(self.isActive)
+      }
+    })
   }, [])
 
   return (
     <Section
       color={colors.black}
-      ref={ref}>
+      ref={ref}
+      id='joinUs'
+    >
       <Container>
         <TitleContainer>
           <Title>Be part <br />of Tempus</Title>
-          <Cylinders isActive={isActive}/>
+          <Cylinders
+            isActive={isActive}
+            isSectionActive={isSectionActive}/>
         </TitleContainer>
 
         <Sub>
