@@ -77,9 +77,11 @@ export default React.memo(function Team() {
   })
 
   return (
-    <Section id='investors'>
+    <Section
+      id='investors'
+      color={colors.black}>
       <Container>
-        <Title>{content.title}</Title>
+        <Title color={colors.black}>{content.title}</Title>
 
         <Content>
           {nodes}

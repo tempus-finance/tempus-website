@@ -29,8 +29,8 @@ export default function Home() {
       <Features />
       <Roadmap />
       <Team />
-      <Investors />
       <Faq />
+      <Investors />
       <JoinUs />
       <Footer />
     </>

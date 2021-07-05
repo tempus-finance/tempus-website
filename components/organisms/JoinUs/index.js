@@ -2,13 +2,23 @@ import React, {useRef, useState, useEffect} from 'react'
 import styled from 'styled-components'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
 
-import {Section, Container, Cta} from 'components'
+import {Section as Scn, Container, Cta} from 'components'
 
 import Cylinders from './Cylinders '
 
 import {breakpoints} from 'helpers/breakpoints'
 
 import {colors} from 'data'
+
+const Section = styled(Scn)`
+  && {
+    margin-top: 300px;
+
+    @media ${breakpoints.md}{
+      margin-top: 500px;
+    }
+  }
+`
 
 const TitleContainer = styled.div`
   position: relative;

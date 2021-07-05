@@ -13,12 +13,14 @@ const Root = styled.div`
     margin: 300px auto;
   }
 `
-function Section({children, color = 'ffffff', id}, ref){
+function Section({children, color = 'ffffff', id, ...props}, ref){
   return (
     <Root
+      ref={ref}
       id={`section-${id}`}
+      className={props.className}
       color={color}
-      ref={ref}>
+    >
       {children}
     </Root>
   )
