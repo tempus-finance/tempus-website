@@ -10,7 +10,7 @@ import {breakpoints} from 'helpers/breakpoints'
 const Content = styled(Container)`
   && {
     display: flex;
-    margin-bottom: 90px;
+    margin-bottom: 30px;
     flex-direction: column;
     color: ${colors.black};
     line-height: 2.33em;
@@ -21,6 +21,7 @@ const Content = styled(Container)`
     @media ${breakpoints.md}{
       flex-direction: row;
       text-align: left;
+      margin-bottom: 40px;
     }
   }
 
