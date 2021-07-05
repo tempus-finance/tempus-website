@@ -14,8 +14,15 @@ import TasksGroup from './TasksGroup'
 
 import {colors} from 'data'
 
-const Tagline = styled.div`
-  text-align: center;
+
+const Launch = styled.div`
+  display: inline-block;
+  padding: 8px 16px;
+  margin: 10px auto 30px auto;
+  background: rgba(0,0,0,0.15);
+  border-radius: 5px;
+  font-size: 14px;
+  letter-spacing: 0.05em;
 `
 
 const TasksWrapper = styled.div`
@@ -72,7 +79,10 @@ export default React.memo(function RoadMap() {
   return (
     <Section id='roadmap'>
       <Container>
-        <Tagline className='f-h3'>{content.title}</Tagline>
+        <div style={{ textAlign: 'center' }}>
+          <div className='f-h3'>{content.title}</div>
+          <Launch>🚀 &nbsp; Launching in Q4 2021 &nbsp; 🚀</Launch>
+        </div>
 
         <Titles
           sections={content.sections}
