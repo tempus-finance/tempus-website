@@ -55,7 +55,7 @@ export default React.memo(function Team() {
   useEffect(() => {
     ScrollTrigger.create({
       trigger: ref.current,
-      start: () => "top 30%",
+      start: () => "top 90%",
       onEnter: () => {
         Events.emit('faq:enter')
       },
