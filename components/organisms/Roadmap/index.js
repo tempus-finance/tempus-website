@@ -2,6 +2,7 @@ import React, {useEffect, useRef, useState} from 'react'
 import styled from 'styled-components'
 import clamp from 'lodash-es/clamp'
 import {gsap} from 'gsap'
+import { useDrag } from 'react-use-gesture'
 
 import { Section, Container} from 'components'
 
@@ -11,8 +12,6 @@ import {breakpoints} from 'helpers/breakpoints'
 import Titles from './Titles'
 import Progress from './Progress'
 import TasksGroup from './TasksGroup'
-
-import {colors} from 'data'
 
 
 const Launch = styled.div`
@@ -63,7 +62,6 @@ export default React.memo(function RoadMap() {
     )
   })
 
-
   const changeSection = (v) => {
     if(canUserChange.current){
       canUserChange.current = false
@@ -72,9 +70,17 @@ export default React.memo(function RoadMap() {
       setCurrentSection(dest)
 
       // "Debounce"
-      gsap.delayedCall(0.5,  () => canUserChange.current = true)
+      gsap.delayedCall(0.6,  () => canUserChange.current = true)
     }
   }
+
+  const bind = useDrag((({swipe}) => {
+    if(swipe[0]){
+      changeSection(swipe[0] * -1)
+    }
+  }), {
+    useTouch: true
+  })
 
   return (
     <Section id='roadmap'>
@@ -84,21 +90,25 @@ export default React.memo(function RoadMap() {
           <Launch>🚀 &nbsp; Launching in Q4 2021 &nbsp; 🚀</Launch>
         </div>
 
-        <Titles
-          sections={content.sections}
-          currentSection={currentSection}
-          onClick={changeSection}
-          direction={direction}
-        />
+        <div {...bind()}>
+          <Titles
+            sections={content.sections}
+            currentSection={currentSection}
+            onClick={changeSection}
+            direction={direction}
+          />
 
-        <Progress data={content.sections[currentSection]} />
+          <Progress
+            data={content.sections}
+            currentSection={currentSection} />
 
-        <TasksWrapper
-          ref={tasksRef}
-          height={heightTasks}
-        >
-          {taskGroupsNodes}
-        </TasksWrapper>
+          <TasksWrapper
+            ref={tasksRef}
+            height={heightTasks}
+          >
+            {taskGroupsNodes}
+          </TasksWrapper>
+        </div>
 
       </Container>
     </Section>

@@ -6,7 +6,6 @@ import {breakpoints} from 'helpers/breakpoints'
 
 import {usePrevious} from 'hooks'
 
-
 import {colors} from 'data'
 
 const Root = styled.div`
@@ -17,7 +16,7 @@ const Root = styled.div`
   top:0;
   left:0;
   opacity: 0;
-  /* opacity: ${props => props.isActive ? 1 : 0}; */
+  justify-content:space-between;
 `
 
 const Single = styled.div`
@@ -26,6 +25,7 @@ const Single = styled.div`
   font-weight: 18px;
   margin-bottom: 20px;
   width: 100%;
+  font-weight: 700;
 
   @media ${breakpoints.md}{
     width: calc(50% - 15px);
@@ -42,6 +42,21 @@ const Bullet = styled.div`
   border-radius: 50%;
   top: 8px;
   margin-right: 20px;
+`
+
+const Content = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+  @media ${breakpoints.md}{
+    flex-direction: column;
+  }
+`
+
+const Description = styled.div`
+  width: 80%;
+  margin-right: auto;
 `
 
 const Done = styled.div`
@@ -75,10 +90,10 @@ export default React.memo(function TasksGroup({data, index, currentIndex, direct
           key={i}
         >
           <Bullet isDone={el.isDone}/>
-          <div>
-            <div>{el.description}</div>
+          <Content>
+            <Description>{el.description}</Description>
             {el.isDone && <Done>Done</Done>}
-          </div>
+          </Content>
         </Single>
       )
     })

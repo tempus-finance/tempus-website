@@ -14,21 +14,20 @@ const Root = styled.div`
   margin: 0 auto;
   text-align: center;
   height: ${props => props.height + 'px'};
-
 `
 
 const Arrow = styled.img`
   position: absolute;
   width: 36px;
   height: 36px;
-  left: -40px;
+  left: -50px;
   top: 50%;
   transform: translateY(-50%) rotate(180deg);
   cursor: pointer;
 
   &.isRight {
     left: auto;
-    right: -40px;
+    right: -50px;
     transform: translateY(-50%) rotate(0);
   }
 
@@ -39,7 +38,7 @@ const Arrow = styled.img`
 
     &.isRight {
     left: auto;
-      right: -60px;
+      right: -50px;
     }
   }
 `

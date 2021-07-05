@@ -1,8 +1,9 @@
-import React, {useRef, useEffect, useState} from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import {gsap} from 'gsap'
 
 import {Container} from 'components'
+
+import Bar from './Bar'
 
 import {breakpoints} from 'helpers/breakpoints'
 import {colors} from 'data'
@@ -39,6 +40,7 @@ const Halftone = styled.img`
   top: -2px;
   left: 0;
   transform: rotate(180deg);
+  z-index: 10;
 
   &.isRight {
     left: auto;
@@ -47,72 +49,34 @@ const Halftone = styled.img`
   }
 `
 
-const Content = styled.div`
+const BarsWrapper = styled.div`
   position: relative;
-  border: solid 2px ${colors.black};
   height: 40px;
-  border-radius: 20px;
-  color: ${colors.black};
-  background: ${colors.white};
   text-align: center;
   font-weight: 700;
   line-height: 34px;
+  width: calc(100% + 400px);
+  left: -200px;
+  padding: 0 200px;
   overflow: hidden;
 
-  &:before {
-    content: '';
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    top: 15px;
-    left: 15px;
-    border-radius: 50%;
-    background: ${colors.black};
-    z-index: 1;
-  }
-
-  &:after{
-    content: '';
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    top: 15px;
-    right: 15px;
-    border-radius: 50%;
-    background: ${colors.black};
-    z-index: 1;
+  > div {
+    height: 100%;
+    position: relative;
   }
 `
 
-const ProgressBar = styled.div`
-  position: absolute;
-  height: 100%;
-  top: 0;
-  left: 0;
-  width: ${props => props.progress + '%'};
-  border-radius: 20px;
-  background: ${colors.yellow};
-  transition: all 1s ease-in-out;
-`
-
-const Copy = styled.div`
-  position: relative;
-`
-
-
-export default React.memo(function Progress({data}){
-  const spanRef = useRef()
-  const [pn, setPn] = useState(0)
-
-  const completed = data.tasks.filter((el) => el.isDone).length
-  const progress = (completed / (data.tasks.length)) * 100
-
-  useEffect(() => {
-    const o = {p:pn}
-    gsap.to(o, {duration: 1, ease: 'Power1.easeInOut', p: progress, onUpdate: () => {
-      setPn(o.p.toFixed(0))
-    }})
-  },[progress])
+export default React.memo(function Progress({ data, currentSection}){
+  const barNodes = data.map((el,i) => {
+    return (
+      <Bar
+        key={i}
+        index={i}
+        currentSection={currentSection}
+        data={el.tasks}
+      />
+    )
+  })
 
   return (
     <Root>
@@ -123,10 +87,11 @@ export default React.memo(function Progress({data}){
           className='isRight' />
 
       </Bg>
-      <Content>
-        <ProgressBar progress={progress} />
-        <Copy><span ref={spanRef}>{pn}</span>% in progress</Copy>
-      </Content>
+      <BarsWrapper>
+        <div>
+          {barNodes}
+        </div>
+      </BarsWrapper>
     </Root>
   )
 })

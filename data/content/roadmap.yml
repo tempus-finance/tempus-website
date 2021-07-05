@@ -8,9 +8,9 @@ sections:
       - description: Audit Readiness
         isDone: true
       - description: Aave Integration
-        isDone: false
+        isDone: true
       - description: Ethereum Testnet Launch
-        isDone: false
+        isDone: true
 
   - title: Q4 2021
     tasks:
