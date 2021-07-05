@@ -53,7 +53,8 @@ const Nav = styled.nav`
 `
 
 const Internal = styled.span`
-  font-size: 44px;
+  font-size: 40px;
+  font-size: calc(40px + (74 - 40) * ((100vw - 380px) / (800 - 380)));
   margin-top: 12px;
   line-height: 1.19em;
 `
