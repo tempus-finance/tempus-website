@@ -77,7 +77,7 @@ export default React.memo(function Team() {
   })
 
   return (
-    <Section>
+    <Section id='investors'>
       <Container>
         <Title>{content.title}</Title>
 

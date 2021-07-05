@@ -70,7 +70,7 @@ export default React.memo(function RoadMap() {
   }
 
   return (
-    <Section>
+    <Section id='roadmap'>
       <Container>
         <Tagline className='f-h3'>{content.title}</Tagline>
 

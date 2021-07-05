@@ -13,9 +13,10 @@ const Root = styled.div`
     margin: 300px auto;
   }
 `
-function Section({children, color = 'ffffff'}, ref){
+function Section({children, color = 'ffffff', id}, ref){
   return (
     <Root
+      id={`section-${id}`}
       color={color}
       ref={ref}>
       {children}

@@ -1,8 +1,15 @@
 import React from 'react'
+import styled from 'styled-components'
 
-export default React.memo(function Logo() {
+const Root = styled.svg`
+  g {
+    transition: all 0.5s;
+  }
+`
+
+export default React.memo(function Logo({fill = '#ffffff'}) {
   return (
-    <svg
+    <Root
       viewBox="0 0 183 50"
       xmlns="http://www.w3.org/2000/svg">
       <defs>
@@ -24,9 +31,9 @@ export default React.memo(function Logo() {
           <g
             id="Logo_spaced"
             transform="translate(88 50)"
-            filter="url(#filter-1)">
+          >
             <g
-              fill="#FFF"
+              fill={fill}
               fillRule="nonzero">
               <path
                 d="M86.188 31.762c-.992 3.376-4.083 6.183-8.876 6.183-5.35 0-10.067-3.844-10.067-10.424 0-6.222 4.597-10.266 9.593-10.266 6.023 0 9.63 3.845 9.63 10.108 0 .75-.08 1.546-.08 1.625H72.435c.118 2.576 2.299 4.44 4.915 4.44 2.457 0 3.805-1.23 4.438-2.974l4.4 1.308zm-4.916-6.375c-.08-1.942-1.347-3.845-4.36-3.845-2.735 0-4.24 2.062-4.36 3.845h8.72z"
@@ -50,7 +57,6 @@ export default React.memo(function Logo() {
           </g>
         </g>
       </g>
-    </svg>
-
+    </Root>
   )
 })

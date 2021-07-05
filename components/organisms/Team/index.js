@@ -23,7 +23,7 @@ export default React.memo(function Team() {
   })
 
   return (
-    <Section>
+    <Section id='team'>
       <Container>
         <Title>{content.title}</Title>
         <SwitchWrapper>

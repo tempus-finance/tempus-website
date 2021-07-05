@@ -40,7 +40,7 @@ export default React.memo(function Hero () {
   const content = useContent('features')
 
   return (
-    <Section>
+    <Section id={'features'}>
       <Container>
         <Wrapper>
 

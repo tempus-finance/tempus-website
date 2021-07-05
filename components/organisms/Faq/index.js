@@ -7,6 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import {Title, Section, Container, OverlapContent} from 'components'
 
 import {useContent, useSwitch} from 'hooks'
+import {useStore} from 'store'
 import {Events} from 'helpers'
 
 import {colors} from 'data'
@@ -28,6 +29,7 @@ export default React.memo(function Team() {
   const ref = useRef()
   const content = useContent('faq')
   const {groups} = content
+  const setGlobalVersion = useStore('setGlobalVersion')
 
   const [SwitchComponent, currentItem] = useSwitch({
     initialState: groups[0].id
@@ -58,17 +60,21 @@ export default React.memo(function Team() {
       start: () => "top 90%",
       onEnter: () => {
         Events.emit('faq:enter')
+        setGlobalVersion('yellow')
       },
       onLeaveBack: () => {
         Events.emit('faq:leaveBack')
+        setGlobalVersion('green')
       },
     })
   }, [])
 
   return (
     <Section
+      id='faq'
       color={colors.black}
-      ref={ref}>
+      ref={ref}
+    >
       <Container>
         <Title color={colors.black}>{content.title}</Title>
 
