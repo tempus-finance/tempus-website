@@ -21,6 +21,7 @@ const Nav = styled.nav`
 const Link = styled.a`
     margin-right: 40px;
     font-size: 14px;
+    font-weight: 700;
 `
 
 export default React.memo(function Desktop(){

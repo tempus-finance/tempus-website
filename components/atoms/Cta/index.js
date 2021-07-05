@@ -16,6 +16,7 @@ const Btn = styled.a`
     text-transform: uppercase;
     cursor: pointer;
     font-size: 14px;
+    font-weight: 700;
 
     @media ${breakpoints.md}{
       padding: 0px 32px;
