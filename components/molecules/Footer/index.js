@@ -69,7 +69,7 @@ export default React.memo(function Footer(){
         <Credits>
         Design
           <a
-            href='https://twitter.com/borgatov'
+            href='http://valentinoborghesi.is/'
             target='_BLANK'> @borgatov</a>
           <span>-</span>  Code
           <a
