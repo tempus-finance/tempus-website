@@ -16,14 +16,16 @@ const Content = styled.div`
 `
 
 const Single = styled.a`
-  padding: 0 15px;
-  margin-bottom: 30px;
+  padding: 0 10px;
+  margin-bottom: 20px;
   flex: 0 0 50%;
   height: 120px;
 
   @media ${breakpoints.md}{
     flex: 0 0 25%;
     height: 180px;
+    padding: 0 15px;
+    margin-bottom: 30px;
   }
 
   .single__content {
@@ -54,7 +56,6 @@ const Single = styled.a`
     }
   }
 `
-
 
 export default React.memo(function Team() {
   const content = useContent('investors')
