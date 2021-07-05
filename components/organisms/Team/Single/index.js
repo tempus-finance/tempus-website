@@ -40,10 +40,12 @@ const Socials = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 20px;
+`
 
-  .social-icon {
-    margin: 0 5px;
-  }
+const Link = styled.a`
+  font-size: 0;
+  line-height: 0;
+  padding: 3px 5px;
 `
 
 export default React.memo(function Single({data, color}) {
@@ -51,12 +53,16 @@ export default React.memo(function Single({data, color}) {
   const socialNodes = useMemo(() => {
     return data.socials.map((el, i) => {
       return (
-        <SocialIcon
+        <Link
           key={i}
-          type={el.type}
           href={el.href}
-          color={colors.white}
-        />
+          target='_BLANK'
+        >
+          <SocialIcon
+            type={el.type}
+            color={colors.white}
+          />
+        </Link>
       )
     })
   },[])
