@@ -10,15 +10,15 @@ import {colors} from 'data'
 
 const Root = styled.div`
   position: absolute;
-  top: 10%;
-  right: -40%;
+  top: 15%;
+  right: -45%;
   width: 170%;
   height: 100%;
 
   @media ${breakpoints.sm} {
-    top: 0%;
+    top: 5%;
     width: 120%;
-    right: 0;
+    right: -10%;
   }
 
   @media ${breakpoints.md} {

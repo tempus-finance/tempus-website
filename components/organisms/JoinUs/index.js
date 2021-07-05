@@ -2,10 +2,11 @@ import React, {useRef, useState, useEffect} from 'react'
 import styled from 'styled-components'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
 
-import {Section as Scn, Container, Cta} from 'components'
+import {Section as Scn, Container, Cta, SocialIcon, SocialCta} from 'components'
 
-import Cylinders from './Cylinders '
+import Cylinders from './Cylinders'
 
+import {useContent} from 'hooks'
 import {breakpoints} from 'helpers/breakpoints'
 
 import {colors} from 'data'
@@ -48,67 +49,20 @@ const Sub = styled.div`
 `
 
 const Desc = styled.div`
-  margin: 10px auto 20px auto;
+  margin: 10px auto 40px auto;
 `
 
-const Form = styled.form`
-  position: relative;
-  width: 80%;
-  margin: 0px auto;
-
-  input {
-    position: relative;
-    width: 100%;
-    height: 50px;
-    background: none;
-    border: solid 2px ${colors.black};
-    border-radius: 50px;
-    padding: 0 30px;
-    color: ${colors.black};
-    font-size: 14px;
-    font-weight: 700;
-    outline: none;
-
-    &::placeholder {
-      color: ${colors.black};
-      font-size: 14px;
-      font-weight: 700;
-    }
-  }
-`
-
-const Arrow = styled.div`
-  position: absolute;
-  height: 50px;
-  width: 50px;
-  top: 0;
-  right: 0px;
-  background: url('images/icons/arrow--form.svg');
-  background-size: 24px 24px;
-  background-position: center;
-  background-repeat: no-repeat;
-  cursor: pointer;
-  transition: transform 0.3s;
-
-  &:hover {
-    transform: translateX(5px);
+const SocialCtas = styled.div`
+  > a {
+    margin: 0 5px;
   }
 `
 
 export default React.memo(function JoinUs() {
   const ref = useRef()
-  const form = useRef()
-  const input = useRef()
+
   const [isActive, setIsActive] = useState(false)
   const [isSectionActive, setIsSectionActive] = useState(false)
-
-  const onSubmit = (e) => {
-    e.preventDefault()
-
-    if(!input.current.value){
-      return
-    }
-  }
 
   useEffect(() => {
     ScrollTrigger.create({
@@ -147,18 +101,14 @@ export default React.memo(function JoinUs() {
           <div>
             <div className='f-h4'>Subscribe to the newsletter </div>
             <Desc>Get notified about major developments in Tempus.</Desc>
-            <Form
-              ref={form}
-              onSubmit={onSubmit}>
-              <div>
-                <input
-                  ref={input}
-                  type='email'
-                  placeholder='enter your email here'>
-                </input>
-                <Arrow onClick={onSubmit} />
-              </div>
-            </Form>
+            <SocialCtas>
+              <SocialCta
+                type='discord'
+                color={colors.black} />
+              <SocialCta
+                type='telegram'
+                color={colors.black} />
+            </SocialCtas>
           </div>
 
           <div>

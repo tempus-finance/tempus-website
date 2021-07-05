@@ -2,12 +2,13 @@ import React, {useEffect, useState} from 'react'
 import styled from 'styled-components'
 import {breakpoints} from 'helpers/breakpoints'
 
-
-import {Container, Html, Cta} from 'components'
+import {Container, Html, SocialCta} from 'components'
 
 import {useContent} from 'hooks'
 
 import Cylinders from './Cylinders'
+
+import {colors} from 'data'
 
 const Root = styled.div`
     position: relative;
@@ -18,7 +19,7 @@ const Root = styled.div`
     align-items: center;
 
     .f-h1 {
-        margin-bottom: 90px;
+        margin-bottom: 50px;
     }
 
     @media ${breakpoints.sd}{
@@ -29,7 +30,17 @@ const Root = styled.div`
     @media ${breakpoints.md}{
       height: calc(100vh - 90px);
       margin-top: 90px;
+
+      .f-h1 {
+        margin-bottom: 90px;
+      }
     }
+`
+
+const SocialWrapper = styled.div`
+  > a {
+    margin: 0 5px;
+  }
 `
 
 export default React.memo(function Hero () {
@@ -43,7 +54,14 @@ export default React.memo(function Hero () {
         <div className='f-h1'>
           <Html>{tagline}</Html>
         </div>
-        <Cta>Launch app</Cta>
+        <SocialWrapper>
+          <SocialCta
+            type='discord'
+            color={colors.white} />
+          <SocialCta
+            type='telegram'
+            color={colors.white} />
+        </SocialWrapper>
 
       </Container>
       <Cylinders canPlayAnimation={canPlayAnimation} />
