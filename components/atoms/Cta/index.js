@@ -1,12 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
+import {breakpoints} from 'helpers/breakpoints'
 
 import {colors} from 'data'
 
 const Btn = styled.a`
     display: inline-block;
     height: 50px;
-    padding: 0px 32px;
+    padding: 0px 20px;
     background: ${colors.white};
     border: solid 2px ${colors.black};
     border-radius: 50px;
@@ -14,6 +15,11 @@ const Btn = styled.a`
     line-height: 46px;
     text-transform: uppercase;
     cursor: pointer;
+    font-size: 14px;
+
+    @media ${breakpoints.md}{
+      padding: 0px 32px;
+    }
 `
 
 export default React.memo(function Cta({children, onClick, ...props}) {
