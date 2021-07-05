@@ -13,7 +13,7 @@ const Root = styled.svg`
 `
 
 export default React.memo(function CylinderBig(props){
-  const {delay = 0, id, fill = colors.yellow, heightBig = 0, heightSmall = 30, canPlayAnimation = true } = props
+  const {delay = 0, id, fill = colors.yellow, heightBig = 0, heightSmall = 30, canPlayAnimation = true, delaySmall } = props
   const resetGapSmall = 23
   const smallShiftFromSvg = 80
   const globalTransformOrigin = "180px 548px"
@@ -132,7 +132,8 @@ export default React.memo(function CylinderBig(props){
     smallShiftFromSvg,
     globalTransformOrigin,
     smallTransformOrigin,
-    canPlayAnimation
+    canPlayAnimation,
+    delaySmall
   })
 
   return (

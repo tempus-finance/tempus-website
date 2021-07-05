@@ -102,7 +102,7 @@ export default React.memo(function JoinUs() {
   useEffect(() => {
     ScrollTrigger.create({
       trigger: ref.current,
-      start: () => "top 30%",
+      start: () => "top 90%",
       once: true,
       onEnter: () => {
         setIsActive(true)

@@ -2,7 +2,7 @@ import  {useEffect, useRef} from 'react'
 import {gsap} from 'gsap'
 
 export default function useCylinderChoreography(props){
-  const {elm, delay, canPlayAnimation, small, big, heightSmall, heightBig, floatingSpeed} = props
+  const {elm, delay, canPlayAnimation, small, big, heightSmall, heightBig, floatingSpeed, delaySmall: ds} = props
   const {globalTransformOrigin, smallTransformOrigin, resetGapSmall, smallShiftFromSvg} = props
   const tl = useRef()
 
@@ -11,6 +11,8 @@ export default function useCylinderChoreography(props){
     const parent = elm.current
     const global = elm.current.getElementById('All')
     const floatSpeed = floatingSpeed || 0.7 + Math.random() * 0.5
+    const delaySmall = typeof ds === 'number' ? ds : Math.random() * 3
+    const changeSmallDuration = Math.random() * 0.3
 
     gsap.set(global, { scale: 0, y: 0, transformOrigin: globalTransformOrigin })
 
@@ -51,8 +53,6 @@ export default function useCylinderChoreography(props){
     gsap.set(big.top, {y: -heightBig})
 
 
-    const delaySmall = Math.random() * 3
-    const changeSmallDuration = Math.random() * 0.3
 
     tl.current
       .to(parent, {duration: 0.4, opacity: 1})

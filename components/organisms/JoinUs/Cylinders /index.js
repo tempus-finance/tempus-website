@@ -118,6 +118,7 @@ export default React.memo(function Cylinders({isActive}){
           fill={color1}
           canPlayAnimation={canPlayAnimation}
           delay={0}
+          delaySmall={0}
         />
       </Single>
       <Single className='joinUs__cylinders--2'>
@@ -126,6 +127,7 @@ export default React.memo(function Cylinders({isActive}){
           fill={colors.yellow}
           canPlayAnimation={canPlayAnimation}
           delay={0.6}
+          delaySmall={0}
         />
       </Single>
       <Single className='joinUs__cylinders--3'>
@@ -135,6 +137,7 @@ export default React.memo(function Cylinders({isActive}){
           fill={colors.green}
           canPlayAnimation={canPlayAnimation}
           delay={1.2}
+          delaySmall={0}
         />
       </Single>
       <Single className='joinUs__cylinders--4'>
@@ -145,6 +148,7 @@ export default React.memo(function Cylinders({isActive}){
           heightSmall={50}
           canPlayAnimation={canPlayAnimation}
           delay={0.5}
+          delaySmall={0}
         />
       </Single>
       <Single className='joinUs__cylinders--5'>
@@ -153,6 +157,7 @@ export default React.memo(function Cylinders({isActive}){
           fill={colors.yellow}
           canPlayAnimation={canPlayAnimation}
           delay={0.4}
+          delaySmall={0}
         />
       </Single>
     </>
