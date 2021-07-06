@@ -27,11 +27,16 @@ const Root = styled.div`
 `
 
 const SvgContainer = styled.div`
+  width: 80%;
   max-width: 250px;
   margin: 0 auto;
 
   svg {
     margin-top: -150px;
+  }
+
+  @media ${breakpoints.md}{
+    width: 90%;
   }
 `
 
