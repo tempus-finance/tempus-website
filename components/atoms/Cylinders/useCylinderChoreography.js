@@ -64,8 +64,6 @@ export default function useCylinderChoreography(props){
     big.updatePath(-heightBig)
     gsap.set(big.top, {y: -heightBig})
 
-
-
     tl.current
       .to(parent, {duration: 0.4, opacity: 1})
       .fromTo(

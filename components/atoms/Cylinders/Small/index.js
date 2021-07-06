@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import {colors} from 'data'
 
 import useCylinderChoreography from '../useCylinderChoreography'
-import useCylinderColor from '../useCylinderColor'
+import {useCylinderColor} from 'hooks'
 
 const Root = styled.svg`
   overflow: visible;

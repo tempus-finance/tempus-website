@@ -2,7 +2,7 @@ import React, {useEffect, useRef, useMemo, useState} from 'react'
 import styled from 'styled-components'
 
 import useCylinderChoreography from '../useCylinderChoreography'
-import useCylinderColor from '../useCylinderColor'
+import {useCylinderColor} from 'hooks'
 
 const Root = styled.svg`
   overflow: visible;
