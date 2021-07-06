@@ -27,6 +27,10 @@ const Root = styled.div`
 const SvgContainer = styled.div`
   max-width: 250px;
   margin: 0 auto;
+
+  svg {
+    margin-top: -150px;
+  }
 `
 
 const Title = styled.div`
