@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useMemo, useState} from 'react'
+import React, {useEffect, useRef, useMemo, useState, useImperativeHandle} from 'react'
 import styled from 'styled-components'
 import {gsap} from 'gsap'
 
@@ -10,8 +10,7 @@ const Root = styled.svg`
   opacity: 0;
   pointer-events: none;
 `
-
-export default React.memo(function CylinderBig(props){
+function CylinderBig(props, ref){
   const {heightBig = 30, heightSmall = 30} = props
   const id = 'fix'
   const color = 'green'
@@ -20,7 +19,7 @@ export default React.memo(function CylinderBig(props){
   const globalTransformOrigin = "180px 348px"
   const smallTransformOrigin = "130px 280px"
 
-  const ref = useRef()
+  const rootRef = useRef()
   const tl = useRef(gsap.timeline())
 
   const smallMaskName = useMemo(() => `mask-4-${id}`, [])
@@ -33,6 +32,14 @@ export default React.memo(function CylinderBig(props){
 
   let [small] = useState({})
   let [big] = useState({})
+
+  useImperativeHandle(ref, () => {
+    return {
+      playTimeline: () => {
+        tl.current.play(0)
+      }
+    }
+  })
 
   useEffect(() => {
     // CREATING THE ID using a random value in useMemo,
@@ -48,7 +55,7 @@ export default React.memo(function CylinderBig(props){
 
 
   useEffect(function onMount() {
-    const elm = ref.current
+    const elm = rootRef.current
 
     small.mask = elm.getElementById(idSmallMaskName),
     small.path = elm.getElementById("Small_path"),
@@ -127,7 +134,7 @@ export default React.memo(function CylinderBig(props){
   },[])
 
   const setInitialValues = () => {
-    const global = ref.current.getElementById('All')
+    const global = rootRef.current.getElementById('All')
 
     gsap.set(small.all, { y: 40 - heightBig, transformOrigin: smallTransformOrigin })
     big.updateMask(-heightBig)
@@ -144,12 +151,13 @@ export default React.memo(function CylinderBig(props){
   const createTimeline = () =>{
     setInitialValues()
 
-    const global = ref.current.getElementById('All')
+    const global = rootRef.current.getElementById('All')
     const sm = {p: -heightSmall}
     const bg = {p: -heightBig}
 
     tl.current = gsap.timeline({
       delay: 1,
+      paused: true,
       onUpdate: () => {
         big.updateMask(bg.p)
         big.updatePath(bg.p)
@@ -172,7 +180,7 @@ export default React.memo(function CylinderBig(props){
     tl.current
       //
       .to(global, {scale: 1, duration: 2, ease: 'Power2.easeOut'})
-      .to(ref.current, {opacity: 1, duration: 0.3}, 0)
+      .to(rootRef.current, {opacity: 1, duration: 0.3}, 0)
       .addLabel('enter:end')
       .to(small.top, {duration: 1.4, y: resetGapSmall, strokeWidth: 1.3, fill: fill.bigTop, ease: 'Power1.easeInOut'}, 'enter:end')
       .to(small.path, {duration: 1.4, strokeWidth: 1.3, ease: 'Power1.easeInOut'}, 'enter:end')
@@ -189,7 +197,7 @@ export default React.memo(function CylinderBig(props){
 
   return (
     <Root
-      ref={ref}
+      ref={rootRef}
       width="260"
       height="600"
       viewBox="0 0 260 600"
@@ -291,4 +299,7 @@ export default React.memo(function CylinderBig(props){
       </g>
     </Root>
   )
-})
+}
+
+
+export default React.memo(React.forwardRef(CylinderBig))
