@@ -12,6 +12,7 @@ const Root = styled.div`
   right: -45%;
   width: 170%;
   height: 100%;
+  pointer-events: none;
 
   @media ${breakpoints.sm} {
     top: 5%;
