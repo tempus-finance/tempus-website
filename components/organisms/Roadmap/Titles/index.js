@@ -23,7 +23,9 @@ const Arrow = styled.img`
   left: -50px;
   top: 50%;
   transform: translateY(-50%) rotate(180deg);
-  cursor: pointer;
+  cursor: ${props => props.isActive ? 'pointer' : 'auto'};
+  opacity: ${props => props.isActive ? '1' : '0.5'};
+  transition: opacity 0.6s;
 
   &.isRight {
     left: auto;
@@ -46,6 +48,7 @@ const Arrow = styled.img`
 export default React.memo(function Titles({sections, currentSection, onClick, direction}){
   const ref = useRef()
   const heightTitles = useMaxHeight(ref)
+  const isLastSection = currentSection === sections.length - 1
 
   const titleNodes = sections.map((el, i) => {
     return (
@@ -67,11 +70,15 @@ export default React.memo(function Titles({sections, currentSection, onClick, di
 
       <Arrow
         src='images/icons/arrow.svg'
-        onClick={() => onClick(-1)} />
+        onClick={() => onClick(-1)}
+        isActive={currentSection > 0}
+      />
       <Arrow
         src='images/icons/arrow.svg'
         className='isRight'
-        onClick={() => onClick(1)}/>
+        onClick={() => onClick(1)}
+        isActive={!isLastSection}
+      />
 
       {titleNodes}
     </Root>
