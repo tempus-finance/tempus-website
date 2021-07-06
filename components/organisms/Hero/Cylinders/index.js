@@ -6,8 +6,6 @@ import {breakpoints, useMediaQuery} from 'helpers/breakpoints'
 
 import Single from './Single'
 
-import {colors} from 'data'
-
 const Root = styled.div`
   position: absolute;
   top: 15%;
@@ -82,7 +80,7 @@ export default React.memo(function Cylinders(){
           width={width}
           heightBig={-50}
           heightSmall={10}
-          fill={colors.green}
+          color={'green'}
           type='mid'
           left={20}
           id={1}
@@ -93,7 +91,7 @@ export default React.memo(function Cylinders(){
           width={width}
           heightBig={50}
           heightSmall={40}
-          fill={colors.violet}
+          color={'violet'}
           left={36}
           id={2}
           canFloat={canFloat}
@@ -104,7 +102,7 @@ export default React.memo(function Cylinders(){
           heightSmall={50}
           left={60}
           type='big'
-          fill={colors.green}
+          color={'green'}
           id={3}
           canFloat={canFloat}
           delay={3}/>
@@ -115,7 +113,7 @@ export default React.memo(function Cylinders(){
           width={width}
           heightBig={40}
           heightSmall={35}
-          fill={colors.violet}
+          color={'violet'}
           type='small'
           left={35}
           id={5}
@@ -125,7 +123,7 @@ export default React.memo(function Cylinders(){
           width={width}
           heightBig={120}
           heightSmall={50}
-          fill={colors.yellow}
+          color={'yellow'}
           type='mid'
           left={55}
           id={6}
@@ -135,7 +133,7 @@ export default React.memo(function Cylinders(){
           width={width}
           heightBig={240}
           heightSmall={70}
-          fill={colors.violet}
+          color={'violet'}
           left={75}
           type='small'
           id={7}
@@ -146,7 +144,7 @@ export default React.memo(function Cylinders(){
           width={width}
           heightBig={180}
           heightSmall={40}
-          fill={colors.yellow}
+          color={'yellow'}
           left={95}
           id={8}
           canFloat={canFloat}

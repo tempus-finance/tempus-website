@@ -19,7 +19,7 @@ const Components = {
   small: CylinderSmall
 }
 
-export default React.memo(function Single({type = 'big', left = 0, width = 10, delay, id, fill, heightBig = 120, heightSmall = 50, canPlayAnimation, canFloat}){
+export default React.memo(function Single({type = 'big', left = 0, width = 10, delay, id, color, heightBig = 120, heightSmall = 50, canPlayAnimation, canFloat}){
   const Component = Components[type]
 
   return (
@@ -28,7 +28,7 @@ export default React.memo(function Single({type = 'big', left = 0, width = 10, d
       width={width}>
       <Component
         canPlayAnimation={canPlayAnimation}
-        fill={fill}
+        color={color}
         heightBig={heightBig}
         heightSmall={heightSmall}
         delay={delay}

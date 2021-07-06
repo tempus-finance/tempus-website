@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import {colors} from 'data'
 
 import useCylinderChoreography from '../useCylinderChoreography'
+import useCylinderColor from '../useCylinderColor'
 
 const Root = styled.svg`
   overflow: visible;
@@ -13,7 +14,7 @@ const Root = styled.svg`
 `
 
 export default React.memo(function CylinderBig(props){
-  const {delay = 0, id, fill = colors.yellow, heightBig = 0, heightSmall = 30, canPlayAnimation = true, delaySmall, canFloat } = props
+  const {delay = 0, id, color = 'yellow', heightBig = 0, heightSmall = 30, canPlayAnimation = true, delaySmall, canFloat } = props
   const resetGapSmall = 36
   const smallShiftFromSvg = 0
   const globalTransformOrigin = "60px 348px"
@@ -26,6 +27,8 @@ export default React.memo(function CylinderBig(props){
 
   const bigMaskName = useMemo(() => `mask-2-${id}`, [])
   const idBigMaskName = useMemo(() => `path-1-${id}`, [])
+
+  const fill = useCylinderColor(color)
 
   let [small] = useState({})
   let [big] = useState({})
@@ -178,7 +181,7 @@ export default React.memo(function CylinderBig(props){
               id="Big_path"
               stroke="#000000"
               strokeWidth="2"
-              fill={fill}
+              fill={fill.bigBody}
               d="M59.196 1.11v87.563c0 4.197-2.86 8.325-8.29 11.48-5.723 3.315-13.27 4.957-20.81 4.957-7.54 0-15.085-1.642-20.806-4.957C3.832 96.997 1 92.87 1 88.673h0V1.11h58.196z"/>
             <path
               id="Rectangle"
@@ -199,7 +202,7 @@ export default React.memo(function CylinderBig(props){
             id="Top_big"
             stroke="#000000"
             strokeWidth="2"
-            fill={fill}
+            fill={fill.bigTop}
             fillRule="nonzero"/>
           <g id="Small_all">
             <g
@@ -214,7 +217,7 @@ export default React.memo(function CylinderBig(props){
                 id="Small_path"
                 stroke="#000000"
                 strokeWidth="2"
-                fill={fill}
+                fill={fill.smallBody}
                 d="M1 1h23.66v34.15c0 .778-.269 1.55-.785 2.275-.55.772-1.372 1.485-2.455 2.11-2.363 1.365-5.48 2.033-8.59 2.033-3.11 0-6.227-.668-8.59-2.034C2.162 38.332 1 36.778 1 35.15h0V1z"/>
               <path
                 id="Rectangle"

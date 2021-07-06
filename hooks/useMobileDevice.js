@@ -12,7 +12,6 @@ const isMobileDevice = memoize(() => {
 })
 
 export default function useMobileDevice() {
-  console.log('0cygvhijoklp')
   return isMobileDevice()
 }
 

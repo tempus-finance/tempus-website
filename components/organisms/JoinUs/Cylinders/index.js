@@ -105,8 +105,8 @@ export default React.memo(function Cylinders({isActive, isSectionActive}){
   const canPlayAnimation = isActive
 
   const color1 = useMediaQuery({
-    xs: colors.violet,
-    md: colors.green
+    xs: 'violet',
+    md: 'green'
   })
 
   return (
@@ -115,7 +115,7 @@ export default React.memo(function Cylinders({isActive, isSectionActive}){
         <CylinderMid
           id='ju-1'
           heightBig={-60}
-          fill={color1}
+          color={color1}
           canPlayAnimation={canPlayAnimation}
           delay={0}
           delaySmall={0}
@@ -125,7 +125,7 @@ export default React.memo(function Cylinders({isActive, isSectionActive}){
       <Single className='joinUs__cylinders--2'>
         <CylinderSmall
           id='ju-2'
-          fill={colors.yellow}
+          color={'yellow'}
           canPlayAnimation={canPlayAnimation}
           delay={0.6}
           delaySmall={0}
@@ -136,7 +136,7 @@ export default React.memo(function Cylinders({isActive, isSectionActive}){
         <CylinderBig
           id='ju-3'
           heightBig={20}
-          fill={colors.green}
+          color={'green'}
           canPlayAnimation={canPlayAnimation}
           delay={1.2}
           delaySmall={0}
@@ -146,7 +146,7 @@ export default React.memo(function Cylinders({isActive, isSectionActive}){
       <Single className='joinUs__cylinders--4'>
         <CylinderSmall
           id='ju-4'
-          fill={colors.violet}
+          color={'violet'}
           heightBig={230}
           heightSmall={50}
           canPlayAnimation={canPlayAnimation}
@@ -158,7 +158,7 @@ export default React.memo(function Cylinders({isActive, isSectionActive}){
       <Single className='joinUs__cylinders--5'>
         <CylinderMid
           id='ju-5'
-          fill={colors.yellow}
+          color={'yellow'}
           canPlayAnimation={canPlayAnimation}
           delay={0.4}
           delaySmall={0}
