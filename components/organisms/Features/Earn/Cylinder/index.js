@@ -17,7 +17,7 @@ export default React.memo(function CylinderBig(props){
   const color = 'yellow'
   const resetGapSmall = 15
   const smallShiftFromSvg = 75
-  const globalTransformOrigin = "130px 148px"
+  const globalTransformOrigin = "130px 348px"
   const smallTransformOrigin = "60px 160px"
 
   const ref = useRef()
@@ -161,7 +161,22 @@ export default React.memo(function CylinderBig(props){
     const sm = {p: -heightSmall}
     const bg = {p: -heightBig}
 
-    const finalGrowth = -140
+    const finalGrowthBig = -140
+    const finalGrowthSmall = -100
+
+    const createGrowTl = (factor) => {
+      let tl = gsap.timeline({delay: 0.5})
+      const fs = finalGrowthSmall * factor
+      const fb = finalGrowthBig * factor
+
+      tl
+        .to(sm, { p: fs, duration: 1.4, ease: 'Power1.easeInOut' }, 'growing:start')
+        .to(small.top, { y: fs, duration: 1.4, ease: 'Power1.easeInOut' }, 'growing:start')
+        .to(bg, { p: fb, duration: 1.4, ease: 'Power1.easeInOut' }, 'growing:start')
+        .to(big.top,{ y: fb, duration: 1.4, ease: 'Power1.easeInOut' }, 'growing:start')
+
+      return tl
+    }
 
     tl.current = gsap.timeline({
       delay: 1,
@@ -186,10 +201,9 @@ export default React.memo(function CylinderBig(props){
       .to(small.all, {duration: 1.6,y: `+=${smallFinalY}`, ease: 'Power1.easeInOut'})
 
       .addLabel('growing:start')
-      .fromTo(sm, {p:sm.p}, { p: finalGrowth, duration: 1.4, ease: 'Power1.easeInOut' }, 'growing:start')
-      .fromTo(small.top, {y:sm.p}, { y: finalGrowth, duration: 1.4, ease: 'Power1.easeInOut' }, 'growing:start')
-      .fromTo(bg, {p:bg.p}, { p: finalGrowth, duration: 1.4, ease: 'Power1.easeInOut' }, 'growing:start')
-      .fromTo(big.top, {y:bg.p}, { y: finalGrowth, duration: 1.4, ease: 'Power1.easeInOut' }, 'growing:start')
+      .add(createGrowTl(0.65))
+      .add(createGrowTl(0.85))
+      .add(createGrowTl(1.15))
 
     tl.current.timeScale(1.4)
   }
@@ -199,7 +213,7 @@ export default React.memo(function CylinderBig(props){
       ref={ref}
       width="260"
       height="600"
-      viewBox="0 0 26 0 600"
+      viewBox="0 0 260 600"
       xmlns="http://www.w3.org/2000/svg"
     >
       <defs>
@@ -247,13 +261,13 @@ export default React.memo(function CylinderBig(props){
               fillRule="nonzero"
               opacity=".25"
               mask={`url(#${bigMaskName})`}
-              d="M-17.56-173.74h60.47v351.48h-60.47z"/>
+              d="M-17.56-373.74h60.47v551.48h-60.47z"/>
             <path
               id="Rectangle"
               fill="#000000"
               fillRule="nonzero"
               mask={`url(#${bigMaskName})`}
-              d="M-39.39-173.74h60.47v351.48h-60.47z"/>
+              d="M-39.39-373.74h60.47v551.48h-60.47z"/>
           </g>
           <path
             d="M130.16 442.55c-19.18 0-37.15-4.27-50.59-12C66.31 422.86 59 412.69 59 401.88c0-10.81 7.31-21 20.57-28.63 13.44-7.76 31.41-12 50.59-12 19.18 0 37.15 4.27 50.59 12 13.27 7.66 20.57 17.83 20.57 28.63s-7.3 21-20.57 28.64c-13.44 7.76-31.41 12.03-50.59 12.03z"
@@ -283,13 +297,13 @@ export default React.memo(function CylinderBig(props){
                 fillRule="nonzero"
                 opacity=".25"
                 mask={`url(#${smallMaskName})`}
-                d="M-9.74-135.11h33.52V59.72H-9.74z"/>
+                d="M-9.74-235.11h33.52V159.72H-9.74z"/>
               <path
                 id="Rectangle"
                 fill="#000000"
                 fillRule="nonzero"
                 mask={`url(#${smallMaskName})`}
-                d="M-21.84-135.11h33.52V59.72h-33.52z"/>
+                d="M-21.84-235.11h33.52V159.72h-33.52z"/>
             </g>
             <path
               d="M130.16 334.19c-10.55 0-20.43-2.35-27.82-6.61-7.21-4.16-11.18-9.66-11.18-15.48s4-11.33 11.18-15.49c7.39-4.26 17.27-6.61 27.82-6.61s20.44 2.35 27.84 6.61c7.21 4.16 11.18 9.66 11.18 15.49s-4 11.32-11.18 15.48c-7.4 4.26-17.28 6.61-27.84 6.61z"
