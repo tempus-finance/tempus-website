@@ -17,7 +17,7 @@ export default React.memo(function CylinderBig(props){
   const color = 'violet'
   const resetGapSmall = 15
   const smallShiftFromSvg = 75
-  const globalTransformOrigin = "130px 148px"
+  const globalTransformOrigin = "130px 348px"
   const smallTransformOrigin = "60px 160px"
 
   const ref = useRef()
@@ -161,16 +161,20 @@ export default React.memo(function CylinderBig(props){
     const sm = {p: -heightSmall}
     const bg = {p: -heightBig}
 
-    const finalGrowthSmall = -190
-    const finalGrowthBig = -140
 
-    const growTl = gsap.timeline({repeat: 4, yoyo: true})
 
-    growTl
-      .to(sm, { p: finalGrowthSmall, duration: 1.4, ease: 'Power1.easeInOut' }, 0)
-      .to(small.top, { y: finalGrowthSmall, duration: 1.4, ease: 'Power1.easeInOut' }, 0)
-      .to(bg, { p: 90, duration: 1.4, ease: 'Power1.easeInOut' }, 0)
-      .to(big.top, { y: 90, duration: 1.4, ease: 'Power1.easeInOut' }, 0)
+
+    const getGrowTl = ({big: b, small: s}) => {
+      const tl = gsap.timeline({delay: 1.4})
+
+      tl
+        .to(sm, { p: s, duration: 1.2, ease: 'Power1.easeInOut' }, 0)
+        .to(small.top, { y: s, duration: 1.2, ease: 'Power1.easeInOut' }, 0)
+        .to(bg, { p: b, duration: 1.2, ease: 'Power1.easeInOut' }, 0)
+        .to(big.top, { y: b, duration: 1.2, ease: 'Power1.easeInOut'}, 0)
+
+      return tl
+    }
 
     tl.current = gsap.timeline({
       delay: 1,
@@ -182,6 +186,12 @@ export default React.memo(function CylinderBig(props){
         small.updatePath(sm.p)
       },
     })
+
+    // .to(sm, { p: finalGrowthSmall, duration: 1.4, ease: 'Power1.easeInOut' }, 0)
+    // .to(small.top, { y: finalGrowthSmall, duration: 1.4, ease: 'Power1.easeInOut' }, 0)
+    // .to(bg, { p: 90, duration: 1.4, ease: 'Power1.easeInOut' }, 0)
+    // .to(big.top, { y: 90, duration: 1.4, ease: 'Power1.easeInOut' }, 0)
+
 
     tl.current
       //
@@ -197,10 +207,18 @@ export default React.memo(function CylinderBig(props){
       .addLabel('growing:start')
       .fromTo(sm, {p:sm.p}, { p: 10, duration: 1.4, ease: 'Power1.easeInOut' }, 'growing:start')
       .fromTo(small.top, {y:sm.p}, { y: 10, duration: 1.4, ease: 'Power1.easeInOut' }, 'growing:start')
-      .fromTo(bg, {p:bg.p}, { p: finalGrowthBig, duration: 1.4, ease: 'Power1.easeInOut' }, 'growing:start')
-      .fromTo(big.top, {y:bg.p}, { y: finalGrowthBig, duration: 1.4, ease: 'Power1.easeInOut' }, 'growing:start')
-      .add(growTl)
+      .fromTo(bg, {p:bg.p}, { p: -60, duration: 1.4, ease: 'Power1.easeInOut' }, 'growing:start')
+      .fromTo(big.top, {y:bg.p}, { y: -60, duration: 1.4, ease: 'Power1.easeInOut' }, 'growing:start')
 
+      .add(getGrowTl({small: -190, big: 90}))
+      .add(getGrowTl({small: -70, big: -100}))
+      .add(getGrowTl({small: -210, big: 40}))
+      .add(getGrowTl({small: -110, big: -140}))
+
+
+
+    const finalGrowthSmall = -190
+    const finalGrowthBig = -140
 
     tl.current.timeScale(1.4)
   }
@@ -210,7 +228,7 @@ export default React.memo(function CylinderBig(props){
       ref={ref}
       width="260"
       height="600"
-      viewBox="0 0 26 0 600"
+      viewBox="0 0 260 600"
       xmlns="http://www.w3.org/2000/svg"
     >
       <defs>
