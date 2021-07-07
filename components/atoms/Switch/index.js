@@ -20,6 +20,8 @@ const Item = styled.div`
   cursor: pointer;
   line-height: 30px;
   color: ${colors.white};
+  background: transparent;
+  transition: all 0.5s;
 
   &:hover {
     opacity: 1;
