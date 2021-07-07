@@ -73,10 +73,14 @@ export default React.memo(function Hero () {
         <SocialWrapper>
           <SocialCta
             type='telegram'
-            color={colors.white} />
+            color={colors.white}
+            background={colors.green}
+          />
           <SocialCta
             type='discord'
-            color={colors.white} />
+            color={colors.white}
+            background={colors.green}
+          />
         </SocialWrapper>
 
       </Container>

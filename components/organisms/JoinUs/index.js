@@ -104,10 +104,14 @@ export default React.memo(function JoinUs() {
             <SocialCtas>
               <SocialCta
                 type='discord'
-                color={colors.black} />
+                color={colors.black}
+                background={colors.yellow}
+              />
               <SocialCta
                 type='telegram'
-                color={colors.black} />
+                color={colors.black}
+                background={colors.yellow}
+              />
             </SocialCtas>
           </div>
 

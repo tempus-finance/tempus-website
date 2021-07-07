@@ -18,7 +18,7 @@ const Copy = styled.div`
   margin-left: 5px;
 `
 
-export default React.memo(function SocialCta({type = 'telegram', color = '#ffffff',}){
+export default React.memo(function SocialCta({type = 'telegram', color = '#ffffff', background}){
   const socials = useContent('socials')
 
   return (
@@ -27,6 +27,7 @@ export default React.memo(function SocialCta({type = 'telegram', color = '#fffff
       target='_BLANK'
       type='secondary'
       color={color}
+      background={background}
     >
       <SocialIcon
         type={type}
