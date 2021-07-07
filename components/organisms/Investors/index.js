@@ -30,6 +30,7 @@ const Single = styled.a`
 
   .single__content {
     display: flex;
+    position: relative;
     width: 100%;
     height: 100%;
     justify-content: center;
@@ -38,8 +39,8 @@ const Single = styled.a`
     border: solid 2px ${colors.black};
     background: ${colors.white};
     border-radius: 20px;
-    transform: translateY(0px);
-    transition: all 0.3s ease-in-out;
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease-in-out;
 
     img {
       width: 100%;
@@ -47,11 +48,27 @@ const Single = styled.a`
       object-fit: contain;
     }
 
+    &:before {
+      content:'';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      bottom: -2px;
+      right: -2px;
+      border: solid 2px ${colors.black};
+      border-radius: 20px;
+      transform: translate3D(0px, 0px, -1px);
+      transition: transform 0.1s ease-in-out;
+    }
+
     @media ${breakpoints.md}{
       padding: 40px;
 
       &:hover {
-        transform: translateY(-10px);
+        transform: translate(-4px, -4px);
+        &:before {
+          transform: translate3D(4px, 4px, -1px);
+        }
       }
     }
   }
