@@ -10,6 +10,9 @@ export const store = create((set) => ({
 
   isMobileMenuActive: false,
   setIsMobileMenuActive: (v) => set((state) => { state.isMobileMenuActive = v }),
+
+  isHeaderCompressed: false,
+  setIsHeaderCompressed: (v) => set((state) => { state.isHeaderCompressed = v }),
 }))
 
 export const useStore = (key) => store((v) => get(v, key, v))

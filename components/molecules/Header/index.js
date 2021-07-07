@@ -1,9 +1,8 @@
 import React, {useEffect, useRef} from 'react'
 import styled from 'styled-components'
 import {gsap} from 'gsap'
-import {Events} from 'helpers'
 
-import {Container, Cta, Logo} from 'components'
+import {Container, Logo} from 'components'
 
 import Desktop from './Desktop'
 import Mobile from './Mobile'
@@ -29,10 +28,15 @@ const Content = styled.div`
     padding-bottom: 20px;
     align-items: center;
     justify-content: space-between;
+    transition: padding 0.4s ease-in-out;
 
     @media ${breakpoints.md} {
       padding-top: 40px;
       padding-bottom: 20px;
+    }
+
+    &.isCompressed {
+      padding-top: 20px;
     }
 `
 
@@ -52,6 +56,7 @@ export default React.memo(function Header(){
   const ref = useRef()
   const isGreen = useStore('globalVersion') === 'green'
   const isMobileMenuActive = useStore('isMobileMenuActive')
+  const isHeaderCompressed = useStore('isHeaderCompressed')
 
   const isMobile = useMediaQuery({
     xs: true,
@@ -73,10 +78,18 @@ export default React.memo(function Header(){
     gsap.to(ref.current, {duration, backgroundColor: isGreen ? colors.green : colors.yellow})
   }, [isGreen])
 
+  useEffect(() => {
+    console.log({isHeaderCompressed})
+  },[isHeaderCompressed])
+
   return (
-    <Wrapper ref={ref}>
+    <Wrapper
+      ref={ref}
+    >
       <Container>
-        <Content>
+        <Content
+          className={isHeaderCompressed && 'isCompressed'}
+        >
           <LogoWrapper>
             <Logo fill={logoColor}/>
           </LogoWrapper>
