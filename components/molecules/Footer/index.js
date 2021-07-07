@@ -50,22 +50,7 @@ export default React.memo(function Footer(){
             target='_BLANK'>Privacy Policy</a><span>-</span>
           <a
             href='#'
-            target='_BLANK'>Terms</a><span>-</span>
-          <a
-            href='#'
-            target='_BLANK'>Risk Factor for Token Offering</a><span>-</span>
-          <a
-            href='#'
-            target='_BLANK'>Disclaimer and Company Data</a><span>-</span>
-          <a
-            href='#'
-            target='_BLANK'>GDPR</a><span>-</span>
-          <a
-            href='#'
-            target='_BLANK'>Cookie Policy</a><span>-</span>
-          <a
-            href='#'
-            target='_BLANK'>Terms of Use</a>
+            target='_BLANK'>Terms of Service</a>
         </div>
         <Credits>
         Design
