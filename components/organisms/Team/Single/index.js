@@ -66,6 +66,7 @@ export default React.memo(function Single({data, color}) {
           <SocialIcon
             type={el.type}
             color={colors.white}
+            hoverColor={color}
           />
         </Link>
       )
