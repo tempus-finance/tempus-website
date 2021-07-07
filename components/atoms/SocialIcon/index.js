@@ -18,17 +18,38 @@ const components = {
 }
 
 const Root = styled.span`
+  position: relative;
+  display: inline-block;
   width: ${props =>props.width ? width : 'auto'};
   line-height: 0;
+
+  svg {
+    ${props => props.hoverColor && `transition: all 0.2s`};
+
+    path {
+      ${props => props.hoverColor && `transition: all 0.2s`};
+    }
+  }
+
+  &:hover {
+    svg {
+      ${props => props.hoverColor && `transform: translateY(-3px)`};
+
+      path {
+        ${props => props.hoverColor && `fill: ${props.hoverColor}`};
+      }
+    }
+  }
 `
 
-export default React.memo(function SocialIcon({type, width, ...props}){
+export default React.memo(function SocialIcon({type, width, hoverColor, ...props}){
   const Component = components[type] || <></>
 
   return (
     <Root
       width={width}
       className='social-icon'
+      hoverColor={hoverColor}
     >
       <Component {...props} />
     </Root>
