@@ -14,6 +14,7 @@ const Root = styled.div`
   align-items: center;
   padding: 0 15px;
   margin-bottom: 30px;
+  text-align: center;
 
   @media ${breakpoints.md}{
     flex: 0 0 25%;
@@ -22,7 +23,7 @@ const Root = styled.div`
 `
 
 const Image = styled.div`
-  width: 100%;
+  width: 90%;
   max-width: 200px;
   margin-bottom: 20px;
   background: ${props => props.color};
@@ -30,6 +31,10 @@ const Image = styled.div`
   border-radius: 50%;
   overflow: hidden;
   line-height: 0;
+
+  @media ${breakpoints.md}{
+    width: 100%;
+  }
 `
 
 const Position = styled.div`
