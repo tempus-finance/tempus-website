@@ -20,6 +20,8 @@ export default function Home() {
     Events.on('faq:leaveBack', () => {
       gsap.to([body, html], {duration, backgroundColor: colors.green})
     })
+
+    gsap.to(body, {duration: 1.2, opacity: 1, delay: 0.5})
   },[])
 
   return (
