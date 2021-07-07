@@ -1,14 +1,14 @@
 title: Investors
 list:
-  - logo: images/investors/leminscap.png
+  - logo: images/investors/leminscap.svg
     alt: Lemniscap
     url: https://lemniscap.com/
 
-  - logo: images/investors/divergence.png
+  - logo: images/investors/divergence.svg
     alt: Divergence Ventures
     url: https://www.div.vc
 
-  - logo: images/investors/tomahawk.png
+  - logo: images/investors/tomahawk.svg
     alt: Tomahawk.VC
     url: https://www.tomahawk.vc/
 
@@ -16,14 +16,14 @@ list:
     alt: GSR
     url: https://www.gsr.io/
 
-  - logo: images/investors/supernova.png
+  - logo: images/investors/supernova.svg
     alt: Supernova Fund
     url: https://supernova.fund/
 
-  - logo: images/investors/wintermute.png
+  - logo: images/investors/wintermute.svg
     alt: Wintermute
     url: https://www.wintermute.com/
 
-  - logo: images/investors/launchub.png
+  - logo: images/investors/launchub.svg
     alt: LAUNCHub Ventures
     url: https://launchub.com/

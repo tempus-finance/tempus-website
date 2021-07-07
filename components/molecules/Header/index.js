@@ -1,7 +1,18 @@
-import React from 'react'
+import React, {useEffect, useRef} from 'react'
 import styled from 'styled-components'
+import {gsap} from 'gsap'
+import {Events} from 'helpers'
 
 import {Container, Cta, Logo} from 'components'
+
+import Desktop from './Desktop'
+import Mobile from './Mobile'
+
+import {breakpoints, useMediaQuery} from 'helpers/breakpoints'
+
+import {useStore} from 'store'
+
+import {colors} from 'data'
 
 const Wrapper = styled.header`
     position: fixed;
@@ -9,47 +20,68 @@ const Wrapper = styled.header`
     top: 0;
     left: 0;
     width: 100%;
-    font-size: 14px;
     z-index: 100;
+    background: ${colors.green};
 `
 const Content = styled.div`
     display: flex;
-    margin-top: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     align-items: center;
-    text-transform: uppercase;
+    justify-content: space-between;
+
+    @media ${breakpoints.md} {
+      padding-top: 40px;
+      padding-bottom: 20px;
+    }
 `
 
 const LogoWrapper = styled.div`
-    width: 180px;
+    position: relative;
+    height: 40px;
     margin-right: auto;
-`
+    z-index: 10;
 
-const Link = styled.a`
-    margin-right: 40px;
+    svg {
+      width: auto;
+      height: 100%;
+    }
 `
 
 export default React.memo(function Header(){
+  const ref = useRef()
+  const isGreen = useStore('globalVersion') === 'green'
+  const isMobileMenuActive = useStore('isMobileMenuActive')
+
+  const isMobile = useMediaQuery({
+    xs: true,
+    lg: false
+  })
+
+  const getLogoColor = () => {
+    if(isMobileMenuActive){
+      return isGreen ? colors.black : colors.white
+    }else {
+      return isGreen ? colors.white : colors.black
+    }
+  }
+
+  const logoColor = getLogoColor()
+
+  useEffect(() => {
+    const duration = 1
+    gsap.to(ref.current, {duration, backgroundColor: isGreen ? colors.green : colors.yellow})
+  }, [isGreen])
+
   return (
-    <Wrapper>
+    <Wrapper ref={ref}>
       <Container>
         <Content>
           <LogoWrapper>
-            <Logo/>
+            <Logo fill={logoColor}/>
           </LogoWrapper>
-          <Link
-            href='http://docs.tempus.finance'
-            target='_BLANK'>Documentations</Link>
-          <Link
-            href='https://t.me/tempusfinance'
-            target='_BLANK'>Community</Link>
-          <Link
-            href='https://barnbridge.com/token-bond'
-            target='_BLANK'>Governance</Link>
-          <Cta
-            href='#'
-            target='_BLANK'>
-                Launch app
-          </Cta>
+          {!isMobile && <Desktop />}
+          {isMobile && <Mobile />}
         </Content>
       </Container>
     </Wrapper>

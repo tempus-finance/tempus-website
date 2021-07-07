@@ -13,11 +13,17 @@ const Root = styled.div`
     margin: 300px auto;
   }
 `
-
-export default React.memo(function Container({children, color = 'ffffff'}){
+function Section({children, color = 'ffffff', id, ...props}, ref){
   return (
-    <Root color={color}>
+    <Root
+      ref={ref}
+      id={`section-${id}`}
+      className={props.className}
+      color={color}
+    >
       {children}
     </Root>
   )
-})
+}
+
+export default React.memo(React.forwardRef(Section))

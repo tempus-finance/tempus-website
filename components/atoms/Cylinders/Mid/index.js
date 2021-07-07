@@ -1,18 +1,18 @@
 import React, {useEffect, useRef, useMemo, useState} from 'react'
 import styled from 'styled-components'
 
-import {colors} from 'data'
-
 import useCylinderChoreography from '../useCylinderChoreography'
+import {useCylinderColor} from 'hooks'
 
 const Root = styled.svg`
   overflow: visible;
   transform: translate3d(0, 0, 0);
   opacity: 0;
+  pointer-events: none;
 `
 
 export default React.memo(function CylinderBig(props){
-  const {delay = 0, id, fill = colors.yellow, heightBig = 0, heightSmall = 30 } = props
+  const {delay = 0, id, color = 'green', heightBig = 0, heightSmall = 30, canPlayAnimation = true, delaySmall, canFloat } = props
   const resetGapSmall = 15
   const smallShiftFromSvg = 75
   const globalTransformOrigin = "130px 548px"
@@ -25,6 +25,8 @@ export default React.memo(function CylinderBig(props){
 
   const bigMaskName = useMemo(() => `mask-2-${id}`, [])
   const idBigMaskName = useMemo(() => `path-1-${id}`, [])
+
+  const fill = useCylinderColor(color)
 
   let [small] = useState({})
   let [big] = useState({})
@@ -108,7 +110,7 @@ export default React.memo(function CylinderBig(props){
       return ns
     },
     big.updatePath = function (v) {
-      let ns = this.strings.path.replaceAll("1v98.42", `${v}v${98.42 - v}`)
+      let ns = this.strings.path.replaceAll("1v98.31", `${v}v${98.31 - v}`)
       ns = ns.replaceAll("V1", `V${v}`)
       this.path.setAttribute("d", ns)
 
@@ -129,7 +131,10 @@ export default React.memo(function CylinderBig(props){
     resetGapSmall,
     smallShiftFromSvg,
     globalTransformOrigin,
-    smallTransformOrigin
+    smallTransformOrigin,
+    canPlayAnimation,
+    delaySmall,
+    canFloat
   })
 
   return (
@@ -170,7 +175,7 @@ export default React.memo(function CylinderBig(props){
             </mask>
             <path
               id="Big_path"
-              fill={fill}
+              fill={fill.bigBody}
               stroke="#000000"
               strokeWidth="2"
               d="M143.31 1v98.31c0 10.42-6.982 20.763-20.57 28.634-27.825 16.061-73.355 16.061-101.17 0-6.753-3.892-11.85-8.384-15.286-13.194C2.767 109.825 1 104.571 1 99.31h0V1h142.31z"/>
@@ -193,7 +198,7 @@ export default React.memo(function CylinderBig(props){
             id="Top_big"
             stroke="#000000"
             strokeWidth="2"
-            fill={fill}
+            fill={fill.bigTop}
             fillRule="nonzero"/>
           <g id="Small_all">
             <g
@@ -206,7 +211,7 @@ export default React.memo(function CylinderBig(props){
               </mask>
               <path
                 id="Small_path"
-                fill={fill}
+                fill={fill.smallBody}
                 stroke="#000000"
                 strokeWidth="2"
                 d="M78.99 1v15.25c0 5.64-3.813 11.223-11.18 15.484-7.653 4.42-17.739 6.616-27.819 6.616-10.08 0-20.163-2.195-27.81-6.616C4.802 27.472 1 21.89 1 16.25h0V1h77.99z"/>

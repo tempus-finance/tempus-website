@@ -1,18 +1,18 @@
 import React, {useEffect, useRef, useMemo, useState} from 'react'
 import styled from 'styled-components'
 
-import {colors} from 'data'
-
 import useCylinderChoreography from '../useCylinderChoreography'
+import {useCylinderColor} from 'hooks'
 
 const Root = styled.svg`
   overflow: visible;
   transform: translate3d(0, 0, 0);
   opacity: 0;
+  pointer-events: none;
 `
 
 export default React.memo(function CylinderBig(props){
-  const {delay = 0, id, fill = colors.yellow, heightBig = 0, heightSmall = 30 } = props
+  const {delay = 0, id, color = 'green', heightBig = 0, heightSmall = 30, canPlayAnimation = true, delaySmall, canFloat } = props
   const resetGapSmall = 23
   const smallShiftFromSvg = 80
   const globalTransformOrigin = "180px 548px"
@@ -26,8 +26,11 @@ export default React.memo(function CylinderBig(props){
   const bigMaskName = useMemo(() => `mask-2-${id}`, [])
   const idBigMaskName = useMemo(() => `path-1-${id}`, [])
 
+  const fill = useCylinderColor(color)
+
   let [small] = useState({})
   let [big] = useState({})
+
 
   useEffect(() => {
     // CREATING THE ID using a random value in useMemo,
@@ -130,7 +133,10 @@ export default React.memo(function CylinderBig(props){
     resetGapSmall,
     smallShiftFromSvg,
     globalTransformOrigin,
-    smallTransformOrigin
+    smallTransformOrigin,
+    canPlayAnimation,
+    delaySmall,
+    canFloat
   })
 
   return (
@@ -172,7 +178,7 @@ export default React.memo(function CylinderBig(props){
             <path
               id="Big_path"
               stroke="#000000"
-              fill={fill}
+              fill={fill.bigBody}
               strokeWidth="2"
               d="M252.32 1v51.42c0 9.364-3.153 18.725-9.427 27.502-6.095 8.526-15.126 16.495-27.073 23.392-49.045 28.311-129.275 28.311-178.321 0-11.941-6.872-20.967-14.832-27.06-23.35C4.156 71.182 1 61.813 1 52.46h0V1h251.32z"/>
             <path
@@ -194,7 +200,7 @@ export default React.memo(function CylinderBig(props){
             id="Top_big"
             stroke="#000000"
             strokeWidth="2"
-            fill={fill}
+            fill={fill.bigTop}
             fillRule="nonzero"/>
           <g id="Small_all">
             <g
@@ -208,7 +214,7 @@ export default React.memo(function CylinderBig(props){
               <path
                 id="Small_path"
                 stroke="#000000"
-                fill={fill}
+                fill={fill.smallBody}
                 strokeWidth="2"
                 d="M149.59 1v22.19c0 10.87-7.262 21.682-21.5 29.904-29.045 16.761-76.555 16.761-105.59 0-7.05-4.066-12.378-8.76-15.97-13.785C2.85 34.164 1 28.679 1 23.19h0V1h148.59z"/>
               <path

@@ -28,9 +28,11 @@ const CopyContainer = styled.div`
   }
 
   .subtitle {
+    margin-top: 20px;
     max-width: 90%;
 
   @media ${breakpoints.md}{
+      margin-top: 30px;
       max-width: 80%;
     }
   }
@@ -40,7 +42,7 @@ export default React.memo(function Hero () {
   const content = useContent('features')
 
   return (
-    <Section>
+    <Section id={'features'}>
       <Container>
         <Wrapper>
 

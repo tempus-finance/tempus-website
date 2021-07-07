@@ -1,9 +1,14 @@
-import React, {useRef} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import styled from 'styled-components'
 
-import {Title, Section, Container, OverlapContent} from 'components'
+import {gsap} from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-import {useContent, useSwitch} from 'hooks'
+import {Title, Section, Container, OverlapContent, Switch} from 'components'
+
+import {useContent} from 'hooks'
+import {useStore} from 'store'
+import {Events} from 'helpers'
 
 import {colors} from 'data'
 
@@ -21,12 +26,12 @@ const SwitchWrapper = styled.div`
 `
 
 export default React.memo(function Team() {
+  const ref = useRef()
   const content = useContent('faq')
   const {groups} = content
+  const setGlobalVersion = useStore('setGlobalVersion')
+  const [currentIndex, setCurrentIndex] = useState(0)
 
-  const [SwitchComponent, currentItem] = useSwitch({
-    initialState: groups[0].id
-  })
 
   const items = groups.map((el, i) => {
     return (
@@ -43,22 +48,43 @@ export default React.memo(function Team() {
       <Group
         key={i}
         data={el}
-        isActive={currentItem === el.id}/>
+        isActive={currentIndex === i}/>
     )
   })
 
+  useEffect(() => {
+    ScrollTrigger.create({
+      trigger: ref.current,
+      start: () => "top 80%",
+      onEnter: () => {
+        Events.emit('faq:enter')
+        setGlobalVersion('yellow')
+      },
+      onLeaveBack: () => {
+        Events.emit('faq:leaveBack')
+        setGlobalVersion('green')
+      },
+    })
+  }, [])
+
   return (
-    <Section color={colors.black}>
+    <Section
+      id='faq'
+      color={colors.black}
+      ref={ref}
+    >
       <Container>
         <Title color={colors.black}>{content.title}</Title>
 
         <SwitchWrapper>
-          <SwitchComponent>
+          <Switch
+            currentIndex={currentIndex}
+            setCurrentIndex={setCurrentIndex}>
             {items}
-          </SwitchComponent>
+          </Switch>
         </SwitchWrapper>
 
-        <OverlapContent>
+        <OverlapContent currentIndex={currentIndex}>
           {groupsNodes}
         </OverlapContent>
 

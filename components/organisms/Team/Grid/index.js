@@ -11,6 +11,7 @@ const Root = styled.div`
   display: flex;
   margin: 70px -15px 0 -15px;
   flex-wrap: wrap;
+  justify-content: center;
 
   pointer-events: ${props => props.isActive ? 'auto' : 'none'};
   opacity: ${props => props.isActive ? 1 : 0};

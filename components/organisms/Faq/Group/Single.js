@@ -15,11 +15,9 @@ const Root = styled.div`
 
 const Content = styled.div`
   padding-right: 35px;
-  margin-bottom: 20px;
 
   @media ${breakpoints.md}{
     padding-right: 140px;
-    margin-bottom: 30px;
   }
 `
 
@@ -44,6 +42,11 @@ const Background = styled.div`
 
 const Question = styled.div`
   position: relative;
+  padding-right: 14px;
+
+  @media ${breakpoints.md}{
+    margin-top: 14px;
+  }
 `
 
 const Answer = styled.div`
@@ -65,7 +68,7 @@ const Cross = styled.div`
   background: ${colors.white};
   border: solid 2px ${colors.black};
   background-Image: url('images/cross.svg');
-  background-size: 50% 50%;
+  background-size: 18px 18px;
   background-position: center center;
   background-repeat: no-repeat;
   border-radius: 50%;
