@@ -8,27 +8,33 @@ import Single from './Single'
 
 const Root = styled.div`
   position: absolute;
-  top: 15%;
+  top: 8%;
   right: -45%;
-  width: 170%;
+  width: 160%;
   height: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
   pointer-events: none;
 
   @media ${breakpoints.sm} {
+    left: 0;
     top: 5%;
     width: 120%;
     right: -10%;
   }
 
   @media ${breakpoints.md} {
-    width: 80%;
-    right: 0;
+    top: 15%;
+    width: 70%;
+    right: 90px;
+    left: auto;
   }
 
   @media ${breakpoints.xl} {
-    top: 3%;
-    width: 75%;
-    right: 6%;
+    top: 10%;
+    left: 0;
+    width: 90%;
+    right: -5%;
   }
 `
 
@@ -62,15 +68,15 @@ export default React.memo(function Cylinders(){
   const {row, width} = useMediaQuery({
     xs: {
       row: [5, 25],
-      width: 15
+      width: 16
     },
     md: {
       row: [8, 28],
-      width: 15
+      width: 18
     },
     xl: {
       row: [2, 22],
-      width: 13
+      width: 18
     }
   })
 
@@ -141,7 +147,7 @@ export default React.memo(function Cylinders(){
           canFloat={canFloat}
           delay={3.7}/>
         <Single
-          type='big'
+          type='mid'
           width={width}
           heightBig={180}
           heightSmall={40}

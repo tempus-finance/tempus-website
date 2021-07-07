@@ -15,31 +15,47 @@ const Root = styled.div`
     display: flex;
     width: 100%;
     height: calc(100vh - 90px);
-    margin-top: 50px;
     align-items: center;
+    margin-top: 20px;
 
     .f-h1 {
         margin-bottom: 50px;
     }
 
-    @media ${breakpoints.sd}{
+    @media ${breakpoints.sm}{
       height: calc(100vh - 90px);
-      margin-top: 0px;
+      margin-top: 50px;
     }
 
     @media ${breakpoints.md}{
       height: calc(100vh - 90px);
-      margin-top: 90px;
+      margin-top: 60px;
 
       .f-h1 {
         margin-bottom: 90px;
       }
     }
+
+    @media ${breakpoints.xl}{
+      height: calc(80vh - 90px);
+    }
 `
 
 const SocialWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+
   > a {
-    margin: 0 5px;
+    margin: 0 5px 15px 5px;
+  }
+
+  @media ${breakpoints.md}{
+    display: block;
+
+    > a {
+      margin: 0 5px;
+    }
   }
 `
 
@@ -56,10 +72,10 @@ export default React.memo(function Hero () {
         </div>
         <SocialWrapper>
           <SocialCta
-            type='discord'
+            type='telegram'
             color={colors.white} />
           <SocialCta
-            type='telegram'
+            type='discord'
             color={colors.white} />
         </SocialWrapper>
 
