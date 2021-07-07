@@ -8,5 +8,6 @@ export { default as Section } from "./Section"
 export { default as Container } from "./Container"
 export { default as SocialIcon } from "./SocialIcon"
 export { default as OverlapContent } from "./OverlapContent"
+export { default as Switch } from "./Switch"
 
 export * from './Cylinders'

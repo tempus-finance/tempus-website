@@ -1,12 +1,12 @@
-import React, {useEffect, useRef} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import styled from 'styled-components'
 
 import {gsap} from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-import {Title, Section, Container, OverlapContent} from 'components'
+import {Title, Section, Container, OverlapContent, Switch} from 'components'
 
-import {useContent, useSwitch} from 'hooks'
+import {useContent} from 'hooks'
 import {useStore} from 'store'
 import {Events} from 'helpers'
 
@@ -30,10 +30,8 @@ export default React.memo(function Team() {
   const content = useContent('faq')
   const {groups} = content
   const setGlobalVersion = useStore('setGlobalVersion')
+  const [currentIndex, setCurrentIndex] = useState(0)
 
-  const [SwitchComponent, currentItem] = useSwitch({
-    initialState: groups[0].id
-  })
 
   const items = groups.map((el, i) => {
     return (
@@ -50,14 +48,14 @@ export default React.memo(function Team() {
       <Group
         key={i}
         data={el}
-        isActive={currentItem === el.id}/>
+        isActive={currentIndex === i}/>
     )
   })
 
   useEffect(() => {
     ScrollTrigger.create({
       trigger: ref.current,
-      start: () => "top 90%",
+      start: () => "top 80%",
       onEnter: () => {
         Events.emit('faq:enter')
         setGlobalVersion('yellow')
@@ -79,12 +77,14 @@ export default React.memo(function Team() {
         <Title color={colors.black}>{content.title}</Title>
 
         <SwitchWrapper>
-          <SwitchComponent>
+          <Switch
+            currentIndex={currentIndex}
+            setCurrentIndex={setCurrentIndex}>
             {items}
-          </SwitchComponent>
+          </Switch>
         </SwitchWrapper>
 
-        <OverlapContent>
+        <OverlapContent currentIndex={currentIndex}>
           {groupsNodes}
         </OverlapContent>
 

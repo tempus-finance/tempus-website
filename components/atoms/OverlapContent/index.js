@@ -1,6 +1,7 @@
-import React, {useRef, useEffect, useLayoutEffect} from 'react'
+import React, {useRef, useEffect, useLayoutEffect, useCallback} from 'react'
 import styled from 'styled-components'
-import map from 'lodash-es/map'
+import {gsap} from 'gsap'
+import { ScrollTrigger} from 'gsap/ScrollTrigger'
 
 
 const Root = styled.div`
@@ -15,24 +16,28 @@ const Item = styled.div`
   top: 0;
 `
 
-export default React.memo(function OverlapContent({children}){
+export default React.memo(function OverlapContent({children, currentIndex = 0}){
   const ref = useRef()
   const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect
 
-  const setMaxHeight = () => {
-    const h =  Math.max(...map(ref.current.childNodes, (el,i) => el.clientHeight))
-    ref.current.style.height = h + 'px'
-  }
+  const setHeight = useCallback(() => {
+    const h = ref.current.childNodes[currentIndex].clientHeight
+
+    gsap.to(ref.current, {duration:1, height: h, ease: 'Power1.easeInOut', onComplete: () => {
+      ScrollTrigger.refresh()
+    }})
+
+  },[currentIndex])
 
   useIsomorphicLayoutEffect(() => {
-    setMaxHeight()
+    setHeight()
 
-    window.addEventListener('resize', setMaxHeight)
+    window.addEventListener('resize', setHeight)
 
     return () => {
-      window.removeEventListener('resize', setMaxHeight)
+      window.removeEventListener('resize', setHeight)
     }
-  },[])
+  },[currentIndex])
 
 
   const items = children.map((el, i) => {

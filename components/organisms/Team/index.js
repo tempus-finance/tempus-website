@@ -1,9 +1,9 @@
-import React, {useRef} from 'react'
+import React, {useRef, useState} from 'react'
 import styled from 'styled-components'
 
-import {Title, Section, Container, OverlapContent} from 'components'
+import {Title, Section, Container, OverlapContent, Switch} from 'components'
 
-import {useContent, useSwitch} from 'hooks'
+import {useContent} from 'hooks'
 
 import {colors} from 'data'
 
@@ -18,33 +18,34 @@ export default React.memo(function Team() {
   const teamRef = useRef()
   const investorsRef = useRef()
 
-  const [SwitchComponent, currentItem] = useSwitch({
-    initialState: 'team'
-  })
+  const [currentIndex, setCurrentIndex] = useState(0)
 
   return (
     <Section id='team'>
       <Container>
         <Title>{content.title}</Title>
         <SwitchWrapper>
-          <SwitchComponent>
+          <Switch
+            currentIndex={currentIndex}
+            setCurrentIndex={setCurrentIndex}
+          >
             <div data-switch='team'>Core team</div>
             <div data-switch='investors'>Angels & investors</div>
-          </SwitchComponent>
+          </Switch>
         </SwitchWrapper>
 
-        <OverlapContent>
+        <OverlapContent currentIndex={currentIndex}>
           <Grid
             ref={teamRef}
             data={content.core}
             color={colors.yellow}
-            isActive={currentItem=== 'team'}
+            isActive={currentIndex=== 0}
           />
           <Grid
             ref={investorsRef}
             data={content.investors}
             color={colors.violet}
-            isActive={currentItem=== 'investors'}
+            isActive={currentIndex=== 1}
           />
         </OverlapContent>
       </Container>

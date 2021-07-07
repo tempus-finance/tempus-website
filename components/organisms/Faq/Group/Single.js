@@ -44,6 +44,7 @@ const Background = styled.div`
 
 const Question = styled.div`
   position: relative;
+  padding-right: 14px;
 `
 
 const Answer = styled.div`
