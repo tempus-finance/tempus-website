@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 
 import {SocialIcon, Cta} from 'components'
 
@@ -12,6 +13,10 @@ const copy = {
   discord: 'Discord',
   telegram: 'Telegram',
 }
+
+const Copy = styled.div`
+  margin-left: 5px;
+`
 
 export default React.memo(function SocialCta({type = 'telegram', color = '#ffffff',}){
   const socials = useContent('socials')
@@ -27,7 +32,7 @@ export default React.memo(function SocialCta({type = 'telegram', color = '#fffff
         type={type}
         color={color}
       />
-      <span>{copy[type]}</span>
+      <Copy>{copy[type]}</Copy>
     </Cta>
   )
 })
