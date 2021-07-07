@@ -3,7 +3,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import {Events} from 'helpers'
 
-import {Header, Hero, Features, Roadmap, Team, Investors, Faq, JoinUs, Footer} from 'components'
+import {Seo, Header, Hero, Features, Roadmap, Team, Investors, Faq, JoinUs, Footer} from 'components'
 gsap.registerPlugin(ScrollTrigger)
 
 import {colors} from 'data'
@@ -24,6 +24,7 @@ export default function Home() {
 
   return (
     <>
+      <Seo />
       <Header />
       <Hero />
       <Features />
