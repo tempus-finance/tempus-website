@@ -63,7 +63,7 @@ export default React.memo(function Cta({children, onClick, type = 'primary', col
     <Btn
       {...props}
       onClick={onClick}
-      className={`--${type}`}
+      className={[`--${type}`, props.className]}
       color={color}
       background={background}
     >

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import {gsap} from 'gsap'
 import clamp from 'lodash-es/clamp'
 
-import {Container, Cta, SocialIcon} from 'components'
+import {Container, AppCta, SocialIcon} from 'components'
 import {useContent} from 'hooks'
 import {useStore} from 'store'
 
@@ -70,11 +70,12 @@ const SecondaryNav = styled.div`
   align-items: center;
   margin-top: auto;
 
-  > div {
+  /* > div {
     width: 50%;
-  }
+  } */
 
   >div:nth-child(2) {
+    margin-left: auto;
     text-align: right;
   }
 `
@@ -214,11 +215,7 @@ export default React.memo(function Mobile(){
                 </Link> */}
               </div>
               <div>
-                <Cta
-                  href='#'
-                  target='_BLANK'>
-                Launch app
-                </Cta>
+                <AppCta />
               </div>
             </SecondaryNav>
 

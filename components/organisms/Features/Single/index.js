@@ -2,7 +2,7 @@ import React, {useRef, useEffect} from 'react'
 import styled from 'styled-components'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-import {Cta} from 'components'
+import {AppCta} from 'components'
 
 import {breakpoints} from 'helpers/breakpoints'
 
@@ -82,7 +82,7 @@ export default React.memo(function Single({data, children, cylinderRef}) {
       <Subtitle>{data.subtitle}</Subtitle>
 
       <div>
-        <Cta>Launch app</Cta>
+        <AppCta />
       </div>
     </Root>
   )

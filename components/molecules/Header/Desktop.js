@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import {Container, Cta, Logo} from 'components'
+import {AppCta} from 'components'
 
 import {useStore} from 'store'
 
@@ -51,11 +51,7 @@ export default React.memo(function Desktop(){
         </li> */}
 
         <li>
-          <Cta
-            href='#'
-            target='_BLANK'>
-                Launch app
-          </Cta>
+          <AppCta />
         </li>
       </ul>
 
