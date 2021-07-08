@@ -34,7 +34,7 @@ export default React.memo(function Desktop(){
         <li>
           <Link
             href='http://docs.tempus.finance'
-            target='_BLANK'>Documentations</Link>
+            target='_BLANK'>Documentation</Link>
         </li>
 
         <li>

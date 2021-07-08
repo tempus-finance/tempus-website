@@ -204,7 +204,7 @@ export default React.memo(function Mobile(){
                 <Link>
                   <a
                     href='http://docs.tempus.finance'
-                    target='_BLANK'>Documentations</a>
+                    target='_BLANK'>Documentation</a>
                 </Link>
                 <Link>
                   <a

@@ -99,7 +99,7 @@ export default React.memo(function JoinUs() {
         <Sub>
 
           <div>
-            <div className='f-h4'>Subscribe to the newsletter </div>
+            <div className='f-h4'>Stay updated</div>
             <Desc>Get notified about major developments in Tempus.</Desc>
             <SocialCtas>
               <SocialCta
