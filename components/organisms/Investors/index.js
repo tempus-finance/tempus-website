@@ -13,6 +13,7 @@ const Content = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin: 0 -15px;
+  justify-content:center;
 `
 
 const Single = styled.a`
@@ -23,7 +24,7 @@ const Single = styled.a`
 
   @media ${breakpoints.md}{
     flex: 0 0 25%;
-    height: 180px;
+    height: 160px;
     padding: 0 15px;
     margin-bottom: 30px;
   }
@@ -43,8 +44,8 @@ const Single = styled.a`
     transition: transform 0.1s ease-in-out;
 
     img {
-      width: 100%;
-      height: 100%;
+      width: 80%;
+      height: 80%;
       object-fit: contain;
     }
 
