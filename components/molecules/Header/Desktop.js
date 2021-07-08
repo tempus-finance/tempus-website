@@ -43,11 +43,12 @@ export default React.memo(function Desktop(){
             target='_BLANK'>Community</Link>
         </li>
 
-        <li>
+        {/* TEMPORARY DISABLED */}
+        {/* <li>
           <Link
             href='https://barnbridge.com/token-bond'
             target='_BLANK'>Governance</Link>
-        </li>
+        </li> */}
 
         <li>
           <Cta

@@ -206,11 +206,12 @@ export default React.memo(function Mobile(){
                     href='http://docs.tempus.finance'
                     target='_BLANK'>Documentation</a>
                 </Link>
-                <Link>
+                {/* TEMPORARY DISABLED */}
+                {/* <Link>
                   <a
                     href='https://barnbridge.com/token-bond'
                     target='_BLANK'>Governance</a>
-                </Link>
+                </Link> */}
               </div>
               <div>
                 <Cta
