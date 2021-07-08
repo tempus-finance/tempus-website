@@ -78,10 +78,6 @@ export default React.memo(function Header(){
     gsap.to(ref.current, {duration, backgroundColor: isGreen ? colors.green : colors.yellow})
   }, [isGreen])
 
-  useEffect(() => {
-    console.log({isHeaderCompressed})
-  },[isHeaderCompressed])
-
   return (
     <Wrapper
       ref={ref}
