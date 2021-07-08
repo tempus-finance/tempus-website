@@ -12,7 +12,7 @@ const Content = styled(Container)`
     display: flex;
     margin-bottom: 30px;
     flex-direction: column;
-    color: ${colors.black};
+    color: ${colors.white};
     line-height: 2.33em;
     font-size: 12px;
     font-weight: 700;
@@ -47,10 +47,13 @@ export default React.memo(function Footer(){
         <div>
           <a
             href='#'
-            target='_BLANK'>Privacy Policy</a><span>-</span>
+            target='_BLANK'>Privacy Policy</a>
           <a
             href='#'
-            target='_BLANK'>Terms of Service</a>
+            target='_BLANK'>Terms of Service</a><span>-</span>
+          <a
+            href='mailto:contact@tempus.finance'
+          >Contact </a>
         </div>
         <Credits>
         Design

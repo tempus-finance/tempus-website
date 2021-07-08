@@ -14,20 +14,10 @@ import {colors} from 'data'
 
 export default function Home() {
   const setIsHeaderCompressed = useStore('setIsHeaderCompressed')
+  const globalVersion = useStore('globalVersion')
 
   useEffect(() => {
-    const duration = 1
-    const {body, documentElement: html } = document
-
-    Events.on('faq:enter', () => {
-      gsap.to([body, html], {duration, backgroundColor: colors.yellow})
-    })
-
-    Events.on('faq:leaveBack', () => {
-      gsap.to([body, html], {duration, backgroundColor: colors.green})
-    })
-
-    gsap.to(body, {duration: 1.2, opacity: 1, delay: 0.5})
+    gsap.to(document.body, {duration: 1.2, opacity: 1, delay: 0.5})
   },[])
 
   useEffect(() => {
@@ -42,16 +32,24 @@ export default function Home() {
     window.addEventListener('scroll', throttle(detectScroll, 300))
   }, [])
 
+  useEffect(() => {
+    const duration = 1
+    const {body, documentElement: html } = document
+    const bg = globalVersion === 'green' ? colors.green : colors.yellow
+
+    gsap.to([body, html], {duration, backgroundColor: bg})
+  },[globalVersion])
+
   return (
     <>
       <Seo />
       <Header />
       <Hero />
       <Features />
-      <Roadmap />
       <Team />
       <Faq />
       <Investors />
+      <Roadmap />
       <JoinUs />
       <Footer />
     </>

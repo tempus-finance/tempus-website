@@ -84,7 +84,7 @@ export default React.memo(function JoinUs() {
 
   return (
     <Section
-      color={colors.black}
+      color={colors.white}
       ref={ref}
       id='joinUs'
     >
@@ -104,13 +104,13 @@ export default React.memo(function JoinUs() {
             <SocialCtas>
               <SocialCta
                 type='discord'
-                color={colors.black}
-                background={colors.yellow}
+                color={colors.white}
+                background={colors.green}
               />
               <SocialCta
                 type='telegram'
-                color={colors.black}
-                background={colors.yellow}
+                color={colors.white}
+                background={colors.green}
               />
             </SocialCtas>
           </div>

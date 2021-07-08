@@ -2,12 +2,16 @@ import React, {useEffect, useRef, useState} from 'react'
 import styled from 'styled-components'
 import clamp from 'lodash-es/clamp'
 import {gsap} from 'gsap'
+import {ScrollTrigger} from 'gsap/ScrollTrigger'
 import { useDrag } from 'react-use-gesture'
 
 import { Section, Container} from 'components'
 
 import {useContent, useMaxHeight, usePrevious, useDynamicHeight} from 'hooks'
+import {useStore} from 'store'
+
 import {breakpoints} from 'helpers/breakpoints'
+import {Events} from 'helpers'
 
 import Titles from './Titles'
 import Progress from './Progress'
@@ -38,8 +42,11 @@ const TasksWrapper = styled.div`
 export default React.memo(function RoadMap() {
   const content = useContent('roadmap')
 
+  const ref = useRef()
   const tasksRef = useRef()
   const canUserChange = useRef(true)
+
+  const setGlobalVersion = useStore('setGlobalVersion')
 
   const [currentSection, setCurrentSection] = useState(0)
   const prevSection = usePrevious(currentSection)
@@ -81,8 +88,24 @@ export default React.memo(function RoadMap() {
     useTouch: true
   })
 
+  useEffect(() => {
+    ScrollTrigger.create({
+      trigger: ref.current,
+      start: () => "top 80%",
+      onEnter: () => {
+        setGlobalVersion('green')
+      },
+      onLeaveBack: () => {
+        setGlobalVersion('yellow')
+      },
+    })
+  }, [])
+
   return (
-    <Section id='roadmap'>
+    <Section
+      ref={ref}
+      id='roadmap'
+    >
       <Container>
         <div style={{ textAlign: 'center' }}>
           <div className='f-h2'>{content.title}</div>
