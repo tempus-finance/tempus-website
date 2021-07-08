@@ -61,12 +61,38 @@ export default React.memo(function Single({data, children, cylinderRef}) {
   const rootRef = useRef()
 
   useEffect(() => {
+
+    // SCROLL DOWN TRIGGERS
     ScrollTrigger.create({
       trigger: rootRef.current,
-      once: true,
       start: () => 'top 50%',
-      onEnter: () => {
-        cylinderRef?.current?.playTimeline()
+      end: () => 'bottom 10%',
+      onEnter: ({direction}) => {
+        if(direction){
+          cylinderRef?.current?.playTimeline()
+        }
+      },
+      onLeave: ({direction}) => {
+        if(direction){
+          cylinderRef?.current?.resetTimeline()
+        }
+      },
+    })
+
+    // SCROLL UP TRIGGERS
+    ScrollTrigger.create({
+      trigger: rootRef.current,
+      start: () => 'top 100%',
+      end: () => 'bottom 49%',
+      onLeaveBack: ({direction}) => {
+        if(direction < 0){
+          cylinderRef?.current?.resetTimeline()
+        }
+      },
+      onEnterBack: ({direction}) => {
+        if(direction < 0){
+          cylinderRef?.current?.playTimeline()
+        }
       }
     })
   },[])

@@ -37,6 +37,10 @@ function CylinderBig(props, ref){
     return {
       playTimeline: () => {
         tl.current.play(0)
+      },
+      resetTimeline: () => {
+        tl.current.pause()
+        tl.current.time(0)
       }
     }
   })
