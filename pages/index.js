@@ -7,7 +7,7 @@ import {useStore} from 'store'
 
 import {Events} from 'helpers'
 
-import {Seo, Header, Hero, Features, Roadmap, Team, Investors, Faq, JoinUs, Footer} from 'components'
+import {Seo, Header, Hero, Integrations, Features, Roadmap, Team, Investors, Faq, JoinUs, Footer} from 'components'
 gsap.registerPlugin(ScrollTrigger)
 
 import {colors} from 'data'
@@ -45,6 +45,7 @@ export default function Home() {
       <Seo />
       <Header />
       <Hero />
+      <Integrations />
       <Features />
       <Team />
       <Faq />
