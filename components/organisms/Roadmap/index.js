@@ -6,7 +6,7 @@ import { useDrag } from 'react-use-gesture'
 
 import { Section, Container} from 'components'
 
-import {useContent, useMaxHeight, usePrevious} from 'hooks'
+import {useContent, useMaxHeight, usePrevious, useDynamicHeight} from 'hooks'
 import {breakpoints} from 'helpers/breakpoints'
 
 import Titles from './Titles'
@@ -28,7 +28,6 @@ const TasksWrapper = styled.div`
   position: relative;
   width: 100%;
   margin: 30px auto 0 auto;
-  height: ${props => props.height + 'px'};
 
   @media ${breakpoints.md}{
     width: 70%;
@@ -47,7 +46,7 @@ export default React.memo(function RoadMap() {
   const direction = currentSection - prevSection
   const amountSections = content.sections.length
 
-  const heightTasks = useMaxHeight(tasksRef)
+  useDynamicHeight(tasksRef, currentSection)
 
   const taskGroupsNodes = content.sections.map((el, i) => {
     return (
@@ -104,7 +103,6 @@ export default React.memo(function RoadMap() {
 
           <TasksWrapper
             ref={tasksRef}
-            height={heightTasks}
           >
             {taskGroupsNodes}
           </TasksWrapper>
