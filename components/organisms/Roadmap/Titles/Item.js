@@ -14,11 +14,11 @@ const Root = styled.div`
   font-size: 60px;
   line-height: normal;
   opacity: ${props => props.isActive ? 1 : 0};
-  font-size: calc(50px + (200 - 50) * ((100vw - 320px) / (2000 - 320)));
+  font-size: calc(50px + (160 - 50) * ((100vw - 320px) / (2000 - 320)));
   pointer-events: none;
 
   @media ${breakpoints.xl}{
-    font-size: 200px;
+    font-size: 160px;
   }
 `
 

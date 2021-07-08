@@ -5,7 +5,7 @@ import {colors} from 'data'
 
 const Root = styled.div`
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
   color: ${props => props.color};
 `
 

@@ -85,7 +85,7 @@ export default React.memo(function RoadMap() {
     <Section id='roadmap'>
       <Container>
         <div style={{ textAlign: 'center' }}>
-          <div className='f-h3'>{content.title}</div>
+          <div className='f-h2'>{content.title}</div>
           <Launch>🚀 &nbsp; Launching in Q4 2021 &nbsp; 🚀</Launch>
         </div>
 

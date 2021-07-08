@@ -7,7 +7,6 @@ import {breakpoints} from 'helpers/breakpoints'
 
 import Item from './Item'
 
-
 const Root = styled.div`
   position: relative;
   width: 70%;

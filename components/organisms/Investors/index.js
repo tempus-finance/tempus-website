@@ -54,9 +54,6 @@ const Single = styled.a`
       }
     }
 
-
-
-
     &:before {
       content:'';
       position: absolute;
