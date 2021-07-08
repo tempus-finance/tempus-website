@@ -44,10 +44,18 @@ const Single = styled.a`
     transition: transform 0.1s ease-in-out;
 
     img {
-      width: 80%;
-      height: 80%;
+      width: 90%;
+      height: 90%;
       object-fit: contain;
+
+      @media ${breakpoints.md}{
+        width: 80%;
+        height: 80%;
+      }
     }
+
+
+
 
     &:before {
       content:'';
