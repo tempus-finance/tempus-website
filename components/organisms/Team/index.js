@@ -29,8 +29,8 @@ export default React.memo(function Team() {
             currentIndex={currentIndex}
             setCurrentIndex={setCurrentIndex}
           >
-            <div data-switch='team'>Core team</div>
-            <div data-switch='investors'>Angels & investors</div>
+            <div data-switch='team'>Core Team</div>
+            <div data-switch='investors'>Angels & Advisors</div>
           </Switch>
         </SwitchWrapper>
 
