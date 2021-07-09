@@ -28,7 +28,7 @@ const Arrow = styled.div`
   border: solid 2px ${colors.black};
   cursor: ${props => props.isActive ? 'pointer' : 'auto'};
   opacity: ${props => props.isActive ? '1' : '0.5'};
-  transition: opacity 0.6s;
+  transition: opacity 0.6s, transform 0.1s;
   border-radius: 50%;
   transform-style: preserve-3d;
 
@@ -59,6 +59,7 @@ const Arrow = styled.div`
     bottom: -2px;
     border-radius: 50%;
     border: solid 2px ${colors.black};
+    transition: transform 0.1s;
   }
 
   &.isActive {
