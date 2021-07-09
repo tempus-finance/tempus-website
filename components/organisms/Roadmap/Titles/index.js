@@ -7,6 +7,8 @@ import {breakpoints} from 'helpers/breakpoints'
 
 import Item from './Item'
 
+import {colors} from 'data'
+
 const Root = styled.div`
   position: relative;
   width: 70%;
@@ -15,22 +17,61 @@ const Root = styled.div`
   height: ${props => props.height + 'px'};
 `
 
-const Arrow = styled.img`
+const Arrow = styled.div`
   position: absolute;
   width: 36px;
   height: 36px;
   left: -50px;
   top: 50%;
-  transform: translateY(-50%) rotate(180deg);
+  transform: translateY(-50%);
+  background: ${colors.white};
+  border: solid 2px ${colors.black};
   cursor: ${props => props.isActive ? 'pointer' : 'auto'};
   opacity: ${props => props.isActive ? '1' : '0.5'};
   transition: opacity 0.6s;
+  border-radius: 50%;
+  transform-style: preserve-3d;
+
+  img {
+    position: absolute;
+    width: 24px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(180deg);
+  }
 
   &.isRight {
     left: auto;
     right: -50px;
-    transform: translateY(-50%) rotate(0);
+    transform: translateY(-50%);
+
+    img {
+      transform: translate(-50%, -50%) rotate(0);
+    }
   }
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 50%;
+    border: solid 2px ${colors.black};
+  }
+
+  &.isActive {
+    &:hover:not(:active) {
+      transform: translateY(-50%) translate(-4px, -4px);
+
+      &:before {
+        transform: translate3D(4px, 4px, -1px);
+      }
+    }
+  }
+
+
 
   @media ${breakpoints.md}{
     width: 50px;
@@ -47,7 +88,8 @@ const Arrow = styled.img`
 export default React.memo(function Titles({sections, currentSection, onClick, direction}){
   const ref = useRef()
   const heightTitles = useMaxHeight(ref)
-  const isLastSection = currentSection === sections.length - 1
+  const isRightActive = currentSection < sections.length - 1
+  const isLeftActive = currentSection > 0
 
   const titleNodes = sections.map((el, i) => {
     return (
@@ -68,16 +110,19 @@ export default React.memo(function Titles({sections, currentSection, onClick, di
     >
 
       <Arrow
-        src='images/icons/arrow.svg'
+        className={isLeftActive && 'isActive'}
         onClick={() => onClick(-1)}
-        isActive={currentSection > 0}
-      />
+        isActive={isLeftActive}
+      >
+        <img src='images/icons/arrow.svg' />
+      </Arrow>
       <Arrow
-        src='images/icons/arrow.svg'
-        className='isRight'
+        className={['isRight', isRightActive && 'isActive']}
         onClick={() => onClick(1)}
-        isActive={!isLastSection}
-      />
+        isActive={isRightActive}
+      >
+        <img src='images/icons/arrow.svg' />
+      </Arrow>
 
       {titleNodes}
     </Root>

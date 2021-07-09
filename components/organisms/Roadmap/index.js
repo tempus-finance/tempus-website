@@ -7,11 +7,10 @@ import { useDrag } from 'react-use-gesture'
 
 import { Section, Container} from 'components'
 
-import {useContent, useMaxHeight, usePrevious, useDynamicHeight} from 'hooks'
+import {useContent, usePrevious, useDynamicHeight} from 'hooks'
 import {useStore} from 'store'
 
 import {breakpoints} from 'helpers/breakpoints'
-import {Events} from 'helpers'
 
 import Titles from './Titles'
 import Progress from './Progress'
