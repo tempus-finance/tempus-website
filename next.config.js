@@ -23,8 +23,8 @@ module.exports = withTM({
   async exportPathMap() {
     const routes = {
       '/': { page: '/' },
-      '/privacy': { page: '/privacy' },
-      '/terms': { page: '/terms' },
+      '/privacy-policy': { page: '/privacy-policy' },
+      '/terms-of-service': { page: '/terms-of-service' },
     }
 
     return routes
