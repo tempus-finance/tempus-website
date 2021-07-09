@@ -34,7 +34,7 @@ const Arrow = styled.div`
 
   img {
     position: absolute;
-    width: 24px;
+    width: 16px;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%) rotate(180deg);
@@ -80,6 +80,10 @@ const Arrow = styled.div`
     &.isRight {
     left: auto;
       right: -50px;
+    }
+
+    img {
+      width: 24px;
     }
   }
 `
