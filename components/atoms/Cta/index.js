@@ -51,7 +51,9 @@ const Btn = styled.a`
     }
 
     &:hover {
+      text-decoration: none;
       transform: translate(-4px, -4px);
+
       &:before {
         transform: translate3D(4px, 4px, -1px);
       }
