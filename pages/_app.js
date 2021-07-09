@@ -6,6 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import throttle from 'lodash-es/throttle'
 import {useStore} from 'store'
 import {Header, Footer} from 'components'
+import { useRouter } from 'next/router'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -15,9 +16,12 @@ function MyApp({ Component, pageProps }) {
   const setIsHeaderCompressed = useStore('setIsHeaderCompressed')
   const globalVersion = useStore('globalVersion')
 
+  const router = useRouter()
 
   useEffect(() => {
-    gsap.to(document.body, {duration: 1.2, opacity: 1, delay: 0.5})
+    const delay = router.asPath.includes('/#') ? 2 : 0.5
+
+    gsap.to(document.body, {duration: 1.2, opacity: 1, delay})
   },[])
 
   useEffect(() => {

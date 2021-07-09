@@ -55,11 +55,16 @@ const Nav = styled.nav`
   }
 `
 
-const Internal = styled.span`
+const Internal = styled.a`
   font-size: 40px;
   font-size: calc(40px + (74 - 40) * ((100vw - 380px) / (800 - 380)));
   margin-top: 12px;
   line-height: 1.19em;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
 `
 
 const Link = styled.div`
@@ -113,18 +118,26 @@ export default React.memo(function Mobile(){
   },[isActive])
 
   const onClick = (e) => {
+    e.preventDefault()
+
     if(e.target.dataset?.anchor){
-      setIsMobileMenuActive(false)
-
       const el = document.getElementById(e.target.dataset?.anchor)
-      const dest = el.offsetTop - 150
-      const o = {p: window.scrollY}
-      let duration = Math.abs(window.scrollY - dest) * 0.0012
-      duration = clamp(duration, 0.2, 3)
 
-      scrollTween.current = gsap.to(o, {duration,  delay: 0.3, p:dest, ease: 'Power3.easeOut', onUpdate: () => {
-        window.scrollTo(0, o.p)
-      }})
+      if(el) {
+        // SCROLL TO
+        setIsMobileMenuActive(false)
+
+        const dest = el.offsetTop - 150
+        const o = {p: window.scrollY}
+        let duration = Math.abs(window.scrollY - dest) * 0.0012
+        duration = clamp(duration, 0.2, 3)
+
+        scrollTween.current = gsap.to(o, {duration,  delay: 0.3, p:dest, ease: 'Power3.easeOut', onUpdate: () => {
+          window.scrollTo(0, o.p)
+        }})
+      }else {
+        window.location.href = "/#" + e.target.dataset?.anchor
+      }
     }
   }
 
