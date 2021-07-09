@@ -46,8 +46,8 @@ export default React.memo(function Footer(){
     <footer>
       <Content>
         <div>
-          <a href='/privacy'>Privacy Policy</a><span>-</span>
-          <a href='/terms'>Terms of Service</a><span>-</span>
+          <a href='/privacy-policy'>Privacy Policy</a><span>-</span>
+          <a href='/terms-of-service'>Terms of Service</a><span>-</span>
           <a
             href='mailto:contact@tempus.finance'
           >Contact </a>
