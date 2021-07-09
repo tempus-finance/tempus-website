@@ -2,6 +2,8 @@ import React, {useEffect, useRef} from 'react'
 import styled from 'styled-components'
 import {gsap} from 'gsap'
 
+import {Html} from 'components'
+
 import {useMediaQuery, breakpoints} from 'helpers/breakpoints'
 
 import {colors} from 'data'
@@ -56,6 +58,14 @@ const Answer = styled.div`
 
   div {
     padding-top: 16px;
+  }
+
+  ol li {
+    margin-bottom: 10px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 `
 
@@ -123,7 +133,7 @@ export default React.memo(function Single({data, id, onClick, isActive}){
         <Background ref={background} />
         <Question>{data.title}</Question>
         <Answer ref={answer}>
-          <div>{data.description}</div>
+          <div><Html>{data.description}</Html></div>
         </Answer>
       </Content>
 
