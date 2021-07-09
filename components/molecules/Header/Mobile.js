@@ -88,7 +88,7 @@ const SecondaryNav = styled.div`
   }
 `
 
-const Socials = styled.ul`
+const Socials = styled.div`
   display: flex;
   width: 100%;
   justify-content:space-between;
