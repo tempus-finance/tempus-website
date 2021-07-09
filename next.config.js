@@ -4,7 +4,7 @@ const withTM = require('next-transpile-modules')(['gsap', 'lodash-es'])
 module.exports = withTM({
   reactStrictMode: true,
   trailingSlash: true,
-  
+
   webpack(config) {
     const newConfig = config
 
@@ -23,6 +23,8 @@ module.exports = withTM({
   async exportPathMap() {
     const routes = {
       '/': { page: '/' },
+      '/privacy': { page: '/privacy' },
+      '/terms': { page: '/terms' },
     }
 
     return routes

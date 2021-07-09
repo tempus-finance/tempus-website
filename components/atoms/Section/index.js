@@ -6,20 +6,21 @@ import {breakpoints} from 'helpers/breakpoints'
 const Root = styled.div`
   position: relative;
   width: 100%;
-  margin: 200px auto;
+  margin: ${props => props.small ? '140px auto' : '200px auto'};
   color: ${props => props.color};
 
   @media ${breakpoints.md}{
-    margin: 300px auto;
+    margin: ${props => props.small ? '220px auto' : '300px auto'};
   }
 `
-function Section({children, color = 'ffffff', id, ...props}, ref){
+function Section({children, small = false, color = 'ffffff', id, ...props}, ref){
   return (
     <Root
       ref={ref}
       id={`section-${id}`}
-      className={props.className}
+      className={[props.className, 'section']}
       color={color}
+      small={small}
     >
       {children}
     </Root>

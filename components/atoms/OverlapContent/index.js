@@ -1,10 +1,7 @@
-import React, {useRef, useEffect, useLayoutEffect, useCallback} from 'react'
+import React, {useRef} from 'react'
 import styled from 'styled-components'
-import {gsap} from 'gsap'
-import { ScrollTrigger} from 'gsap/ScrollTrigger'
 
 import {useDynamicHeight} from 'hooks'
-
 
 const Root = styled.div`
   position:relative;

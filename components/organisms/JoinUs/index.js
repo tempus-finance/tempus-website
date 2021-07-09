@@ -2,11 +2,10 @@ import React, {useRef, useState, useEffect} from 'react'
 import styled from 'styled-components'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
 
-import {Section as Scn, Container, Cta, SocialIcon, SocialCta} from 'components'
+import {Section as Scn, Container, Cta, SocialCta} from 'components'
 
 import Cylinders from './Cylinders'
 
-import {useContent} from 'hooks'
 import {breakpoints} from 'helpers/breakpoints'
 
 import {colors} from 'data'

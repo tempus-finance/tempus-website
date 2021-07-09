@@ -1,7 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react'
 import styled from 'styled-components'
 
-import {gsap} from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 import {Title, Section, Container, OverlapContent, Switch} from 'components'

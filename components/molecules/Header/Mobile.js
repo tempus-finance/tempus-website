@@ -49,6 +49,9 @@ const Nav = styled.nav`
   ul {
     display: flex;
     flex-direction: column;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
   }
 `
 

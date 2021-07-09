@@ -1,8 +1,6 @@
 import React, {useMemo} from 'react'
 import styled from 'styled-components'
 
-import {breakpoints} from 'helpers/breakpoints'
-
 import Single from '../Single'
 
 import {colors} from 'data'

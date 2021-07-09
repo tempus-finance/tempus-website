@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 import React from 'react'
 import styled from 'styled-components'
 
@@ -45,12 +46,8 @@ export default React.memo(function Footer(){
     <footer>
       <Content>
         <div>
-          <a
-            href='#'
-            target='_BLANK'>Privacy Policy</a>
-          <a
-            href='#'
-            target='_BLANK'>Terms of Service</a><span>-</span>
+          <a href='/privacy'>Privacy Policy</a><span>-</span>
+          <a href='/terms'>Terms of Service</a><span>-</span>
           <a
             href='mailto:contact@tempus.finance'
           >Contact </a>

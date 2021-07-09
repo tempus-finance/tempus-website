@@ -45,7 +45,7 @@ export default React.memo(function AppCta(){
 
   return (
     <Root
-      href={false}
+      // href={false}
       className={isMobile ? 'isMobile' : 'isDesktop'}
       target='_BLANK'>
       <span>{copy}</span>

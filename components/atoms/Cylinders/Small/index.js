@@ -1,8 +1,6 @@
 import React, {useEffect, useRef, useMemo, useState} from 'react'
 import styled from 'styled-components'
 
-import {colors} from 'data'
-
 import useCylinderChoreography from '../useCylinderChoreography'
 import {useCylinderColor} from 'hooks'
 

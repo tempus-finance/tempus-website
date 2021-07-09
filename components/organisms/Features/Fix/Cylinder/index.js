@@ -15,7 +15,7 @@ function CylinderBig(props, ref){
   const id = 'fix'
   const color = 'green'
   const resetGapSmall = 23
-  const smallShiftFromSvg = 80
+  // const smallShiftFromSvg = 80
   const globalTransformOrigin = "180px 348px"
   const smallTransformOrigin = "130px 280px"
 
