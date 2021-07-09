@@ -9,8 +9,8 @@ groups:
         description: |
           Tempus allows users to deposit various yield bearing tokens (YBT) such as stETH (Lido Staked ETH) or aDAI (Aave Interest Bearing Dai) into contracts with select maturities. For ease, users will also be allowed to deposit the Backing Token (BT) such as ETH for direct deposit onto another platform through Tempus.<br /> Tempus then separates the YBT into a Tempus Principal Share (TPS) and Tempus Yield Share (TYS) and allows users to:
             <ol>
-              <li>trade them against each other through an AMM - users can swap back and forth between TPS and TYS for a profit, sell all your TYS to hold only TPS for yield farming at a fixed rate, or play around with the TPS/TYS ratio to get an alternative exposure to the underlying yield</li>
-              <li>provide liquidity to earn additional yield. </li>
+              <li>Trade them against each other through an AMM - users can swap back and forth between TPS and TYS for a profit, sell all your TYS to hold only TPS for yield farming at a fixed rate, or play around with the TPS/TYS ratio to get an alternative exposure to the underlying yield</li>
+              <li>Provide liquidity to earn additional yield. </li>
             </ol>
       - title: How do I join the Tempus community?
         description: You can join our Discord or Telegram, follow us on Twitter or subscribe to our Medium.
