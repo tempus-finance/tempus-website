@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
 import {breakpoints} from 'helpers/breakpoints'
 
@@ -62,7 +62,7 @@ const SocialWrapper = styled.div`
 export default React.memo(function Hero () {
   const {tagline} = useContent('hero')
 
-  const [canPlayAnimation, setCanPlayAnimation] = useState(false)
+  const [canPlayAnimation] = useState(false)
 
   return (
     <Root id='section-hero' >

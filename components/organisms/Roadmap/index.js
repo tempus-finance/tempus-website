@@ -2,11 +2,14 @@ import React, {useEffect, useRef, useState} from 'react'
 import styled from 'styled-components'
 import clamp from 'lodash-es/clamp'
 import {gsap} from 'gsap'
+import {ScrollTrigger} from 'gsap/ScrollTrigger'
 import { useDrag } from 'react-use-gesture'
 
 import { Section, Container} from 'components'
 
-import {useContent, useMaxHeight, usePrevious} from 'hooks'
+import {useContent, usePrevious, useDynamicHeight} from 'hooks'
+import {useStore} from 'store'
+
 import {breakpoints} from 'helpers/breakpoints'
 
 import Titles from './Titles'
@@ -28,7 +31,6 @@ const TasksWrapper = styled.div`
   position: relative;
   width: 100%;
   margin: 30px auto 0 auto;
-  height: ${props => props.height + 'px'};
 
   @media ${breakpoints.md}{
     width: 70%;
@@ -39,15 +41,18 @@ const TasksWrapper = styled.div`
 export default React.memo(function RoadMap() {
   const content = useContent('roadmap')
 
+  const ref = useRef()
   const tasksRef = useRef()
   const canUserChange = useRef(true)
+
+  const setGlobalVersion = useStore('setGlobalVersion')
 
   const [currentSection, setCurrentSection] = useState(0)
   const prevSection = usePrevious(currentSection)
   const direction = currentSection - prevSection
   const amountSections = content.sections.length
 
-  const heightTasks = useMaxHeight(tasksRef)
+  useDynamicHeight(tasksRef, currentSection)
 
   const taskGroupsNodes = content.sections.map((el, i) => {
     return (
@@ -82,11 +87,27 @@ export default React.memo(function RoadMap() {
     useTouch: true
   })
 
+  useEffect(() => {
+    ScrollTrigger.create({
+      trigger: ref.current,
+      start: () => "top 80%",
+      onEnter: () => {
+        setGlobalVersion('green')
+      },
+      onLeaveBack: () => {
+        setGlobalVersion('yellow')
+      },
+    })
+  }, [])
+
   return (
-    <Section id='roadmap'>
+    <Section
+      ref={ref}
+      id='roadmap'
+    >
       <Container>
         <div style={{ textAlign: 'center' }}>
-          <div className='f-h3'>{content.title}</div>
+          <div className='f-h2'>{content.title}</div>
           <Launch>🚀 &nbsp; Launching in Q4 2021 &nbsp; 🚀</Launch>
         </div>
 
@@ -104,7 +125,6 @@ export default React.memo(function RoadMap() {
 
           <TasksWrapper
             ref={tasksRef}
-            height={heightTasks}
           >
             {taskGroupsNodes}
           </TasksWrapper>

@@ -1,59 +1,54 @@
-import {useEffect} from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import throttle from 'lodash-es/throttle'
-import {useStore} from 'store'
+import { useEffect, useRef } from 'react'
+import { useRouter } from 'next/router'
+import {gsap} from 'gsap'
+import clamp from 'lodash-es/clamp'
 
-
-import {Events} from 'helpers'
-
-import {Seo, Header, Hero, Features, Roadmap, Team, Investors, Faq, JoinUs, Footer} from 'components'
-gsap.registerPlugin(ScrollTrigger)
-
-import {colors} from 'data'
+import {Seo, Hero, Integrations, Features, Roadmap, Team, Investors, Faq, JoinUs} from 'components'
 
 export default function Home() {
-  const setIsHeaderCompressed = useStore('setIsHeaderCompressed')
+  const scrollTween = useRef()
+  const router = useRouter()
+
 
   useEffect(() => {
-    const duration = 1
-    const {body, documentElement: html } = document
 
-    Events.on('faq:enter', () => {
-      gsap.to([body, html], {duration, backgroundColor: colors.yellow})
-    })
-
-    Events.on('faq:leaveBack', () => {
-      gsap.to([body, html], {duration, backgroundColor: colors.green})
-    })
-
-    gsap.to(body, {duration: 1.2, opacity: 1, delay: 0.5})
-  },[])
-
-  useEffect(() => {
-    const detectScroll = () => {
-      if(window.scrollY > 100) {
-        setIsHeaderCompressed(true)
-      }else {
-        setIsHeaderCompressed(false)
+    if(router.asPath.includes('/#')){
+      let i = router.asPath.replace('/#', '')
+      const el = document.getElementById(i)
+      if(el){
+        setTimeout(() => {
+          window.scrollTo(0, el.offsetTop - 150)
+        }, 1000)
       }
     }
+  },[router])
 
-    window.addEventListener('scroll', throttle(detectScroll, 300))
-  }, [])
+  useEffect(() => {
+    // KILL SCROLL IF USER INTERACTS
+    const kill = () => {
+      scrollTween.current?.kill()
+    }
+
+    window.addEventListener("wheel", kill)
+    window.addEventListener("touchmove", kill)
+
+    return () => {
+      window.removeEventListener('wheel', kill)
+      window.removeEventListener('touchmove', kill)
+    }
+  },[])
 
   return (
     <>
       <Seo />
-      <Header />
       <Hero />
+      <Integrations />
       <Features />
-      <Roadmap />
       <Team />
       <Faq />
       <Investors />
+      <Roadmap />
       <JoinUs />
-      <Footer />
     </>
   )
 }

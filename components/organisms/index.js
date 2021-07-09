@@ -5,3 +5,6 @@ export { default as Team } from "./Team"
 export { default as Investors } from "./Investors"
 export { default as Faq } from "./Faq"
 export { default as JoinUs } from "./JoinUs"
+
+export { default as BasicPageLayout } from "./BasicPageLayout"
+

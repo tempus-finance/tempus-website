@@ -17,7 +17,7 @@ const Root = styled.div`
 
 export default React.memo(function Container({children, ...props}){
   return (
-    <Root className={props.className}>
+    <Root className={[props.className, 'container']}>
       {children}
     </Root>
   )

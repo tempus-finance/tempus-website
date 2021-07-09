@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 import React from 'react'
 import styled from 'styled-components'
 
@@ -12,7 +13,7 @@ const Content = styled(Container)`
     display: flex;
     margin-bottom: 30px;
     flex-direction: column;
-    color: ${colors.black};
+    color: ${colors.white};
     line-height: 2.33em;
     font-size: 12px;
     font-weight: 700;
@@ -45,12 +46,11 @@ export default React.memo(function Footer(){
     <footer>
       <Content>
         <div>
+          <a href='/privacy-policy'>Privacy Policy</a><span>-</span>
+          <a href='/terms-of-service'>Terms of Service</a><span>-</span>
           <a
-            href='#'
-            target='_BLANK'>Privacy Policy</a><span>-</span>
-          <a
-            href='#'
-            target='_BLANK'>Terms of Service</a>
+            href='mailto:contact@tempus.finance'
+          >Contact </a>
         </div>
         <Credits>
         Design

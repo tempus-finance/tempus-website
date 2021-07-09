@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import {Container, Cta, Logo} from 'components'
+import {AppCta} from 'components'
 
 import {useStore} from 'store'
 
@@ -15,6 +15,9 @@ const Nav = styled.nav`
   ul {
     display: flex;
     align-items: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
   }
 `
 
@@ -34,7 +37,7 @@ export default React.memo(function Desktop(){
         <li>
           <Link
             href='http://docs.tempus.finance'
-            target='_BLANK'>Documentations</Link>
+            target='_BLANK'>Documentation</Link>
         </li>
 
         <li>
@@ -43,18 +46,15 @@ export default React.memo(function Desktop(){
             target='_BLANK'>Community</Link>
         </li>
 
-        <li>
+        {/* TEMPORARY DISABLED */}
+        {/* <li>
           <Link
             href='https://barnbridge.com/token-bond'
             target='_BLANK'>Governance</Link>
-        </li>
+        </li> */}
 
         <li>
-          <Cta
-            href='#'
-            target='_BLANK'>
-                Launch app
-          </Cta>
+          <AppCta />
         </li>
       </ul>
 

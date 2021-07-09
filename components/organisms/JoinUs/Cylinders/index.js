@@ -1,11 +1,9 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
 import {breakpoints, useMediaQuery} from 'helpers/breakpoints'
 
 import {CylinderBig, CylinderMid, CylinderSmall} from 'components'
-
-import {colors} from 'data'
 
 const Single = styled.div`
   position: absolute;

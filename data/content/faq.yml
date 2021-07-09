@@ -1,78 +1,51 @@
-title: Faq
+title: FAQ
 groups:
   - id: general
     title: General
     items:
       - title: What is Tempus?
-        description: Tempus is a trustless and decentralized protocol that allows speculation on yield for profit including fixing your future yield for a period of time.
-      - title: What blockchain is Tempus deployed on?
-        description: Tempus will be deployed on Ethereum mainnet. However, we will be monitoring demand to explore deployment on other blockchains.
-      - title: What problem does Tempus aim to solve?
-        description: Currently most yield you can get in DeFi is a form of variable rate yield. Tempus allows users to either fix this yield or speculate on it for profit.
+        description: Tempus is a trustless and decentralized protocol that allows speculation on yield for profit, or optimizing your future yield based on your risk appetite. Tempus also functions as a yield aggregation tool that aims to deliver additional APY on yield bearing tokens (YBT).
       - title: How does Tempus work?
-        description: Tempus allows users to deposit various yield bearing tokens (YBT) such as stETH (Lido Staked ETH) or aDAI (Aave Interest Bearing Dai) into contracts with select maturities. Tempus then separates the YBT into a Tempus Principal Share (TPS) and Tempus Yield Share (TYS) and allows users to trade them against each other through an AMM. The weighted ratio between the TPS and the TYS in the AMM determines the market implied yield. Users can swap back and forth between TPS and TYS for a profit. You can also sell all you TYS to hold only TPS for yield farming at a fixed rate.
-      - title: Will there be a token for Tempus?
-        description: Yes - details to be announced by the end of Q3 2021.
-      - title: What is an interest rate derivative?
-        description: An interest rate derivative is a financial instrument whose value is linked to the movements of an interest rate or rates.
+        description: |
+          Tempus allows users to deposit various yield bearing tokens (YBT) such as stETH (Lido Staked ETH) or aDAI (Aave Interest Bearing Dai) into contracts with select maturities. For ease, users will also be allowed to deposit the Backing Token (BT) such as ETH for direct deposit onto another platform through Tempus.<br /> Tempus then separates the YBT into a Tempus Principal Share (TPS) and Tempus Yield Share (TYS) and allows users to:
+            <ol>
+              <li>trade them against each other through an AMM - users can swap back and forth between TPS and TYS for a profit, sell all your TYS to hold only TPS for yield farming at a fixed rate, or play around with the TPS/TYS ratio to get an alternative exposure to the underlying yield</li>
+              <li>provide liquidity to earn additional yield. </li>
+            </ol>
+      - title: How do I join the Tempus community?
+        description: You can join our Discord or Telegram, follow us on Twitter or subscribe to our Medium.
+
+  - id: primitives
+    title: Primitives
+    items:
       - title: What are yield bearing tokens (YBT)?
         description: Yield bearing tokens (YBT) are derivatives that appreciate in value as a result of their participation in some form of yield farming. Some examples of YBT are aDai (Aave Interest Bearing Dai), XSushi (staked Sushi) or stETH (Lido staked ETH).
       - title: What is a Tempus Principal Share (TPS)?
         description: The Tempus Principal Share is split out of YBT together with the Tempus Yield Share (TYS). The TPS is a zero-coupon bond that is redeemable for face value on maturity.
       - title: What is Tempus Yield Share (TYS)?
         description: The Tempus Yield Share is split out of YBT together with the Tempus Principal Share (TPS). The TYS is a zero-coupon bond that is redeemable for the amount of yield that accrues on each unit of TPS on maturity.
-      - title: What are the fees for using Tempus?
-        description: Tempus does not charge any fees on its own. However, there are some two kinds of fees that users pay. The first one is swap fees, all of which go to liquidity providers (LPs) who provide liquidity to each TempusAMM. The second one is gas fees you generally pay on the Ethereum network.
+
+  - id: rates
+    title: Rates
+    items:
       - title: How are rates on Tempus determined?
-        description: The exchange rate between the TPS and the TYS in each TempusAMM determines the market implied APY.
-      - title: What tokens/pairs are available on Tempus?
-        description: Tempus will first integrate with Lido (stETH) and Aave (aDai, aUSDC), but we are always working on further integrations. Please join our Discord or Telegram for updates.
-      - title: Will new pairs be added in the future?
+        description: The exchange rate (ratio of reserves on both sides) between the TPS and the TYS in each TempusAMM determines the market implied APY for each pool.
+      - title: What are the fees for using Tempus?
+        description: Tempus does not charge any protocol fees. However, there are some two kinds of fees that users pay. The first one is swap fees, all of which go to liquidity providers (LPs) who provide liquidity to each TempusAMM. The second one is gas fees you generally pay for using the Ethereum network.
+
+  - id: integrations
+    title: Integrations
+    items:
+      - title: What tokens are available on Tempus?
+        description: Tempus will first integrate with Lido, Aave and Compound, but we are always working on further integrations. Please join our Discord or Telegram for updates.
+      - title: Will new tokens be added in the future?
         description: Yes, we will be monitoring demand for new integrations and will be introducing new pairs. Please join our Discord or Telegram for updates.
-      - title: Are you considering L2 as a possible solution for improving gas fee efficiency?
-        description: Tempus relies on integrations with other protocols with significant liquidity. Currently, most of this liquidity is on Ethereum mainnet. However, we are always monitoring demand for a deployment on various sidechains and L2. Please join our Discord or Telegram for updates.
-      - title: How do I join the Tempus community?
-        description: You can join our Discord or Telegram, follow us on Twitter or subscribe to our Medium.
-
-
-  - id: token
-    title: Token
-    items:
-      - title: What is TEMP?
-        description: TEMP is the native ERC-20 token of the Tempus Protocol. The TEMP token is scheduled to launch in Q4 2021. Please join our Discord or Telegram for updates..
-      - title: What is the purpose of TEMP?
-        description: The purpose of the TEMP token is to create an independent and autonomous network which rewards and incentivizes its users.
-      - title: What are the different features of TEMP?
-        description: We will be releasing more details closer to the token launch date. Please join our Discord or Telegram for updates.
-
-
-  - id: earn
-    title: Earn
-    items:
-      - title: What liquidity incentives are available on Tempus?
-        description: Tempus will incentivise early adopters and users of the protocol via liquidity mining. More details will be published before our mainnet launch. Please join our Discord or Telegram for updates.
-      - title: Is there a minimum deposit limit on Tempus?
-        description: There isn’t - you can deposit as little as you like. However, trading very small amounts may be inefficient if gas fees are high.
-
-  - id: trade
-    title: Trade
-    items:
-      - title: What are the benefits of trading the TPS - TYS tokens?
-        description: The YBT deposited by users are separated into Tempus Principal Share (TPS) and Tempus Yield Share (TYS). Users are allowed to trade them against each other through the TempusAMM. The weighted ratio between the TPS and the TYS in the AMM determines the market implied yield. Users can swap back and forth between TPS and TYS for a profit.
-
-  - id: fix
-    title: Fix
-    items:
-      - title: How can I earn a fixed yield on Tempus?
-        description: If you are holding tokens like ETH or DAI, you can deposit them to Tempus to earn a fixed yield on them. Tempus generates yield on top of your tokens by depositing them to another protocol on your behalf (such as Aave or Lido), dividing them into TPS and TYS. The smart contract then swaps all of the TYS for TPS at the current exchange rate, leaving you with only TPS, which will be redeemable for face value on maturity.
-      - title: Where does the fixed rate come from?
-        description: Tempus splits a yield bearing token (YBT) such as stETH or aDai into two tokens, TPS and TYS. You can then swap all your TYS (the unknown future variable yield) to only end up holding TPS, which are redeemable for face value.
 
   - id: security
     title: Security
     items:
       - title: Is Tempus audited?
-        description: Tempus is scheduled to undergo a comprehensive four-week audit commencing in August 2021. Please join our Discord or Telegram for updates.
+        description: Tempus is scheduled to undergo its first comprehensive four-week audit commencing in August 2021.
       - title: How can Tempus provide minimal counterparty risk?
         description: Tempus does not use leverage in the traditional sense and doesn’t require the use of collateral - what happens is that users redistribute risk among each other by trading two derivatives (the TPS and the TYS) of the yield bearing token (YBT) against each other.
       - title: What are the risks associated with using Tempus?

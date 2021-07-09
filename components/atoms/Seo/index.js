@@ -1,13 +1,21 @@
 import React from 'react'
 import Head from 'next/head'
 
-const title = 'Tempus - Trustless Secondary Markets on Yield'
-const description = "Tempus is an Open-Source and Non-Custodial Protocol for Yield Trading, Yield Optimization, and Fixed Rate and Leveraged Yield Farming."
-const image = 'https://tempus.finance/share.png'
-const author = 'Tempus'
-const url = 'https://tempus.finance'
+const DEFAULT = {
+  title: 'Tempus - Trustless Secondary Markets on Yield',
+  description: "Tempus is an Open-Source and Non-Custodial Protocol for Yield Trading, Yield Optimization, and Fixed Rate and Leveraged Yield Farming.",
+  image: 'https://tempus.finance/share.png',
+  author: 'Tempus',
+  url: 'https://tempus.finance',
+}
 
-export default function Seo() {
+export default function Seo({
+  title = DEFAULT.title,
+  description = DEFAULT.description,
+  image = DEFAULT.image,
+  author = DEFAULT.author,
+  url = DEFAULT.url,
+}) {
   return (
     <Head>
       <title>{title}</title>

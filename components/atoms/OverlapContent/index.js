@@ -1,8 +1,7 @@
-import React, {useRef, useEffect, useLayoutEffect, useCallback} from 'react'
+import React, {useRef} from 'react'
 import styled from 'styled-components'
-import {gsap} from 'gsap'
-import { ScrollTrigger} from 'gsap/ScrollTrigger'
 
+import {useDynamicHeight} from 'hooks'
 
 const Root = styled.div`
   position:relative;
@@ -18,27 +17,8 @@ const Item = styled.div`
 
 export default React.memo(function OverlapContent({children, currentIndex = 0}){
   const ref = useRef()
-  const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect
 
-  const setHeight = useCallback(() => {
-    const h = ref.current.childNodes[currentIndex].clientHeight
-
-    gsap.to(ref.current, {duration:1, height: h, ease: 'Power1.easeInOut', onComplete: () => {
-      ScrollTrigger.refresh()
-    }})
-
-  },[currentIndex])
-
-  useIsomorphicLayoutEffect(() => {
-    setHeight()
-
-    window.addEventListener('resize', setHeight)
-
-    return () => {
-      window.removeEventListener('resize', setHeight)
-    }
-  },[currentIndex])
-
+  useDynamicHeight(ref, currentIndex)
 
   const items = children.map((el, i) => {
     return <Item

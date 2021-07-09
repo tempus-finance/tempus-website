@@ -40,7 +40,7 @@ const Content = styled.div`
     }
 `
 
-const LogoWrapper = styled.div`
+const LogoWrapper = styled.a`
     position: relative;
     height: 40px;
     margin-right: auto;
@@ -78,10 +78,6 @@ export default React.memo(function Header(){
     gsap.to(ref.current, {duration, backgroundColor: isGreen ? colors.green : colors.yellow})
   }, [isGreen])
 
-  useEffect(() => {
-    console.log({isHeaderCompressed})
-  },[isHeaderCompressed])
-
   return (
     <Wrapper
       ref={ref}
@@ -90,7 +86,7 @@ export default React.memo(function Header(){
         <Content
           className={isHeaderCompressed && 'isCompressed'}
         >
-          <LogoWrapper>
+          <LogoWrapper href={'/'}>
             <Logo fill={logoColor}/>
           </LogoWrapper>
           {!isMobile && <Desktop />}

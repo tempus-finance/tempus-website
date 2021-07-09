@@ -1,6 +1,9 @@
 import React, {useEffect, useRef} from 'react'
 import styled from 'styled-components'
 import {gsap} from 'gsap'
+import {ScrollTrigger} from 'gsap/ScrollTrigger'
+
+import {Html} from 'components'
 
 import {useMediaQuery, breakpoints} from 'helpers/breakpoints'
 
@@ -57,6 +60,14 @@ const Answer = styled.div`
   div {
     padding-top: 16px;
   }
+
+  ol li {
+    margin-bottom: 10px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 `
 
 const Cross = styled.div`
@@ -76,6 +87,7 @@ const Cross = styled.div`
   @media ${breakpoints.md}{
     width: 50px;
     height: 50px;
+    top: 25px;
   }
 `
 
@@ -92,7 +104,13 @@ export default React.memo(function Single({data, id, onClick, isActive}){
   })
 
   const createTimeline = () => {
-    tl.current = gsap.timeline({paused: true})
+    tl.current = gsap.timeline({
+      paused: true,
+
+      onComplete: () => {
+        ScrollTrigger.refresh()
+      }
+    })
 
     const padding = isMobile ? -15 : -30
 
@@ -122,7 +140,7 @@ export default React.memo(function Single({data, id, onClick, isActive}){
         <Background ref={background} />
         <Question>{data.title}</Question>
         <Answer ref={answer}>
-          <div>{data.description}</div>
+          <div><Html>{data.description}</Html></div>
         </Answer>
       </Content>
 

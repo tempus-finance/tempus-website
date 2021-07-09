@@ -7,7 +7,8 @@ import Single from './Single'
 
 const Root = styled.div`
   width: 100%;
-  margin: 60px auto 200px auto;
+  margin: 0 auto;
+  padding-top: 60px;
   pointer-events: ${props => props.isActive ? 'auto' : 'none'};
   opacity: ${props => props.isActive ? 1 : 0};
   transform: ${({isActive}) => isActive ? 'translateY(0px)' : 'translateY(10px)'};

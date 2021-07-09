@@ -2,11 +2,10 @@ import React, {useRef, useState, useEffect} from 'react'
 import styled from 'styled-components'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
 
-import {Section as Scn, Container, Cta, SocialIcon, SocialCta} from 'components'
+import {Section as Scn, Container, Cta, SocialCta} from 'components'
 
 import Cylinders from './Cylinders'
 
-import {useContent} from 'hooks'
 import {breakpoints} from 'helpers/breakpoints'
 
 import {colors} from 'data'
@@ -84,7 +83,7 @@ export default React.memo(function JoinUs() {
 
   return (
     <Section
-      color={colors.black}
+      color={colors.white}
       ref={ref}
       id='joinUs'
     >
@@ -99,18 +98,18 @@ export default React.memo(function JoinUs() {
         <Sub>
 
           <div>
-            <div className='f-h4'>Subscribe to the newsletter </div>
+            <div className='f-h4'>Stay updated</div>
             <Desc>Get notified about major developments in Tempus.</Desc>
             <SocialCtas>
               <SocialCta
                 type='discord'
-                color={colors.black}
-                background={colors.yellow}
+                color={colors.white}
+                background={colors.green}
               />
               <SocialCta
                 type='telegram'
-                color={colors.black}
-                background={colors.yellow}
+                color={colors.white}
+                background={colors.green}
               />
             </SocialCtas>
           </div>

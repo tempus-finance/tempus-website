@@ -33,7 +33,11 @@ const Image = styled.div`
   line-height: 0;
 
   @media ${breakpoints.md}{
-    width: 100%;
+    width: 80%;
+  }
+
+  @media ${breakpoints.md}{
+    width: 50%;
   }
 `
 
@@ -44,7 +48,7 @@ const Position = styled.div`
 const Socials = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 10px;
 `
 
 const Link = styled.a`
@@ -79,7 +83,7 @@ export default React.memo(function Single({data, color}) {
         <img src={data.image} />
       </Image>
       <div>{data.name}</div>
-      <Position color={color}>{data.position}</Position>
+      {data?.position && <Position color={color}>{data.position}</Position>}
       <Socials>{socialNodes}</Socials>
     </Root>
   )
