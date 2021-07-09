@@ -7,7 +7,8 @@ import {colors} from 'data'
 
 const Root = styled.div`
   display: flex;
-  margin: 70px -15px 0 -15px;
+  margin: 0 -15px;
+  padding-top: 60px;
   flex-wrap: wrap;
   justify-content: center;
 

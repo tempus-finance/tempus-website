@@ -10,9 +10,16 @@ export default function useDynamicHeight(ref, currentIndex){
     const duration = isFirst.current ? 0 : 1
     const h = ref.current.childNodes[currentIndex].clientHeight
 
-    gsap.to(ref.current, {duration, height: h, ease: 'Power1.easeInOut', onComplete: () => {
-      ScrollTrigger.refresh()
-    }})
+    gsap.to(ref.current, {duration, height: h, ease: 'Power1.easeInOut',
+      onComplete: () => {
+        ScrollTrigger.refresh()
+        ref.current.childNodes.forEach(el => {
+          el.style.position = 'absolute'
+        })
+        ref.current.childNodes[currentIndex].style.position = 'relative'
+        gsap.set(ref.current, {height: 'auto'})
+
+      }})
 
     if(isFirst.current){
       isFirst.current = false
