@@ -1,6 +1,7 @@
 import React, {useEffect, useRef} from 'react'
 import styled from 'styled-components'
 import {gsap} from 'gsap'
+import {ScrollTrigger} from 'gsap/ScrollTrigger'
 
 import {Html} from 'components'
 
@@ -103,7 +104,13 @@ export default React.memo(function Single({data, id, onClick, isActive}){
   })
 
   const createTimeline = () => {
-    tl.current = gsap.timeline({paused: true})
+    tl.current = gsap.timeline({
+      paused: true,
+
+      onComplete: () => {
+        ScrollTrigger.refresh()
+      }
+    })
 
     const padding = isMobile ? -15 : -30
 
