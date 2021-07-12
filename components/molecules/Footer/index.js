@@ -46,21 +46,29 @@ export default React.memo(function Footer(){
     <footer>
       <Content>
         <div>
-          <a href='/privacy-policy'>Privacy Policy</a><span>-</span>
-          <a href='/terms-of-service'>Terms of Service</a><span>-</span>
           <a
+            className='a--decorated'
+            href='/privacy-policy'>Privacy Policy</a><span>-</span>
+          <a
+            className='a--decorated'
+            href='/terms-of-service'>Terms of Service</a><span>-</span>
+          <a
+
+            className='a--decorated'
             href='mailto:contact@tempus.finance'
           >Contact </a>
         </div>
         <Credits>
-        Design
+
           <a
+            className='a--decorated'
             href='http://valentinoborghesi.is/'
-            target='_BLANK'> @borgatov</a>
-          <span>-</span>  Code
+            target='_BLANK'> Design@borgatov</a>
+          <span>-</span>
           <a
+            className='a--decorated'
             href='https://twitter.com/dghez_'
-            target='_BLANK'> @dghez</a>
+            target='_BLANK'> Code @dghez</a>
         </Credits>
       </Content>
     </footer>
