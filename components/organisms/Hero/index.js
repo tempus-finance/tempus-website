@@ -32,7 +32,18 @@ const Root = styled.div`
       margin-top: 60px;
 
       .f-h1 {
-        margin-bottom: 90px;
+        margin-bottom: 70px;
+      }
+    }
+    @media ${breakpoints.lg}{
+      .f-h1 {
+        font-size: calc(55px + (100 - 55) * ((100vw - 1025px) / (1550 - 1025)));
+      }
+    }
+
+    @media (min-width: 1550px) {
+      .f-h1 {
+        font-size: 100px;
       }
     }
 
