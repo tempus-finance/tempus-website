@@ -188,7 +188,7 @@ function CylinderBig(props, ref){
 
     tl.current
       // use delay here instead of timeline otherwise triggered once
-      .to(null, {duration: 1 + delay})
+      .to(null, {duration: 0.3 + delay})
       .addLabel('start')
       .to(global, {scale: 1, duration: 2, ease: 'Power2.easeOut'}, 'start')
       .to(rootRef.current, {opacity: 1, duration: 0.3}, 'start')

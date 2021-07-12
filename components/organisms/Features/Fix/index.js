@@ -9,7 +9,7 @@ export default React.memo(function Fix({data}) {
 
   const delay = useMediaQuery({
     xs: 0,
-    md: 1
+    md: 0.5
   })
 
   console.log({delay})
