@@ -118,25 +118,33 @@ export default React.memo(function Desktop({backgroundColor}){
           <span>Community <Arrow /></span>
           <span className='dropdown__content'>
             <a
-              href={socials.twitter}>
+              href={socials.twitter}
+              target='_BLANK'
+            >
               Twitter <SocialIcon
                 type='twitter'
                 color={color}/>
             </a>
             <a
-              href={socials.discord}>
+              href={socials.discord}
+              target='_BLANK'
+            >
               Discord <SocialIcon
                 type='discord'
                 color={color}/>
             </a>
             <a
-              href={socials.medium}>
+              href={socials.medium}
+              target='_BLANK'
+            >
               Medium <SocialIcon
                 type='medium'
                 color={color}/>
             </a>
             <a
-              href={socials.github}>
+              href={socials.github}
+              target='_BLANK'
+            >
               Github <SocialIcon
                 type='github'
                 color={color}/>
