@@ -12,8 +12,6 @@ export default React.memo(function Fix({data}) {
     md: 0.5
   })
 
-  console.log({delay})
-
   return (
     <Single
       data={data}

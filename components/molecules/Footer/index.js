@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
-import React from 'react'
+import React, {useEffect} from 'react'
 import styled from 'styled-components'
 
 import {Container} from 'components'
@@ -42,6 +42,12 @@ const Credits = styled.div`
 `
 
 export default React.memo(function Footer(){
+
+  useEffect(() => {
+    console.log("%c  Designed by borgatov → http://valentinoborghesi.is/",`background-color: ${colors.yellow}; color: ${colors.black}; font-size:10px; padding:8px 10px 6px; border-radius:4px;`)
+    console.log("%c  Dev by dghez → https://twitter.com/dghez_",`background-color: ${colors.green}; color: ${colors.white}; font-size:10px; padding:8px 10px 6px; border-radius:4px;`)
+  },[])
+
   return (
     <footer>
       <Content>
