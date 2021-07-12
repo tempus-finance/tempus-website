@@ -32,7 +32,18 @@ const Root = styled.div`
       margin-top: 60px;
 
       .f-h1 {
-        margin-bottom: 90px;
+        margin-bottom: 70px;
+      }
+    }
+    @media ${breakpoints.lg}{
+      .f-h1 {
+        font-size: calc(55px + (100 - 55) * ((100vw - 1025px) / (1550 - 1025)));
+      }
+    }
+
+    @media (min-width: 1550px) {
+      .f-h1 {
+        font-size: 100px;
       }
     }
 
@@ -71,11 +82,6 @@ export default React.memo(function Hero () {
           <Html>{tagline}</Html>
         </div>
         <SocialWrapper>
-          <SocialCta
-            type='telegram'
-            color={colors.white}
-            background={colors.green}
-          />
           <SocialCta
             type='discord'
             color={colors.white}

@@ -106,11 +106,6 @@ export default React.memo(function JoinUs() {
                 color={colors.white}
                 background={colors.green}
               />
-              <SocialCta
-                type='telegram'
-                color={colors.white}
-                background={colors.green}
-              />
             </SocialCtas>
           </div>
 

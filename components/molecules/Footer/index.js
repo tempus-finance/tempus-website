@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
-import React from 'react'
+import React, {useEffect} from 'react'
 import styled from 'styled-components'
 
 import {Container} from 'components'
@@ -42,25 +42,39 @@ const Credits = styled.div`
 `
 
 export default React.memo(function Footer(){
+
+  useEffect(() => {
+    console.log("%c  Designed by borgatov → http://valentinoborghesi.is/",`background-color: ${colors.yellow}; color: ${colors.black}; font-size:10px; padding:8px 10px 6px; border-radius:4px;`)
+    console.log("%c  Dev by dghez → https://twitter.com/dghez_",`background-color: ${colors.green}; color: ${colors.white}; font-size:10px; padding:8px 10px 6px; border-radius:4px;`)
+  },[])
+
   return (
     <footer>
       <Content>
         <div>
-          <a href='/privacy-policy'>Privacy Policy</a><span>-</span>
-          <a href='/terms-of-service'>Terms of Service</a><span>-</span>
           <a
+            className='a--decorated'
+            href='/privacy-policy'>Privacy Policy</a><span>-</span>
+          <a
+            className='a--decorated'
+            href='/terms-of-service'>Terms of Service</a><span>-</span>
+          <a
+
+            className='a--decorated'
             href='mailto:contact@tempus.finance'
           >Contact </a>
         </div>
         <Credits>
-        Design
+
           <a
+            className='a--decorated'
             href='http://valentinoborghesi.is/'
-            target='_BLANK'> @borgatov</a>
-          <span>-</span>  Code
+            target='_BLANK'> Design@borgatov</a>
+          <span>-</span>
           <a
+            className='a--decorated'
             href='https://twitter.com/dghez_'
-            target='_BLANK'> @dghez</a>
+            target='_BLANK'> Code @dghez</a>
         </Credits>
       </Content>
     </footer>

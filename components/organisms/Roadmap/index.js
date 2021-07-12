@@ -108,7 +108,7 @@ export default React.memo(function RoadMap() {
       <Container>
         <div style={{ textAlign: 'center' }}>
           <div className='f-h2'>{content.title}</div>
-          <Launch>🚀 &nbsp; Launching in Q4 2021 &nbsp; 🚀</Launch>
+          {/* <Launch>🚀 &nbsp; Launching in Q4 2021 &nbsp; 🚀</Launch> // DISABLE IT TEMPORARY */}
         </div>
 
         <div {...bind()}>

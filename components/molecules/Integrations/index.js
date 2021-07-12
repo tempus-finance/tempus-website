@@ -55,6 +55,7 @@ const Icons = styled.div`
   img {
     width: 40px;
     margin: 0 5px;
+    flex-shrink: 0;
 
     @media ${breakpoints.md} {
       margin: 0 0 0 10px;

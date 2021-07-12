@@ -72,11 +72,12 @@ export default React.memo(function Header(){
   }
 
   const logoColor = getLogoColor()
+  const backgroundColor = isGreen ? colors.green : colors.yellow
 
   useEffect(() => {
     const duration = 1
-    gsap.to(ref.current, {duration, backgroundColor: isGreen ? colors.green : colors.yellow})
-  }, [isGreen])
+    gsap.to(ref.current, {duration, backgroundColor})
+  }, [backgroundColor])
 
   return (
     <Wrapper
@@ -89,7 +90,7 @@ export default React.memo(function Header(){
           <LogoWrapper href={'/'}>
             <Logo fill={logoColor}/>
           </LogoWrapper>
-          {!isMobile && <Desktop />}
+          {!isMobile && <Desktop backgroundColor={backgroundColor} />}
           {isMobile && <Mobile />}
         </Content>
       </Container>

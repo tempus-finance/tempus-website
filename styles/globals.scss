@@ -27,6 +27,30 @@ a {
   }
 }
 
+span.a--decorated,
+a.a--decorated {
+  position: relative;
+  text-decoration: none;
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.13s ease-in-out;
+  }
+
+  &:hover {
+    &:after {
+      transform: scaleX(1);
+    }
+  }
+}
+
 *,
 *:before,
 *:after {

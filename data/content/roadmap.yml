@@ -1,4 +1,4 @@
-title: Our roadmap
+title: Roadmap
 
 sections:
   - title: Q3 2021
@@ -6,11 +6,11 @@ sections:
       - description: Seed Round Financing
         isDone: true
       - description: Audit Readiness
-        isDone: true
+        isDone: false
       - description: Aave Integration
-        isDone: true
+        isDone: false
       - description: Ethereum Testnet Launch
-        isDone: true
+        isDone: false
 
   - title: Q4 2021
     tasks:
@@ -19,11 +19,11 @@ sections:
       - description: Series A Financing
         isDone: false
       - description: Tempus ERC-20 Token Launch
-        isDone: true
+        isDone: false
       - description: IDO / LBP Launch
         isDone: false
       - description: Uniswap Listing
-        isDone: true
+        isDone: false
       - description: Uniswap Listing
         isDone: false
       - description: Ethereum Mainnet Launch
