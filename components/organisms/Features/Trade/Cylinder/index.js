@@ -37,7 +37,7 @@ function CylinderBig(props, ref){
   useImperativeHandle(ref, () => {
     return {
       playTimeline: () => {
-        tl.current.play(0)
+        tl.current.play()
       },
       resetTimeline: () => {
         tl.current.pause()
@@ -186,7 +186,6 @@ function CylinderBig(props, ref){
     }
 
     tl.current = gsap.timeline({
-      delay: 1,
       paused: true,
       onUpdate: () => {
         big.updateMask(bg.p)
@@ -198,9 +197,11 @@ function CylinderBig(props, ref){
     })
 
     tl.current
-      //
-      .to(global, {scale: 1, duration: 2, ease: 'Power2.easeOut'})
-      .to(rootRef.current, {opacity: 1, duration: 0.3}, 0)
+      // use delay here instead of timeline otherwise triggered once
+      .to(null, {duration: 1})
+      .addLabel('start')
+      .to(global, {scale: 1, duration: 2, ease: 'Power2.easeOut'}, 'start')
+      .to(rootRef.current, {opacity: 1, duration: 0.3}, 'start')
 
       .addLabel('scale:end', '-=0.2')
       .to(small.all, {duration: 1.6, x: `+=${smallX}`, y: `+=${smallY}`, ease: 'Power1.easeInOut'}, 'scale:end')

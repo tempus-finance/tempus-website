@@ -11,7 +11,7 @@ const Root = styled.svg`
   pointer-events: none;
 `
 function CylinderBig(props, ref){
-  const {heightBig = 30, heightSmall = 30} = props
+  const {heightBig = 30, heightSmall = 30, delay = 0} = props
   const id = 'fix'
   const color = 'green'
   const resetGapSmall = 23
@@ -36,7 +36,7 @@ function CylinderBig(props, ref){
   useImperativeHandle(ref, () => {
     return {
       playTimeline: () => {
-        tl.current.play(0)
+        tl.current.play()
       },
       resetTimeline: () => {
         tl.current.pause()
@@ -137,9 +137,15 @@ function CylinderBig(props, ref){
     createTimeline()
   },[])
 
+  useEffect(() => {
+    tl.current?.kill()
+    createTimeline()
+  },[delay])
+
   const setInitialValues = () => {
     const global = rootRef.current.getElementById('All')
 
+    gsap.set(rootRef.current, {opacity: 0})
     gsap.set(small.all, { y: 40 - heightBig, transformOrigin: smallTransformOrigin })
     big.updateMask(-heightBig)
     big.updatePath(-heightBig)
@@ -152,7 +158,7 @@ function CylinderBig(props, ref){
   }
 
   // CUSTOM ANIMATION
-  const createTimeline = () =>{
+  const createTimeline = () => {
     setInitialValues()
 
     const global = rootRef.current.getElementById('All')
@@ -160,7 +166,6 @@ function CylinderBig(props, ref){
     const bg = {p: -heightBig}
 
     tl.current = gsap.timeline({
-      delay: 1,
       paused: true,
       onUpdate: () => {
         big.updateMask(bg.p)
@@ -182,9 +187,11 @@ function CylinderBig(props, ref){
     }
 
     tl.current
-      //
-      .to(global, {scale: 1, duration: 2, ease: 'Power2.easeOut'})
-      .to(rootRef.current, {opacity: 1, duration: 0.3}, 0)
+      // use delay here instead of timeline otherwise triggered once
+      .to(null, {duration: 1 + delay})
+      .addLabel('start')
+      .to(global, {scale: 1, duration: 2, ease: 'Power2.easeOut'}, 'start')
+      .to(rootRef.current, {opacity: 1, duration: 0.3}, 'start')
       .addLabel('enter:end')
       .to(small.top, {duration: 1.4, y: resetGapSmall, strokeWidth: 1.3, fill: fill.bigTop, ease: 'Power1.easeInOut'}, 'enter:end')
       .to(small.path, {duration: 1.4, strokeWidth: 1.3, ease: 'Power1.easeInOut'}, 'enter:end')
@@ -193,10 +200,10 @@ function CylinderBig(props, ref){
       .to(small.all, {duration: 0.6, opacity: 0})
       .set(small.all, {display: 'none'})
       .addLabel('morph:end', '-=0.2')
+
       .add(createGrowTl(-70))
       .add(createGrowTl(-110))
       .add(createGrowTl(-150))
-
   }
 
   return (
