@@ -50,13 +50,13 @@ export default React.memo(function Team() {
             ref={teamRef}
             data={content.core}
             color={colors.yellow}
-            isActive={currentIndex=== 0}
+            isActive={currentIndex === 0}
           />
           <Grid
             ref={investorsRef}
             data={content.investors}
             color={colors.violet}
-            isActive={currentIndex=== 1}
+            isActive={currentIndex === 1}
           />
         </OverlapContent>
       </Container>

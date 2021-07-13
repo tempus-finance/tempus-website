@@ -1,7 +1,5 @@
 import { useEffect, useRef } from 'react'
 import { useRouter } from 'next/router'
-import {gsap} from 'gsap'
-import clamp from 'lodash-es/clamp'
 
 import {Seo, Hero, Integrations, Features, Roadmap, Team, Investors, Faq, JoinUs} from 'components'
 
@@ -9,9 +7,7 @@ export default function Home() {
   const scrollTween = useRef()
   const router = useRouter()
 
-
   useEffect(() => {
-
     if(router.asPath.includes('/#')){
       let i = router.asPath.replace('/#', '')
       const el = document.getElementById(i)
