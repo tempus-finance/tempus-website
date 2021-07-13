@@ -44,7 +44,7 @@ core:
     image: images/team/core/pujet.png
     socials:
       - type: linkedin
-        href: www.linkedin.com/in/pujeetmanot
+        href: https://www.linkedin.com/in/pujeetmanot
       - type: twitter
         href: https://twitter.com/ManotPujeet
       - type: medium
