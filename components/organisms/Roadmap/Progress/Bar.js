@@ -54,23 +54,17 @@ const Fill = styled.div`
   background: ${colors.yellow};
 `
 
-const Copy = styled.span`
-  position: relative;
-`
-
 export default React.memo(function Bar({data, currentSection, index}){
   const translate = `calc(${currentSection * -100}% + ${45 * currentSection}px)`
 
   const completed = data.filter((el) => el.isDone).length
   const progress = Math.ceil((completed / (data.length)) * 100)
-  const copy = progress < 100 ? `${progress}% in progress` : 'All tasks completed'
 
   return (
     <Root
       i={index}
       translate={translate}>
       <Fill progress={progress} />
-      <Copy>{copy}</Copy>
     </Root>
   )
 })
