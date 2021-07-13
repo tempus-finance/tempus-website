@@ -18,15 +18,11 @@ sections:
         isDone: false
       - description: Series A Financing
         isDone: false
-      - description: Tempus ERC-20 Token Launch
-        isDone: false
-      - description: IDO / LBP Launch
-        isDone: false
-      - description: Uniswap Listing
-        isDone: false
-      - description: Uniswap Listing
-        isDone: false
       - description: Ethereum Mainnet Launch
+        isDone: false
+      - description: Compound integration
+        isDone: false
+      - description: Lido integration
         isDone: false
 
   - title: Q1 2022
@@ -34,6 +30,4 @@ sections:
       - description: Second Audit
         isDone: false
       - description: Further Integrations
-        isDone: false
-      - description: CEX Listing
         isDone: false
