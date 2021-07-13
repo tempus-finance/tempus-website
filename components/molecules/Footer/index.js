@@ -31,16 +31,6 @@ const Content = styled(Container)`
   }
 `
 
-const Credits = styled.div`
-  margin-top: 30px;
-
-  @media ${breakpoints.md}{
-    margin-top: 0px;
-    margin-left: auto;
-    flex-shrink: 0;
-  }
-`
-
 export default React.memo(function Footer(){
 
   useEffect(() => {
@@ -64,18 +54,6 @@ export default React.memo(function Footer(){
             href='mailto:contact@tempus.finance'
           >Contact </a>
         </div>
-        <Credits>
-
-          <a
-            className='a--decorated'
-            href='http://valentinoborghesi.is/'
-            target='_BLANK'> Design@borgatov</a>
-          <span>-</span>
-          <a
-            className='a--decorated'
-            href='https://twitter.com/dghez_'
-            target='_BLANK'> Code @dghez</a>
-        </Credits>
       </Content>
     </footer>
   )
