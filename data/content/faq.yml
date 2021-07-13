@@ -31,7 +31,7 @@ groups:
       - title: How are rates on Tempus determined?
         description: The exchange rate (ratio of reserves on both sides) between the TPS and the TYS in each TempusAMM determines the market implied APY for each pool.
       - title: What are the fees for using Tempus?
-        description: Tempus does not charge any protocol fees. However, there are some two kinds of fees that users pay. The first one is swap fees, all of which go to liquidity providers (LPs) who provide liquidity to each TempusAMM. The second one is gas fees you generally pay for using the Ethereum network.
+        description: Tempus does not charge any protocol fees. However, there are two kinds of fees that users pay. The first one is swap fees, all of which go to liquidity providers (LPs) who provide liquidity to each TempusAMM. The second one is gas fees you generally pay for using the Ethereum network.
 
   - id: integrations
     title: Integrations
