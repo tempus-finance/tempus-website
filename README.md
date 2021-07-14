@@ -1,26 +1,17 @@
-## Getting Started
+# Tempus Homepage
 
-First, run the development server:
+## Local development
 
-dev: `npm run dev`
+For local development run `npm run dev`.
 
-build: `npm run build`, this will create a folder `out` with everything you need to deploy.
+## Production build
 
+For production build run `npm run build`. Build files will be stored in `out` directory ready for deployment.
 
+## Deploy to production website
 
-More info about the framework: [Next.js Documentation](https://nextjs.org/docs) 
-
-
+For deployment to production run `firebase deploy --only hosting`. Make sure to `npm run build` before running this command.
 
 ## Branches
 
-- `develop` for development purpose
-- `main` for official staging link
-
-
-
-## Info
-
-- **Content:** Most of the content is in the `data` folder, splitted based on sections. Some basic content, like footer / heaader and small words are hard-coded directly in the components.
-- **Internal links:** I'm using the plain `<a>` tag instead because the pages are only secondary (terms/privacy) so I'm not handling using the `next-router`
-
+- `master` - branch that contains current production code.
