@@ -5,7 +5,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import throttle from 'lodash-es/throttle'
 import {useStore} from 'store'
-import {Header, Footer} from 'components'
+import {Header, Footer, UnderConstruction} from 'components'
 import { useRouter } from 'next/router'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -41,14 +41,15 @@ function MyApp({ Component, pageProps }) {
     const {body, documentElement: html } = document
     const bg = globalVersion === 'green' ? colors.green : colors.yellow
 
-    gsap.to([body, html], {duration, backgroundColor: bg})
+    gsap.to([body, html], {duration, backgroundColor: '#fafafa'})
   },[globalVersion])
 
   return (
     <>
-      <Header />
+      <UnderConstruction />
+      {/*<Header />
       <Component {...pageProps} />
-      <Footer />
+      <Footer />*/}
     </>)
 }
 
