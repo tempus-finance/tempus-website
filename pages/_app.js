@@ -41,15 +41,14 @@ function MyApp({ Component, pageProps }) {
     const {body, documentElement: html } = document
     const bg = globalVersion === 'green' ? colors.green : colors.yellow
 
-    gsap.to([body, html], {duration, backgroundColor: '#fafafa'})
+    gsap.to([body, html], {duration, backgroundColor: bg})
   },[globalVersion])
 
   return (
     <>
-      <UnderConstruction />
-      {/*<Header />
+      <Header />
       <Component {...pageProps} />
-      <Footer />*/}
+      <Footer />
     </>)
 }
 
