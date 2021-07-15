@@ -1,6 +1,11 @@
 {
-  "hosting": {
+  "hosting": [{
+    "site": "tempus-website-972a3",
     "public": "out",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
-  }
+  }, {
+    "site": "stage-tempus",
+    "public": "out",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+  }]
 }
