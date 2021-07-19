@@ -3,6 +3,8 @@ import { useRouter } from 'next/router'
 
 import {Seo, Hero, Integrations, Features, Roadmap, Team, Investors, Faq, JoinUs} from 'components'
 
+import firebase from '../services/firebase'
+
 export default function Home() {
   const scrollTween = useRef()
   const router = useRouter()
@@ -33,6 +35,10 @@ export default function Home() {
       window.removeEventListener('touchmove', kill)
     }
   },[])
+
+  useEffect(() => {
+    firebase.init()
+  }, [])
 
   return (
     <>
