@@ -17,7 +17,11 @@ class Firebase {
   init() {
     firebase.initializeApp(firebaseConfig)
 
-    this.analytics = firebase.analytics()
+    // Disable analytics.
+    // Google Analytics stores bunch of data by default and it seems we can't control which data is collected by default.
+    // Because of all the data Google Analytics is storing we need to show a banner on the homepage about data we are collecting (storing cookies),
+    // if we want to use google analytics.
+    // this.analytics = firebase.analytics()
   }
 }
 export default new Firebase()
