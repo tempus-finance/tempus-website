@@ -39,16 +39,28 @@ const Root = styled.div`
       .f-h1 {
         font-size: calc(55px + (100 - 55) * ((100vw - 1025px) / (1550 - 1025)));
       }
+
+      @media (max-height: 700px) {
+        height: 750px;
+      }
     }
 
     @media (min-width: 1550px) {
       .f-h1 {
         font-size: 100px;
       }
+
+      @media (max-height: 700px) {
+        height: 750px;
+      }
     }
 
     @media ${breakpoints.xl}{
       height: calc(80vh - 90px);
+
+      @media (max-height: 700px) {
+        height: 750px;
+      }
     }
 `
 
