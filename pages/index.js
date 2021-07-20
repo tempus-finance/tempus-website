@@ -38,6 +38,7 @@ export default function Home() {
 
   useEffect(() => {
     firebase.init()
+    firebase.incrementPageView()
   }, [])
 
   return (

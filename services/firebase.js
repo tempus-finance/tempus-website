@@ -1,5 +1,6 @@
 import firebase from "firebase/app"
 import 'firebase/analytics'
+import 'firebase/firestore'
 
 const firebaseConfig = {
   apiKey: "AIzaSyCiaCeC3ipto4xJLWgj44ZOlQKrmUs1MJk",
@@ -12,6 +13,9 @@ const firebaseConfig = {
 class Firebase {
   constructor() {
     this.analytics = null
+    this.firestore = null
+
+    this.pageViewIncrement = null
   }
 
   init() {
@@ -22,6 +26,19 @@ class Firebase {
     // Because of all the data Google Analytics is storing we need to show a banner on the homepage about data we are collecting (storing cookies),
     // if we want to use google analytics.
     // this.analytics = firebase.analytics()
+    this.firestore = firebase.firestore()
+
+    this.initPageViewCounter()
+  }
+
+  initPageViewCounter() {
+    this.pageViewIncrement = firebase.firestore.FieldValue.increment(1)
+  }
+
+  incrementPageView() {
+    const pageViewsRef = this.firestore.collection('page-views').doc('counter')
+
+    pageViewsRef.update({value: this.pageViewIncrement})
   }
 }
 export default new Firebase()
