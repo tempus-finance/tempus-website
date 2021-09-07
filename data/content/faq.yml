@@ -13,7 +13,7 @@ groups:
               <li>Provide liquidity to earn additional yield. </li>
             </ol>
       - title: How do I join the Tempus community?
-        description: You can join our Discord or Telegram, follow us on Twitter or subscribe to our Medium.
+        description: You can join our Discord, follow us on Twitter or subscribe to our Medium.
 
   - id: primitives
     title: Primitives
@@ -37,9 +37,9 @@ groups:
     title: Integrations
     items:
       - title: What tokens are available on Tempus?
-        description: Tempus will first integrate with Lido, Aave and Compound, but we are always working on further integrations. Please join our Discord or Telegram for updates.
+        description: Tempus will first integrate with Lido, Aave and Compound, but we are always working on further integrations. Please join our Discord for updates.
       - title: Will new tokens be added in the future?
-        description: Yes, we will be monitoring demand for new integrations and will be introducing new pairs. Please join our Discord or Telegram for updates.
+        description: Yes, we will be monitoring demand for new integrations and will be introducing new pairs. Please join our Discord for updates.
 
   - id: security
     title: Security

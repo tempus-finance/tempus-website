@@ -249,12 +249,6 @@ export default React.memo(function Mobile(){
                   color={socialFillColor}/>
               </a>
               <a
-                href={socials.telegram}
-                target='_BLANK'><SocialIcon
-                  type='telegram'
-                  color={socialFillColor}/>
-              </a>
-              <a
                 href={socials.twitter}
                 target='_BLANK'><SocialIcon
                   type='twitter'
