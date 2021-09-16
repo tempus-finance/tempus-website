@@ -7,9 +7,9 @@ groups:
         description: Tempus is a trustless and decentralized protocol that allows speculation on yield for profit, or optimizing your future yield based on your risk appetite. Tempus also functions as a yield aggregation tool that aims to deliver additional APY on yield bearing tokens (YBT).
       - title: How does Tempus work?
         description: |
-          Tempus allows users to deposit various yield bearing tokens (YBT) such as stETH (Lido Staked ETH) or aDAI (Aave Interest Bearing Dai) into contracts with select maturities. For ease, users will also be allowed to deposit the Backing Token (BT) such as ETH for direct deposit onto another platform through Tempus.<br /> Tempus then separates the YBT into a Tempus Principal Share (TPS) and Tempus Yield Share (TYS) and allows users to:
+          Tempus allows users to deposit various yield bearing tokens (YBT) such as stETH (Lido Staked ETH) or aDAI (Aave Interest Bearing Dai) into contracts with select maturities. For ease, users will also be allowed to deposit the Backing Token (BT) such as ETH for direct deposit onto another platform through Tempus.<br /> Tempus then separates the YBT into a Principals and Yields and allows users to:
             <ol>
-              <li>Trade them against each other through an AMM - users can swap back and forth between TPS and TYS for a profit, sell all your TYS to hold only TPS for yield farming at a fixed rate, or play around with the TPS/TYS ratio to get an alternative exposure to the underlying yield</li>
+              <li>Trade them against each other through an AMM - users can swap back and forth between Principals and Yields for a profit, sell all your Yields to hold only Principals for yield farming at a fixed rate, or play around with the Principals/Yields ratio to get an alternative exposure to the underlying yield</li>
               <li>Provide liquidity to earn additional yield. </li>
             </ol>
       - title: How do I join the Tempus community?
@@ -20,16 +20,16 @@ groups:
     items:
       - title: What are yield bearing tokens (YBT)?
         description: Yield bearing tokens (YBT) are derivatives that appreciate in value as a result of their participation in some form of yield farming. Some examples of YBT are aDai (Aave Interest Bearing Dai), XSushi (staked Sushi) or stETH (Lido staked ETH).
-      - title: What is a Tempus Principal Share (TPS)?
-        description: The Tempus Principal Share is split out of YBT together with the Tempus Yield Share (TYS). The TPS is a zero-coupon bond that is redeemable for face value on maturity.
-      - title: What is Tempus Yield Share (TYS)?
-        description: The Tempus Yield Share is split out of YBT together with the Tempus Principal Share (TPS). The TYS is a zero-coupon bond that is redeemable for the amount of yield that accrues on each unit of TPS on maturity.
+      - title: What are Principals?
+        description: Principals are split out of YBT together with the Yields. The Principal is a zero-coupon bond that is redeemable for face value on maturity.
+      - title: What are Yields?
+        description: Yields are split out of YBT together with the Principals. The Yield is a zero-coupon bond that is redeemable for the amount of yield that accrues on each unit of Principals on maturity.
 
   - id: rates
     title: Rates
     items:
       - title: How are rates on Tempus determined?
-        description: The exchange rate (ratio of reserves on both sides) between the TPS and the TYS in each TempusAMM determines the market implied APY for each pool.
+        description: The exchange rate (ratio of reserves on both sides) between the Principals and the Yields in each TempusAMM determines the market implied APY for each pool.
       - title: What are the fees for using Tempus?
         description: Tempus does not charge any protocol fees. However, there are two kinds of fees that users pay. The first one is swap fees, all of which go to liquidity providers (LPs) who provide liquidity to each TempusAMM. The second one is gas fees you generally pay for using the Ethereum network.
 
@@ -47,6 +47,6 @@ groups:
       - title: Is Tempus audited?
         description: Tempus is scheduled to undergo its first comprehensive four-week audit commencing in August 2021.
       - title: How can Tempus provide minimal counterparty risk?
-        description: Tempus does not use leverage in the traditional sense and doesn’t require the use of collateral - what happens is that users redistribute risk among each other by trading two derivatives (the TPS and the TYS) of the yield bearing token (YBT) against each other.
+        description: Tempus does not use leverage in the traditional sense and doesn’t require the use of collateral - what happens is that users redistribute risk among each other by trading two derivatives (the Principals and the Yields) of the yield bearing token (YBT) against each other.
       - title: What are the risks associated with using Tempus?
         description: Tempus is an early-stage, experimental protocol. There is no equivalent product in traditional financial markets - DYOR!
