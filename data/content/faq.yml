@@ -4,13 +4,13 @@ groups:
     title: General
     items:
       - title: What is Tempus?
-        description: Tempus is a trustless and decentralized protocol that allows speculation on yield for profit, or optimizing your future yield based on your risk appetite. Tempus also functions as a yield aggregation tool that aims to deliver additional APY on yield bearing tokens (YBT).
+        description: Tempus is a future yield tokenization and fixed rate protocol built on the Ethereum network. Tempus also functions as a yield aggregation tool that aims to deliver additional returns on yield bearing tokens.
       - title: How does Tempus work?
         description: |
           Tempus allows users to deposit various yield bearing tokens (YBT) such as stETH (Lido Staked ETH) or aDAI (Aave Interest Bearing Dai) into contracts with select maturities. For ease, users will also be allowed to deposit the Backing Token (BT) such as ETH for direct deposit onto another platform through Tempus.<br /> Tempus then separates the YBT into a Principals and Yields and allows users to:
             <ol>
-              <li>Trade them against each other through an AMM - users can swap back and forth between Principals and Yields for a profit, sell all your Yields to hold only Principals for yield farming at a fixed rate, or play around with the Principals/Yields ratio to get an alternative exposure to the underlying yield</li>
-              <li>Provide liquidity to earn additional yield. </li>
+              <li>Buy and sell interest rate protection using any supported Yield Bearing Token (such as stETH, cDai).</li>
+              <li>Earn swap fees as a liquidity provider by depositing any supported Yield Bearing Token (on top of yield earned through yield farming protocols).</li>
             </ol>
       - title: How do I join the Tempus community?
         description: You can join our Discord, follow us on Twitter or subscribe to our Medium.
@@ -45,7 +45,7 @@ groups:
     title: Security
     items:
       - title: Is Tempus audited?
-        description: Tempus is scheduled to undergo its first comprehensive four-week audit commencing in August 2021.
+        description: Tempus has been audited by Coinspect, and will be audited by Code4rena in October 2021. The audit reports will be published on this website.
       - title: How can Tempus provide minimal counterparty risk?
         description: Tempus does not use leverage in the traditional sense and doesn’t require the use of collateral - what happens is that users redistribute risk among each other by trading two derivatives (the Principals and the Yields) of the yield bearing token (YBT) against each other.
       - title: What are the risks associated with using Tempus?

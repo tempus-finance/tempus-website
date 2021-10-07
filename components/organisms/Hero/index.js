@@ -2,13 +2,11 @@ import React, {useState} from 'react'
 import styled from 'styled-components'
 import {breakpoints} from 'helpers/breakpoints'
 
-import {Container, Html, SocialCta} from 'components'
+import {Container, Html, AppCta} from 'components'
 
 import {useContent} from 'hooks'
 
 import Cylinders from './Cylinders'
-
-import {colors} from 'data'
 
 const Root = styled.div`
     position: relative;
@@ -64,7 +62,7 @@ const Root = styled.div`
     }
 `
 
-const SocialWrapper = styled.div`
+const LaunchAppWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -93,13 +91,9 @@ export default React.memo(function Hero () {
         <div className='f-h1'>
           <Html>{tagline}</Html>
         </div>
-        <SocialWrapper>
-          <SocialCta
-            type='discord'
-            color={colors.white}
-            background={colors.green}
-          />
-        </SocialWrapper>
+        <LaunchAppWrapper>
+          <AppCta />
+        </LaunchAppWrapper>
 
       </Container>
       <Cylinders canPlayAnimation={canPlayAnimation} />

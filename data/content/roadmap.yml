@@ -3,26 +3,16 @@ title: Roadmap
 sections:
   - title: Q3 2021
     tasks:
-      - description: Seed Round Financing
-        isDone: true
       - description: Audit Readiness
-        isDone: false
-      - description: Aave Integration
-        isDone: false
+        isDone: true
       - description: Ethereum Testnet Launch
         isDone: false
 
   - title: Q4 2021
     tasks:
       - description: First Audit
-        isDone: false
-      - description: Series A Financing
-        isDone: false
+        isDone: true
       - description: Ethereum Mainnet Launch
-        isDone: false
-      - description: Compound integration
-        isDone: false
-      - description: Lido integration
         isDone: false
 
   - title: Q1 2022
