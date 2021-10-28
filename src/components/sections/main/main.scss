@@ -1,0 +1,60 @@
+.tf__main__container {
+  display: flex;
+  flex-direction: column;
+  width: 1024px;
+  padding-top: 224px;
+
+  @media screen and (max-width: 1024px) {
+    width: 90%;
+    text-align: center !important;
+  }
+}
+
+.tf__main-button {
+  display: flex;
+
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
+}
+
+.tf__main-button-mobile {
+  display: none;
+
+  @media screen and (max-width: 1024px) {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.25));
+    border: 1px solid #ffffff;
+    border-radius: 30px;
+    margin-top: 30px;
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+    flex-direction: row;
+    flex-grow: 1;
+    height: 64px;
+    background-color: white;
+  }
+}
+
+.tf__main-button-discord {
+  display: none;
+
+  @media screen and (max-width: 1024px) {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.25));
+    border: 1px solid #ffffff;
+    border-radius: 30px;
+    margin-top: 30px;
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+    flex-direction: row;
+    flex-grow: 1;
+    height: 64px;
+  }
+}

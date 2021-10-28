@@ -1,0 +1,30 @@
+.tf__newsCard {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 10px 10px 5px 5px;
+}
+
+.tf__newsCard-content {
+  display: flex;
+  flex-direction: column;
+  padding: 5px 15px 15px 15px;
+  height: 100%;
+}
+
+.tf__newsCard-date {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.tf__newsCard-action {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: auto;
+}
+
+.tf__newsCard-image {
+  width: 100%;
+  min-height: 174px;
+  background-size: cover;
+}

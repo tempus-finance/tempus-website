@@ -1,0 +1,16 @@
+.tf__news__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 123px;
+
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
+}
+
+.tf__news__cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 321px);
+  column-gap: 24px;
+}

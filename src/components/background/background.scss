@@ -1,0 +1,42 @@
+.tf__background__container {
+  position: absolute;
+  top: 100px;
+  left: 0px;
+  width: 100%;
+  height: 1691px;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.tf__background__gradient {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  height: 904px;
+  background: radial-gradient(34.45% 56.55% at 84.54% 17.33%, rgba(0, 194, 255, 0.3) 0%, rgba(0, 87, 255, 0.189) 100%),
+    linear-gradient(116.06deg, #4b4b4b 7.43%, #0bb694 101.55%);
+}
+
+.tf__background__mask {
+  position: absolute;
+  top: 460px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-size: 100% 100%;
+
+  @media screen and (max-width: 1024px) {
+    top: 670px;
+  }
+}
+
+.tf__background__logo {
+  position: absolute;
+  right: -100px;
+  top: 205px;
+
+  @media screen and (max-width: 1150px) {
+    display: none;
+  }
+}

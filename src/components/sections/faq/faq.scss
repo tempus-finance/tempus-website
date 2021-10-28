@@ -1,0 +1,36 @@
+.tf__faq__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 139px;
+  padding-top: 78px;
+  padding-bottom: 120px;
+  background: radial-gradient(34.45% 56.55% at 84.54% 17.33%, rgba(0, 194, 255, 0.3) 0%, rgba(0, 87, 255, 0.189) 100%),
+    linear-gradient(116.06deg, #4b4b4b 7.43%, #0bb694 101.55%);
+}
+
+.tf__faq__content {
+  width: 1024px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media screen and (max-width: 1024px) {
+    width: 90%;
+  }
+}
+
+.tf__faq__tabs-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-self: flex-start;
+  background-color: #f1f1f1;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  box-sizing: border-box;
+  height: 40px;
+  justify-items: center;
+  align-items: center;
+  width: 100%;
+}
