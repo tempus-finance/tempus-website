@@ -51,6 +51,7 @@ const News = () => {
       <div className="tf__news__cards-container">
         {posts.map((post) => (
           <NewsCard
+            key={post.title}
             date={post.date}
             description={post.description}
             title={post.title}

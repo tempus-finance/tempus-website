@@ -109,13 +109,6 @@ typographyStyleMap.set('date', {
   fontSize: '14px',
   lineHeight: '160%',
 });
-typographyStyleMap.set('date', {
-  fontFamily: "'Source Sans Pro', sans-serif",
-  fontStyle: 'normal',
-  fontWeight: 400,
-  fontSize: '14px',
-  lineHeight: '160%',
-});
 typographyStyleMap.set('footer-header', {
   fontFamily: "'Manrope', sans-serif",
   fontStyle: 'normal',
@@ -152,6 +145,128 @@ typographyStyleMap.set('get-involved-card-button', {
   lineHeight: '28px',
 });
 
+const typographyMobileStyleMap = new Map<TypographyVariant, CSSProperties>();
+typographyMobileStyleMap.set('h1', {
+  fontFamily: "'Manrope', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 700,
+  fontSize: '48px',
+  lineHeight: '110%',
+});
+typographyMobileStyleMap.set('h2', {
+  fontFamily: "'Manrope', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 500,
+  fontSize: '20px',
+  lineHeight: '160%',
+});
+typographyMobileStyleMap.set('dynamic-number-label', {
+  fontFamily: "'Source Sans Pro', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 600,
+  fontSize: '22px',
+  lineHeight: '110%',
+});
+typographyMobileStyleMap.set('dynamic-number', {
+  fontFamily: "'Source Sans Pro', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 700,
+  fontSize: '36px',
+  lineHeight: '110%',
+});
+typographyMobileStyleMap.set('about-text', {
+  fontFamily: "'Manrope', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 700,
+  fontSize: '32px',
+  lineHeight: '120%',
+});
+typographyMobileStyleMap.set('h3', {
+  fontFamily: "'Manrope', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 700,
+  fontSize: '32px',
+  lineHeight: '120%',
+});
+typographyMobileStyleMap.set('h4', {
+  fontFamily: "'Manrope', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 600,
+  fontSize: '28px',
+  lineHeight: '110%',
+  letterSpacing: '-0.025em',
+});
+typographyMobileStyleMap.set('h5', {
+  fontFamily: "'Manrope', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 700,
+  fontSize: '16px',
+  lineHeight: '22px',
+});
+typographyMobileStyleMap.set('security-card-label', {
+  fontFamily: "'Source Sans Pro', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 600,
+  fontSize: '16px',
+  lineHeight: '160%',
+});
+typographyMobileStyleMap.set('faq-header', {
+  fontFamily: "'Manrope', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 500,
+  fontSize: '22px',
+  lineHeight: '30px',
+});
+typographyMobileStyleMap.set('body-text', {
+  fontFamily: "'Source Sans Pro', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 400,
+  fontSize: '16px',
+  lineHeight: '160%',
+});
+typographyMobileStyleMap.set('date', {
+  fontFamily: "'Source Sans Pro', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 400,
+  fontSize: '14px',
+  lineHeight: '160%',
+});
+typographyMobileStyleMap.set('footer-header', {
+  fontFamily: "'Manrope', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 700,
+  fontSize: '80px',
+  lineHeight: '120%',
+});
+typographyMobileStyleMap.set('join-header', {
+  fontFamily: "'Manrope', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 700,
+  fontSize: '22px',
+  lineHeight: '30px',
+});
+typographyMobileStyleMap.set('join-body', {
+  fontFamily: "'Source Sans Pro', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 700,
+  fontSize: '16px',
+  lineHeight: '160%',
+});
+typographyMobileStyleMap.set('header-label', {
+  fontFamily: "'Source Sans Pro', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 500,
+  fontSize: '16px',
+  lineHeight: '20px',
+});
+typographyMobileStyleMap.set('get-involved-card-button', {
+  fontFamily: "'Source Sans Pro', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 600,
+  fontSize: '22px',
+  lineHeight: '28px',
+});
+
 interface TypographyProps {
   variant: TypographyVariant;
   color?: TypographyColor;
@@ -160,11 +275,12 @@ interface TypographyProps {
   html?: string;
   gradient?: boolean;
   clickable?: boolean;
+  underline?: boolean;
   onClick?: () => void;
 }
 
 const Typography: FC<TypographyProps> = (props) => {
-  const { color, capitalize, align, variant, html, gradient, clickable, onClick, children } = props;
+  const { color, capitalize, align, variant, html, gradient, clickable, underline, onClick, children } = props;
 
   let colorCode: string;
   switch (color) {
@@ -191,22 +307,47 @@ const Typography: FC<TypographyProps> = (props) => {
     }
   };
 
+  let classes = '';
+  if (underline) {
+    classes += 'tf__typography_underline_hover';
+  }
+  if (gradient) {
+    classes += 'tf__typography__gradient';
+  }
+
   return (
-    <div
-      className={gradient ? 'tf__typography__gradient' : ''}
-      style={{
-        ...typographyStyleMap.get(variant),
-        color: colorCode,
-        textTransform: capitalize ? 'capitalize' : 'none',
-        textAlign: align,
-        backgroundImage: gradient ? 'linear-gradient(97.53deg, #5098A9 0%, #285A95 100%)' : 'unset',
-        cursor: clickable ? 'pointer' : 'default',
-      }}
-      aria-hidden="true"
-      onClick={handleClick}
-    >
-      {html ? ReactHTMLParser(html) : children}
-    </div>
+    <>
+      <div
+        className={`${classes} tf__typography-desktop`}
+        style={{
+          ...typographyStyleMap.get(variant),
+          color: colorCode,
+          textTransform: capitalize ? 'capitalize' : 'none',
+          textAlign: align,
+          backgroundImage: gradient ? 'linear-gradient(97.53deg, #5098A9 0%, #285A95 100%)' : 'unset',
+          cursor: clickable ? 'pointer' : 'default',
+        }}
+        aria-hidden="true"
+        onClick={handleClick}
+      >
+        {html ? ReactHTMLParser(html) : children}
+      </div>
+      <div
+        className={`${classes} tf__typography-mobile`}
+        style={{
+          ...typographyMobileStyleMap.get(variant),
+          color: colorCode,
+          textTransform: capitalize ? 'capitalize' : 'none',
+          textAlign: align,
+          backgroundImage: gradient ? 'linear-gradient(97.53deg, #5098A9 0%, #285A95 100%)' : 'unset',
+          cursor: clickable ? 'pointer' : 'default',
+        }}
+        aria-hidden="true"
+        onClick={handleClick}
+      >
+        {html ? ReactHTMLParser(html) : children}
+      </div>
+    </>
   );
 };
 
@@ -218,6 +359,7 @@ Typography.defaultProps = {
   gradient: false,
   clickable: false,
   onClick: undefined,
+  underline: false,
 };
 
 export default Typography;

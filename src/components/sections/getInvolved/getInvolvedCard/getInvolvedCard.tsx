@@ -27,7 +27,9 @@ const GetInvolvedCard: FC<GetInvolvedCardProps> = (props) => {
       <Spacer size={30} orientation="vertical" />
       <div className="tf__get-involved-card__action-button-container">
         <Button width="180px">
-          <Typography variant="get-involved-card-button">Coming soon</Typography>
+          <Typography variant="get-involved-card-button" clickable>
+            Coming soon
+          </Typography>
         </Button>
       </div>
     </div>

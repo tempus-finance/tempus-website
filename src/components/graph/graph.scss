@@ -1,0 +1,42 @@
+.tf__graph-container {
+  margin-top: 135px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  overflow-x: hidden;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.tf__graph__scroll {
+  width: 100%;
+  display: flex;
+  overflow-x: hidden;
+
+  @media screen and (max-width: 1024px) {
+    overflow-x: scroll;
+  }
+}
+
+.tf__graph__arrowRight {
+  position: absolute;
+  right: 150px;
+  top: 45%;
+  cursor: pointer;
+
+  @media screen and (max-width: 1024px) {
+    right: 10px;
+  }
+}
+
+.tf__graph__arrowLeft {
+  position: absolute;
+  left: 150px;
+  top: 45%;
+  cursor: pointer;
+
+  @media screen and (max-width: 1024px) {
+    left: 10px;
+  }
+}

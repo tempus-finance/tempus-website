@@ -22,21 +22,53 @@ const FAQ = () => {
         </Typography>
         <Spacer size={46} orientation="vertical" />
         <div className="tf__faq__tabs-container">
-          <Typography variant="body-text" clickable onClick={() => onTabClick('general')}>
-            General
-          </Typography>
-          <Typography variant="body-text" clickable onClick={() => onTabClick('primitives')}>
-            Primitives
-          </Typography>
-          <Typography variant="body-text" clickable onClick={() => onTabClick('rates')}>
-            Rates
-          </Typography>
-          <Typography variant="body-text" clickable onClick={() => onTabClick('integrations')}>
-            Integrations
-          </Typography>
-          <Typography variant="body-text" clickable onClick={() => onTabClick('security')}>
-            Security
-          </Typography>
+          <div
+            className={selectedTab === 'general' ? 'tf__faq__tab-selected' : 'tf__faq__tab'}
+            onClick={() => onTabClick('general')}
+            aria-hidden="true"
+          >
+            <Typography variant="body-text" clickable>
+              General
+            </Typography>
+          </div>
+          <div
+            className={selectedTab === 'primitives' ? 'tf__faq__tab-selected' : 'tf__faq__tab'}
+            onClick={() => onTabClick('primitives')}
+            aria-hidden="true"
+          >
+            <Typography variant="body-text" clickable>
+              Primitives
+            </Typography>
+          </div>
+          <div
+            className={selectedTab === 'rates' ? 'tf__faq__tab-selected' : 'tf__faq__tab'}
+            onClick={() => onTabClick('rates')}
+            aria-hidden="true"
+          >
+            <Typography variant="body-text" clickable>
+              Rates
+            </Typography>
+          </div>
+          <div
+            className={selectedTab === 'integrations' ? 'tf__faq__tab-selected' : 'tf__faq__tab'}
+            onClick={() => onTabClick('integrations')}
+            aria-hidden="true"
+          >
+            <Typography variant="body-text" clickable>
+              Integrations
+            </Typography>
+          </div>
+          <div
+            className={
+              selectedTab === 'security' ? 'tf__faq__tab-no-border tf__faq__tab-selected' : 'tf__faq__tab-no-border'
+            }
+            onClick={() => onTabClick('security')}
+            aria-hidden="true"
+          >
+            <Typography variant="body-text" clickable>
+              Security
+            </Typography>
+          </div>
         </div>
         <Spacer size={36} orientation="vertical" />
         {selectedTab === 'general' && (
@@ -47,7 +79,7 @@ const FAQ = () => {
             />
             <Expandable
               title="How does Tempus work?"
-              text="Tempus allows users to deposit various yield bearing tokens (YBT) such as stETH (Lido Staked ETH) or aDAI (Aave Interest Bearing Dai) into contracts with select maturities. For ease, users will also be allowed to deposit the Backing Token (BT) such as ETH for direct deposit onto another platform through Tempus.<br /> Tempus then separates the YBT into a Principals and Yields and allows users to:
+              text="Tempus allows users to deposit various yield bearing tokens (YBT) such as stETH (Lido Staked ETH) or aDAI (Aave Interest Bearing Dai) into contracts with select maturities. For ease, users will also be allowed to deposit the Backing Token (BT) such as ETH for direct deposit onto another platform through Tempus.<br /><br /> Tempus then separates the YBT into a Principals and Yields and allows users to:
             <ol>
               <li>Buy and sell interest rate protection using any supported Yield Bearing Token (such as stETH, cDai).</li>
               <li>Earn swap fees as a liquidity provider by depositing any supported Yield Bearing Token (on top of yield earned through yield farming protocols).</li>
@@ -91,7 +123,7 @@ const FAQ = () => {
           <>
             <Expandable
               title="What tokens are available on Tempus?"
-              text="Tempus will first integrate with Lido, Aave and Compound, but we are always working on further integrations. Please join our Discord for updates."
+              text="Tempus will first integrate with Lido, Aave, Compound, Yearn, and Rari, but we are always working on further integrations. Please join our Discord for updates."
             />
             <Expandable
               title="Will new tokens be added in the future?"
@@ -103,7 +135,7 @@ const FAQ = () => {
           <>
             <Expandable
               title="Is Tempus audited?"
-              text="Tempus has been audited by Coinspect, and will be audited by Code4rena in October 2021. The audit reports will be published on this website."
+              text="Tempus has been audited by Coinspect and Code4rena. The audit reports will be published on this website in the Security section below."
             />
             <Expandable
               title="How can Tempus provide minimal counterparty risk?"

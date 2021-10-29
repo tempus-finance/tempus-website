@@ -18,7 +18,7 @@ const Protocols = () => (
       </Typography>
     </Typography>
     <Spacer size={52} orientation="vertical" />
-    <div className="tf__flex-row-center-h">
+    <div className="tf__protocols-icons">
       <div className="tf__protocols__icon-container">
         <LidoProtocol />
       </div>

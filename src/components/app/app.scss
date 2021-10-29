@@ -11,6 +11,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+  overflow-x: hidden;
 }
 
 .tf__app__sections-gradient-wrapper {
@@ -20,4 +21,15 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.tf__app__sections-footer-logo {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: -120px;
+  pointer-events: none;
 }

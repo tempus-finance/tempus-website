@@ -11,3 +11,12 @@
   width: 100%;
   cursor: pointer;
 }
+
+.tf__expandable_icon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+}

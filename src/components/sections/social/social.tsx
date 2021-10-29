@@ -17,19 +17,19 @@ const Social = () => {
 
   return (
     <div className="tf__social__container">
-      <Typography variant="footer-header" color="inverted">
+      <Typography variant="footer-header" color="inverted" align="center">
         Be part
       </Typography>
-      <Typography variant="footer-header" color="inverted">
+      <Typography variant="footer-header" color="inverted" align="center">
         of Tempus
       </Typography>
       <Spacer size={35} orientation="vertical" />
       <div className="tf__social__sections-container">
         <div className="tf__social-stay-updated">
-          <Typography variant="join-header" color="inverted">
+          <Typography variant="join-header" color="inverted" align="center">
             Stay updated
           </Typography>
-          <Typography variant="join-body" color="inverted">
+          <Typography variant="join-body" color="inverted" align="center">
             Get notified about major developments in Tempus
           </Typography>
           <Spacer size={23} orientation="vertical" />
@@ -42,10 +42,10 @@ const Social = () => {
           </Button>
         </div>
         <div className="tf__social-join-the-team">
-          <Typography variant="join-header" color="inverted">
+          <Typography variant="join-header" color="inverted" align="center">
             Join the team
           </Typography>
-          <Typography variant="join-body" color="inverted">
+          <Typography variant="join-body" color="inverted" align="center">
             We’re always looking for talented people to join the team
           </Typography>
           <Spacer size={23} orientation="vertical" />

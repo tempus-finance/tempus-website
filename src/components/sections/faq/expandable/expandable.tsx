@@ -27,7 +27,7 @@ const Expandable: FC<ExpandableProps> = (props) => {
         <Typography variant="faq-header" color="inverted" clickable>
           {title}
         </Typography>
-        {expanded ? <CrossIcon /> : <PlusIcon />}
+        <div className="tf__expandable_icon">{expanded ? <CrossIcon /> : <PlusIcon />}</div>
       </div>
       {expanded && (
         <>

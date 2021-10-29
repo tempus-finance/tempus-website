@@ -25,6 +25,7 @@
     "no-use-before-define": "off",
     "object-curly-newline": "off",
     "indent": "off",
+    "operator-linebreak": "off",
     "max-len": ["error", { "code": 120, "ignoreStrings": true }],
     "@typescript-eslint/no-use-before-define": ["error"],
     "@typescript-eslint/no-unused-vars": ["warn"],

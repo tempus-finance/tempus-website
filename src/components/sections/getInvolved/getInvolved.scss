@@ -12,7 +12,7 @@
 
 .tf__get-involved__cards-grid {
   display: grid;
-  column-gap: 46px;
+  column-gap: 65px;
   row-gap: 43px;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
@@ -40,6 +40,7 @@
     grid-area: first-card;
     background: radial-gradient(34.45% 56.55% at 84.54% 17.33%, rgba(0, 194, 255, 0.2) 0%, rgba(0, 87, 255, 0.126) 100%),
       linear-gradient(117.67deg, #222222 6.84%, #0bb694 84.65%);
+    position: relative;
   }
 
   &.tf__get-involved__second-card {
@@ -51,5 +52,17 @@
   &.tf__get-involved__third-card {
     grid-area: third-card;
     background: linear-gradient(97.53deg, #5098a9 0%, #285a95 100%);
+  }
+}
+
+.tf__get-involved__card-logo {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  pointer-events: none;
+
+  @media screen and (max-width: 1024px) {
+    display: none;
   }
 }

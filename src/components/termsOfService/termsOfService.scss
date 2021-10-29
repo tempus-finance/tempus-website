@@ -1,0 +1,18 @@
+.tf__terms-of-service {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(34.45% 56.55% at 84.54% 17.33%, rgba(0, 194, 255, 0.3) 0%, rgba(0, 87, 255, 0.189) 100%),
+    linear-gradient(116.06deg, #4b4b4b 7.43%, #0bb694 101.55%);
+  padding-top: 224px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tf__terms-of-service-content {
+  width: 1024px;
+
+  @media screen and (max-width: 1024px) {
+    width: 90%;
+  }
+}

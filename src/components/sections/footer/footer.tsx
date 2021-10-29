@@ -1,15 +1,18 @@
 import React, { useCallback } from 'react';
+import { useHistory } from 'react-router-dom';
 import Typography from '../../typography/typography';
 
 import './footer.scss';
 
 const Footer = () => {
+  const history = useHistory();
+
   const onPrivacyPolicyClick = useCallback(() => {
-    window.open('https://tempus.finance/privacy-policy', '_blank');
+    history.push('/privacy-policy');
   }, []);
 
   const onTermsOfServiceClick = useCallback(() => {
-    window.open('https://tempus.finance/terms-of-service', '_blank');
+    history.push('/terms-of-service');
   }, []);
 
   const onContactClick = useCallback(() => {
@@ -18,19 +21,19 @@ const Footer = () => {
 
   return (
     <div className="tf__footer__container">
-      <Typography variant="join-body" color="inverted" clickable onClick={onPrivacyPolicyClick}>
+      <Typography variant="join-body" color="inverted" clickable underline onClick={onPrivacyPolicyClick}>
         Privacy Policy
       </Typography>
       <Typography variant="join-body" color="inverted">
         &nbsp;-&nbsp;
       </Typography>
-      <Typography variant="join-body" color="inverted" clickable onClick={onTermsOfServiceClick}>
+      <Typography variant="join-body" color="inverted" clickable underline onClick={onTermsOfServiceClick}>
         Terms of Service
       </Typography>
       <Typography variant="join-body" color="inverted">
         &nbsp;-&nbsp;
       </Typography>
-      <Typography variant="join-body" color="inverted" clickable onClick={onContactClick}>
+      <Typography variant="join-body" color="inverted" clickable underline onClick={onContactClick}>
         Contact
       </Typography>
     </div>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import Button from '../button/button';
 import ArrowDown from '../icons/arrow-down';
 import CrossIcon from '../icons/cross';
@@ -15,6 +16,8 @@ import Typography from '../typography/typography';
 import './navbar.scss';
 
 const Navbar = () => {
+  const history = useHistory();
+
   const [communityOpen, setCommunityOpen] = useState<boolean>(false);
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
@@ -66,11 +69,17 @@ const Navbar = () => {
     window.open('https://t.me/joinchat/SaOp74Uqe2BiMGM1', '_blank');
   };
 
+  const onLogoClick = () => {
+    history.push('/');
+  };
+
   return (
     <div className="tf__navbar__container">
       <div className="tf__navbar__content">
         <div className="tf__flex-row-center-v">
-          <Logo />
+          <div onClick={onLogoClick} aria-hidden="true">
+            <Logo />
+          </div>
         </div>
         <div className="tf__navbar-actions-desktop">
           <div
@@ -78,7 +87,7 @@ const Navbar = () => {
             onClick={onCommunityClick}
             aria-hidden="true"
           >
-            <Typography variant="header-label" clickable>
+            <Typography variant="header-label" clickable underline>
               COMMUNITY
             </Typography>
             <Spacer size={6} orientation="horizontal" />
@@ -139,11 +148,11 @@ const Navbar = () => {
           </div>
           {communityOpen && <div className="tf__backdrop" onClick={onCommunityClick} aria-hidden="true" />}
           <Spacer size={45} orientation="horizontal" />
-          <Typography variant="header-label" onClick={onDocsClick} clickable>
+          <Typography variant="header-label" onClick={onDocsClick} clickable underline>
             DOCS
           </Typography>
           <Spacer size={45} orientation="horizontal" />
-          <Typography variant="header-label" onClick={onSersClick} clickable>
+          <Typography variant="header-label" onClick={onSersClick} clickable underline>
             SERS
           </Typography>
           <Spacer size={45} orientation="horizontal" />
