@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { format } from 'date-fns';
+import Axios from 'axios';
 import Spacer from '../../spacer/spacer';
 import Typography from '../../typography/typography';
 
@@ -19,11 +20,10 @@ const News = () => {
 
   useEffect(() => {
     const fetchPostsFromMedium = async () => {
-      const response = await (
-        await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/tempusfinance')
-      ).json();
-
-      const lastThreePosts: MediumPostData[] = response.items.slice(0, 3).map((item: any) => {
+      const response = await Axios.get(
+        'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/tempusfinance',
+      );
+      const lastThreePosts: MediumPostData[] = response.data.items.slice(0, 3).map((item: any) => {
         const publicationDate = new Date(item.pubDate);
 
         const tag = document.createElement('div');
