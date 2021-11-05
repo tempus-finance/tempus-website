@@ -20,7 +20,8 @@ type TypographyVariant =
   | 'footer-header'
   | 'join-header'
   | 'join-body'
-  | 'get-involved-card-button';
+  | 'get-involved-card-button'
+  | 'investor-name';
 type TypographyColor = 'default' | 'accent' | 'inverted' | 'link';
 
 const typographyStyleMap = new Map<TypographyVariant, CSSProperties>();
@@ -144,6 +145,13 @@ typographyStyleMap.set('get-involved-card-button', {
   fontSize: '22px',
   lineHeight: '28px',
 });
+typographyStyleMap.set('investor-name', {
+  fontFamily: "'Source Sans Pro', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 700,
+  fontSize: '20px',
+  lineHeight: '160%',
+});
 
 const typographyMobileStyleMap = new Map<TypographyVariant, CSSProperties>();
 typographyMobileStyleMap.set('h1', {
@@ -265,6 +273,13 @@ typographyMobileStyleMap.set('get-involved-card-button', {
   fontWeight: 600,
   fontSize: '22px',
   lineHeight: '28px',
+});
+typographyMobileStyleMap.set('investor-name', {
+  fontFamily: "'Source Sans Pro', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 700,
+  fontSize: '20px',
+  lineHeight: '160%',
 });
 
 interface TypographyProps {

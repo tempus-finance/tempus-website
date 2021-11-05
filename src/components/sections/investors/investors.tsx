@@ -1,5 +1,8 @@
 import React from 'react';
+import DistributedGlobalLogo from '../../icons/distributedGlobalLogo';
 import GSRLogo from '../../icons/gsrLogo';
+import JumpCapitalLogo from '../../icons/jumpCapitalLogo';
+import KojiLogo from '../../icons/kojiLogo';
 import LaunchHubLogo from '../../icons/launchHubLogo';
 import LemniscapLogo from '../../icons/lemniscapLogo';
 import SupernovaLogo from '../../icons/supernovaLogo';
@@ -13,7 +16,7 @@ import './investors.scss';
 const Investors = () => (
   <div className="tf__investors__container">
     <Typography variant="h3" color="inverted">
-      Investors
+      Supported by
     </Typography>
     <Spacer size={56} orientation="vertical" />
     <div className="tf__investors__cards-container">
@@ -21,19 +24,51 @@ const Investors = () => (
         <LemniscapLogo />
       </div>
       <div className="tf__investors-card">
-        <TomahawkVCLogo />
+        <JumpCapitalLogo />
+      </div>
+      <div className="tf__investors-card">
+        <DistributedGlobalLogo />
       </div>
       <div className="tf__investors-card">
         <GSRLogo />
       </div>
       <div className="tf__investors-card">
-        <SupernovaLogo />
-      </div>
-      <div className="tf__investors-card">
         <WintermuteLogo />
       </div>
       <div className="tf__investors-card">
+        <TomahawkVCLogo />
+      </div>
+      <div className="tf__investors-card">
         <LaunchHubLogo />
+      </div>
+      <div className="tf__investors-card">
+        <KojiLogo />
+      </div>
+      <div className="tf__investors-card">
+        <SupernovaLogo />
+      </div>
+    </div>
+    <div className="tf__name-cards-container">
+      <div className="tf__name-card">
+        <Typography variant="investor-name">Jack Herrick</Typography>
+      </div>
+      <Spacer size={15} orientation="horizontal" />
+      <div className="tf__name-card">
+        <Typography variant="investor-name">Thomas Bailey</Typography>
+      </div>
+
+      <div className="tf__row-break" />
+
+      <div className="tf__name-card">
+        <Typography variant="investor-name">Freddie Farmer</Typography>
+      </div>
+      <Spacer size={15} orientation="horizontal" />
+      <div className="tf__name-card">
+        <Typography variant="investor-name">Richard Dai</Typography>
+      </div>
+      <Spacer size={15} orientation="horizontal" />
+      <div className="tf__name-card">
+        <Typography variant="investor-name">David Choi</Typography>
       </div>
     </div>
   </div>
