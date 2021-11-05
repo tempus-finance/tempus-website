@@ -20,7 +20,9 @@ type TypographyVariant =
   | 'footer-header'
   | 'join-header'
   | 'join-body'
-  | 'get-involved-card-button';
+  | 'get-involved-card-button'
+  | 'banner-title'
+  | 'banner-text';
 type TypographyColor = 'default' | 'accent' | 'inverted' | 'link';
 
 const typographyStyleMap = new Map<TypographyVariant, CSSProperties>();
@@ -144,6 +146,20 @@ typographyStyleMap.set('get-involved-card-button', {
   fontSize: '22px',
   lineHeight: '28px',
 });
+typographyStyleMap.set('banner-title', {
+  fontFamily: "'Manrope', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 700,
+  fontSize: '40px',
+  lineHeight: '110%',
+});
+typographyStyleMap.set('banner-text', {
+  fontFamily: "'Manrope', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 400,
+  fontSize: '16px',
+  lineHeight: '110%',
+});
 
 const typographyMobileStyleMap = new Map<TypographyVariant, CSSProperties>();
 typographyMobileStyleMap.set('h1', {
@@ -265,6 +281,20 @@ typographyMobileStyleMap.set('get-involved-card-button', {
   fontWeight: 600,
   fontSize: '22px',
   lineHeight: '28px',
+});
+typographyMobileStyleMap.set('banner-title', {
+  fontFamily: "'Manrope', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 700,
+  fontSize: '40px',
+  lineHeight: '110%',
+});
+typographyMobileStyleMap.set('banner-text', {
+  fontFamily: "'Manrope', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 400,
+  fontSize: '16px',
+  lineHeight: '110%',
 });
 
 interface TypographyProps {

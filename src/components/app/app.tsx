@@ -5,6 +5,7 @@ import Graph from '../graph/graph';
 import FooterLogo from '../logo/footer-logo';
 import Navbar from '../navbar/navbar';
 import PrivacyPolicy from '../privacyPolicy/privacyPolicy';
+import Banner from '../sections/banner/Banner';
 import FAQ from '../sections/faq/faq';
 import Footer from '../sections/footer/footer';
 import GetInvolved from '../sections/getInvolved/getInvolved';
@@ -31,6 +32,7 @@ const App = () => (
         </Route>
         <Route path="/">
           <Background />
+          <Banner />
           <Main />
           {/* Removed until we go on mainnet <Stats /> */}
           <Protocols />
