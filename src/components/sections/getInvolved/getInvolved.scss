@@ -1,0 +1,68 @@
+.tf__get-involved__container {
+  padding-top: 121px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 1024px;
+
+  @media screen and (max-width: 1024px) {
+    width: 90%;
+  }
+}
+
+.tf__get-involved__cards-grid {
+  display: grid;
+  column-gap: 65px;
+  row-gap: 43px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    'first-card second-card'
+    'first-card third-card';
+  width: 100%;
+
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+      'first-card'
+      'second-card'
+      'third-card';
+  }
+}
+
+.tf__get-involved__card {
+  border-radius: 30px;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+  padding: 30px 40px 30px 40px;
+
+  &.tf__get-involved__first-card {
+    grid-area: first-card;
+    background: radial-gradient(34.45% 56.55% at 84.54% 17.33%, rgba(0, 194, 255, 0.2) 0%, rgba(0, 87, 255, 0.126) 100%),
+      linear-gradient(117.67deg, #222222 6.84%, #0bb694 84.65%);
+    position: relative;
+  }
+
+  &.tf__get-involved__second-card {
+    grid-area: second-card;
+    background: radial-gradient(34.45% 56.55% at 84.54% 17.33%, rgba(0, 194, 255, 0.2) 0%, rgba(0, 87, 255, 0.126) 100%),
+      linear-gradient(117.67deg, #222222 6.84%, #0bb6ac 84.65%);
+  }
+
+  &.tf__get-involved__third-card {
+    grid-area: third-card;
+    background: linear-gradient(97.53deg, #5098a9 0%, #285a95 100%);
+  }
+}
+
+.tf__get-involved__card-logo {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  pointer-events: none;
+
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
+}

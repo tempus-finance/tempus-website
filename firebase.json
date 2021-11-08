@@ -1,11 +1,26 @@
 {
-  "hosting": [{
-    "site": "tempus-website-972a3",
-    "public": "out",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
-  }, {
-    "site": "stage-tempus",
-    "public": "out",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
-  }]
+  "hosting": [
+    {
+      "site": "tempus-website-972a3",
+      "public": "build",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
+      "site": "stage-tempus",
+      "public": "build",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
 }

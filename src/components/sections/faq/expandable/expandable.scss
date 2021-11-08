@@ -1,0 +1,22 @@
+.tf__expandable__container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.tf__expandable__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+}
+
+.tf__expandable_icon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+}

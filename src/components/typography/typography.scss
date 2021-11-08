@@ -1,0 +1,24 @@
+.tf__typography__gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.tf__typography-desktop {
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
+}
+
+.tf__typography-mobile {
+  display: none;
+
+  @media screen and (max-width: 1024px) {
+    display: block;
+  }
+}
+
+.tf__typography_underline_hover {
+  &:hover {
+    text-decoration: underline;
+  }
+}
