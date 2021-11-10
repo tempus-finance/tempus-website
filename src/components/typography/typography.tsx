@@ -22,7 +22,8 @@ type TypographyVariant =
   | 'join-body'
   | 'get-involved-card-button'
   | 'banner-title'
-  | 'banner-text';
+  | 'banner-text'
+  | 'banner-large-text';
 type TypographyColor = 'default' | 'accent' | 'inverted' | 'link';
 
 const typographyStyleMap = new Map<TypographyVariant, CSSProperties>();
@@ -160,6 +161,13 @@ typographyStyleMap.set('banner-text', {
   fontSize: '16px',
   lineHeight: '110%',
 });
+typographyStyleMap.set('banner-large-text', {
+  fontFamily: "'Manrope', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 700,
+  fontSize: '24px',
+  lineHeight: '110%',
+});
 
 const typographyMobileStyleMap = new Map<TypographyVariant, CSSProperties>();
 typographyMobileStyleMap.set('h1', {
@@ -294,6 +302,13 @@ typographyMobileStyleMap.set('banner-text', {
   fontStyle: 'normal',
   fontWeight: 400,
   fontSize: '16px',
+  lineHeight: '110%',
+});
+typographyMobileStyleMap.set('banner-large-text', {
+  fontFamily: "'Manrope', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 700,
+  fontSize: '18px',
   lineHeight: '110%',
 });
 
