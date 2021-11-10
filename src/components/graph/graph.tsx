@@ -1,4 +1,5 @@
 import React, { useMemo, useRef, useState } from 'react';
+import Typography from '../typography/typography';
 import ArrowLeft from '../icons/arrowLeft';
 import ArrowRight from '../icons/arrowRight';
 import HedgeGraph from '../icons/hedge-graph';
@@ -53,29 +54,34 @@ const Graph = () => {
   }, [currentScroll]);
 
   return (
-    <div className="tf__graph-container">
-      <div className="tf__graph__scroll" ref={scrollRef}>
-        <div style={{ width: '20%', flexShrink: 0 }} />
-        <div style={{ width: '935px' }}>
-          <HedgeGraph />
-        </div>
-        <div style={{ width: '150px', flexShrink: 0 }} />
-        <div style={{ width: '885px' }}>
-          <LiquidityGraph />
-        </div>
-        <div style={{ width: '20%', flexShrink: 0 }} />
+    <>
+      <div className="tf__graph-title">
+        <Typography variant="h3">What can you do on Tempus?</Typography>
       </div>
-      {rightVisible && (
-        <div className="tf__graph__arrowRight" onClick={onScrollRight} aria-hidden="true">
-          <ArrowRight />
+      <div className="tf__graph">
+        <div className="tf__graph__scroll" ref={scrollRef}>
+          <div style={{ width: '20%', flexShrink: 0 }} />
+          <div style={{ width: '935px' }}>
+            <HedgeGraph />
+          </div>
+          <div style={{ width: '150px', flexShrink: 0 }} />
+          <div style={{ width: '885px' }}>
+            <LiquidityGraph />
+          </div>
+          <div style={{ width: '20%', flexShrink: 0 }} />
         </div>
-      )}
-      {leftVisible && (
-        <div className="tf__graph__arrowLeft" onClick={onScrollLeft} aria-hidden="true">
-          <ArrowLeft />
-        </div>
-      )}
-    </div>
+        {rightVisible && (
+          <div className="tf__graph__arrowRight" onClick={onScrollRight} aria-hidden="true">
+            <ArrowRight />
+          </div>
+        )}
+        {leftVisible && (
+          <div className="tf__graph__arrowLeft" onClick={onScrollLeft} aria-hidden="true">
+            <ArrowLeft />
+          </div>
+        )}
+      </div>
+    </>
   );
 };
 export default Graph;

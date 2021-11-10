@@ -23,7 +23,7 @@ const Social = () => {
       <Typography variant="footer-header" color="inverted" align="center">
         of Tempus
       </Typography>
-      <Spacer size={35} orientation="vertical" />
+      <Spacer size={184} orientation="vertical" />
       <div className="tf__social__sections-container">
         <div className="tf__social-stay-updated">
           <Typography variant="join-header" color="inverted" align="center">
@@ -33,7 +33,7 @@ const Social = () => {
             Get notified about major developments in Tempus
           </Typography>
           <Spacer size={23} orientation="vertical" />
-          <Button width="160px" onClick={onDiscordClick}>
+          <Button width="180px" onClick={onDiscordClick}>
             <DiscordLogo />
             <Spacer size={11} orientation="horizontal" />
             <Typography variant="get-involved-card-button" clickable>
@@ -49,7 +49,7 @@ const Social = () => {
             We’re always looking for talented people to join the team
           </Typography>
           <Spacer size={23} orientation="vertical" />
-          <Button width="160px" onClick={onSeeOpeningsClick}>
+          <Button width="180px" onClick={onSeeOpeningsClick}>
             <Typography variant="get-involved-card-button" clickable>
               See openings
             </Typography>

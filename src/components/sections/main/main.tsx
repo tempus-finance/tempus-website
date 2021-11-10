@@ -18,11 +18,13 @@ const Main = () => {
   return (
     <div className="tf__main__container">
       <Typography variant="h1" color="inverted" html="Trustless</br> secondary</br> markets on yield" />
-      <Spacer size={30} orientation="vertical" />
-      <Typography variant="h2" color="inverted">
-        Fixed and variable yield farming made easy
-      </Typography>
-      <Spacer size={60} orientation="vertical" />
+      <Spacer size={50} orientation="vertical" />
+      <Typography
+        variant="h2"
+        color="inverted"
+        html="Tempus is a permissionless market for</br>AMM-powered interest rate swaps."
+      />
+      <Spacer size={50} orientation="vertical" />
       <div className="tf__main-button">
         <Button onClick={onLaunchAppClick}>
           <Typography variant="header-label" clickable>

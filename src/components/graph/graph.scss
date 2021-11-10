@@ -1,5 +1,5 @@
-.tf__graph-container {
-  margin-top: 135px;
+.tf__graph {
+  margin-top: 69px;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -38,5 +38,16 @@
 
   @media screen and (max-width: 1024px) {
     left: 10px;
+  }
+}
+
+.tf__graph-title {
+  margin-top: 135px;
+
+  @media screen and (max-width: 1024px) {
+    width: 90vw;
+    display: flex;
+    justify-content: center;
+    text-align: center;
   }
 }

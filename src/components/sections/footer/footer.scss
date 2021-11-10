@@ -1,11 +1,12 @@
 .tf__footer__container {
   display: flex;
-  padding-top: 60px;
+  padding-top: 151px;
   padding-bottom: 30px;
   width: 1024px;
 
   @media screen and (max-width: 1024px) {
     width: 100%;
+    padding-top: 60px;
     box-sizing: border-box;
     justify-content: center;
   }

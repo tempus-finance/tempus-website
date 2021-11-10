@@ -2,12 +2,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 169px;
+  padding-top: 205px;
   align-items: center;
   width: 1024px;
 
   @media screen and (max-width: 1024px) {
     width: 100%;
+    padding-top: 169px;
   }
 }
 
@@ -15,10 +16,12 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+  margin-top: 184px;
 
   @media screen and (max-width: 1024px) {
     flex-direction: column;
     align-items: center;
+    margin-top: 35px;
   }
 }
 
