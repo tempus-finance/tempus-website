@@ -13,6 +13,10 @@ const Security = () => {
     window.open('https://www.coinspect.com/tempus-audit', '_blank');
   }, []);
 
+  const onCodeArenaClick = useCallback(() => {
+    window.open('https://code423n4.com/reports/2021-10-tempus', '_blank');
+  }, []);
+
   return (
     <div className="tf__security-container">
       <Typography variant="h3">Security</Typography>
@@ -25,13 +29,12 @@ const Security = () => {
           <Spacer size={22} orientation="vertical" />
           <Typography variant="security-card-label">Security Audit</Typography>
         </div>
-        <div className="tf__security-card">
+        <div className="tf__security-card" onClick={onCodeArenaClick} aria-hidden="true" style={{ cursor: 'pointer' }}>
           <div className="tf__security-logo-container">
             <Code423n4Logo />
           </div>
           <Spacer size={22} orientation="vertical" />
           <Typography variant="security-card-label">Security Audit</Typography>
-          <Typography variant="security-card-label">(Coming soon)</Typography>
         </div>
         <div className="tf__security-card">
           <div className="tf__security-logo-container">

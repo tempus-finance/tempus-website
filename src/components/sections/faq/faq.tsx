@@ -79,10 +79,11 @@ const FAQ = () => {
             />
             <Expandable
               title="How does Tempus work?"
-              text="Tempus allows users to deposit various yield bearing tokens (YBT) such as stETH (Lido Staked ETH) or aDAI (Aave Interest Bearing Dai) into contracts with select maturities. For ease, users will also be allowed to deposit the Backing Token (BT) such as ETH for direct deposit onto another platform through Tempus.<br /><br /> Tempus then separates the YBT into a Principals and Yields and allows users to:
+              text="Tempus has three different use cases, each of which offers a unique value proposition:
             <ol>
-              <li>Buy and sell interest rate protection using any supported Yield Bearing Token (such as stETH, cDai).</li>
-              <li>Earn swap fees as a liquidity provider by depositing any supported Yield Bearing Token (on top of yield earned through yield farming protocols).</li>
+              <li>Fix your future yield using any supported Yield Bearing Token (such as stETH, cDai).</li>
+              <li>Speculate on the rate of future yield of any supported Yield Bearing Token.</li>
+              <li>Provide liquidity to earn additional swap fees (on top of yield earned through yield farming protocols) by depositing any supported Yield Bearing Token.</li>
             </ol>"
             />
             <Expandable

@@ -23,7 +23,8 @@ type TypographyVariant =
   | 'get-involved-card-button'
   | 'banner-title'
   | 'banner-text'
-  | 'banner-large-text';
+  | 'banner-large-text'
+  | 'investor-name';
 type TypographyColor = 'default' | 'accent' | 'inverted' | 'link';
 
 const typographyStyleMap = new Map<TypographyVariant, CSSProperties>();
@@ -168,6 +169,13 @@ typographyStyleMap.set('banner-large-text', {
   fontSize: '24px',
   lineHeight: '110%',
 });
+typographyStyleMap.set('investor-name', {
+  fontFamily: "'Source Sans Pro', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 700,
+  fontSize: '20px',
+  lineHeight: '160%',
+});
 
 const typographyMobileStyleMap = new Map<TypographyVariant, CSSProperties>();
 typographyMobileStyleMap.set('h1', {
@@ -310,6 +318,13 @@ typographyMobileStyleMap.set('banner-large-text', {
   fontWeight: 700,
   fontSize: '18px',
   lineHeight: '110%',
+});
+typographyMobileStyleMap.set('investor-name', {
+  fontFamily: "'Source Sans Pro', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 700,
+  fontSize: '20px',
+  lineHeight: '160%',
 });
 
 interface TypographyProps {
