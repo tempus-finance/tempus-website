@@ -286,7 +286,7 @@ typographyMobileStyleMap.set('banner-title', {
   fontFamily: "'Manrope', sans-serif",
   fontStyle: 'normal',
   fontWeight: 700,
-  fontSize: '40px',
+  fontSize: '20px',
   lineHeight: '110%',
 });
 typographyMobileStyleMap.set('banner-text', {

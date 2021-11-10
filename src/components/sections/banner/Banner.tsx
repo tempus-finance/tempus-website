@@ -6,7 +6,7 @@ import Typography from '../../typography/typography';
 
 import './Banner.scss';
 
-const targetDate = new Date(Date.UTC(2021, 10, 10, 14, 0, 0, 0));
+const targetDate = new Date(Date.UTC(2021, 10, 15, 17, 0, 0, 0));
 
 const Banner = () => {
   const [currentTime, setCurrentTime] = useState(Date.now());
@@ -32,8 +32,9 @@ const Banner = () => {
 
   return (
     <div className="tf__banner">
-      <SushiSwapLogo />
       <div className="tf__flex-row-center-v">
+        <SushiSwapLogo />
+        <Spacer size={20} orientation="horizontal" />
         <Typography variant="banner-title" color="inverted">
           Sushi
         </Typography>
@@ -46,6 +47,7 @@ const Banner = () => {
           Tempus
         </Typography>
       </div>
+      <div className="tf__banner-spacer" />
       <div className="tf__flex-row-center-v">
         <div className="tf__banner-timer-cell">
           <Typography variant="banner-text" color="inverted">
@@ -76,13 +78,14 @@ const Banner = () => {
         <div className="tf__banner-timer-cell-separator tf__banner-separator-text">:</div>
         <div className="tf__banner-timer-cell">
           <Typography variant="banner-text" color="inverted">
-            seconds
+            Seconds
           </Typography>
           <Typography variant="banner-title" color="inverted">
             {timeRemaining.seconds}
           </Typography>
         </div>
       </div>
+      <div className="tf__banner-spacer" />
       <div className="tf__banner-button" onClick={onLinkClick} aria-hidden="true">
         <Typography variant="banner-text" color="inverted" clickable>
           Read more

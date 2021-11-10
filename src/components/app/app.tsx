@@ -32,8 +32,13 @@ const App = () => (
         </Route>
         <Route path="/">
           <Background />
-          <Banner />
+          <div className="tf__desktop-only">
+            <Banner />
+          </div>
           <Main />
+          <div className="tf__mobile-only">
+            <Banner />
+          </div>
           {/* Removed until we go on mainnet <Stats /> */}
           <Protocols />
           <Graph />
