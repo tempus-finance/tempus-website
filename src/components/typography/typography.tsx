@@ -21,6 +21,9 @@ type TypographyVariant =
   | 'join-header'
   | 'join-body'
   | 'get-involved-card-button'
+  | 'banner-title'
+  | 'banner-text'
+  | 'banner-large-text'
   | 'investor-name';
 type TypographyColor = 'default' | 'accent' | 'inverted' | 'link';
 
@@ -144,6 +147,27 @@ typographyStyleMap.set('get-involved-card-button', {
   fontWeight: 600,
   fontSize: '22px',
   lineHeight: '28px',
+});
+typographyStyleMap.set('banner-title', {
+  fontFamily: "'Manrope', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 700,
+  fontSize: '40px',
+  lineHeight: '110%',
+});
+typographyStyleMap.set('banner-text', {
+  fontFamily: "'Manrope', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 400,
+  fontSize: '16px',
+  lineHeight: '110%',
+});
+typographyStyleMap.set('banner-large-text', {
+  fontFamily: "'Manrope', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 700,
+  fontSize: '24px',
+  lineHeight: '110%',
 });
 typographyStyleMap.set('investor-name', {
   fontFamily: "'Source Sans Pro', sans-serif",
@@ -273,6 +297,27 @@ typographyMobileStyleMap.set('get-involved-card-button', {
   fontWeight: 600,
   fontSize: '22px',
   lineHeight: '28px',
+});
+typographyMobileStyleMap.set('banner-title', {
+  fontFamily: "'Manrope', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 700,
+  fontSize: '20px',
+  lineHeight: '110%',
+});
+typographyMobileStyleMap.set('banner-text', {
+  fontFamily: "'Manrope', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 400,
+  fontSize: '16px',
+  lineHeight: '110%',
+});
+typographyMobileStyleMap.set('banner-large-text', {
+  fontFamily: "'Manrope', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 700,
+  fontSize: '18px',
+  lineHeight: '110%',
 });
 typographyMobileStyleMap.set('investor-name', {
   fontFamily: "'Source Sans Pro', sans-serif",

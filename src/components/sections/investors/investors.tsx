@@ -1,6 +1,6 @@
 import React from 'react';
-import DistributedGlobalLogo from '../../icons/distributedGlobalLogo';
 import GSRLogo from '../../icons/gsrLogo';
+import DistributedGlobalLogo from '../../icons/distributedGlobalLogo';
 import JumpCapitalLogo from '../../icons/jumpCapitalLogo';
 import KojiLogo from '../../icons/kojiLogo';
 import LaunchHubLogo from '../../icons/launchHubLogo';

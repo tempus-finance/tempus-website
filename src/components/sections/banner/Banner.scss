@@ -1,0 +1,80 @@
+.tf__banner {
+  padding-top: 100px;
+  width: 1024px;
+  height: 116px;
+  background: linear-gradient(90.74deg, #862e6d 0%, #0067d4 100%);
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(40px);
+  border-radius: 0px 0px 5px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @media screen and (max-width: 1024px) {
+    width: 90%;
+    flex-direction: column;
+    border-radius: 5px;
+    margin-top: 20px;
+    padding: 30px 0px 15px 0px;
+    height: auto;
+
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+}
+
+.tf__banner-spacer {
+  @media screen and (max-width: 1024px) {
+    height: 25px;
+  }
+}
+
+.tf__banner-timer-cell {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 45px;
+
+  @media screen and (max-width: 1024px) {
+    width: auto;
+  }
+}
+
+.tf__banner-timer-cell-separator {
+  width: 30px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-self: flex-end;
+
+  @media screen and (max-width: 1024px) {
+    width: 22px;
+  }
+}
+
+.tf__banner-separator-text {
+  line-height: 44px;
+  font-size: 18px;
+  color: white;
+}
+
+.tf__banner-button {
+  width: 130px;
+  height: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #b701aa;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  cursor: pointer;
+
+  @media screen and (max-width: 1024px) {
+    width: 273px;
+  }
+}

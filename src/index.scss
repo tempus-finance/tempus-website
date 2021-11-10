@@ -42,3 +42,21 @@ body {
     top: 100px;
   }
 }
+
+.tf__desktop-only {
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
+}
+
+.tf__mobile-only {
+  display: none;
+
+  @media screen and (max-width: 1024px) {
+    display: block;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
