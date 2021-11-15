@@ -21,6 +21,10 @@ const Navbar = () => {
   const [communityOpen, setCommunityOpen] = useState<boolean>(false);
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
+  const onTokenAuctionClick = () => {
+    history.push('/token-auction');
+  };
+
   const onCommunityClick = () => {
     setCommunityOpen((prevValue) => !prevValue);
   };
@@ -82,6 +86,10 @@ const Navbar = () => {
           </div>
         </div>
         <div className="tf__navbar-actions-desktop">
+          <Typography variant="header-label" onClick={onTokenAuctionClick} clickable underline>
+            TOKEN AUCTION
+          </Typography>
+          <Spacer size={45} orientation="horizontal" />
           <div
             className="tf__flex-row-center-v tf__navbar-dropdown-label"
             onClick={onCommunityClick}

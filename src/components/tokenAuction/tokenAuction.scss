@@ -1,0 +1,190 @@
+.tf__tokenAuction-container {
+  padding-top: 100px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tf__tokenAuction-background {
+  height: 1400px;
+  width: 100%;
+  background: radial-gradient(34.45% 56.55% at 84.54% 17.33%, rgba(0, 194, 255, 0.3) 0%, rgba(0, 87, 255, 0.189) 100%),
+    linear-gradient(116.06deg, #4b4b4b 7.43%, #0bb694 101.55%);
+  position: absolute;
+  z-index: -1;
+}
+
+.tf__tokenAuction-title {
+  padding-top: 126px;
+  overflow-y: hidden;
+}
+
+.tf__tokenAuction-chart-section {
+  width: 100%;
+  padding: 24px;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-top: 73px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tf__tokenAuction-chart {
+  width: 1024px;
+}
+
+.tf__tokenAuction-chart-tooltip {
+  background: linear-gradient(0deg, #ffffff -0.55%, #f3f7f9 100%);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  padding: 10px 15px 10px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tf__tokenAuction-chart-actions {
+  display: flex;
+  flex-direction: row;
+  width: 1024px;
+  justify-content: space-between;
+}
+
+.tf__tokenAuction-chart-button-text {
+  font-family: 'Source Sans Pro';
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 28px;
+}
+
+.tf__tokenAuction-button {
+  background: #ffffff;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 25px;
+  padding-right: 25px;
+  cursor: pointer;
+}
+
+.tf__tokenAuction-link-actions {
+  display: flex;
+}
+
+.tf__tokenAuction-cards-section {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 32px;
+}
+
+.tf__tokenAuction-card {
+  background: #ffffff;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  width: 242px;
+  height: 123px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tf__tokenAuction-card-title {
+  font-family: 'Source Sans Pro';
+  font-weight: 600;
+  font-size: 22px;
+  color: #7a7a7a;
+}
+
+.tf__tokenAuction-card-data {
+  font-family: 'Source Sans Pro';
+  font-weight: 600;
+  font-size: 22px;
+  color: #222222;
+}
+
+.tf__leaderboard-section {
+  margin-top: 125px;
+  background: #fcfcfc;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 75px;
+}
+
+.tf__leaderboard {
+  background: transparent;
+  border-radius: 5px;
+  width: 1024px;
+  padding-top: 34px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tf__leaderboard-row {
+  display: flex;
+  flex-direction: row;
+  width: 984px;
+  padding-left: 25px;
+  box-sizing: border-box;
+  font-family: 'Source Sans Pro';
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 23px;
+  color: #222222;
+}
+
+.tf__leaderboard-row-card-main {
+  flex: 63px 25px;
+  background: radial-gradient(35.04% 86.51% at 99.12% 0%, rgba(0, 194, 255, 0.3) 0%, rgba(0, 87, 255, 0.189) 100%),
+    linear-gradient(116.06deg, #009bf2 7.43%, #fa05ff 101.55%);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  height: 63px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.tf__leaderboard-row-card-secondary {
+  flex: 63px 25px;
+  background: radial-gradient(34.45% 56.55% at 84.54% 17.33%, rgba(0, 194, 255, 0.3) 0%, rgba(0, 87, 255, 0.189) 100%),
+    linear-gradient(116.06deg, #4b4b4b 7.43%, #0bb694 101.55%);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  height: 63px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.tf__leaderboard-row-card-default {
+  flex: 63px 25px;
+  background: #ffffff;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  height: 63px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.tf__leaderboard-column {
+  flex: 25;
+}

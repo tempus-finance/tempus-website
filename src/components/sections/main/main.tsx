@@ -1,4 +1,7 @@
-import React from 'react';
+import { ethers } from 'ethers';
+import React, { useEffect } from 'react';
+import TokenHoldersService from '../../../services/tokenHoldersService';
+import TokenSaleService from '../../../services/tokenSaleData';
 import Button from '../../button/button';
 import DiscordLogo from '../../icons/discordLogo';
 import Spacer from '../../spacer/spacer';
@@ -14,6 +17,25 @@ const Main = () => {
   const onDiscordClick = () => {
     window.open('https://discord.com/invite/6gauHECShr', '_blank');
   };
+
+  useEffect(() => {
+    const fetch = async () => {
+      const tokenSaleService = new TokenSaleService();
+      const data = await tokenSaleService.getPoolData(1000, 0, null);
+
+      // const tokenHoldersService = new TokenHoldersService();
+      // const holders = await tokenHoldersService.getHolders();
+
+      const prices = await tokenSaleService.getPrices(data.swaps);
+
+      /* holders.forEach((holder) => {
+        console.log(ethers.utils.formatEther(holder.balance));
+      }); */
+
+      debugger;
+    };
+    fetch();
+  }, []);
 
   return (
     <div className="tf__main__container">

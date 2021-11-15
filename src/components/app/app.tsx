@@ -16,6 +16,7 @@ import Protocols from '../sections/protocols/protocols';
 import Security from '../sections/security/security';
 import Social from '../sections/social/social';
 import TermsOfService from '../termsOfService/termsOfService';
+import TokenAuction from '../tokenAuction/tokenAuction';
 
 import './app.scss';
 
@@ -24,6 +25,16 @@ const App = () => (
     <Router>
       <Navbar />
       <Switch>
+        <Route path="/token-auction">
+          <TokenAuction />
+          <div className="tf__app__sections-gradient-wrapper">
+            <Social />
+            <Footer />
+            <div className="tf__app__sections-footer-logo">
+              <FooterLogo />
+            </div>
+          </div>
+        </Route>
         <Route path="/privacy-policy">
           <PrivacyPolicy />
         </Route>
