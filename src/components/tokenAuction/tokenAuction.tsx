@@ -78,6 +78,24 @@ const TokenAuction = () => {
     window.open('https://etherscan.io/token/0x9892843ed7b78E9cA3a15fe3d6fc12C664277c8d', '_blank');
   }, []);
 
+  const onAddTokenToWallet = useCallback((event: any) => {
+    event.stopPropagation();
+
+    (window as any).ethereum.request({
+      method: 'wallet_watchAsset',
+      params: {
+        type: 'ERC20',
+        options: {
+          address: tokenAddress,
+          symbol: 'TEMP',
+          decimals: 18,
+          image:
+            'https://firebasestorage.googleapis.com/v0/b/tempus-website-972a3.appspot.com/o/tempus-token%2FTemp-token_2.png?alt=media&token=deb6abbb-dd8f-4416-92ac-be8c62d225c0', // A string url of the token logo
+        },
+      },
+    });
+  }, []);
+
   return (
     <div className="tf__tokenAuction-container">
       <div className="tf__tokenAuction-background" />
@@ -117,7 +135,7 @@ const TokenAuction = () => {
             <div style={{ color: '#7a7a7a' }}>TEMP</div>
             <Spacer size={10} orientation="horizontal" />
             {shortenAccount(tokenAddress)}
-            <Spacer size={12} orientation="horizontal" />
+            <Spacer size={15} orientation="horizontal" />
             <div
               style={{ cursor: 'pointer', height: '24px' }}
               onClick={(event) => {
@@ -127,6 +145,14 @@ const TokenAuction = () => {
             >
               <CopyIcon fill="#222222" />
             </div>
+            {(window as any).ethereum && (
+              <>
+                <Spacer size={15} orientation="horizontal" />
+                <div onClick={onAddTokenToWallet} style={{ height: '24px' }}>
+                  <img width={24} height={24} src="/images/metamask-icon.png" alt="metamask-icon" />
+                </div>
+              </>
+            )}
           </div>
           <div className="tf__tokenAuction-link-actions">
             <div className="tf__tokenAuction-button tf__tokenAuction-chart-button-text" onClick={onReadMoreClick}>
