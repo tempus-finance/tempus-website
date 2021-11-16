@@ -34,7 +34,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 450px;
+  width: 300px;
 }
 
 .tf__banner-spacer {
@@ -114,6 +114,7 @@
   font-size: 22px;
   line-height: 110%;
   color: #ffffff;
+  white-space: nowrap;
 
   @media screen and (max-width: 1024px) {
     font-size: 18px;
@@ -132,7 +133,7 @@
   left: 0px;
   bottom: -275px;
   z-index: -1;
-  left: -250px;
+  left: -400px;
 
   @media screen and (max-width: 1024px) {
     width: 125%;

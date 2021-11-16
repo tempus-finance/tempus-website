@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { intervalToDuration } from 'date-fns';
 import Typography from '../../typography/typography';
 import Spacer from '../../spacer/spacer';
@@ -9,6 +10,8 @@ const targetDate = new Date(Date.UTC(2021, 10, 16, 17, 0, 0, 0));
 const auctionEndDate = new Date(Date.UTC(2021, 10, 18, 17, 0, 0, 0));
 
 const Banner = () => {
+  const history = useHistory();
+
   const [currentTime, setCurrentTime] = useState(Date.now());
   const [isLive, setIsLive] = useState<boolean>(targetDate.getTime() < Date.now());
 
@@ -25,7 +28,15 @@ const Banner = () => {
   }, [currentTime]);
 
   const onLinkClick = useCallback(() => {
-    window.open('https://medium.com/tempusfinance/temp-fair-launch-8feb0a91302e', '_blank');
+    if (isLive) {
+      history.push('/token-auction');
+    } else {
+      window.open('https://medium.com/tempusfinance/temp-fair-launch-8feb0a91302e', '_blank');
+    }
+  }, [isLive]);
+
+  const onAuctionLinkClick = useCallback(() => {
+    window.open('https://copperlaunch.com/auctions/0x89d4a55ca51192109bb85083ff7d9a13ab24c8a1', '_blank');
   }, [isLive]);
 
   const timeRemaining = useMemo(
@@ -36,6 +47,10 @@ const Banner = () => {
       }),
     [currentTime],
   );
+
+  if (Date.now() > auctionEndDate.getTime()) {
+    return <div style={{ height: '206px' }} />;
+  }
 
   return (
     <div className="tf__banner">
@@ -101,9 +116,16 @@ const Banner = () => {
       <div className="tf__banner-spacer" />
       <div className="tf__banner-button" onClick={onLinkClick} aria-hidden="true">
         <Typography variant="banner-text" color="inverted" clickable>
-          {isLive ? 'Join now' : 'Read more'}
+          {isLive ? 'Find out more' : 'Read more'}
         </Typography>
       </div>
+      {isLive && (
+        <div className="tf__banner-button" onClick={onAuctionLinkClick} aria-hidden="true">
+          <Typography variant="banner-text" color="inverted" clickable>
+            Go to auction
+          </Typography>
+        </div>
+      )}
     </div>
   );
 };
