@@ -1,5 +1,5 @@
 .tf__tokenAuction-container {
-  padding-top: 100px;
+  padding-top: 90px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -16,8 +16,30 @@
 }
 
 .tf__tokenAuction-title {
-  padding-top: 75px;
+  padding-top: 40px;
   overflow-y: hidden;
+  font-family: 'Manrope';
+  font-weight: bold;
+  font-size: 50px;
+  color: white;
+  display: flex;
+  align-items: center;
+
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+    font-size: 40px;
+  }
+}
+
+.tf__tokenAuction-title-logo {
+  margin-left: 16px;
+  margin-right: 16px;
+  display: flex;
+  align-items: center;
+
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
 }
 
 .tf__tokenAuction-chart-section {
@@ -25,7 +47,7 @@
   padding: 24px;
   background: #ffffff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  margin-top: 35px;
+  margin-top: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -78,7 +100,7 @@
   background: #ffffff;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
   border-radius: 30px;
-  height: 55px;
+  height: 42px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -89,6 +111,23 @@
   @media screen and (max-width: 1024px) {
     width: 280px;
     box-sizing: border-box;
+    height: 55px;
+  }
+}
+
+.tf__tokenAuction-token-ticker {
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
+}
+
+.tf__tokenAuction-token-logo {
+  width: 26px;
+  height: 21px;
+
+  @media screen and (max-width: 1024px) {
+    width: 20px;
+    height: 16px;
   }
 }
 
@@ -139,7 +178,7 @@
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
   border-radius: 30px;
   width: 242px;
-  height: 123px;
+  height: 91px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -161,11 +200,11 @@
 }
 
 .tf__leaderboard-section {
-  margin-top: 125px;
+  margin-top: 34px;
   background: #fcfcfc;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   width: 100%;
-  padding-top: 50px;
+  padding-top: 31px;
   display: flex;
   flex-direction: column;
   align-items: center;
