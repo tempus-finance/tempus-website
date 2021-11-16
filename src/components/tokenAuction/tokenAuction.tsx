@@ -16,11 +16,24 @@ function shortenAccount(account: string) {
   return `${account.substring(0, 6)}...${account.substring(account.length - 5, account.length)}`;
 }
 
+type Tabs = '10' | '50' | '200';
+
 const TokenAuction = () => {
   const [chartData, setChartData] = useState<any[]>([]);
   const [holdersData, setHoldersData] = useState<any[]>([]);
+  const [filteredHolders, setFilteredHolders] = useState<any[]>([]);
   const [latestPrice, setLatestPrice] = useState<number | null>(null);
   const [usdcRaised, setUSDCRaised] = useState<number | null>(null);
+  const [selectedTab, setSelectedTab] = useState<Tabs>('10');
+
+  const onTabClick = useCallback(
+    (tab: Tabs) => {
+      setSelectedTab(tab);
+
+      setFilteredHolders(holdersData.slice(0, Number(tab)));
+    },
+    [holdersData],
+  );
 
   useEffect(() => {
     const fetchChartData = async () => {
@@ -46,6 +59,10 @@ const TokenAuction = () => {
     };
     fetchHolders();
   }, []);
+
+  useEffect(() => {
+    setFilteredHolders(holdersData.slice(0, Number(selectedTab)));
+  }, [holdersData]);
 
   const onAuctionClick = useCallback(() => {
     window.open('https://copperlaunch.com/auctions/0xe5769603af1c9ec809dd5cfbc7fee36e7f09a3e6', '_blank');
@@ -142,6 +159,39 @@ const TokenAuction = () => {
       <div className="tf__leaderboard-section">
         <div className="tf__leaderboard">
           <Typography variant="dynamic-number-label">LEADERBOARD</Typography>
+
+          <div className="tf__tokenAuction-tabs">
+            <div className="tf__tokenAuction-tabs-container">
+              <div
+                className={selectedTab === '10' ? 'tf__faq__tab-selected' : 'tf__faq__tab'}
+                onClick={() => onTabClick('10')}
+                aria-hidden="true"
+              >
+                <Typography variant="body-text" clickable>
+                  Top 10
+                </Typography>
+              </div>
+              <div
+                className={selectedTab === '50' ? 'tf__faq__tab-selected' : 'tf__faq__tab'}
+                onClick={() => onTabClick('50')}
+                aria-hidden="true"
+              >
+                <Typography variant="body-text" clickable>
+                  Top 50
+                </Typography>
+              </div>
+              <div
+                className={selectedTab === '200' ? 'tf__faq__tab-selected' : 'tf__faq__tab'}
+                onClick={() => onTabClick('200')}
+                aria-hidden="true"
+              >
+                <Typography variant="body-text" clickable>
+                  Top 200
+                </Typography>
+              </div>
+            </div>
+          </div>
+
           <Spacer size={35} orientation="vertical" />
           <div className="tf__leaderboard-row">
             <div className="tf__leaderboard-column-rank">Rank</div>
@@ -150,7 +200,7 @@ const TokenAuction = () => {
             <div className="tf__leaderboard-column-value">USDC Value</div>
           </div>
           <Spacer size={15} orientation="vertical" />
-          {holdersData.splice(0, 10).map((holder, index) => {
+          {filteredHolders.map((holder, index) => {
             let className = '';
             if (index === 0) {
               className = 'tf__leaderboard-row-card-main';

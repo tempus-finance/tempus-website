@@ -275,3 +275,33 @@
     display: none;
   }
 }
+
+.tf__tokenAuction-tabs {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.tf__tokenAuction-tabs-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(100px, 1fr));
+  align-self: flex-start;
+  background-color: #f1f1f1;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  box-sizing: border-box;
+  height: 40px;
+  justify-items: center;
+  align-items: center;
+  width: 500px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  margin-top: 12px;
+  justify-content: center;
+
+  @media screen and (max-width: 1024px) {
+    overflow-x: hidden;
+    width: 95%;
+    max-width: 500px;
+  }
+}
