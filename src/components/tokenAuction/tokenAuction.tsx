@@ -88,7 +88,7 @@ const TokenAuction = () => {
       </div>
       <div className="tf__tokenAuction-chart-section">
         <div className="tf__tokenAuction-chart">
-          <ResponsiveContainer width="100%" height={450}>
+          <ResponsiveContainer width="100%" height={325}>
             <AreaChart data={chartData}>
               <defs>
                 <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
