@@ -28,7 +28,7 @@ class TokenHoldersService {
       return 1;
     });
 
-    return holderBalances;
+    return holderBalances.filter((holder) => !holder.balance.isZero());
   }
 
   private async getHolderBalancesBatch(
@@ -37,7 +37,7 @@ class TokenHoldersService {
   ) {
     const balancePromises: Promise<{ balance: BigNumber; address: string }>[] = [];
     addresses.forEach((address) => {
-      if (ignoreHolderAddresses.indexOf(address) > -1) {
+      if (ignoreHolderAddresses.indexOf(address.toLowerCase()) > -1) {
         return;
       }
 

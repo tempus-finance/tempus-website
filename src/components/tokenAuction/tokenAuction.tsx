@@ -67,7 +67,7 @@ const TokenAuction = () => {
   }, [holdersData]);
 
   const onAuctionClick = useCallback(() => {
-    window.open('https://copperlaunch.com/auctions/0xe5769603af1c9ec809dd5cfbc7fee36e7f09a3e6', '_blank');
+    window.open('https://copperlaunch.com/auctions/0x89d4a55ca51192109bb85083ff7d9a13ab24c8a1', '_blank');
   }, []);
 
   const onReadMoreClick = useCallback(() => {
@@ -75,7 +75,7 @@ const TokenAuction = () => {
   }, []);
 
   const onTokenClick = useCallback(() => {
-    window.open('https://etherscan.io/token/0x9892843ed7b78E9cA3a15fe3d6fc12C664277c8d', '_blank');
+    window.open('https://etherscan.io/token/0xa36fdbbae3c9d55a1d67ee5821d53b50b63a1ab9', '_blank');
   }, []);
 
   const onAddTokenToWallet = useCallback((event: any) => {
@@ -192,7 +192,7 @@ const TokenAuction = () => {
         <Spacer size={14} orientation="horizontal" />
         <Spacer size={23} orientation="vertical" />
         <div className="tf__tokenAuction-card">
-          <div className="tf__tokenAuction-card-title">bKRL HOLDERS</div>
+          <div className="tf__tokenAuction-card-title">TEMP HOLDERS</div>
           <Spacer size={10} orientation="vertical" />
           <div className="tf__tokenAuction-card-data">{holdersData.length || 'loading'}</div>
         </div>
@@ -275,7 +275,7 @@ const TokenAuction = () => {
                   </div>
                 </div>
                 <div className="tf__leaderboard-column-contributed">
-                  bKRL {NumberUtils.formatToCurrency(ethers.utils.formatEther(holder.balance), 2)}
+                  TEMP {NumberUtils.formatToCurrency(ethers.utils.formatEther(holder.balance), 2)}
                 </div>
                 <div className="tf__leaderboard-column-value">
                   {latestPrice

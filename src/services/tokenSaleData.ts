@@ -71,7 +71,7 @@ class TokenSaleService {
       {
         bucket: 0,
         numSwaps: 0,
-        price: this.round(initialPrice / (1 - 0.01), 4),
+        price: this.round(initialPrice, 4),
         latestSwap: '',
         volume: 0,
         timestamp: this.timeFromBucket(0),
