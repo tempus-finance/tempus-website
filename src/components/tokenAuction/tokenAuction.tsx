@@ -114,7 +114,19 @@ const TokenAuction = () => {
           <div className="tf__tokenAuction-button tf__tokenAuction-chart-button-text" onClick={onTokenClick}>
             <img width={26} height={21} src="/images/tokenLogo.png" alt="token logo" />
             <Spacer size={10} orientation="horizontal" />
+            <div style={{ color: '#7a7a7a' }}>TEMP</div>
+            <Spacer size={10} orientation="horizontal" />
             {shortenAccount(tokenAddress)}
+            <Spacer size={12} orientation="horizontal" />
+            <div
+              style={{ cursor: 'pointer', height: '24px' }}
+              onClick={(event) => {
+                event.stopPropagation();
+                copy(tokenAddress);
+              }}
+            >
+              <CopyIcon fill="#222222" />
+            </div>
           </div>
           <div className="tf__tokenAuction-link-actions">
             <div className="tf__tokenAuction-button tf__tokenAuction-chart-button-text" onClick={onReadMoreClick}>
