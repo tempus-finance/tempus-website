@@ -29,10 +29,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media screen and (max-width: 1024px) {
+    background: transparent;
+    box-shadow: none;
+  }
 }
 
 .tf__tokenAuction-chart {
   width: 1024px;
+
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
 }
 
 .tf__tokenAuction-chart-tooltip {
@@ -50,6 +59,12 @@
   flex-direction: row;
   width: 1024px;
   justify-content: space-between;
+
+  @media screen and (max-width: 1024px) {
+    width: 90%;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
 }
 
 .tf__tokenAuction-chart-button-text {
@@ -70,10 +85,29 @@
   padding-left: 25px;
   padding-right: 25px;
   cursor: pointer;
+
+  @media screen and (max-width: 1024px) {
+    width: 280px;
+    box-sizing: border-box;
+  }
 }
 
 .tf__tokenAuction-link-actions {
   display: flex;
+
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+
+    div:first-child {
+      margin-bottom: 20px;
+    }
+
+    div:nth-child(3) {
+      margin-bottom: 20px;
+    }
+  }
 }
 
 .tf__tokenAuction-cards-section {
@@ -81,6 +115,23 @@
   justify-content: center;
   width: 100%;
   margin-top: 32px;
+
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+    align-items: center;
+
+    div:nth-child(1) {
+      margin-bottom: 20px;
+    }
+
+    div:nth-child(3) {
+      margin-bottom: 20px;
+    }
+
+    div:nth-child(5) {
+      margin-bottom: 20px;
+    }
+  }
 }
 
 .tf__tokenAuction-card {
@@ -130,6 +181,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+  }
 }
 
 .tf__leaderboard-row {
@@ -143,6 +198,10 @@
   font-size: 18px;
   line-height: 23px;
   color: #222222;
+
+  @media screen and (max-width: 1024px) {
+    width: 90%;
+  }
 }
 
 .tf__leaderboard-row-card-main {
@@ -185,6 +244,34 @@
   margin-bottom: 20px;
 }
 
-.tf__leaderboard-column {
+.tf__leaderboard-column-rank {
   flex: 25;
+
+  @media screen and (max-width: 1024px) {
+    flex: 50;
+  }
+}
+
+.tf__leaderboard-column-address {
+  flex: 25;
+
+  @media screen and (max-width: 1024px) {
+    flex: 60;
+  }
+}
+
+.tf__leaderboard-column-contributed {
+  flex: 25;
+
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
+}
+
+.tf__leaderboard-column-value {
+  flex: 25;
+
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
 }

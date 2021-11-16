@@ -63,7 +63,7 @@ const TokenAuction = () => {
     <div className="tf__tokenAuction-container">
       <div className="tf__tokenAuction-background" />
       <div className="tf__tokenAuction-title">
-        <Typography variant="h1" color="inverted">
+        <Typography variant="h1" color="inverted" align="center">
           TEMP Fair Launch
         </Typography>
       </div>
@@ -144,10 +144,10 @@ const TokenAuction = () => {
           <Typography variant="dynamic-number-label">LEADERBOARD</Typography>
           <Spacer size={35} orientation="vertical" />
           <div className="tf__leaderboard-row">
-            <div className="tf__leaderboard-column">Rank</div>
-            <div className="tf__leaderboard-column">Address</div>
-            <div className="tf__leaderboard-column">Contributed</div>
-            <div className="tf__leaderboard-column">USDC Value</div>
+            <div className="tf__leaderboard-column-rank">Rank</div>
+            <div className="tf__leaderboard-column-address">Address</div>
+            <div className="tf__leaderboard-column-contributed">Contributed</div>
+            <div className="tf__leaderboard-column-value">USDC Value</div>
           </div>
           <Spacer size={15} orientation="vertical" />
           {holdersData.splice(0, 10).map((holder, index) => {
@@ -162,12 +162,12 @@ const TokenAuction = () => {
 
             return (
               <div key={holder.address} className={`tf__leaderboard-row ${className}`}>
-                <div className="tf__leaderboard-column">#{index + 1}</div>
-                <div className="tf__leaderboard-column">{shortenAccount(holder.address)}</div>
-                <div className="tf__leaderboard-column">
+                <div className="tf__leaderboard-column-rank">#{index + 1}</div>
+                <div className="tf__leaderboard-column-address">{shortenAccount(holder.address)}</div>
+                <div className="tf__leaderboard-column-contributed">
                   bKRL {NumberUtils.formatToCurrency(ethers.utils.formatEther(holder.balance), 2)}
                 </div>
-                <div className="tf__leaderboard-column">
+                <div className="tf__leaderboard-column-value">
                   {latestPrice
                     ? NumberUtils.formatToCurrency(
                         (Number(ethers.utils.formatEther(holder.balance)) * latestPrice).toString(),

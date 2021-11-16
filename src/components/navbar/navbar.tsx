@@ -23,6 +23,7 @@ const Navbar = () => {
 
   const onTokenAuctionClick = () => {
     history.push('/token-auction');
+    setMenuOpen(false);
   };
 
   const onCommunityClick = () => {
@@ -177,6 +178,11 @@ const Navbar = () => {
         </div>
         {menuOpen && (
           <div className="tf__navbar-menu-mobile">
+            <div className="tf__navbar-dropdown-item" onClick={onTokenAuctionClick} aria-hidden="true">
+              <Typography variant="body-text" clickable>
+                Token Auction
+              </Typography>
+            </div>
             <div className="tf__navbar-dropdown-item" onClick={onDocsClick} aria-hidden="true">
               <Typography variant="body-text" clickable>
                 Documentation

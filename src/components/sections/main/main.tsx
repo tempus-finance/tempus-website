@@ -18,25 +18,6 @@ const Main = () => {
     window.open('https://discord.com/invite/6gauHECShr', '_blank');
   };
 
-  useEffect(() => {
-    const fetch = async () => {
-      const tokenSaleService = new TokenSaleService();
-      const data = await tokenSaleService.getPoolData(1000, 0, null);
-
-      // const tokenHoldersService = new TokenHoldersService();
-      // const holders = await tokenHoldersService.getHolders();
-
-      const prices = await tokenSaleService.getPrices(data.swaps);
-
-      /* holders.forEach((holder) => {
-        console.log(ethers.utils.formatEther(holder.balance));
-      }); */
-
-      debugger;
-    };
-    fetch();
-  }, []);
-
   return (
     <div className="tf__main__container">
       <Typography variant="h1" color="inverted" html="Trustless</br> secondary</br> markets on yield" />
