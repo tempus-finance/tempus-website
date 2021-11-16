@@ -248,15 +248,20 @@
   flex: 25;
 
   @media screen and (max-width: 1024px) {
-    flex: 50;
+    flex: 30;
   }
 }
 
 .tf__leaderboard-column-address {
   flex: 25;
+  display: flex;
+
+  svg {
+    margin-left: 10px;
+  }
 
   @media screen and (max-width: 1024px) {
-    flex: 60;
+    flex: 70;
   }
 }
 

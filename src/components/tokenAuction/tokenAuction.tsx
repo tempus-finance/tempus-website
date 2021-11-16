@@ -1,4 +1,5 @@
 import { format } from 'date-fns';
+import copy from 'copy-to-clipboard';
 import { ethers } from 'ethers';
 import React, { useCallback, useEffect, useState } from 'react';
 import { AreaChart, Tooltip, Area, ResponsiveContainer, XAxis, YAxis } from 'recharts';
@@ -6,6 +7,7 @@ import { finalLbpEndTimestamp, tokenAddress } from '../../constants';
 import NumberUtils from '../../services/numberUtils';
 import TokenHoldersService from '../../services/tokenHoldersService';
 import TokenSaleService from '../../services/tokenSaleData';
+import CopyIcon from '../icons/copy-icon';
 import Spacer from '../spacer/spacer';
 import Typography from '../typography/typography';
 
@@ -213,7 +215,17 @@ const TokenAuction = () => {
             return (
               <div key={holder.address} className={`tf__leaderboard-row ${className}`}>
                 <div className="tf__leaderboard-column-rank">#{index + 1}</div>
-                <div className="tf__leaderboard-column-address">{shortenAccount(holder.address)}</div>
+                <div className="tf__leaderboard-column-address">
+                  {shortenAccount(holder.address)}{' '}
+                  <div
+                    style={{ cursor: 'pointer' }}
+                    onClick={() => {
+                      copy(holder.address);
+                    }}
+                  >
+                    <CopyIcon fill={index > -1 && index < 5 ? 'white' : '#222222'} />
+                  </div>
+                </div>
                 <div className="tf__leaderboard-column-contributed">
                   bKRL {NumberUtils.formatToCurrency(ethers.utils.formatEther(holder.balance), 2)}
                 </div>
