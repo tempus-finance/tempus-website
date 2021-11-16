@@ -100,10 +100,13 @@ const TokenAuction = () => {
     <div className="tf__tokenAuction-container">
       <div className="tf__tokenAuction-background" />
       <div className="tf__tokenAuction-title">
-        <span>TEMP</span>
-        <div className="tf__tokenAuction-title-logo">
-          <img width={58} height={58} src="/images/tokenLogo-large.png" alt="token-logo" />
+        <div className="tf__tokenAuction-title-ticker">
+          <span>TEMP</span>
+          <div className="tf__tokenAuction-title-logo">
+            <img width={58} height={58} src="/images/tokenLogo-large.png" alt="token-logo" />
+          </div>
         </div>
+
         <span>Fair Launch</span>
       </div>
       <div className="tf__tokenAuction-chart-section">
@@ -178,6 +181,7 @@ const TokenAuction = () => {
           <div className="tf__tokenAuction-card-data">{format(new Date(finalLbpEndTimestamp), 'd MMM. p')}</div>
         </div>
         <Spacer size={14} orientation="horizontal" />
+        <Spacer size={23} orientation="vertical" />
         <div className="tf__tokenAuction-card">
           <div className="tf__tokenAuction-card-title">LATEST PRICE</div>
           <Spacer size={10} orientation="vertical" />
@@ -186,12 +190,14 @@ const TokenAuction = () => {
           </div>
         </div>
         <Spacer size={14} orientation="horizontal" />
+        <Spacer size={23} orientation="vertical" />
         <div className="tf__tokenAuction-card">
           <div className="tf__tokenAuction-card-title">bKRL HOLDERS</div>
           <Spacer size={10} orientation="vertical" />
           <div className="tf__tokenAuction-card-data">{holdersData.length || 'loading'}</div>
         </div>
         <Spacer size={14} orientation="horizontal" />
+        <Spacer size={23} orientation="vertical" />
         <div className="tf__tokenAuction-card">
           <div className="tf__tokenAuction-card-title">USDC Raised</div>
           <Spacer size={10} orientation="vertical" />

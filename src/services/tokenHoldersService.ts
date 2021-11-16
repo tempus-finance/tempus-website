@@ -1,11 +1,12 @@
 import { ethers, BigNumber } from 'ethers';
+import { AlchemyProvider, JsonRpcProvider } from '@ethersproject/providers';
 import { tokenAddress, ignoreHolderAddresses } from '../constants';
 import ERC20ABI from '../abi/ERC20.json';
 import { ERC20 } from '../abi/ERC20';
 
 class TokenHoldersService {
   async getHolders() {
-    const contract = this.getTokenContract();
+    const contract = await this.getTokenContract();
 
     const transferEvents = await contract.queryFilter(contract.filters.Transfer());
 
@@ -48,7 +49,7 @@ class TokenHoldersService {
   }
 
   private async getHolderBalance(address: string): Promise<{ balance: BigNumber; address: string }> {
-    const contract = this.getTokenContract();
+    const contract = await this.getTokenContract();
 
     const balance = await contract.balanceOf(address);
 
@@ -58,12 +59,28 @@ class TokenHoldersService {
     };
   }
 
-  private getTokenContract() {
-    return new ethers.Contract(tokenAddress, ERC20ABI, this.getProvider()) as ERC20;
+  private async getTokenContract() {
+    const provider = await this.getProvider();
+
+    return new ethers.Contract(tokenAddress, ERC20ABI, provider) as ERC20;
   }
 
-  private getProvider() {
-    return new ethers.providers.Web3Provider((window as any).ethereum, 'any');
+  private async getProvider(): Promise<any> {
+    if ((window as any).ethereum && !(window as any).ethereum.chainId) {
+      await this.wait();
+      return this.getProvider();
+    }
+
+    if ((window as any).ethereum && parseInt((window as any).ethereum.chainId, 16) === 1) {
+      return new ethers.providers.Web3Provider((window as any).ethereum, 'any');
+    }
+    return new AlchemyProvider('homestead', 'Tw1lpBmMTfBYd2c66jttrj_FNZHrIt0b');
+  }
+
+  private async wait() {
+    return new Promise((resolve) => {
+      setTimeout(resolve, 100);
+    });
   }
 }
 export default TokenHoldersService;

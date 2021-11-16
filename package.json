@@ -9,6 +9,7 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "@ethersproject/providers": "^5.5.0",
     "axios": "^0.24.0",
     "copy-to-clipboard": "^3.3.1",
     "date-fns": "^2.25.0",
