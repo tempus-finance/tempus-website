@@ -9,7 +9,7 @@
 
 .tf__navbar__content {
   width: 1024px;
-  height: 100px;
+  height: 90px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -76,9 +76,10 @@
 
 .tf__navbar-menu-mobile {
   position: fixed;
-  top: 100px;
+  top: 90px;
   left: 0px;
   right: 0px;
+  bottom: 0px;
   display: flex;
   flex-direction: column;
   z-index: 999;
