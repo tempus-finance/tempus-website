@@ -3,7 +3,7 @@ import copy from 'copy-to-clipboard';
 import { ethers } from 'ethers';
 import React, { useCallback, useEffect, useState } from 'react';
 import { AreaChart, Tooltip, Area, ResponsiveContainer, XAxis, YAxis } from 'recharts';
-import { finalLbpEndTimestamp, tokenAddress } from '../../constants';
+import { bucketSize, chartMaxDate, finalLbpEndTimestamp, lbpStartTimestamp, tokenAddress } from '../../constants';
 import NumberUtils from '../../services/numberUtils';
 import TokenHoldersService from '../../services/tokenHoldersService';
 import TokenSaleService from '../../services/tokenSaleData';
@@ -16,6 +16,10 @@ import TokenPriceChartTooltip from './tokenPriceChartTooltip';
 
 function shortenAccount(account: string) {
   return `${account.substring(0, 6)}...${account.substring(account.length - 5, account.length)}`;
+}
+
+function timeFromBucket(bucket: number): number {
+  return (bucketSize / 1000) * bucket + lbpStartTimestamp / 1000;
 }
 
 type Tabs = '10' | '50' | '200';
@@ -120,7 +124,14 @@ const TokenAuction = () => {
                 </linearGradient>
               </defs>
               <YAxis dataKey="price" />
-              <XAxis dataKey="date" interval="preserveStartEnd" minTickGap={150} />
+              <XAxis
+                dataKey="timestamp"
+                interval="preserveStartEnd"
+                minTickGap={150}
+                type="number"
+                domain={[lbpStartTimestamp / 1000, finalLbpEndTimestamp / 1000]}
+                tickFormatter={(label) => format(new Date(label * 1000), 'd MMM yyyy')}
+              />
               <Tooltip content={<TokenPriceChartTooltip />} />
               <Area
                 type="monotone"
@@ -268,7 +279,7 @@ const TokenAuction = () => {
                   <div
                     style={{ cursor: 'pointer' }}
                     onClick={() => {
-                      copy(holder.address);
+                      copy(`https://etherscan.io/address/${holder.address}`);
                     }}
                   >
                     <CopyIcon fill={index > -1 && index < 5 ? 'white' : '#222222'} />

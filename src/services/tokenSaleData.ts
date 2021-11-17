@@ -142,7 +142,7 @@ class TokenSaleService {
     return Math.round(Math.pow(10, decimals) * num) / Math.pow(10, decimals);
   }
 
-  private timeFromBucket(bucket: number): number {
+  public timeFromBucket(bucket: number): number {
     return (bucketSize / 1000) * bucket + lbpStartTimestamp / 1000;
   }
 
