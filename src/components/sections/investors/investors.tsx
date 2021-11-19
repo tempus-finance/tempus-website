@@ -56,19 +56,20 @@ const Investors = () => (
       <div className="tf__name-card">
         <Typography variant="investor-name">Thomas Bailey</Typography>
       </div>
-
-      <div className="tf__row-break" />
-
+      <Spacer size={15} orientation="horizontal" />
       <div className="tf__name-card">
         <Typography variant="investor-name">Freddie Farmer</Typography>
       </div>
-      <Spacer size={15} orientation="horizontal" />
       <div className="tf__name-card">
         <Typography variant="investor-name">Richard Dai</Typography>
       </div>
       <Spacer size={15} orientation="horizontal" />
       <div className="tf__name-card">
         <Typography variant="investor-name">David Choi</Typography>
+      </div>
+      <Spacer size={15} orientation="horizontal" />
+      <div className="tf__name-card">
+        <Typography variant="investor-name">beToken Capital</Typography>
       </div>
     </div>
   </div>
