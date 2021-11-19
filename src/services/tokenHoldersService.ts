@@ -6,6 +6,10 @@ import { ERC20 } from '../abi/ERC20';
 
 class TokenHoldersService {
   async getHolders() {
+    if (!document.hasFocus()) {
+      return [];
+    }
+
     const contract = await this.getTokenContract();
 
     const transferEvents = await contract.queryFilter(contract.filters.Transfer());
@@ -74,7 +78,7 @@ class TokenHoldersService {
     if ((window as any).ethereum && parseInt((window as any).ethereum.chainId, 16) === 1) {
       return new ethers.providers.Web3Provider((window as any).ethereum, 'any');
     }
-    return new AlchemyProvider('homestead', 'Tw1lpBmMTfBYd2c66jttrj_FNZHrIt0b');
+    return new AlchemyProvider('homestead', 'Hz57g3uvMUx9K9mCmAODf75Wba8N2Fjp');
   }
 
   private async wait() {
