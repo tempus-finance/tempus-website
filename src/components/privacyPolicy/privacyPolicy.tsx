@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Footer from '../sections/footer/footer';
 import Spacer from '../spacer/spacer';
 import Typography from '../typography/typography';
@@ -14,6 +15,9 @@ const PrivacyPolicy = () => {
     <div className="tf__privacy-policy">
       <div className="tf__privacy-policy-content">
         <Typography variant="h1" color="inverted">
+          Tempus
+        </Typography>
+        <Typography variant="h1" color="inverted">
           Privacy Policy
         </Typography>
         <Spacer size={26} orientation="vertical" />
@@ -22,16 +26,16 @@ const PrivacyPolicy = () => {
         </Typography>
         <Spacer size={129} orientation="vertical" />
         <Typography variant="h3" color="inverted">
-          Introduction
+          1. Introduction
         </Typography>
         <Spacer size={20} orientation="vertical" />
         <Typography variant="body-text" color="inverted">
           Tempus and its affiliates (hereinafter, “Tempus”, &quot;the Company&quot;, &quot;we&quot;, &quot;us&quot; or
           &quot;our&quot;) are committed to protecting and respecting your personal information. In addition, we
-          recognize that persons who use Tempus value their privacy. This Privacy Policy together with our Terms of
-          Service governs our collection, processing and use of your Personal Information. By accessing Tempus, you are
-          consenting to the information collection, use hold and disclosure practices as described in this Privacy
-          Policy.
+          recognize that persons who use Tempus value their privacy. This Privacy Policy together with our{' '}
+          <Link to="/terms-of-service">Terms of Service</Link> governs our collection, processing and use of your
+          Personal Information. By accessing Tempus, you are consenting to the information collection, use hold and
+          disclosure practices as described in this Privacy Policy.
           <br />
           <br />
           Should we ask you to provide certain information by which you can be identified when using this website, then
@@ -41,15 +45,15 @@ const PrivacyPolicy = () => {
           control over your privacy.
           <br />
           <br />
-          If you wish to know more about this policy, please contact us via email at legal@tempus.finance.. By visiting
-          our website, using our services or otherwise providing us with your personal information (or authorising it to
-          be provided to us by someone else), you agree to your personal information being handled by Tempus as set out
-          in this Privacy Policy.
+          If you wish to know more about this policy, please contact us via email at{' '}
+          <a href="mailto:legal@tempus.finance">legal@tempus.finance</a>. By visiting our website, using our services or
+          otherwise providing us with your personal information (or authorising it to be provided to us by someone
+          else), you agree to your personal information being handled by Tempus as set out in this Privacy Policy.
         </Typography>
         <Spacer size={60} orientation="vertical" />
 
         <Typography variant="h3" color="inverted">
-          Purpose of Privacy Policy
+          2. Purpose of Privacy Policy
         </Typography>
         <Spacer size={20} orientation="vertical" />
         <Typography variant="body-text" color="inverted">
@@ -59,7 +63,7 @@ const PrivacyPolicy = () => {
         <Spacer size={60} orientation="vertical" />
 
         <Typography variant="h3" color="inverted">
-          Personal Information
+          3. Personal Information
         </Typography>
         <Spacer size={20} orientation="vertical" />
         <Typography variant="body-text" color="inverted">
@@ -93,7 +97,7 @@ const PrivacyPolicy = () => {
         <Spacer size={60} orientation="vertical" />
 
         <Typography variant="h3" color="inverted">
-          Purpose of Personal Information collection
+          4. Purpose of Personal Information collection
         </Typography>
         <Spacer size={20} orientation="vertical" />
         <Typography variant="body-text" color="inverted">
@@ -116,7 +120,7 @@ const PrivacyPolicy = () => {
         <Spacer size={60} orientation="vertical" />
 
         <Typography variant="h3" color="inverted">
-          Security, Protection and Use of Personal Information
+          5. Security, Protection and Use of Personal Information
         </Typography>
         <Spacer size={20} orientation="vertical" />
         <Typography variant="body-text" color="inverted">
@@ -148,7 +152,7 @@ const PrivacyPolicy = () => {
         <Spacer size={60} orientation="vertical" />
 
         <Typography variant="h3" color="inverted">
-          Direct Marketing
+          6. Direct Marketing
         </Typography>
         <Spacer size={20} orientation="vertical" />
         <Typography variant="body-text" color="inverted">
@@ -157,25 +161,26 @@ const PrivacyPolicy = () => {
           may contact you via email. By signing up to our website you are consenting to this Privacy Policy and the
           receipt of our direct marketing messages. If you wish to no longer receive our direct marketing as outlined in
           this Privacy Policy, please unsubscribe from the emails via the link in their footer. Or send an email
-          entitled “Unsubscribe” to the email address legal@tempus.finance.
+          entitled “Unsubscribe” to the email address <a href="mailto:legal@tempus.finance">legal@tempus.finance</a>.
         </Typography>
         <Spacer size={60} orientation="vertical" />
 
         <Typography variant="h3" color="inverted">
-          Consent
+          7. Consent
         </Typography>
         <Spacer size={20} orientation="vertical" />
         <Typography variant="body-text" color="inverted">
           Consent is required for the collection of Personal Information and the subsequent use or disclosure of
           Personal Information. The form of consent may vary depending upon the circumstances and the type of Personal
-          information obtained. Your agreement with Tempus’s Terms of Service constitutes your consent to the collection
-          and use of Personal Information as described in this Privacy Policy. Tempus reserves the right to use and
-          disclose Personal Information without your knowledge or consent as permitted by applicable law.
+          information obtained. Your agreement with Tempus’s <Link to="/terms-of-service">Terms of Service</Link>{' '}
+          constitutes your consent to the collection and use of Personal Information as described in this Privacy
+          Policy. Tempus reserves the right to use and disclose Personal Information without your knowledge or consent
+          as permitted by applicable law.
         </Typography>
         <Spacer size={60} orientation="vertical" />
 
         <Typography variant="h3" color="inverted">
-          Disclosure of Personal Information
+          8. Disclosure of Personal Information
         </Typography>
         <Spacer size={20} orientation="vertical" />
         <Typography variant="body-text" color="inverted">
@@ -212,28 +217,29 @@ const PrivacyPolicy = () => {
         <Spacer size={60} orientation="vertical" />
 
         <Typography variant="h3" color="inverted">
-          Access and Changing of Personal Information
+          9. Access and Changing of Personal Information
         </Typography>
         <Spacer size={20} orientation="vertical" />
         <Typography variant="body-text" color="inverted">
           We take all reasonable steps to ensure your personal information is accurate and up to date. If we believe
           that it is not accurate, we may contact you to update your personal information. If you believe the personal
-          information that we have stored about you is inaccurate you may contact us via legal@tempus.finance. to change
-          the personal information we have stored. Where we do receive unsolicited personal information, we will
-          determine whether or not it would have been permissible to collect that information if it had been solicited.
-          If we determine that it would not have been permissible by law to collect the information, we will destroy or
-          de-identify that personal information as soon as practicable. You may also ask us to send you the personal
-          information we have about you. If you would like to access this information, please contact us on the above
-          email. You may also request the deletion or destruction of your Personal Information, your Account details, or
-          your Transaction details by sending an email to us. Tempus will act on your request only when it is not
-          inconsistent with its legal and regulatory obligations and compliance procedures. Upon your written request,
-          we will inform you of the use and general disclosure of your Personal Information. Depending on the nature of
-          your request, there may be a minimal charge for accessing your Personal Information.
+          information that we have stored about you is inaccurate you may contact us via{' '}
+          <a href="mailto:legal@tempus.finance">legal@tempus.finance</a>. to change the personal information we have
+          stored. Where we do receive unsolicited personal information, we will determine whether or not it would have
+          been permissible to collect that information if it had been solicited. If we determine that it would not have
+          been permissible by law to collect the information, we will destroy or de-identify that personal information
+          as soon as practicable. You may also ask us to send you the personal information we have about you. If you
+          would like to access this information, please contact us on the above email. You may also request the deletion
+          or destruction of your Personal Information, your Account details, or your Transaction details by sending an
+          email to us. Tempus will act on your request only when it is not inconsistent with its legal and regulatory
+          obligations and compliance procedures. Upon your written request, we will inform you of the use and general
+          disclosure of your Personal Information. Depending on the nature of your request, there may be a minimal
+          charge for accessing your Personal Information.
         </Typography>
         <Spacer size={60} orientation="vertical" />
 
         <Typography variant="h3" color="inverted">
-          Cookies
+          10. Cookies
         </Typography>
         <Spacer size={20} orientation="vertical" />
         <Typography variant="body-text" color="inverted">
@@ -264,7 +270,7 @@ const PrivacyPolicy = () => {
         <Spacer size={60} orientation="vertical" />
 
         <Typography variant="h3" color="inverted">
-          Overseas Disclosure
+          11. Overseas Disclosure
         </Typography>
         <Spacer size={20} orientation="vertical" />
         <Typography variant="body-text" color="inverted">
@@ -278,7 +284,7 @@ const PrivacyPolicy = () => {
         <Spacer size={60} orientation="vertical" />
 
         <Typography variant="h3" color="inverted">
-          Retention of Personal Information
+          12. Retention of Personal Information
         </Typography>
         <Spacer size={20} orientation="vertical" />
         <Typography variant="body-text" color="inverted">
@@ -292,7 +298,7 @@ const PrivacyPolicy = () => {
         <Spacer size={60} orientation="vertical" />
 
         <Typography variant="h3" color="inverted">
-          Users Under Age of 13
+          13. Users Under Age of 13
         </Typography>
         <Spacer size={20} orientation="vertical" />
         <Typography variant="body-text" color="inverted">
@@ -304,7 +310,7 @@ const PrivacyPolicy = () => {
         <Spacer size={60} orientation="vertical" />
 
         <Typography variant="h3" color="inverted">
-          Links
+          14. Links
         </Typography>
         <Spacer size={20} orientation="vertical" />
         <Typography variant="body-text" color="inverted">
@@ -319,7 +325,7 @@ const PrivacyPolicy = () => {
         <Spacer size={60} orientation="vertical" />
 
         <Typography variant="h3" color="inverted">
-          Changes
+          15. Changes
         </Typography>
         <Spacer size={20} orientation="vertical" />
         <Typography variant="body-text" color="inverted">
@@ -330,12 +336,13 @@ const PrivacyPolicy = () => {
         <Spacer size={60} orientation="vertical" />
 
         <Typography variant="h3" color="inverted">
-          Contact Us
+          16. Contact Us
         </Typography>
         <Spacer size={20} orientation="vertical" />
         <Typography variant="body-text" color="inverted">
           If you have any questions, comments, or concerns regarding our Privacy Policy and/or practices, please contact
-          us at legal@tempus.finance. We will get back to you if required as soon as possible and within 14 days.
+          us at <a href="mailto:legal@tempus.finance">legal@tempus.finance</a>. We will get back to you if required as
+          soon as possible and within 14 days.
         </Typography>
         <Spacer size={200} orientation="vertical" />
       </div>
