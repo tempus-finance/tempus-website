@@ -11,6 +11,10 @@ const Footer = () => {
     history.push('/privacy-policy');
   }, []);
 
+  const onDisclaimerClick = useCallback(() => {
+    history.push('/disclaimer');
+  }, []);
+
   const onTermsOfServiceClick = useCallback(() => {
     history.push('/terms-of-service');
   }, []);
@@ -21,14 +25,20 @@ const Footer = () => {
 
   return (
     <div className="tf__footer__container">
-      <Typography variant="join-body" color="inverted" clickable underline onClick={onPrivacyPolicyClick}>
-        Privacy Policy
+      <Typography variant="join-body" color="inverted" clickable underline onClick={onTermsOfServiceClick}>
+        Terms of Service
       </Typography>
       <Typography variant="join-body" color="inverted">
         &nbsp;-&nbsp;
       </Typography>
-      <Typography variant="join-body" color="inverted" clickable underline onClick={onTermsOfServiceClick}>
-        Terms of Service
+      <Typography variant="join-body" color="inverted" clickable underline onClick={onDisclaimerClick}>
+        Disclaimer
+      </Typography>
+      <Typography variant="join-body" color="inverted">
+        &nbsp;-&nbsp;
+      </Typography>
+      <Typography variant="join-body" color="inverted" clickable underline onClick={onPrivacyPolicyClick}>
+        Privacy Policy
       </Typography>
       <Typography variant="join-body" color="inverted">
         &nbsp;-&nbsp;

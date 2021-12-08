@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Background from '../background/background';
+import Disclaimer from '../disclaimer/disclaimer';
 import Graph from '../graph/graph';
 import FooterLogo from '../logo/footer-logo';
 import Navbar from '../navbar/navbar';
@@ -24,6 +25,9 @@ const App = () => (
     <Router>
       <Navbar />
       <Switch>
+        <Route path="/disclaimer">
+          <Disclaimer />
+        </Route>
         <Route path="/privacy-policy">
           <PrivacyPolicy />
         </Route>
