@@ -38,7 +38,7 @@ const Navbar = () => {
   };
 
   const onLaunchAppClick = () => {
-    window.open('https://testnet.tempus.finance', '_blank');
+    window.open('https://app.tempus.finance', '_blank');
   };
 
   const onTwitterClick = () => {
@@ -158,7 +158,7 @@ const Navbar = () => {
           <Spacer size={45} orientation="horizontal" />
           <Button>
             <Typography variant="header-label" onClick={onLaunchAppClick} clickable>
-              LAUNCH TESTNET
+              LAUNCH APP
             </Typography>
           </Button>
         </div>

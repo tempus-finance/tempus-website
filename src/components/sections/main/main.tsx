@@ -8,7 +8,7 @@ import './main.scss';
 
 const Main = () => {
   const onLaunchAppClick = () => {
-    window.open('https://testnet.tempus.finance', '_blank');
+    window.open('https://app.tempus.finance', '_blank');
   };
 
   const onDiscordClick = () => {
@@ -28,7 +28,7 @@ const Main = () => {
       <div className="tf__main-button">
         <Button onClick={onLaunchAppClick}>
           <Typography variant="header-label" clickable>
-            LAUNCH TESTNET
+            LAUNCH APP
           </Typography>
         </Button>
       </div>
