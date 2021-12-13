@@ -31,11 +31,11 @@ const TermsOfService = () => {
           These Terms of Service (the “Terms”) are issued by Tempus Labs Inc., a limited company based in the British
           Virgin Islands (the “Issuer”) in association with Tempus Foundation Company, a foundation company based in the
           Cayman Islands (the “Foundation”) (the Issuer and the Foundation together, “Tempus”, “we”, “our”, or “us”). We
-          own and operate the website <Link to="/">https://tempus.finance/</Link> which acts as a front-end to the
+          own and operate the website <Link to="/">https://tempus.finance</Link> which acts as a front-end to the
           decentralized finance application (known as “Tempus Protocol”) available at
-          <a href="https://app.tempus.finance/"> https://app.tempus.finance/</a> (the website and application together
-          the “Site”). These Terms apply to you (“You”) as a user of the Site, including all the products, services,
-          tools and information made available on the Site.
+          <a href="https://app.tempus.finance"> https://app.tempus.finance</a> (the website and application together the
+          “Site”). These Terms apply to you (“You”) as a user of the Site, including all the products, services, tools
+          and information made available on the Site.
           <br />
           <br />
           Please read these Terms carefully as they explain the terms and conditions on which you may use and access the
@@ -243,11 +243,11 @@ const TermsOfService = () => {
           designs. These works are protected by intellectual property laws and all such rights are reserved.
           <br />
           <br />
-          The Tempus Protocol (available at <a href="https://app.tempus.finance/">https://app.tempus.finance/</a>) is
+          The Tempus Protocol (available at <a href="https://app.tempus.finance">https://app.tempus.finance</a>) is
           comprised entirely of open-source or source-available software running on the public Ethereum blockchain.
           <br />
           <br />
-          <Link to="/">https://tempus.finance/</Link> is the uniform resource locator (“URL”) of Tempus. You will not
+          <Link to="/">https://tempus.finance</Link> is the uniform resource locator (“URL”) of Tempus. You will not
           make use of this URL (or any other URL owned by us) on another website or digital platform without our prior
           written consent.
           <br />
