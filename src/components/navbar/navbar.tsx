@@ -29,6 +29,10 @@ const Navbar = () => {
     setMenuOpen((prevValue) => !prevValue);
   };
 
+  const onTokenClick = () => {
+    window.open('https://www.coingecko.com/en/coins/tempus', '_blank');
+  };
+
   const onDocsClick = () => {
     window.open('http://docs.tempus.finance/', '_blank');
   };
@@ -82,6 +86,10 @@ const Navbar = () => {
           </div>
         </div>
         <div className="tf__navbar-actions-desktop">
+          <Typography variant="header-label" onClick={onTokenClick} clickable underline>
+            TOKEN
+          </Typography>
+          <Spacer size={45} orientation="horizontal" />
           <div
             className="tf__flex-row-center-v tf__navbar-dropdown-label"
             onClick={onCommunityClick}
@@ -169,6 +177,11 @@ const Navbar = () => {
         </div>
         {menuOpen && (
           <div className="tf__navbar-menu-mobile">
+            <div className="tf__navbar-dropdown-item" onClick={onTokenClick} aria-hidden="true">
+              <Typography variant="body-text" clickable>
+                Token
+              </Typography>
+            </div>
             <div className="tf__navbar-dropdown-item" onClick={onDocsClick} aria-hidden="true">
               <Typography variant="body-text" clickable>
                 Documentation
