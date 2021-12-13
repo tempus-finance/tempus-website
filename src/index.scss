@@ -1,3 +1,29 @@
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: local('Source Sans Pro'), url('./fonts/source-sans-pro/SourceSansPro-Regular.ttf') format('truetype');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: local('Source Sans Pro'), url('./fonts/source-sans-pro/SourceSansPro-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: local('Source Sans Pro'), url('./fonts/source-sans-pro/SourceSansPro-Bold.ttf') format('truetype');
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'Manrope';
+  src: local('Manrope'), url('./fonts/manrope/Manrope-Medium.ttf') format('truetype');
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'Manrope';
+  src: local('Manrope'), url('./fonts/manrope/Manrope-Bold.ttf') format('truetype');
+  font-weight: 700;
+}
+
 body {
   margin: 0px;
   background-color: #fcfcfc;
