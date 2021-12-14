@@ -26,13 +26,13 @@ const NewsCard: FC<NewsCardProps> = (props) => {
         <div className="tf__newsCard-date">
           <Typography variant="date">{date}</Typography>
         </div>
-        <Spacer size={14} orientation="vertical" />
+        <Spacer size={14} type="vertical" />
         <Typography variant="h5">{title}</Typography>
-        <Spacer size={13} orientation="vertical" />
+        <Spacer size={13} type="vertical" />
         <div className="tf__newsCard-description">
           <Typography variant="body-text" html={description} />
         </div>
-        <Spacer size={20} orientation="vertical" />
+        <Spacer size={20} type="vertical" />
         <div className="tf__newsCard-action">
           <Typography variant="body-text" color="accent" clickable onClick={onReadMoreClick}>
             Read More

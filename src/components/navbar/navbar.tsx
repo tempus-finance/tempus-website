@@ -89,7 +89,7 @@ const Navbar = () => {
           <Typography variant="header-label" onClick={onTokenClick} clickable underline>
             TOKEN
           </Typography>
-          <Spacer size={45} orientation="horizontal" />
+          <Spacer size={45} type="horizontal" />
           <div
             className="tf__flex-row-center-v tf__navbar-dropdown-label"
             onClick={onCommunityClick}
@@ -98,55 +98,55 @@ const Navbar = () => {
             <Typography variant="header-label" clickable underline>
               COMMUNITY
             </Typography>
-            <Spacer size={6} orientation="horizontal" />
+            <Spacer size={6} type="horizontal" />
             <ArrowDown />
             {communityOpen && (
               <div className="tf__navbar-dropdown">
                 <div className="tf__navbar-dropdown-item" onClick={onTwitterClick} aria-hidden="true">
                   <TwitterIcon />
-                  <Spacer size={10} orientation="horizontal" />
+                  <Spacer size={10} type="horizontal" />
                   <Typography variant="body-text" clickable>
                     Twitter
                   </Typography>
                 </div>
                 <div className="tf__navbar-dropdown-item" onClick={onDiscordClick} aria-hidden="true">
                   <DiscordLogo width="20" height="15" />
-                  <Spacer size={10} orientation="horizontal" />
+                  <Spacer size={10} type="horizontal" />
                   <Typography variant="body-text" clickable>
                     Discord
                   </Typography>
                 </div>
                 <div className="tf__navbar-dropdown-item" onClick={onMediumClick} aria-hidden="true">
                   <MediumIcon />
-                  <Spacer size={10} orientation="horizontal" />
+                  <Spacer size={10} type="horizontal" />
                   <Typography variant="body-text" clickable>
                     Medium
                   </Typography>
                 </div>
                 <div className="tf__navbar-dropdown-item" onClick={onGitHubClick} aria-hidden="true">
                   <GitHubIcon />
-                  <Spacer size={10} orientation="horizontal" />
+                  <Spacer size={10} type="horizontal" />
                   <Typography variant="body-text" clickable>
                     GitHub
                   </Typography>
                 </div>
                 <div className="tf__navbar-dropdown-item" onClick={onTelegramAnnouncementsClick} aria-hidden="true">
                   <TelegramIcon />
-                  <Spacer size={10} orientation="horizontal" />
+                  <Spacer size={10} type="horizontal" />
                   <Typography variant="body-text" clickable>
                     Tempus Announcements
                   </Typography>
                 </div>
                 <div className="tf__navbar-dropdown-item" onClick={onTelegramChatClick} aria-hidden="true">
                   <TelegramIcon />
-                  <Spacer size={10} orientation="horizontal" />
+                  <Spacer size={10} type="horizontal" />
                   <Typography variant="body-text" clickable>
                     Tempus Chat
                   </Typography>
                 </div>
                 <div className="tf__navbar-dropdown-item" onClick={onTelegramChineseClick} aria-hidden="true">
                   <TelegramIcon />
-                  <Spacer size={10} orientation="horizontal" />
+                  <Spacer size={10} type="horizontal" />
                   <Typography variant="body-text" clickable>
                     Tempus 中文社區
                   </Typography>
@@ -155,15 +155,15 @@ const Navbar = () => {
             )}
           </div>
           {communityOpen && <div className="tf__backdrop" onClick={onCommunityClick} aria-hidden="true" />}
-          <Spacer size={45} orientation="horizontal" />
+          <Spacer size={45} type="horizontal" />
           <Typography variant="header-label" onClick={onDocsClick} clickable underline>
             DOCS
           </Typography>
-          <Spacer size={45} orientation="horizontal" />
+          <Spacer size={45} type="horizontal" />
           <Typography variant="header-label" onClick={onSersClick} clickable underline>
             SERS
           </Typography>
-          <Spacer size={45} orientation="horizontal" />
+          <Spacer size={45} type="horizontal" />
           <Button>
             <Typography variant="header-label" onClick={onLaunchAppClick} clickable>
               LAUNCH APP
@@ -189,49 +189,49 @@ const Navbar = () => {
             </div>
             <div className="tf__navbar-dropdown-item" onClick={onTwitterClick} aria-hidden="true">
               <TwitterIcon />
-              <Spacer size={10} orientation="horizontal" />
+              <Spacer size={10} type="horizontal" />
               <Typography variant="body-text" clickable>
                 Twitter
               </Typography>
             </div>
             <div className="tf__navbar-dropdown-item" onClick={onDiscordClick} aria-hidden="true">
               <DiscordLogo width="20" height="15" />
-              <Spacer size={10} orientation="horizontal" />
+              <Spacer size={10} type="horizontal" />
               <Typography variant="body-text" clickable>
                 Discord
               </Typography>
             </div>
             <div className="tf__navbar-dropdown-item" onClick={onMediumClick} aria-hidden="true">
               <MediumIcon />
-              <Spacer size={10} orientation="horizontal" />
+              <Spacer size={10} type="horizontal" />
               <Typography variant="body-text" clickable>
                 Medium
               </Typography>
             </div>
             <div className="tf__navbar-dropdown-item" onClick={onGitHubClick} aria-hidden="true">
               <GitHubIcon />
-              <Spacer size={10} orientation="horizontal" />
+              <Spacer size={10} type="horizontal" />
               <Typography variant="body-text" clickable>
                 GitHub
               </Typography>
             </div>
             <div className="tf__navbar-dropdown-item" onClick={onTelegramAnnouncementsClick} aria-hidden="true">
               <TelegramIcon />
-              <Spacer size={10} orientation="horizontal" />
+              <Spacer size={10} type="horizontal" />
               <Typography variant="body-text" clickable>
                 Tempus Announcements
               </Typography>
             </div>
             <div className="tf__navbar-dropdown-item" onClick={onTelegramChatClick} aria-hidden="true">
               <TelegramIcon />
-              <Spacer size={10} orientation="horizontal" />
+              <Spacer size={10} type="horizontal" />
               <Typography variant="body-text" clickable>
                 Tempus Chat
               </Typography>
             </div>
             <div className="tf__navbar-dropdown-item" onClick={onTelegramChineseClick} aria-hidden="true">
               <TelegramIcon />
-              <Spacer size={10} orientation="horizontal" />
+              <Spacer size={10} type="horizontal" />
               <Typography variant="body-text" clickable>
                 Tempus 中文社區
               </Typography>

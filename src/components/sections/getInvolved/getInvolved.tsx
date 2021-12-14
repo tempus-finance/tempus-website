@@ -9,7 +9,7 @@ import GetInvolvedCard from './getInvolvedCard/getInvolvedCard';
 const GetInvolved = () => (
   <div className="tf__get-involved__container">
     <Typography variant="h3">Get involved</Typography>
-    <Spacer size={45} orientation="vertical" />
+    <Spacer size={45} type="vertical" />
     <div className="tf__get-involved__cards-grid">
       <div className="tf__get-involved__card tf__get-involved__first-card">
         <GetInvolvedCard

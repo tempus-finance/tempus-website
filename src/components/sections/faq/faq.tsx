@@ -20,7 +20,7 @@ const FAQ = () => {
         <Typography variant="h3" color="inverted" align="center">
           Frequently asked questions
         </Typography>
-        <Spacer size={46} orientation="vertical" />
+        <Spacer size={46} type="vertical" />
         <div className="tf__faq__tabs-container">
           <div
             className={selectedTab === 'general' ? 'tf__faq__tab-selected' : 'tf__faq__tab'}
@@ -70,7 +70,7 @@ const FAQ = () => {
             </Typography>
           </div>
         </div>
-        <Spacer size={36} orientation="vertical" />
+        <Spacer size={36} type="vertical" />
         {selectedTab === 'general' && (
           <>
             <Expandable

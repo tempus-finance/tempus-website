@@ -31,10 +31,10 @@ const Social = () => {
           <Typography variant="join-body" color="inverted" align="center">
             Get notified about major developments in Tempus
           </Typography>
-          <Spacer size={23} orientation="vertical" />
+          <Spacer size={23} type="vertical" />
           <Button width="180px" onClick={onDiscordClick}>
             <DiscordLogo />
-            <Spacer size={11} orientation="horizontal" />
+            <Spacer size={11} type="horizontal" />
             <Typography variant="get-involved-card-button" clickable>
               Discord
             </Typography>
@@ -47,7 +47,7 @@ const Social = () => {
           <Typography variant="join-body" color="inverted" align="center">
             We’re always looking for talented people to join the team
           </Typography>
-          <Spacer size={23} orientation="vertical" />
+          <Spacer size={23} type="vertical" />
           <Button width="180px" onClick={onSeeOpeningsClick}>
             <Typography variant="get-involved-card-button" clickable>
               See openings

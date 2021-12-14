@@ -2,25 +2,27 @@ import React, { FC } from 'react';
 
 interface SpacerProps {
   size: number;
-  orientation: 'horizontal' | 'vertical';
+  type: 'horizontal' | 'vertical' | 'box';
 }
 
 const Spacer: FC<SpacerProps> = (props) => {
-  const { size, orientation } = props;
+  const { size, type } = props;
+
+  let width = size;
+  let height = size;
+  if (type === 'horizontal') {
+    height = 0;
+  }
+  if (type === 'vertical') {
+    width = 0;
+  }
 
   return (
     <div
-      style={
-        orientation === 'horizontal'
-          ? {
-              width: `${size}px`,
-              height: '0px',
-            }
-          : {
-              width: '0px',
-              height: `${size}px`,
-            }
-      }
+      style={{
+        width: `${width}px`,
+        height: `${height}px`,
+      }}
     />
   );
 };

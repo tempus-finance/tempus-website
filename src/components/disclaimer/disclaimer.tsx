@@ -18,7 +18,7 @@ const Disclaimer = () => {
         <Typography variant="h1" color="inverted">
           Protocol Disclaimer
         </Typography>
-        <Spacer size={129} orientation="vertical" />
+        <Spacer size={129} type="vertical" />
         <Typography variant="body-text" color="inverted">
           Tempus Protocol (the “Protocol”) is a decentralized finance application deployed on the Ethereum blockchain
           that allows suppliers and borrowers of certain cryptoassets to earn yields using smart contracts. The Protocol
@@ -47,7 +47,7 @@ const Disclaimer = () => {
           should not use the Protocol.
         </Typography>
 
-        <Spacer size={200} orientation="vertical" />
+        <Spacer size={200} type="vertical" />
       </div>
       <Footer />
     </div>

@@ -147,13 +147,13 @@ const TokenAuction = () => {
         <div className="tf__tokenAuction-chart-actions">
           <div className="tf__tokenAuction-button tf__tokenAuction-chart-button-text" onClick={onTokenClick}>
             <img className="tf__tokenAuction-token-logo" src="/images/tokenLogo.png" alt="token logo" />
-            <Spacer size={10} orientation="horizontal" />
+            <Spacer size={10} type="horizontal" />
             <div className="tf__tokenAuction-token-ticker" style={{ color: '#7a7a7a' }}>
               TEMP
             </div>
-            <Spacer size={10} orientation="horizontal" />
+            <Spacer size={10} type="horizontal" />
             {shortenAccount(tokenAddress)}
-            <Spacer size={15} orientation="horizontal" />
+            <Spacer size={15} type="horizontal" />
             <div
               style={{ cursor: 'pointer', height: '24px' }}
               onClick={(event) => {
@@ -165,7 +165,7 @@ const TokenAuction = () => {
             </div>
             {(window as any).ethereum && (
               <>
-                <Spacer size={15} orientation="horizontal" />
+                <Spacer size={15} type="horizontal" />
                 <div onClick={onAddTokenToWallet} style={{ height: '24px' }}>
                   <img width={24} height={24} src="/images/metamask-icon.png" alt="metamask-icon" />
                 </div>
@@ -176,10 +176,10 @@ const TokenAuction = () => {
             <div className="tf__tokenAuction-button tf__tokenAuction-chart-button-text" onClick={onReadMoreClick}>
               READ MORE
             </div>
-            <Spacer size={20} orientation="horizontal" />
+            <Spacer size={20} type="horizontal" />
             <div className="tf__tokenAuction-button tf__tokenAuction-chart-button-text" onClick={onAuctionClick}>
               AUCTION
-              <Spacer size={10} orientation="horizontal" />
+              <Spacer size={10} type="horizontal" />
               <img width={18} height={18} src="/images/link.png" alt="link indicator" />
             </div>
           </div>
@@ -188,30 +188,30 @@ const TokenAuction = () => {
       <div className="tf__tokenAuction-cards-section">
         <div className="tf__tokenAuction-card">
           <div className="tf__tokenAuction-card-title">SALE ENDS</div>
-          <Spacer size={10} orientation="vertical" />
+          <Spacer size={10} type="vertical" />
           <div className="tf__tokenAuction-card-data">{format(new Date(finalLbpEndTimestamp), 'd MMM. p')}</div>
         </div>
-        <Spacer size={14} orientation="horizontal" />
-        <Spacer size={23} orientation="vertical" />
+        <Spacer size={14} type="horizontal" />
+        <Spacer size={23} type="vertical" />
         <div className="tf__tokenAuction-card">
           <div className="tf__tokenAuction-card-title">LATEST PRICE</div>
-          <Spacer size={10} orientation="vertical" />
+          <Spacer size={10} type="vertical" />
           <div className="tf__tokenAuction-card-data">
             {latestPrice ? `${NumberUtils.formatToCurrency(latestPrice.toString(), 3)} USDC` : 'loading'}
           </div>
         </div>
-        <Spacer size={14} orientation="horizontal" />
-        <Spacer size={23} orientation="vertical" />
+        <Spacer size={14} type="horizontal" />
+        <Spacer size={23} type="vertical" />
         <div className="tf__tokenAuction-card">
           <div className="tf__tokenAuction-card-title">TEMP HOLDERS</div>
-          <Spacer size={10} orientation="vertical" />
+          <Spacer size={10} type="vertical" />
           <div className="tf__tokenAuction-card-data">{holdersData.length || 'loading'}</div>
         </div>
-        <Spacer size={14} orientation="horizontal" />
-        <Spacer size={23} orientation="vertical" />
+        <Spacer size={14} type="horizontal" />
+        <Spacer size={23} type="vertical" />
         <div className="tf__tokenAuction-card">
           <div className="tf__tokenAuction-card-title">USDC Raised</div>
-          <Spacer size={10} orientation="vertical" />
+          <Spacer size={10} type="vertical" />
           <div className="tf__tokenAuction-card-data">
             {usdcRaised ? `${NumberUtils.formatToCurrency(usdcRaised.toString(), 3)} USDC` : 'loading'}
           </div>
@@ -253,14 +253,14 @@ const TokenAuction = () => {
             </div>
           </div>
 
-          <Spacer size={35} orientation="vertical" />
+          <Spacer size={35} type="vertical" />
           <div className="tf__leaderboard-row">
             <div className="tf__leaderboard-column-rank">Rank</div>
             <div className="tf__leaderboard-column-address">Address</div>
             <div className="tf__leaderboard-column-contributed">Contributed</div>
             <div className="tf__leaderboard-column-value">USDC Value</div>
           </div>
-          <Spacer size={15} orientation="vertical" />
+          <Spacer size={15} type="vertical" />
           {filteredHolders.map((holder, index) => {
             let className = '';
             if (index === 0) {

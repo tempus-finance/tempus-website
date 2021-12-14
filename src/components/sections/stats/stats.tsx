@@ -60,7 +60,7 @@ const Stats = () => {
           </Typography>
         </div>
       )}
-      <Spacer size={85} orientation="horizontal" />
+      <Spacer size={40} type="box" />
       {volumeFormatted && (
         <div className="tf__flex-column-center-h">
           <Typography variant="dynamic-number-label">VOLUME (7D)</Typography>

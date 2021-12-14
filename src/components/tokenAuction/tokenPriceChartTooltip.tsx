@@ -35,11 +35,11 @@ const TokenPriceChartTooltip = (props: TooltipProps<ValueType, NameType>) => {
         {valueFormatted}
         &nbsp;USDC
       </Typography>
-      <Spacer size={5} orientation="vertical" />
+      <Spacer size={5} type="vertical" />
       <Typography variant="body-text" color="gray">
         {timeFormatted}
       </Typography>
-      <Spacer size={5} orientation="vertical" />
+      <Spacer size={5} type="vertical" />
       <Typography variant="body-text" color="gray">
         {dateFormatted}
       </Typography>

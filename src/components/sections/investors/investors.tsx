@@ -18,7 +18,7 @@ const Investors = () => (
     <Typography variant="h3" color="inverted">
       Supported by
     </Typography>
-    <Spacer size={56} orientation="vertical" />
+    <Spacer size={56} type="vertical" />
     <div className="tf__investors__cards-container">
       <div className="tf__investors-card">
         <LemniscapLogo />
@@ -52,22 +52,22 @@ const Investors = () => (
       <div className="tf__name-card">
         <Typography variant="investor-name">Jack Herrick</Typography>
       </div>
-      <Spacer size={15} orientation="horizontal" />
+      <Spacer size={15} type="horizontal" />
       <div className="tf__name-card">
         <Typography variant="investor-name">Thomas Bailey</Typography>
       </div>
-      <Spacer size={15} orientation="horizontal" />
+      <Spacer size={15} type="horizontal" />
       <div className="tf__name-card">
         <Typography variant="investor-name">Freddie Farmer</Typography>
       </div>
       <div className="tf__name-card">
         <Typography variant="investor-name">Richard Dai</Typography>
       </div>
-      <Spacer size={15} orientation="horizontal" />
+      <Spacer size={15} type="horizontal" />
       <div className="tf__name-card">
         <Typography variant="investor-name">David Choi</Typography>
       </div>
-      <Spacer size={15} orientation="horizontal" />
+      <Spacer size={15} type="horizontal" />
       <div className="tf__name-card">
         <Typography variant="investor-name">beToken Capital</Typography>
       </div>

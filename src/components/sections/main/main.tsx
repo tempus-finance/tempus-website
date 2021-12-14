@@ -18,13 +18,13 @@ const Main = () => {
   return (
     <div className="tf__main__container">
       <Typography variant="h1" color="inverted" html="Trustless</br> secondary</br> markets on yield" />
-      <Spacer size={50} orientation="vertical" />
+      <Spacer size={50} type="vertical" />
       <Typography
         variant="h2"
         color="inverted"
         html="Tempus is a permissionless market for</br>AMM-powered interest rate swaps."
       />
-      <Spacer size={50} orientation="vertical" />
+      <Spacer size={50} type="vertical" />
       <div className="tf__main-button">
         <Button onClick={onLaunchAppClick}>
           <Typography variant="header-label" clickable>
@@ -45,7 +45,7 @@ const Main = () => {
       <div className="tf__main-button-discord" onClick={onDiscordClick} aria-hidden="true">
         <div className="tf__flex-row-center-v">
           <DiscordLogo color="white" />
-          <Spacer size={10} orientation="horizontal" />
+          <Spacer size={10} type="horizontal" />
           <Typography variant="header-label" color="inverted" clickable>
             Discord
           </Typography>

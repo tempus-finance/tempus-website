@@ -20,15 +20,15 @@ const PrivacyPolicy = () => {
         <Typography variant="h1" color="inverted">
           Privacy Policy
         </Typography>
-        <Spacer size={26} orientation="vertical" />
+        <Spacer size={26} type="vertical" />
         <Typography variant="h5" color="inverted">
           Last updated: 7 July 2021
         </Typography>
-        <Spacer size={129} orientation="vertical" />
+        <Spacer size={129} type="vertical" />
         <Typography variant="h3" color="inverted">
           1. Introduction
         </Typography>
-        <Spacer size={20} orientation="vertical" />
+        <Spacer size={20} type="vertical" />
         <Typography variant="body-text" color="inverted">
           Tempus and its affiliates (hereinafter, “Tempus”, &quot;the Company&quot;, &quot;we&quot;, &quot;us&quot; or
           &quot;our&quot;) are committed to protecting and respecting your personal information. In addition, we
@@ -50,22 +50,22 @@ const PrivacyPolicy = () => {
           otherwise providing us with your personal information (or authorising it to be provided to us by someone
           else), you agree to your personal information being handled by Tempus as set out in this Privacy Policy.
         </Typography>
-        <Spacer size={60} orientation="vertical" />
+        <Spacer size={60} type="vertical" />
 
         <Typography variant="h3" color="inverted">
           2. Purpose of Privacy Policy
         </Typography>
-        <Spacer size={20} orientation="vertical" />
+        <Spacer size={20} type="vertical" />
         <Typography variant="body-text" color="inverted">
           The purpose of this Privacy Policy is to set out in an accountable and transparent way the collection and use
           of information by Tempus.
         </Typography>
-        <Spacer size={60} orientation="vertical" />
+        <Spacer size={60} type="vertical" />
 
         <Typography variant="h3" color="inverted">
           3. Personal Information
         </Typography>
-        <Spacer size={20} orientation="vertical" />
+        <Spacer size={20} type="vertical" />
         <Typography variant="body-text" color="inverted">
           Personal information is information or an opinion about an identified individual, or an individual who is
           reasonably identifiable whether the information or opinion is true or not, and whether the information is
@@ -94,12 +94,12 @@ const PrivacyPolicy = () => {
             </li>
           </ul>
         </Typography>
-        <Spacer size={60} orientation="vertical" />
+        <Spacer size={60} type="vertical" />
 
         <Typography variant="h3" color="inverted">
           4. Purpose of Personal Information collection
         </Typography>
-        <Spacer size={20} orientation="vertical" />
+        <Spacer size={20} type="vertical" />
         <Typography variant="body-text" color="inverted">
           Personal Information is collected in order to:
           <ul>
@@ -117,12 +117,12 @@ const PrivacyPolicy = () => {
             <li>Meet Tempus’s legal and regulatory requirements (eg, information required to verify your identity).</li>
           </ul>
         </Typography>
-        <Spacer size={60} orientation="vertical" />
+        <Spacer size={60} type="vertical" />
 
         <Typography variant="h3" color="inverted">
           5. Security, Protection and Use of Personal Information
         </Typography>
-        <Spacer size={20} orientation="vertical" />
+        <Spacer size={20} type="vertical" />
         <Typography variant="body-text" color="inverted">
           Tempus is committed to protecting your privacy. Internally, only a specified number of employees within our
           business have access to your Personal Information.
@@ -149,12 +149,12 @@ const PrivacyPolicy = () => {
           You should note that you are not obliged to give your Personal Information to Tempus, but if you choose not to
           do so, we may not be able to provide our services, or your access to our services may be limited.
         </Typography>
-        <Spacer size={60} orientation="vertical" />
+        <Spacer size={60} type="vertical" />
 
         <Typography variant="h3" color="inverted">
           6. Direct Marketing
         </Typography>
-        <Spacer size={20} orientation="vertical" />
+        <Spacer size={20} type="vertical" />
         <Typography variant="body-text" color="inverted">
           From time to time, if you are a customer or a potential customer of Vega Protocol, we may contact you about
           our products as part of one of our campaigns, or to gain feedback on our services or marketing strategies. We
@@ -163,12 +163,12 @@ const PrivacyPolicy = () => {
           this Privacy Policy, please unsubscribe from the emails via the link in their footer. Or send an email
           entitled “Unsubscribe” to the email address <a href="mailto:legal@tempus.finance">legal@tempus.finance</a>.
         </Typography>
-        <Spacer size={60} orientation="vertical" />
+        <Spacer size={60} type="vertical" />
 
         <Typography variant="h3" color="inverted">
           7. Consent
         </Typography>
-        <Spacer size={20} orientation="vertical" />
+        <Spacer size={20} type="vertical" />
         <Typography variant="body-text" color="inverted">
           Consent is required for the collection of Personal Information and the subsequent use or disclosure of
           Personal Information. The form of consent may vary depending upon the circumstances and the type of Personal
@@ -177,12 +177,12 @@ const PrivacyPolicy = () => {
           Policy. Tempus reserves the right to use and disclose Personal Information without your knowledge or consent
           as permitted by applicable law.
         </Typography>
-        <Spacer size={60} orientation="vertical" />
+        <Spacer size={60} type="vertical" />
 
         <Typography variant="h3" color="inverted">
           8. Disclosure of Personal Information
         </Typography>
-        <Spacer size={20} orientation="vertical" />
+        <Spacer size={20} type="vertical" />
         <Typography variant="body-text" color="inverted">
           We use the Personal Information for the purposes indicated at the time you provide us with such information,
           and/or otherwise for the purposes set out in this Privacy Policy and/or as otherwise permitted by law. We may
@@ -214,12 +214,12 @@ const PrivacyPolicy = () => {
           receivership, assignment or the application of laws or change of control, there may be a disclosure of your
           information to another entity related to such an event.
         </Typography>
-        <Spacer size={60} orientation="vertical" />
+        <Spacer size={60} type="vertical" />
 
         <Typography variant="h3" color="inverted">
           9. Access and Changing of Personal Information
         </Typography>
-        <Spacer size={20} orientation="vertical" />
+        <Spacer size={20} type="vertical" />
         <Typography variant="body-text" color="inverted">
           We take all reasonable steps to ensure your personal information is accurate and up to date. If we believe
           that it is not accurate, we may contact you to update your personal information. If you believe the personal
@@ -236,12 +236,12 @@ const PrivacyPolicy = () => {
           disclosure of your Personal Information. Depending on the nature of your request, there may be a minimal
           charge for accessing your Personal Information.
         </Typography>
-        <Spacer size={60} orientation="vertical" />
+        <Spacer size={60} type="vertical" />
 
         <Typography variant="h3" color="inverted">
           10. Cookies
         </Typography>
-        <Spacer size={20} orientation="vertical" />
+        <Spacer size={20} type="vertical" />
         <Typography variant="body-text" color="inverted">
           A cookie is a small file that asks permission to be placed on your computer’s hard drive. Once you agree, the
           file is added and the cookie helps analyse web traffic or lets you know when you visit a particular site.
@@ -267,12 +267,12 @@ const PrivacyPolicy = () => {
           settings. For more information generally on cookies, including how to disable them, please refer to
           aboutcookies.org. You will also find details on how to delete cookies from your computer.
         </Typography>
-        <Spacer size={60} orientation="vertical" />
+        <Spacer size={60} type="vertical" />
 
         <Typography variant="h3" color="inverted">
           11. Overseas Disclosure
         </Typography>
-        <Spacer size={20} orientation="vertical" />
+        <Spacer size={20} type="vertical" />
         <Typography variant="body-text" color="inverted">
           Some of our providers may be located, or have some of their business functions located in countries outside of
           the EU. As part of our business, we will be required to disclose your personal information to these companies,
@@ -281,12 +281,12 @@ const PrivacyPolicy = () => {
           regarding Vega Protocol’s Privacy Policy or would like us to send you a copy of this policy. Our Privacy
           Policy may be amended from time to time. The current version will be posted on our website.
         </Typography>
-        <Spacer size={60} orientation="vertical" />
+        <Spacer size={60} type="vertical" />
 
         <Typography variant="h3" color="inverted">
           12. Retention of Personal Information
         </Typography>
-        <Spacer size={20} orientation="vertical" />
+        <Spacer size={20} type="vertical" />
         <Typography variant="body-text" color="inverted">
           We will hold your Personal Information only for as long as it is necessary for us to do so, having regard to
           the purposes described in this Privacy Policy and our own legal and regulatory requirements. In general,
@@ -295,24 +295,24 @@ const PrivacyPolicy = () => {
           date of the Transaction. Personal Information which is collected for other purposes will be discarded in
           accordance with our policies in place from time to time.
         </Typography>
-        <Spacer size={60} orientation="vertical" />
+        <Spacer size={60} type="vertical" />
 
         <Typography variant="h3" color="inverted">
           13. Users Under Age of 13
         </Typography>
-        <Spacer size={20} orientation="vertical" />
+        <Spacer size={20} type="vertical" />
         <Typography variant="body-text" color="inverted">
           Tempus does not knowingly collect or store any personal information about children under 13 without verifiable
           prior parental consent. If you believe such information has been inadvertently collected, we will take the
           necessary steps in order to remove such information from our database. Users under 13 must seek and obtain
           parental consent to use this website.
         </Typography>
-        <Spacer size={60} orientation="vertical" />
+        <Spacer size={60} type="vertical" />
 
         <Typography variant="h3" color="inverted">
           14. Links
         </Typography>
-        <Spacer size={20} orientation="vertical" />
+        <Spacer size={20} type="vertical" />
         <Typography variant="body-text" color="inverted">
           There may be links from our Site to other sites and resources provided by third parties. This Privacy Policy
           applies only to our Site. Accessing those third-party sites or sources requires you to leave our Site. We do
@@ -322,29 +322,29 @@ const PrivacyPolicy = () => {
           caused by, related to or arising from those sites. We encourage you to review all policies, rules, terms and
           regulations, including the privacy policies, of each site that you visit.
         </Typography>
-        <Spacer size={60} orientation="vertical" />
+        <Spacer size={60} type="vertical" />
 
         <Typography variant="h3" color="inverted">
           15. Changes
         </Typography>
-        <Spacer size={20} orientation="vertical" />
+        <Spacer size={20} type="vertical" />
         <Typography variant="body-text" color="inverted">
           Our policies, content, information, promotions, disclosures, disclaimers and features may be revised,
           modified, updated, and/or supplemented at any time and without prior notice at the sole and absolute
           discretion of the Company. Users will be able to check the last date when the Privacy Policy is updated.
         </Typography>
-        <Spacer size={60} orientation="vertical" />
+        <Spacer size={60} type="vertical" />
 
         <Typography variant="h3" color="inverted">
           16. Contact Us
         </Typography>
-        <Spacer size={20} orientation="vertical" />
+        <Spacer size={20} type="vertical" />
         <Typography variant="body-text" color="inverted">
           If you have any questions, comments, or concerns regarding our Privacy Policy and/or practices, please contact
           us at <a href="mailto:legal@tempus.finance">legal@tempus.finance</a>. We will get back to you if required as
           soon as possible and within 14 days.
         </Typography>
-        <Spacer size={200} orientation="vertical" />
+        <Spacer size={200} type="vertical" />
       </div>
       <Footer />
     </div>

@@ -74,7 +74,7 @@ const Banner = () => {
               <Typography variant="banner-text" color="inverted">
                 Days
               </Typography>
-              <Spacer size={9} orientation="vertical" />
+              <Spacer size={9} type="vertical" />
               <Typography variant="banner-title" color="inverted">
                 {timeRemaining.days}
               </Typography>
@@ -87,7 +87,7 @@ const Banner = () => {
           <Typography variant="banner-text" color="inverted">
             Hours
           </Typography>
-          <Spacer size={9} orientation="vertical" />
+          <Spacer size={9} type="vertical" />
           <Typography variant="banner-title" color="inverted">
             {isLive ? (timeRemaining.days || 0) * 24 + (timeRemaining.hours || 0) : timeRemaining.hours}
           </Typography>
@@ -97,7 +97,7 @@ const Banner = () => {
           <Typography variant="banner-text" color="inverted">
             Minutes
           </Typography>
-          <Spacer size={9} orientation="vertical" />
+          <Spacer size={9} type="vertical" />
           <Typography variant="banner-title" color="inverted">
             {timeRemaining.minutes}
           </Typography>
@@ -107,7 +107,7 @@ const Banner = () => {
           <Typography variant="banner-text" color="inverted">
             Seconds
           </Typography>
-          <Spacer size={9} orientation="vertical" />
+          <Spacer size={9} type="vertical" />
           <Typography variant="banner-title" color="inverted">
             {timeRemaining.seconds}
           </Typography>

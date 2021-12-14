@@ -18,15 +18,15 @@ const TermsOfService = () => {
         <Typography variant="h1" color="inverted">
           Terms of Service
         </Typography>
-        <Spacer size={26} orientation="vertical" />
+        <Spacer size={26} type="vertical" />
         <Typography variant="h5" color="inverted">
           Last updated: 1 December 2021
         </Typography>
-        <Spacer size={129} orientation="vertical" />
+        <Spacer size={129} type="vertical" />
         <Typography variant="h3" color="inverted">
           1. Introduction
         </Typography>
-        <Spacer size={20} orientation="vertical" />
+        <Spacer size={20} type="vertical" />
         <Typography variant="body-text" color="inverted">
           These Terms of Service (the “Terms”) are issued by Tempus Labs Inc., a limited company based in the British
           Virgin Islands (the “Issuer”) in association with Tempus Foundation Company, a foundation company based in the
@@ -50,11 +50,11 @@ const TermsOfService = () => {
           incorporated into these Terms by reference and also apply to your use of the Site.
         </Typography>
 
-        <Spacer size={60} orientation="vertical" />
+        <Spacer size={60} type="vertical" />
         <Typography variant="h3" color="inverted">
           2. Modification of the Terms
         </Typography>
-        <Spacer size={20} orientation="vertical" />
+        <Spacer size={20} type="vertical" />
         <Typography variant="body-text" color="inverted">
           We reserve the right, in our sole discretion, to modify these Terms from time to time. You are advised to
           check these Terms periodically to familiarize yourself with any changes. If we make any changes, we will
@@ -65,11 +65,11 @@ const TermsOfService = () => {
           accessing and using the Site.
         </Typography>
 
-        <Spacer size={60} orientation="vertical" />
+        <Spacer size={60} type="vertical" />
         <Typography variant="h3" color="inverted">
           3. Site
         </Typography>
-        <Spacer size={20} orientation="vertical" />
+        <Spacer size={20} type="vertical" />
         <Typography variant="body-text" color="inverted">
           As part of the Site, Tempus provides access to the decentralized finance application Tempus Protocol on the
           Ethereum blockchain, that allows suppliers and borrowers of certain cryptoassets to earn yields using smart
@@ -84,11 +84,11 @@ const TermsOfService = () => {
           Tempus Protocol or the Ethereum network before initiating such transaction.
         </Typography>
 
-        <Spacer size={60} orientation="vertical" />
+        <Spacer size={60} type="vertical" />
         <Typography variant="h3" color="inverted">
           4. Access to the Site and All Rights Reserved
         </Typography>
-        <Spacer size={20} orientation="vertical" />
+        <Spacer size={20} type="vertical" />
         <Typography variant="body-text" color="inverted">
           Access to the Site is provided “as is” and on an “as available” basis only. To the fullest extent permitted by
           law, we disclaim any representations and warranties of any kind, whether express, implied, or statutory,
@@ -135,11 +135,11 @@ const TermsOfService = () => {
           requesting or directing that we disclose information or content or information that you provide on the Site.
         </Typography>
 
-        <Spacer size={60} orientation="vertical" />
+        <Spacer size={60} type="vertical" />
         <Typography variant="h3" color="inverted">
           5. Risks of using the Site
         </Typography>
-        <Spacer size={20} orientation="vertical" />
+        <Spacer size={20} type="vertical" />
         <Typography variant="body-text" color="inverted">
           You acknowledge that the Site and your use of the Site contain certain risks, including without limitation the
           following risks:
@@ -206,11 +206,11 @@ const TermsOfService = () => {
           </ul>
         </Typography>
 
-        <Spacer size={60} orientation="vertical" />
+        <Spacer size={60} type="vertical" />
         <Typography variant="h3" color="inverted">
           6. Eligibility of Use
         </Typography>
-        <Spacer size={20} orientation="vertical" />
+        <Spacer size={20} type="vertical" />
         <Typography variant="body-text" color="inverted">
           To access or use the Site, you must be able to form a legally binding contract online either as an individual
           or on behalf of a legal entity. You therefore represent that (a) if you are agreeing to these Terms on behalf
@@ -232,11 +232,11 @@ const TermsOfService = () => {
           illegal activity.
         </Typography>
 
-        <Spacer size={60} orientation="vertical" />
+        <Spacer size={60} type="vertical" />
         <Typography variant="h3" color="inverted">
           7. Intellectual Property Rights
         </Typography>
-        <Spacer size={20} orientation="vertical" />
+        <Spacer size={20} type="vertical" />
         <Typography variant="body-text" color="inverted">
           Unless otherwise stated, we own all intellectual property and other rights in the Site and its contents,
           including (but not limited to) software, text, images, trademarks, service marks, copyrights, patents, and
@@ -264,11 +264,11 @@ const TermsOfService = () => {
           violate, misappropriate, or infringe on any third party’s rights.
         </Typography>
 
-        <Spacer size={60} orientation="vertical" />
+        <Spacer size={60} type="vertical" />
         <Typography variant="h3" color="inverted">
           8. Privacy
         </Typography>
-        <Spacer size={20} orientation="vertical" />
+        <Spacer size={20} type="vertical" />
         <Typography variant="body-text" color="inverted">
           When you use the Site, the only information we collect from you is your blockchain wallet address, completed
           transaction hashes, and the token names, symbols, or other blockchain identifiers of the tokens that you
@@ -285,11 +285,11 @@ const TermsOfService = () => {
           make public on the Ethereum blockchain by taking actions through the Site.
         </Typography>
 
-        <Spacer size={60} orientation="vertical" />
+        <Spacer size={60} type="vertical" />
         <Typography variant="h3" color="inverted">
           9. Conditions of Use of the Site
         </Typography>
-        <Spacer size={20} orientation="vertical" />
+        <Spacer size={20} type="vertical" />
         <Typography variant="body-text" color="inverted">
           As a condition to accessing or using the Site, you:
           <ul>
@@ -312,11 +312,11 @@ const TermsOfService = () => {
           </ul>
         </Typography>
 
-        <Spacer size={60} orientation="vertical" />
+        <Spacer size={60} type="vertical" />
         <Typography variant="h3" color="inverted">
           10. Prohibited Activity
         </Typography>
-        <Spacer size={20} orientation="vertical" />
+        <Spacer size={20} type="vertical" />
         <Typography variant="body-text" color="inverted">
           You agree not to engage in, or attempt to engage in, any of the following categories of prohibited activity in
           relation to your access and use of the Site:
@@ -401,11 +401,11 @@ const TermsOfService = () => {
           <a href="mailto:legal@tempus.finance">legal@tempus.finance.</a>
         </Typography>
 
-        <Spacer size={60} orientation="vertical" />
+        <Spacer size={60} type="vertical" />
         <Typography variant="h3" color="inverted">
           11. Not Registered with Any Government Agencies
         </Typography>
-        <Spacer size={20} orientation="vertical" />
+        <Spacer size={20} type="vertical" />
         <Typography variant="body-text" color="inverted">
           We are not registered with any government agencies as a national securities exchange or in any other capacity.
           No government agencies have reviewed or approved the use of Tempus-developed software. You understand and
@@ -413,11 +413,11 @@ const TermsOfService = () => {
           of your swaps, which occur entirely on the public distributed Ethereum blockchain.
         </Typography>
 
-        <Spacer size={60} orientation="vertical" />
+        <Spacer size={60} type="vertical" />
         <Typography variant="h3" color="inverted">
           12. Non-Solicitation and No Investment Advice
         </Typography>
-        <Spacer size={20} orientation="vertical" />
+        <Spacer size={20} type="vertical" />
         <Typography variant="body-text" color="inverted">
           You agree and understand that all swaps you submit through the Site are considered unsolicited, which means
           that you have not received any investment advice from us in connection with any swaps, and that we do not
@@ -433,11 +433,11 @@ const TermsOfService = () => {
           doubt.
         </Typography>
 
-        <Spacer size={60} orientation="vertical" />
+        <Spacer size={60} type="vertical" />
         <Typography variant="h3" color="inverted">
           13. Non-Custodial and No Fiduciary Duties
         </Typography>
-        <Spacer size={20} orientation="vertical" />
+        <Spacer size={20} type="vertical" />
         <Typography variant="body-text" color="inverted">
           The Site is a purely non-custodial application, meaning you are solely responsible for the custody of the
           cryptographic private keys to the digital asset wallets you hold. These Terms are not intended to, and do not,
@@ -448,11 +448,11 @@ const TermsOfService = () => {
           those set out expressly in these Terms.
         </Typography>
 
-        <Spacer size={60} orientation="vertical" />
+        <Spacer size={60} type="vertical" />
         <Typography variant="h3" color="inverted">
           14. Financial and Technical Sophistication
         </Typography>
-        <Spacer size={20} orientation="vertical" />
+        <Spacer size={20} type="vertical" />
         <Typography variant="body-text" color="inverted">
           Any use or interaction with the Site requires a certain level of financial and technical sophistication to
           understand the inherent risks, including those listed in these Terms. By accessing and using the Site, you
@@ -474,11 +474,11 @@ const TermsOfService = () => {
           and agree to assume full responsibility for all of the risks of accessing and using the Site.
         </Typography>
 
-        <Spacer size={60} orientation="vertical" />
+        <Spacer size={60} type="vertical" />
         <Typography variant="h3" color="inverted">
           15. Third-Party Resources
         </Typography>
-        <Spacer size={20} orientation="vertical" />
+        <Spacer size={20} type="vertical" />
         <Typography variant="body-text" color="inverted">
           The Site may contain references or links to third-party resources, including (but not limited to) information,
           materials, products, or services, that we do not own or control. Any such references or links are provided for
@@ -490,11 +490,11 @@ const TermsOfService = () => {
           connection with use of or reliance on any such resources.
         </Typography>
 
-        <Spacer size={60} orientation="vertical" />
+        <Spacer size={60} type="vertical" />
         <Typography variant="h3" color="inverted">
           16. Indemnity
         </Typography>
-        <Spacer size={20} orientation="vertical" />
+        <Spacer size={20} type="vertical" />
         <Typography variant="body-text" color="inverted">
           You agree to hold harmless, release, defend, and indemnify us and our officers, directors, employees,
           contractors, agents, affiliates, and subsidiaries from and against all claims, damages, obligations, losses,
@@ -504,11 +504,11 @@ const TermsOfService = () => {
           and use of the Site with your assistance or using any device or account that you own or control.
         </Typography>
 
-        <Spacer size={60} orientation="vertical" />
+        <Spacer size={60} type="vertical" />
         <Typography variant="h3" color="inverted">
           17. Limitation of Liability
         </Typography>
-        <Spacer size={20} orientation="vertical" />
+        <Spacer size={20} type="vertical" />
         <Typography variant="body-text" color="inverted">
           Under no circumstances shall we or any of our officers, directors, employees, contractors, agents, affiliates,
           or subsidiaries be liable to you for any indirect, punitive, incidental, special, consequential, or exemplary
@@ -536,11 +536,11 @@ const TermsOfService = () => {
           apply to the fullest extent permitted by law.
         </Typography>
 
-        <Spacer size={60} orientation="vertical" />
+        <Spacer size={60} type="vertical" />
         <Typography variant="h3" color="inverted">
           18. Dispute Resolution
         </Typography>
-        <Spacer size={20} orientation="vertical" />
+        <Spacer size={20} type="vertical" />
         <Typography variant="body-text" color="inverted">
           We will use our best efforts to resolve any potential disputes between us through informal, good faith
           negotiations. If a potential dispute arises, you must contact us by sending an email to{' '}
@@ -550,11 +550,11 @@ const TermsOfService = () => {
           forth under “Jurisdiction and Arbitration” below.
         </Typography>
 
-        <Spacer size={60} orientation="vertical" />
+        <Spacer size={60} type="vertical" />
         <Typography variant="h3" color="inverted">
           19. Class Action and Jury Trial Waiver
         </Typography>
-        <Spacer size={20} orientation="vertical" />
+        <Spacer size={20} type="vertical" />
         <Typography variant="body-text" color="inverted">
           With respect to all persons and entities, regardless of whether they have used the Site for personal,
           commercial or other purposes, all disputes, controversies or claims must be brought in the parties’ individual
@@ -565,11 +565,11 @@ const TermsOfService = () => {
           representative proceeding of any kind.
         </Typography>
 
-        <Spacer size={60} orientation="vertical" />
+        <Spacer size={60} type="vertical" />
         <Typography variant="h3" color="inverted">
           20. Jurisdiction and Arbitration
         </Typography>
-        <Spacer size={20} orientation="vertical" />
+        <Spacer size={20} type="vertical" />
         <Typography variant="body-text" color="inverted">
           Please read the following section carefully because it requires you to arbitrate certain disputes and claims
           with Tempus and limits how you can seek relief from Tempus. Also, arbitration precludes you from suing in
@@ -590,21 +590,21 @@ const TermsOfService = () => {
           personal jurisdiction in any forum outside of the Cayman Islands.
         </Typography>
 
-        <Spacer size={60} orientation="vertical" />
+        <Spacer size={60} type="vertical" />
         <Typography variant="h3" color="inverted">
           21. Governing Law
         </Typography>
-        <Spacer size={20} orientation="vertical" />
+        <Spacer size={20} type="vertical" />
         <Typography variant="body-text" color="inverted">
           The governing law of these Terms and the Site shall be Cayman Islands law, without regard to principles of
           conflicts of laws.
         </Typography>
 
-        <Spacer size={60} orientation="vertical" />
+        <Spacer size={60} type="vertical" />
         <Typography variant="h3" color="inverted">
           22. Entire Agreement
         </Typography>
-        <Spacer size={20} orientation="vertical" />
+        <Spacer size={20} type="vertical" />
         <Typography variant="body-text" color="inverted">
           These Terms constitute the entire agreement between you and us with respect to the subject matter hereof
           (including, for the avoidance of doubt, your use of the Site). These Terms supersede any and all prior or
@@ -612,11 +612,11 @@ const TermsOfService = () => {
           subject matter of the Terms.
         </Typography>
 
-        <Spacer size={60} orientation="vertical" />
+        <Spacer size={60} type="vertical" />
         <Typography variant="h3" color="inverted">
           23. General
         </Typography>
-        <Spacer size={20} orientation="vertical" />
+        <Spacer size={20} type="vertical" />
         <Typography variant="body-text" color="inverted">
           We may perform any of our obligations, and exercise any of the rights granted to us under these Terms, through
           a third-party. We may assign any or all our rights and obligations under these Terms to any third-party, in
@@ -652,17 +652,17 @@ const TermsOfService = () => {
           Terms.
         </Typography>
 
-        <Spacer size={60} orientation="vertical" />
+        <Spacer size={60} type="vertical" />
         <Typography variant="h3" color="inverted">
           24. Contact Us
         </Typography>
-        <Spacer size={20} orientation="vertical" />
+        <Spacer size={20} type="vertical" />
         <Typography variant="body-text" color="inverted">
           If you have any questions about these Terms, or wish to contact us for any reason, please send us an email at{' '}
           <a href="mailto:contact@tempus.finance">contact@tempus.finance.</a>
         </Typography>
 
-        <Spacer size={200} orientation="vertical" />
+        <Spacer size={200} type="vertical" />
       </div>
       <Footer />
     </div>

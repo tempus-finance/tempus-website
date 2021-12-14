@@ -47,7 +47,7 @@ const News = () => {
       <Typography variant="h3" color="inverted">
         News
       </Typography>
-      <Spacer size={41} orientation="vertical" />
+      <Spacer size={41} type="vertical" />
       <div className="tf__news__cards-container">
         {posts.map((post) => (
           <NewsCard

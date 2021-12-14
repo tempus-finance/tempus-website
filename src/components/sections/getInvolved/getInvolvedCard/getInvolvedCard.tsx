@@ -19,12 +19,12 @@ const GetInvolvedCard: FC<GetInvolvedCardProps> = (props) => {
         <Typography variant="h4" color="inverted">
           {title}
         </Typography>
-        <Spacer size={20} orientation="vertical" />
+        <Spacer size={20} type="vertical" />
         <Typography variant="body-text" color="inverted">
           {description}
         </Typography>
       </div>
-      <Spacer size={30} orientation="vertical" />
+      <Spacer size={30} type="vertical" />
       <div className="tf__get-involved-card__action-button-container">
         <Button width="180px">
           <Typography variant="get-involved-card-button" clickable>

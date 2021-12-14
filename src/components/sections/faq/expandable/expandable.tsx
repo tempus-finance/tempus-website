@@ -31,13 +31,13 @@ const Expandable: FC<ExpandableProps> = (props) => {
       </div>
       {expanded && (
         <>
-          <Spacer size={8} orientation="vertical" />
+          <Spacer size={8} type="vertical" />
           <Typography variant="body-text" html={text} color="inverted" />
         </>
       )}
-      <Spacer size={20} orientation="vertical" />
+      <Spacer size={20} type="vertical" />
       <Divider />
-      <Spacer size={20} orientation="vertical" />
+      <Spacer size={20} type="vertical" />
     </div>
   );
 };

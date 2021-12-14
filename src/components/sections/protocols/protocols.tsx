@@ -44,32 +44,32 @@ const Protocols = () => {
           the most trusted DeFi protocols
         </Typography>
       </Typography>
-      <Spacer size={50} orientation="vertical" />
+      <Spacer size={50} type="vertical" />
       <div className="tf__protocols-icons">
         <div className="tf__protocols__icon-container" onClick={onLidoClick} aria-hidden="true">
           <LidoProtocol />
         </div>
-        <Spacer size={10} orientation="horizontal" />
+        <Spacer size={10} type="horizontal" />
         <div className="tf__protocols__icon-container" onClick={onCompoundClick} aria-hidden="true">
           <CompoundProtocol />
         </div>
-        <Spacer size={10} orientation="horizontal" />
+        <Spacer size={10} type="horizontal" />
         <div className="tf__protocols__icon-container" onClick={onAaveClick} aria-hidden="true">
           <AaveProtocol />
         </div>
-        <Spacer size={10} orientation="horizontal" />
+        <Spacer size={10} type="horizontal" />
         <div className="tf__protocols__icon-container" onClick={onYearnClick} aria-hidden="true">
           <YearnProtocol />
         </div>
-        <Spacer size={10} orientation="horizontal" />
+        <Spacer size={10} type="horizontal" />
         <div className="tf__protocols__icon-container" onClick={onRariClick} aria-hidden="true">
           <RariCapitalLogo />
         </div>
       </div>
-      <Spacer size={50} orientation="vertical" />
+      <Spacer size={50} type="vertical" />
       <Button width="310px" height="72px" onClick={onBuiltOnBalancerClick}>
         <div className="tf__protocols__button-text">Built on Balancer</div>
-        <Spacer size={20} orientation="horizontal" />
+        <Spacer size={20} type="horizontal" />
         <BalancerLogo />
       </Button>
     </div>
