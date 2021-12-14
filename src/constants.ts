@@ -13,3 +13,10 @@ export const ignoreHolderAddresses = [
   '0xca65e71ee7fb8e85ede0e7ef30f029efa8fe4a08',
 ];
 export const initialUSDCBalance = 4500000;
+
+export const SECONDS_IN_AN_HOUR = 3600;
+export const SECONDS_IN_A_DAY = SECONDS_IN_AN_HOUR * 24;
+
+export const BLOCK_DURATION_SECONDS = 13.15;
+
+export const ONE_ETH_IN_WEI = '1000000000000000000'; // 10^18

@@ -16,6 +16,7 @@ import News from '../sections/news/news';
 import Protocols from '../sections/protocols/protocols';
 import Security from '../sections/security/security';
 import Social from '../sections/social/social';
+import Stats from '../sections/stats/stats';
 import TermsOfService from '../termsOfService/termsOfService';
 
 import './app.scss';
@@ -43,7 +44,7 @@ const App = () => (
           <div className="tf__mobile-only">
             <Banner />
           </div>
-          {/* Removed until we go on mainnet <Stats /> */}
+          <Stats />
           <Protocols />
           <Graph />
           <GetInvolved />
