@@ -37,9 +37,6 @@ const App = () => (
         </Route>
         <Route path="/">
           <Background />
-          <div className="tf__desktop-only">
-            <Banner />
-          </div>
           <Main />
           <div className="tf__mobile-only">
             <Banner />

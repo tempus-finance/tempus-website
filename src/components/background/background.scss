@@ -13,14 +13,14 @@
   top: 0px;
   left: -400px;
   right: 400px;
-  height: 750px;
+  height: 600px;
   width: calc(100% + 800px);
   background: radial-gradient(34.45% 56.55% at 84.54% 17.33%, rgba(0, 194, 255, 0.3) 0%, rgba(0, 87, 255, 0.189) 100%),
     linear-gradient(116.06deg, #4b4b4b 7.43%, #0bb694 101.55%);
   border-bottom-left-radius: 80% 40%;
   overflow: hidden;
 
-  @media screen and (max-width: 1150px) {
+  @media screen and (max-width: 1024px) {
     height: 850px;
   }
 }
@@ -28,9 +28,9 @@
 .tf__background__logo {
   position: absolute;
   right: 300px;
-  top: 205px;
+  top: 188px;
 
-  @media screen and (max-width: 1150px) {
+  @media screen and (max-width: 1350px) {
     display: none;
   }
 }
