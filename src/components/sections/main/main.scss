@@ -11,6 +11,22 @@
   }
 }
 
+.tf__main__title {
+  width: 620px;
+
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+  }
+}
+
+.tf__main__description {
+  width: 680px;
+
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+  }
+}
+
 .tf__main-button {
   display: flex;
 
