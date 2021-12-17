@@ -1,10 +1,14 @@
 .tf__navbar__container {
   display: flex;
   justify-content: center;
-  background-color: #fcfcfc;
+  background-color: transparent;
   position: fixed;
   width: 100%;
   z-index: 100;
+}
+
+.tf__navbar__container-scrolled {
+  background-color: #ffffff;
 }
 
 .tf__navbar__content {

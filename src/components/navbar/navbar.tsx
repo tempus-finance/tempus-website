@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Button from '../button/button';
 import ArrowDown from '../icons/arrow-down';
@@ -20,6 +20,23 @@ const Navbar = () => {
 
   const [communityOpen, setCommunityOpen] = useState<boolean>(false);
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  const [pageScrolledDown, setPageScrolledDown] = useState<boolean>(false);
+
+  const onScroll = useCallback(() => {
+    if (window.scrollY > 0) {
+      setPageScrolledDown(true);
+    } else {
+      setPageScrolledDown(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener('scroll', onScroll);
+
+    return () => {
+      document.removeEventListener('scroll', onScroll);
+    };
+  }, []);
 
   const onCommunityClick = () => {
     setCommunityOpen((prevValue) => !prevValue);
@@ -77,16 +94,35 @@ const Navbar = () => {
     history.push('/');
   };
 
+  let containerClasses = 'tf__navbar__container';
+  if (pageScrolledDown === true) {
+    containerClasses += ' tf__navbar__container-scrolled';
+  }
+
+  // In case menu is open on mobile - we want to have white background for nav bar regardless of the scroll
+  if (menuOpen === true) {
+    containerClasses = 'tf__navbar__container tf__navbar__container-scrolled';
+  }
+
+  const textColor = pageScrolledDown ? 'default' : 'inverted';
+
+  let logoColor = pageScrolledDown ? 'black' : 'white';
+
+  // In case menu is open on mobile - we want to have black logo shown regardless of the scroll position
+  if (menuOpen) {
+    logoColor = 'black';
+  }
+
   return (
-    <div className="tf__navbar__container">
+    <div className={containerClasses}>
       <div className="tf__navbar__content">
         <div className="tf__flex-row-center-v">
           <div onClick={onLogoClick} aria-hidden="true">
-            <Logo />
+            <Logo fillColor={logoColor} />
           </div>
         </div>
         <div className="tf__navbar-actions-desktop">
-          <Typography variant="header-label" onClick={onTokenClick} clickable underline>
+          <Typography color={textColor} variant="header-label" onClick={onTokenClick} clickable underline>
             TOKEN
           </Typography>
           <Spacer size={45} type="horizontal" />
@@ -95,11 +131,11 @@ const Navbar = () => {
             onClick={onCommunityClick}
             aria-hidden="true"
           >
-            <Typography variant="header-label" clickable underline>
+            <Typography color={textColor} variant="header-label" clickable underline>
               COMMUNITY
             </Typography>
             <Spacer size={6} type="horizontal" />
-            <ArrowDown />
+            <ArrowDown fillColor={pageScrolledDown ? '#222222' : '#ffffff'} />
             {communityOpen && (
               <div className="tf__navbar-dropdown">
                 <div className="tf__navbar-dropdown-item" onClick={onTwitterClick} aria-hidden="true">
@@ -156,11 +192,11 @@ const Navbar = () => {
           </div>
           {communityOpen && <div className="tf__backdrop" onClick={onCommunityClick} aria-hidden="true" />}
           <Spacer size={45} type="horizontal" />
-          <Typography variant="header-label" onClick={onDocsClick} clickable underline>
+          <Typography color={textColor} variant="header-label" onClick={onDocsClick} clickable underline>
             DOCS
           </Typography>
           <Spacer size={45} type="horizontal" />
-          <Typography variant="header-label" onClick={onSersClick} clickable underline>
+          <Typography color={textColor} variant="header-label" onClick={onSersClick} clickable underline>
             SERS
           </Typography>
           <Spacer size={45} type="horizontal" />
@@ -173,7 +209,11 @@ const Navbar = () => {
       </div>
       <div className="tf__navbar-actions-mobile">
         <div onClick={onMenuClick} aria-hidden="true">
-          {menuOpen ? <CrossIcon color="black" width="18px" /> : <MenuIcon />}
+          {menuOpen ? (
+            <CrossIcon color="black" width="18px" />
+          ) : (
+            <MenuIcon fillColor={pageScrolledDown ? '#222222' : 'white'} />
+          )}
         </div>
         {menuOpen && (
           <div className="tf__navbar-menu-mobile">
