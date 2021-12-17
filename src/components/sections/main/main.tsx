@@ -17,12 +17,12 @@ const Main = () => {
 
   return (
     <div className="tf__main__container">
-      <Typography variant="h1" color="inverted" html="Trustless</br> secondary</br> markets on yield" />
+      <Typography variant="h1" color="inverted" html="Trustless interest</br> rate markets" />
       <Spacer size={50} type="vertical" />
       <Typography
         variant="h2"
         color="inverted"
-        html="Tempus is a permissionless market for</br>AMM-powered interest rate swaps."
+        html="Tempus is a decentralised secondary market</br> for yields that lets users fix or speculate on</br> their income."
       />
       <Spacer size={50} type="vertical" />
       <div className="tf__main-button">
