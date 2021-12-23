@@ -17,6 +17,10 @@ const Security = () => {
     window.open('https://code423n4.com/reports/2021-10-tempus', '_blank');
   }, []);
 
+  const onImmunefiClick = useCallback(() => {
+    window.open('https://immunefi.com/bounty/tempus/', '_blank');
+  }, []);
+
   return (
     <div className="tf__security-container">
       <Typography variant="h3">Security</Typography>
@@ -36,13 +40,12 @@ const Security = () => {
           <Spacer size={22} type="vertical" />
           <Typography variant="security-card-label">Security Audit</Typography>
         </div>
-        <div className="tf__security-card">
+        <div className="tf__security-card" onClick={onImmunefiClick} aria-hidden="true" style={{ cursor: 'pointer' }}>
           <div className="tf__security-logo-container">
             <ImmunefiLogo />
           </div>
           <Spacer size={22} type="vertical" />
           <Typography variant="security-card-label">$150,000 Bug Bounty</Typography>
-          <Typography variant="security-card-label">(Coming soon)</Typography>
         </div>
         <div className="tf__security-card">
           <div className="tf__security-logo-container">
