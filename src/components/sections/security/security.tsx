@@ -53,7 +53,6 @@ const Security = () => {
           </div>
           <Spacer size={22} type="vertical" />
           <Typography variant="security-card-label">$150,000 Bug Bounty</Typography>
-          <Typography variant="security-card-label">(Coming soon)</Typography>
         </div>
       </div>
     </div>
