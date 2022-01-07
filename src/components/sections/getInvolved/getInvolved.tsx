@@ -1,5 +1,4 @@
 import React from 'react';
-import GetInvolvedLogo from '../../logo/get-involved-logo';
 import Spacer from '../../spacer/spacer';
 import Typography from '../../typography/typography';
 
@@ -10,16 +9,14 @@ const GetInvolved = () => (
   <div className="tf__get-involved__container">
     <Typography variant="h3">Get involved</Typography>
     <Spacer size={45} type="vertical" />
+    <div className="tf__get-involved__description">
+      <Typography variant="investor-name" color="gray">
+        The Tempus Protocol is governed by a decentralized community of TEMP token holders and their delegates who
+        propose and vote on upgrades to the protocol.
+      </Typography>
+    </div>
+    <Spacer size={30} type="vertical" />
     <div className="tf__get-involved__cards-grid">
-      <div className="tf__get-involved__card tf__get-involved__first-card">
-        <GetInvolvedCard
-          title="Community Governance"
-          description="Tempus Protocol is governed by a decentralized community of TEMP token holders and their delegates who propose and vote on upgrades to the protocol."
-        />
-        <div className="tf__get-involved__card-logo">
-          <GetInvolvedLogo />
-        </div>
-      </div>
       <div className="tf__get-involved__card tf__get-involved__second-card">
         <GetInvolvedCard
           title="Governance Forum"

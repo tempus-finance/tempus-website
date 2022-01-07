@@ -20,6 +20,7 @@ type TypographyVariant =
   | 'footer-header'
   | 'join-header'
   | 'join-body'
+  | 'get-involved-car-text'
   | 'get-involved-card-button'
   | 'banner-title'
   | 'banner-text'
@@ -32,14 +33,14 @@ typographyStyleMap.set('h1', {
   fontFamily: "'Manrope', sans-serif",
   fontStyle: 'normal',
   fontWeight: 700,
-  fontSize: '70px',
+  fontSize: '56px',
   lineHeight: '110%',
 });
 typographyStyleMap.set('h2', {
   fontFamily: "'Manrope', sans-serif",
   fontStyle: 'normal',
-  fontWeight: 500,
-  fontSize: '32px',
+  fontWeight: 700,
+  fontSize: '28px',
   lineHeight: '44px',
 });
 typographyStyleMap.set('dynamic-number-label', {
@@ -54,7 +55,7 @@ typographyStyleMap.set('dynamic-number', {
   fontStyle: 'normal',
   fontWeight: 700,
   fontSize: '36px',
-  lineHeight: '110%',
+  lineHeight: '160%',
 });
 typographyStyleMap.set('about-text', {
   fontFamily: "'Manrope', sans-serif",
@@ -141,6 +142,13 @@ typographyStyleMap.set('header-label', {
   fontSize: '16px',
   lineHeight: '20px',
 });
+typographyStyleMap.set('get-involved-car-text', {
+  fontFamily: "'Source Sans Pro', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 500,
+  fontSize: '20px',
+  lineHeight: '160%',
+});
 typographyStyleMap.set('get-involved-card-button', {
   fontFamily: "'Source Sans Pro', sans-serif",
   fontStyle: 'normal',
@@ -182,14 +190,14 @@ typographyMobileStyleMap.set('h1', {
   fontFamily: "'Manrope', sans-serif",
   fontStyle: 'normal',
   fontWeight: 700,
-  fontSize: '48px',
+  fontSize: '42px',
   lineHeight: '110%',
 });
 typographyMobileStyleMap.set('h2', {
   fontFamily: "'Manrope', sans-serif",
   fontStyle: 'normal',
-  fontWeight: 500,
-  fontSize: '20px',
+  fontWeight: 700,
+  fontSize: '28px',
   lineHeight: '160%',
 });
 typographyMobileStyleMap.set('dynamic-number-label', {
@@ -267,7 +275,7 @@ typographyMobileStyleMap.set('footer-header', {
   fontFamily: "'Manrope', sans-serif",
   fontStyle: 'normal',
   fontWeight: 700,
-  fontSize: '80px',
+  fontSize: '48px',
   lineHeight: '120%',
 });
 typographyMobileStyleMap.set('join-header', {
@@ -290,6 +298,13 @@ typographyMobileStyleMap.set('header-label', {
   fontWeight: 500,
   fontSize: '16px',
   lineHeight: '20px',
+});
+typographyMobileStyleMap.set('get-involved-car-text', {
+  fontFamily: "'Source Sans Pro', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 500,
+  fontSize: '20px',
+  lineHeight: '160%',
 });
 typographyMobileStyleMap.set('get-involved-card-button', {
   fontFamily: "'Source Sans Pro', sans-serif",
@@ -336,11 +351,13 @@ interface TypographyProps {
   gradient?: boolean;
   clickable?: boolean;
   underline?: boolean;
+  desktopOnly?: boolean;
   onClick?: () => void;
 }
 
 const Typography: FC<TypographyProps> = (props) => {
-  const { color, capitalize, align, variant, html, gradient, clickable, underline, onClick, children } = props;
+  const { color, capitalize, align, variant, html, gradient, clickable, underline, desktopOnly, onClick, children } =
+    props;
 
   let colorCode: string;
   switch (color) {
@@ -395,21 +412,23 @@ const Typography: FC<TypographyProps> = (props) => {
       >
         {html ? ReactHTMLParser(html) : children}
       </div>
-      <div
-        className={`${classes} tf__typography-mobile`}
-        style={{
-          ...typographyMobileStyleMap.get(variant),
-          color: colorCode,
-          textTransform: capitalize ? 'capitalize' : 'none',
-          textAlign: align,
-          backgroundImage: gradient ? 'linear-gradient(97.53deg, #5098A9 0%, #285A95 100%)' : 'unset',
-          cursor: clickable ? 'pointer' : 'default',
-        }}
-        aria-hidden="true"
-        onClick={handleClick}
-      >
-        {html ? ReactHTMLParser(html) : children}
-      </div>
+      {!desktopOnly && (
+        <div
+          className={`${classes} tf__typography-mobile`}
+          style={{
+            ...typographyMobileStyleMap.get(variant),
+            color: colorCode,
+            textTransform: capitalize ? 'capitalize' : 'none',
+            textAlign: align,
+            backgroundImage: gradient ? 'linear-gradient(97.53deg, #5098A9 0%, #285A95 100%)' : 'unset',
+            cursor: clickable ? 'pointer' : 'default',
+          }}
+          aria-hidden="true"
+          onClick={handleClick}
+        >
+          {html ? ReactHTMLParser(html) : children}
+        </div>
+      )}
     </>
   );
 };
@@ -423,6 +442,7 @@ Typography.defaultProps = {
   clickable: false,
   onClick: undefined,
   underline: false,
+  desktopOnly: false,
 };
 
 export default Typography;

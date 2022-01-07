@@ -117,7 +117,7 @@ const Navbar = () => {
     <div className={containerClasses}>
       <div className="tf__navbar__content">
         <div className="tf__flex-row-center-v">
-          <div onClick={onLogoClick} aria-hidden="true">
+          <div onClick={onLogoClick} aria-hidden="true" style={{ cursor: 'pointer' }}>
             <Logo fillColor={logoColor} />
           </div>
         </div>

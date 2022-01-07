@@ -18,22 +18,14 @@ const Main = () => {
   return (
     <div className="tf__main__container">
       <div className="tf__main__title">
-        <Typography variant="h1" color="inverted" html="Trustless interest rate markets" />
+        <Typography variant="h1" color="inverted" html="Decentralized Fixed Income" />
       </div>
       <Spacer size={39} type="vertical" />
-      <div className="tf__main__description">
-        <Typography
-          variant="h2"
-          color="inverted"
-          html="Tempus is a decentralised secondary market for yields that lets users fix or speculate on their income."
-        />
-      </div>
 
-      <Spacer size={49} type="vertical" />
       <div className="tf__main-button">
         <Button onClick={onLaunchAppClick} width="206px" height="55px">
           <Typography variant="get-involved-card-button" clickable>
-            LAUNCH APP
+            INVEST NOW
           </Typography>
         </Button>
       </div>

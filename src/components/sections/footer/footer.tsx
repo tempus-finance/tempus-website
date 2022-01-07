@@ -28,19 +28,19 @@ const Footer = () => {
       <Typography variant="join-body" color="inverted" clickable underline onClick={onTermsOfServiceClick}>
         Terms of Service
       </Typography>
-      <Typography variant="join-body" color="inverted">
+      <Typography variant="join-body" color="inverted" desktopOnly>
         &nbsp;-&nbsp;
       </Typography>
       <Typography variant="join-body" color="inverted" clickable underline onClick={onDisclaimerClick}>
         Disclaimer
       </Typography>
-      <Typography variant="join-body" color="inverted">
+      <Typography variant="join-body" color="inverted" desktopOnly>
         &nbsp;-&nbsp;
       </Typography>
       <Typography variant="join-body" color="inverted" clickable underline onClick={onPrivacyPolicyClick}>
         Privacy Policy
       </Typography>
-      <Typography variant="join-body" color="inverted">
+      <Typography variant="join-body" color="inverted" desktopOnly>
         &nbsp;-&nbsp;
       </Typography>
       <Typography variant="join-body" color="inverted" clickable underline onClick={onContactClick}>

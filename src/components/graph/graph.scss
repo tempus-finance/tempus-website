@@ -3,10 +3,30 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
   overflow-x: hidden;
   position: relative;
   box-sizing: border-box;
+
+  @media screen and (max-width: 599px) {
+    display: none;
+  }
+
+  @media screen and (max-width: 1024px) {
+    width: 90%;
+    margin: 10px;
+  }
+}
+
+.tf__graph__text {
+  width: 90%;
+  margin: 30px auto 0;
+  text-align: center;
+
+  @media screen and (min-width: 600px) {
+    display: none;
+  }
 }
 
 .tf__graph__scroll {
@@ -42,9 +62,10 @@
 }
 
 .tf__graph-title {
-  margin-top: 135px;
+  margin-top: 75px;
 
   @media screen and (max-width: 1024px) {
+    margin-top: 45px;
     width: 90vw;
     display: flex;
     justify-content: center;

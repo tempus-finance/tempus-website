@@ -8,6 +8,11 @@
   padding-bottom: 120px;
   background: radial-gradient(34.45% 56.55% at 84.54% 17.33%, rgba(0, 194, 255, 0.3) 0%, rgba(0, 87, 255, 0.189) 100%),
     linear-gradient(116.06deg, #4b4b4b 7.43%, #0bb694 101.55%);
+
+  @media screen and (max-width: 1024px) {
+    margin-top: 30px;
+    padding-bottom: 40px;
+  }
 }
 
 .tf__faq__content {

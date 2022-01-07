@@ -19,6 +19,7 @@ const Spacer: FC<SpacerProps> = (props) => {
 
   return (
     <div
+      className="tf__spacer"
       style={{
         width: `${width}px`,
         height: `${height}px`,

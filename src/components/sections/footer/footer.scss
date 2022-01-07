@@ -5,9 +5,15 @@
   width: 1024px;
 
   @media screen and (max-width: 1024px) {
-    width: 100%;
+    margin: auto;
+    width: 90%;
     padding-top: 60px;
     box-sizing: border-box;
     justify-content: center;
+    flex-direction: column;
+
+    > div {
+      margin-bottom: 10px;
+    }
   }
 }

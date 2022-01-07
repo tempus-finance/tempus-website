@@ -21,6 +21,10 @@ const Security = () => {
     window.open('https://immunefi.com/bounty/tempus/', '_blank');
   }, []);
 
+  const onHatsClick = useCallback(() => {
+    window.open('https://app.hats.finance/vaults', '_blank');
+  }, []);
+
   return (
     <div className="tf__security-container">
       <Typography variant="h3">Security</Typography>
@@ -47,7 +51,7 @@ const Security = () => {
           <Spacer size={22} type="vertical" />
           <Typography variant="security-card-label">$150,000 Bug Bounty</Typography>
         </div>
-        <div className="tf__security-card">
+        <div className="tf__security-card" onClick={onHatsClick} aria-hidden="true" style={{ cursor: 'pointer' }}>
           <div className="tf__security-logo-container">
             <HatsLogo />
           </div>

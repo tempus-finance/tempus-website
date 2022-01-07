@@ -20,7 +20,7 @@ const GetInvolvedCard: FC<GetInvolvedCardProps> = (props) => {
           {title}
         </Typography>
         <Spacer size={20} type="vertical" />
-        <Typography variant="body-text" color="inverted">
+        <Typography variant="get-involved-car-text" color="inverted">
           {description}
         </Typography>
       </div>
