@@ -21,12 +21,16 @@ const GetInvolved = () => (
         <GetInvolvedCard
           title="Governance Forum"
           description="Participate in Tempus governance by discussing improvement proposals with the rest of the Tempus community."
+          actionText="Go to Forum"
+          actionLink="https://forum.tempus.finance"
         />
       </div>
       <div className="tf__get-involved__card tf__get-involved__third-card">
         <GetInvolvedCard
           title="Governance Proposals"
           description="Vote on official Tempus proposals and view current and past governance proposals on Snapshot."
+          actionText="Vote on Snapshot"
+          actionLink="https://snapshot.org/#/tempusgov.eth"
         />
       </div>
     </div>

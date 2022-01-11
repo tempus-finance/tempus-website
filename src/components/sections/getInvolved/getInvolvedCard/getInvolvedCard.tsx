@@ -1,5 +1,6 @@
-import React, { FC } from 'react';
+import React, { FC, useCallback } from 'react';
 import Button from '../../../button/button';
+import LinkIcon from '../../../icons/linkIcon';
 import Spacer from '../../../spacer/spacer';
 import Typography from '../../../typography/typography';
 
@@ -8,10 +9,16 @@ import './getInvolvedCard.scss';
 interface GetInvolvedCardProps {
   title: string;
   description: string;
+  actionText: string;
+  actionLink: string;
 }
 
 const GetInvolvedCard: FC<GetInvolvedCardProps> = (props) => {
-  const { title, description } = props;
+  const { title, description, actionText, actionLink } = props;
+
+  const onActionClick = useCallback(() => {
+    window.open(actionLink, '_blank');
+  }, []);
 
   return (
     <div className="tf__get-involved-card__content">
@@ -26,10 +33,12 @@ const GetInvolvedCard: FC<GetInvolvedCardProps> = (props) => {
       </div>
       <Spacer size={30} type="vertical" />
       <div className="tf__get-involved-card__action-button-container">
-        <Button width="180px">
+        <Button onClick={onActionClick}>
           <Typography variant="get-involved-card-button" clickable>
-            Coming soon
+            {actionText}
           </Typography>
+          <Spacer size={10} type="horizontal" />
+          <LinkIcon />
         </Button>
       </div>
     </div>
