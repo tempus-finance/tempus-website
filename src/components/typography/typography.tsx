@@ -25,7 +25,9 @@ type TypographyVariant =
   | 'banner-title'
   | 'banner-text'
   | 'banner-large-text'
-  | 'investor-name';
+  | 'investor-name'
+  | 'token-description'
+  | 'token-stat-value';
 type TypographyColor = 'default' | 'accent' | 'inverted' | 'link' | 'gray';
 
 const typographyStyleMap = new Map<TypographyVariant, CSSProperties>();
@@ -184,6 +186,20 @@ typographyStyleMap.set('investor-name', {
   fontSize: '20px',
   lineHeight: '160%',
 });
+typographyStyleMap.set('token-description', {
+  fontFamily: "'Manrope', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 500,
+  fontSize: '32px',
+  lineHeight: '44px',
+});
+typographyStyleMap.set('token-stat-value', {
+  fontFamily: "'Source Sans Pro', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 700,
+  fontSize: '48px',
+  lineHeight: '110%',
+});
 
 const typographyMobileStyleMap = new Map<TypographyVariant, CSSProperties>();
 typographyMobileStyleMap.set('h1', {
@@ -340,6 +356,20 @@ typographyMobileStyleMap.set('investor-name', {
   fontWeight: 700,
   fontSize: '20px',
   lineHeight: '160%',
+});
+typographyMobileStyleMap.set('token-description', {
+  fontFamily: "'Manrope', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 500,
+  fontSize: '26px',
+  lineHeight: '36px',
+});
+typographyMobileStyleMap.set('token-stat-value', {
+  fontFamily: "'Source Sans Pro', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 700,
+  fontSize: '48px',
+  lineHeight: '110%',
 });
 
 interface TypographyProps {

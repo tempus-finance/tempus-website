@@ -47,7 +47,9 @@ const Navbar = () => {
   };
 
   const onTokenClick = () => {
-    window.open('https://www.coingecko.com/en/coins/tempus', '_blank');
+    // window.open('https://www.coingecko.com/en/coins/tempus', '_blank');
+
+    history.push('/token');
   };
 
   const onDocsClick = () => {

@@ -18,6 +18,7 @@ import Security from '../sections/security/security';
 import Social from '../sections/social/social';
 import Stats from '../sections/stats/stats';
 import TermsOfService from '../termsOfService/termsOfService';
+import TokenPage from '../token/tokenPage';
 
 import './app.scss';
 
@@ -26,6 +27,9 @@ const App = () => (
     <Router>
       <Navbar />
       <Switch>
+        <Route path="/token">
+          <TokenPage />
+        </Route>
         <Route path="/disclaimer">
           <Disclaimer />
         </Route>

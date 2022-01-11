@@ -1,0 +1,31 @@
+.tf__tokenMainSection {
+  height: 740px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+
+  background: radial-gradient(34.45% 56.55% at 84.54% 17.33%, rgba(0, 194, 255, 0.3) 0%, rgba(0, 87, 255, 0.189) 100%),
+    linear-gradient(116.06deg, #4b4b4b 7.43%, #0bb694 101.55%);
+}
+
+.tf__tokenMainSection-content {
+  width: 1024px;
+  padding-top: 265px;
+}
+
+.tf__tokenMainSection-description {
+  margin-top: 45px;
+  width: 525px;
+}
+
+.tf__tokenMainSection-actions {
+  margin-top: 53px;
+  display: flex;
+}
+
+.tf__tokenMainSection-logo {
+  position: absolute;
+  right: -125px;
+  top: 10px;
+}
