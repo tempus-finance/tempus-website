@@ -1,0 +1,25 @@
+.tf__card {
+  width: 320px;
+  min-height: 414px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tf__card-header {
+  background: radial-gradient(34.45% 56.55% at 84.54% 17.33%, rgba(0, 194, 255, 0.3) 0%, rgba(0, 87, 255, 0.189) 100%),
+    linear-gradient(117.67deg, #4b4b4b 6.84%, #0bb694 84.65%);
+  border-radius: 5px 5px 0px 0px;
+  min-height: 149px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tf__card-body {
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0px 0px 5px 5px;
+  padding: 15px;
+  height: 100%;
+}

@@ -29,6 +29,13 @@ const App = () => (
       <Switch>
         <Route path="/token">
           <TokenPage />
+          <div className="tf__app__sections-gradient-wrapper">
+            <Social />
+            <Footer />
+            <div className="tf__app__sections-footer-logo">
+              <FooterLogo />
+            </div>
+          </div>
         </Route>
         <Route path="/disclaimer">
           <Disclaimer />

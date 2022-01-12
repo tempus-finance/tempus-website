@@ -1,0 +1,21 @@
+.tf__treasurySection {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 67px;
+}
+
+.tf__treasurySection-content {
+  width: 1024px;
+}
+
+.tf__treasurySection-background-title {
+  position: absolute;
+}
+
+.tf__treasurySection-value {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}

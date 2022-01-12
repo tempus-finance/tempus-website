@@ -1,0 +1,22 @@
+.tf__distributionSection {
+  background: radial-gradient(34.45% 56.55% at 84.54% 17.33%, rgba(0, 194, 255, 0.3) 0%, rgba(0, 87, 255, 0.189) 100%),
+    linear-gradient(116.06deg, #4b4b4b 7.43%, #0bb694 101.55%);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-bottom: 40px;
+}
+
+.tf__distributionSection-content {
+  width: 1024px;
+}
+
+.tf__distributionSection-background-title {
+  position: absolute;
+}
+
+.tf__distributionSection-chart-wrapper {
+  width: 100%;
+  height: 435px;
+  position: relative;
+}

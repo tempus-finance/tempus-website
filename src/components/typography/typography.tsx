@@ -27,7 +27,11 @@ type TypographyVariant =
   | 'banner-large-text'
   | 'investor-name'
   | 'token-description'
-  | 'token-stat-value';
+  | 'token-stat-value'
+  | 'token-section-background'
+  | 'token-section-text'
+  | 'token-legend-label'
+  | 'token-pie-chart-label';
 type TypographyColor = 'default' | 'accent' | 'inverted' | 'link' | 'gray';
 
 const typographyStyleMap = new Map<TypographyVariant, CSSProperties>();
@@ -200,6 +204,34 @@ typographyStyleMap.set('token-stat-value', {
   fontSize: '48px',
   lineHeight: '110%',
 });
+typographyStyleMap.set('token-section-background', {
+  fontFamily: "'Manrope', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 800,
+  fontSize: '160px',
+  lineHeight: '120%',
+});
+typographyStyleMap.set('token-section-text', {
+  fontFamily: "'Source Sans Pro', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 400,
+  fontSize: '18px',
+  lineHeight: '23px',
+});
+typographyStyleMap.set('token-legend-label', {
+  fontFamily: "'Source Sans Pro', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 400,
+  fontSize: '16px',
+  lineHeight: '20px',
+});
+typographyStyleMap.set('token-pie-chart-label', {
+  fontFamily: "'Manrope', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 600,
+  fontSize: '20px',
+  lineHeight: '27px',
+});
 
 const typographyMobileStyleMap = new Map<TypographyVariant, CSSProperties>();
 typographyMobileStyleMap.set('h1', {
@@ -371,10 +403,35 @@ typographyMobileStyleMap.set('token-stat-value', {
   fontSize: '48px',
   lineHeight: '110%',
 });
+typographyMobileStyleMap.set('token-section-background', {
+  display: 'none',
+});
+typographyMobileStyleMap.set('token-section-text', {
+  fontFamily: "'Source Sans Pro', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 400,
+  fontSize: '18px',
+  lineHeight: '23px',
+});
+typographyMobileStyleMap.set('token-legend-label', {
+  fontFamily: "'Source Sans Pro', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 400,
+  fontSize: '16px',
+  lineHeight: '20px',
+});
+typographyMobileStyleMap.set('token-pie-chart-label', {
+  fontFamily: "'Manrope', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 600,
+  fontSize: '20px',
+  lineHeight: '27px',
+});
 
 interface TypographyProps {
   variant: TypographyVariant;
   color?: TypographyColor;
+  opacity?: number;
   capitalize?: boolean;
   align?: 'start' | 'end' | 'left' | 'right' | 'center' | 'justify' | 'match-parent' | 'unset';
   html?: string;
@@ -386,8 +443,20 @@ interface TypographyProps {
 }
 
 const Typography: FC<TypographyProps> = (props) => {
-  const { color, capitalize, align, variant, html, gradient, clickable, underline, desktopOnly, onClick, children } =
-    props;
+  const {
+    color,
+    opacity,
+    capitalize,
+    align,
+    variant,
+    html,
+    gradient,
+    clickable,
+    underline,
+    desktopOnly,
+    onClick,
+    children,
+  } = props;
 
   let colorCode: string;
   switch (color) {
@@ -436,6 +505,7 @@ const Typography: FC<TypographyProps> = (props) => {
           textAlign: align,
           backgroundImage: gradient ? 'linear-gradient(97.53deg, #5098A9 0%, #285A95 100%)' : 'unset',
           cursor: clickable ? 'pointer' : 'default',
+          opacity: opacity ? opacity.toString() : '1',
         }}
         aria-hidden="true"
         onClick={handleClick}
@@ -465,6 +535,7 @@ const Typography: FC<TypographyProps> = (props) => {
 
 Typography.defaultProps = {
   color: 'default',
+  opacity: 1,
   align: 'unset',
   capitalize: false,
   html: '',
