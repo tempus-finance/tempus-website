@@ -23,10 +23,12 @@ const DistributionSection = () => {
             Distribution
           </Typography>
         </div>
-        <Spacer size={160} type="vertical" />
-        <Typography variant="h3" color="inverted">
-          Distribution
-        </Typography>
+        <div className="tf__tokenPage-section-header-spacer" />
+        <div className="tf__tokenPage-section-header">
+          <Typography variant="h3" color="inverted">
+            Distribution
+          </Typography>
+        </div>
         <Spacer size={25} type="vertical" />
         <Typography variant="token-section-text" color="inverted">
           The pie chart below sets out the initial three year allocation of the 1 billion TEMP minted at genesis. At
@@ -34,17 +36,16 @@ const DistributionSection = () => {
           to benefit the whole Tempus ecosystem. In addition, we find it extremely important to properly incentivize the
           early community, users, liquidity providers, and our other partners.
         </Typography>
-        <Spacer size={72} type="vertical" />
         <div className="tf__distributionSection-chart-wrapper">
-          <ResponsiveContainer maxHeight={430} width="100%">
+          <ResponsiveContainer width="100%">
             <PieChart>
               <Pie
                 dataKey="value"
                 startAngle={90}
                 endAngle={450}
                 data={tokenAllocationData}
-                innerRadius={140}
-                outerRadius={210}
+                innerRadius="64%"
+                outerRadius="100%"
                 fill="#82ca9d"
               >
                 {tokenAllocationData.map((entry) => (
@@ -59,6 +60,45 @@ const DistributionSection = () => {
 
           <ChartLabel x={50} y={350} width={330} orientation="right" label="Liquidity Incentives" value="25.00%" />
           <ChartLabel x={50} y={120} width={310} orientation="right" label="Tempus Team" value="26.00%" />
+        </div>
+        <div className="tf__distributionSection-mobile-legend">
+          <div className="tf__distributionSection-mobile-legend-content">
+            <div className="tf__distributionSection-mobile-legend-item">
+              <div className="tf__distributionSection-mobile-legend-item-tick" style={{ backgroundColor: '#FFDF99' }} />
+              <Spacer size={10} type="horizontal" />
+              <Typography variant="token-legend-label" color="inverted">
+                26.00% Tempus Team
+              </Typography>
+            </div>
+            <div className="tf__distributionSection-mobile-legend-item">
+              <div className="tf__distributionSection-mobile-legend-item-tick" style={{ backgroundColor: '#00A3FF' }} />
+              <Spacer size={10} type="horizontal" />
+              <Typography variant="token-legend-label" color="inverted">
+                25.00% Liquidity Incentives
+              </Typography>
+            </div>
+            <div className="tf__distributionSection-mobile-legend-item">
+              <div className="tf__distributionSection-mobile-legend-item-tick" style={{ backgroundColor: '#ED561B' }} />
+              <Spacer size={10} type="horizontal" />
+              <Typography variant="token-legend-label" color="inverted">
+                22.00% Investors &amp; Advisors
+              </Typography>
+            </div>
+            <div className="tf__distributionSection-mobile-legend-item">
+              <div className="tf__distributionSection-mobile-legend-item-tick" style={{ backgroundColor: '#0BB694' }} />
+              <Spacer size={10} type="horizontal" />
+              <Typography variant="token-legend-label" color="inverted">
+                20.00% Tempus Treasury
+              </Typography>
+            </div>
+            <div className="tf__distributionSection-mobile-legend-item">
+              <div className="tf__distributionSection-mobile-legend-item-tick" style={{ backgroundColor: '#285A95' }} />
+              <Spacer size={10} type="horizontal" />
+              <Typography variant="token-legend-label" color="inverted">
+                7.00% Fair Launch Auction
+              </Typography>
+            </div>
+          </div>
         </div>
       </div>
     </div>

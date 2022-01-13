@@ -3,29 +3,57 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  position: relative;
   overflow: hidden;
 
   background: radial-gradient(34.45% 56.55% at 84.54% 17.33%, rgba(0, 194, 255, 0.3) 0%, rgba(0, 87, 255, 0.189) 100%),
     linear-gradient(116.06deg, #4b4b4b 7.43%, #0bb694 101.55%);
+
+  @media screen and (max-width: 1024px) {
+    height: 630px;
+  }
 }
 
 .tf__tokenMainSection-content {
   width: 1024px;
   padding-top: 265px;
+
+  @media screen and (max-width: 1024px) {
+    padding-top: 150px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    text-align: center !important;
+  }
 }
 
 .tf__tokenMainSection-description {
   margin-top: 45px;
   width: 525px;
+
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+    margin-top: 53px;
+    text-align: center !important;
+  }
 }
 
 .tf__tokenMainSection-actions {
   margin-top: 53px;
   display: flex;
+
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .tf__tokenMainSection-logo {
   position: absolute;
   right: -125px;
   top: 10px;
+
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
 }

@@ -2,6 +2,10 @@
   height: 1px;
   position: absolute;
   background-color: white;
+
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
 }
 
 .tf__chartLabel-label {

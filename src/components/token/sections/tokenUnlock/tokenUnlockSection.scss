@@ -9,19 +9,43 @@
 
 .tf__tokenUnlockSection-content {
   width: 1024px;
+
+  @media screen and (max-width: 1024px) {
+    width: 90%;
+  }
 }
 
 .tf__tokenUnlockSection-background-title {
   position: absolute;
+
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
 }
 
 .tf__tokenUnlockSection-body {
   display: flex;
   justify-content: space-between;
+
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .tf__tokenUnlockSection-column {
   width: 48%;
+
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+.tf__tokenUnlockSection-legend-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .tf__tokenUnlockSection-legend {
@@ -29,6 +53,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 20px;
+    width: 171px;
+  }
 }
 
 .tf__tokenUnlockSection-legend-item {

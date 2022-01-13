@@ -206,10 +206,12 @@ const TokenUnlockSection = () => {
             Token unlock
           </Typography>
         </div>
-        <Spacer size={160} type="vertical" />
-        <Typography variant="h3" color="inverted">
-          Token unlock schedule
-        </Typography>
+        <div className="tf__tokenPage-section-header-spacer" />
+        <div className="tf__tokenPage-section-header">
+          <Typography variant="h3" color="inverted">
+            Token unlock schedule
+          </Typography>
+        </div>
         <Spacer size={25} type="vertical" />
         <div className="tf__tokenUnlockSection-body">
           <div className="tf__tokenUnlockSection-column">
@@ -273,29 +275,31 @@ const TokenUnlockSection = () => {
             />
           </AreaChart>
         </ResponsiveContainer>
-        <div className="tf__tokenUnlockSection-legend">
-          <div className="tf__tokenUnlockSection-legend-item">
-            <div style={{ width: '10px', height: '10px', backgroundColor: '#F5AC37', borderRadius: '10px' }} />
-            <Spacer size={10} type="horizontal" />
-            <Typography variant="token-legend-label" color="inverted">
-              Fair Launch investorsAndAdvisors
-            </Typography>
-          </div>
-          <Spacer size={25} type="horizontal" />
-          <div className="tf__tokenUnlockSection-legend-item">
-            <div style={{ width: '10px', height: '10px', backgroundColor: '#FF6B00', borderRadius: '10px' }} />
-            <Spacer size={10} type="horizontal" />
-            <Typography variant="token-legend-label" color="inverted">
-              investorsAndAdvisors &amp; Advisors
-            </Typography>
-          </div>
-          <Spacer size={25} type="horizontal" />
-          <div className="tf__tokenUnlockSection-legend-item">
-            <div style={{ width: '10px', height: '10px', backgroundColor: '#FFDF99', borderRadius: '10px' }} />
-            <Spacer size={10} type="horizontal" />
-            <Typography variant="token-legend-label" color="inverted">
-              Current &amp; Future Team
-            </Typography>
+        <div className="tf__tokenUnlockSection-legend-wrapper">
+          <div className="tf__tokenUnlockSection-legend">
+            <div className="tf__tokenUnlockSection-legend-item">
+              <div style={{ width: '10px', height: '10px', backgroundColor: '#F5AC37', borderRadius: '10px' }} />
+              <Spacer size={10} type="horizontal" />
+              <Typography variant="token-legend-label" color="inverted">
+                Fair Launch Investors
+              </Typography>
+            </div>
+            <Spacer size={25} type="horizontal" />
+            <div className="tf__tokenUnlockSection-legend-item">
+              <div style={{ width: '10px', height: '10px', backgroundColor: '#FF6B00', borderRadius: '10px' }} />
+              <Spacer size={10} type="horizontal" />
+              <Typography variant="token-legend-label" color="inverted">
+                Investors &amp; Advisors
+              </Typography>
+            </div>
+            <Spacer size={25} type="horizontal" />
+            <div className="tf__tokenUnlockSection-legend-item">
+              <div style={{ width: '10px', height: '10px', backgroundColor: '#FFDF99', borderRadius: '10px' }} />
+              <Spacer size={10} type="horizontal" />
+              <Typography variant="token-legend-label" color="inverted">
+                Current &amp; Future Team
+              </Typography>
+            </div>
           </div>
         </div>
       </div>

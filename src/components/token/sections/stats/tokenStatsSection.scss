@@ -3,9 +3,13 @@
   width: 100%;
   background: radial-gradient(54.78% 68.9% at 84.54% 17.33%, rgba(0, 194, 255, 0.3) 0%, rgba(0, 87, 255, 0.189) 100%),
     linear-gradient(116.06deg, #4b4b4b 7.43%, #00060b 101.55%);
-  z-index: 1;
   display: flex;
   justify-content: center;
+
+  @media screen and (max-width: 1024px) {
+    height: 552px;
+    flex-direction: column;
+  }
 }
 
 .tf__tokenStatsSection-content {
@@ -14,6 +18,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media screen and (max-width: 1024px) {
+    padding-top: 48px;
+    padding-bottom: 48px;
+    width: 100%;
+    flex-direction: column;
+  }
 }
 
 .tf__tokenStatsSection-stat-container {

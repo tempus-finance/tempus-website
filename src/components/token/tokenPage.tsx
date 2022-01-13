@@ -7,6 +7,8 @@ import TokenomicsSection from './sections/tokenomics/tokenomicsSection';
 import TokenUnlockSection from './sections/tokenUnlock/tokenUnlockSection';
 import TreasurySection from './sections/treasury/treasurySection';
 
+import './tokenPage.scss';
+
 const TokenPage = () => (
   <>
     <TokenMainSection />

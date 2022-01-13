@@ -3,17 +3,33 @@
   display: flex;
   justify-content: center;
   padding-bottom: 102px;
+
+  @media screen and (max-width: 1024px) {
+    padding-bottom: 15px;
+  }
 }
 
 .tf__tokenomicsSection-content {
   width: 1024px;
+
+  @media screen and (max-width: 1024px) {
+    width: 90%;
+  }
 }
 
 .tf__tokenomicsSection-background-title {
   position: absolute;
+
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
 }
 
 .tf__tokenomicsSection-cards {
   display: flex;
   justify-content: space-between;
+
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+  }
 }

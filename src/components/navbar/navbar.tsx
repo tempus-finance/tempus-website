@@ -50,6 +50,8 @@ const Navbar = () => {
     // window.open('https://www.coingecko.com/en/coins/tempus', '_blank');
 
     history.push('/token');
+
+    setMenuOpen(false);
   };
 
   const onDocsClick = () => {

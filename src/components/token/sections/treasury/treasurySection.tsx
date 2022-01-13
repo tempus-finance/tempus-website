@@ -12,8 +12,10 @@ const TreasurySection = () => (
           Treasury
         </Typography>
       </div>
-      <Spacer size={160} type="vertical" />
-      <Typography variant="h3">Treasury</Typography>
+      <div className="tf__tokenPage-section-header-spacer" />
+      <div className="tf__tokenPage-section-header">
+        <Typography variant="h3">Treasury</Typography>
+      </div>
       <Spacer size={25} type="vertical" />
       <Typography variant="token-section-text">
         As noted above, TEMP holders will be able to vote on how to spend funds (including fees on trading activity)

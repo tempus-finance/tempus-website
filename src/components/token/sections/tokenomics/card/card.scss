@@ -3,6 +3,12 @@
   min-height: 414px;
   display: flex;
   flex-direction: column;
+
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+    margin-bottom: 15px;
+    min-height: 0px;
+  }
 }
 
 .tf__card-header {
@@ -22,4 +28,8 @@
   border-radius: 0px 0px 5px 5px;
   padding: 15px;
   height: 100%;
+
+  @media screen and (max-width: 1024px) {
+    height: 100%;
+  }
 }

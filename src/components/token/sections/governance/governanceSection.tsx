@@ -13,8 +13,10 @@ const GovernanceSection = () => (
           Governance
         </Typography>
       </div>
-      <Spacer size={160} type="vertical" />
-      <Typography variant="h3">Get involved with governance</Typography>
+      <div className="tf__tokenPage-section-header-spacer" />
+      <div className="tf__tokenPage-section-header">
+        <Typography variant="h3">Get involved with governance</Typography>
+      </div>
       <Spacer size={25} type="vertical" />
       <Typography variant="token-section-text">
         Tempus Protocol is governed by a decentralized community of TEMP token holders and their delegates who propose
