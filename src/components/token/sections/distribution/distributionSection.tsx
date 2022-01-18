@@ -9,9 +9,9 @@ import './distributionSection.scss';
 const DistributionSection = () => {
   const tokenAllocationData = [
     { name: 'Fair Launch Auction', value: 7, color: '#285A95' },
-    { name: 'Tempus Treasury', value: 20, color: '#0BB694' },
+    { name: 'Treasury (Unallocated)', value: 20, color: '#0BB694' },
+    { name: 'Treasury (Liquidity Incentives)', value: 25, color: '#00A3FF' },
     { name: 'Investors & Advisors', value: 22, color: '#ED561B' },
-    { name: 'Liquidity incentives', value: 25, color: '#00A3FF' },
     { name: 'Tempus Team', value: 26, color: '#FFDF99' },
   ];
 
@@ -54,12 +54,19 @@ const DistributionSection = () => {
               </Pie>
             </PieChart>
           </ResponsiveContainer>
-          <ChartLabel x={550} y={50} width={420} orientation="left" label="Fair Launch Auction" value="7.00%" />
-          <ChartLabel x={670} y={150} width={300} orientation="left" label="Tempus Treasury" value="20.00%" />
-          <ChartLabel x={640} y={330} width={330} orientation="left" label="Investors &amp; Advisors" value="22.00%" />
+          <ChartLabel x={560} y={50} width={450} orientation="left" label="Fair Launch Auction" value="7.00%" />
+          <ChartLabel x={680} y={150} width={330} orientation="left" label="Treasury (Unallocated)" value="20.00%" />
+          <ChartLabel
+            x={640}
+            y={350}
+            width={370}
+            orientation="left"
+            label="Treasury (Liquidity Incentives)"
+            value="25.00%"
+          />
 
-          <ChartLabel x={50} y={350} width={330} orientation="right" label="Liquidity Incentives" value="25.00%" />
-          <ChartLabel x={50} y={120} width={310} orientation="right" label="Tempus Team" value="26.00%" />
+          <ChartLabel x={30} y={330} width={320} orientation="right" label="Investors &amp; Advisors" value="22.00%" />
+          <ChartLabel x={30} y={120} width={330} orientation="right" label="Tempus Team" value="26.00%" />
         </div>
         <div className="tf__distributionSection-mobile-legend">
           <div className="tf__distributionSection-mobile-legend-content">
@@ -74,7 +81,7 @@ const DistributionSection = () => {
               <div className="tf__distributionSection-mobile-legend-item-tick" style={{ backgroundColor: '#00A3FF' }} />
               <Spacer size={10} type="horizontal" />
               <Typography variant="token-legend-label" color="inverted">
-                25.00% Liquidity Incentives
+                25.00% Treasury (Liquidity Incentives)
               </Typography>
             </div>
             <div className="tf__distributionSection-mobile-legend-item">
@@ -88,7 +95,7 @@ const DistributionSection = () => {
               <div className="tf__distributionSection-mobile-legend-item-tick" style={{ backgroundColor: '#0BB694' }} />
               <Spacer size={10} type="horizontal" />
               <Typography variant="token-legend-label" color="inverted">
-                20.00% Tempus Treasury
+                20.00% Treasury (Unallocated)
               </Typography>
             </div>
             <div className="tf__distributionSection-mobile-legend-item">

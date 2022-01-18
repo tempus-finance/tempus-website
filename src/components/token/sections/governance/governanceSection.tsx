@@ -19,8 +19,8 @@ const GovernanceSection = () => (
       </div>
       <Spacer size={25} type="vertical" />
       <Typography variant="token-section-text">
-        Tempus Protocol is governed by a decentralized community of TEMP token holders and their delegates who propose
-        and vote on upgrades to the protocol.
+        The Tempus Protocol is governed by a decentralized community of TEMP token holders and their delegates who
+        propose and vote on upgrades to the protocol.
       </Typography>
       <Spacer size={30} type="vertical" />
       <div className="tf__get-involved__cards-grid">
@@ -29,7 +29,7 @@ const GovernanceSection = () => (
             title="Governance Proposals"
             description="Vote on official Tempus proposals and view current and past governance proposals on Snapshot."
             actionText="Vote on Snapshot"
-            actionLink="https://snapshot.org/#/tempusgov.eth"
+            actionLink="https://vote.tempus.finance"
           />
         </div>
         <div className="tf__get-involved__card tf__get-involved__third-card">

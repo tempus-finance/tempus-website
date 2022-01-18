@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import DistributionSection from './sections/distribution/distributionSection';
 import GovernanceSection from './sections/governance/governanceSection';
 import TokenMainSection from './sections/main/tokenMainSection';
@@ -9,15 +9,21 @@ import TreasurySection from './sections/treasury/treasurySection';
 
 import './tokenPage.scss';
 
-const TokenPage = () => (
-  <>
-    <TokenMainSection />
-    <TokenStatsSection />
-    <TokenomicsSection />
-    <TokenUnlockSection />
-    <GovernanceSection />
-    <DistributionSection />
-    <TreasurySection />
-  </>
-);
+const TokenPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  return (
+    <>
+      <TokenMainSection />
+      <TokenStatsSection />
+      <TokenomicsSection />
+      <TokenUnlockSection />
+      <GovernanceSection />
+      <DistributionSection />
+      <TreasurySection />
+    </>
+  );
+};
 export default TokenPage;

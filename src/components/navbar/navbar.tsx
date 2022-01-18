@@ -96,6 +96,8 @@ const Navbar = () => {
 
   const onLogoClick = () => {
     history.push('/');
+
+    setMenuOpen(false);
   };
 
   let containerClasses = 'tf__navbar__container';

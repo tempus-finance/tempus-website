@@ -5,6 +5,7 @@ import TokenCirculatingSupplyService from '../../../../services/tokenCirculating
 import TokenPriceService from '../../../../services/tokenPriceService';
 import TVLService from '../../../../services/tvlService';
 import { mul18f } from '../../../../utils/weiMath';
+import Loader from '../../../loader/loader';
 import Typography from '../../../typography/typography';
 
 import './tokenStatsSection.scss';
@@ -44,7 +45,7 @@ const TokenStatsSection = () => {
 
   const priceFormatted = useMemo(() => {
     if (!price) {
-      return '-';
+      return null;
     }
 
     return NumberUtils.formatToCurrency(ethers.utils.formatEther(price), 4, '$');
@@ -52,7 +53,7 @@ const TokenStatsSection = () => {
 
   const circulatingSupplyFormatted = useMemo(() => {
     if (!circulatingSupply) {
-      return '-';
+      return null;
     }
 
     return NumberUtils.formatWithMultiplier(ethers.utils.formatEther(circulatingSupply), 2);
@@ -60,7 +61,7 @@ const TokenStatsSection = () => {
 
   const marketCapFormatted = useMemo(() => {
     if (!price || !circulatingSupply) {
-      return '-';
+      return null;
     }
 
     const marketCap = mul18f(circulatingSupply, price);
@@ -70,7 +71,7 @@ const TokenStatsSection = () => {
 
   const tvlFormatted = useMemo(() => {
     if (!tvl) {
-      return '-';
+      return null;
     }
 
     return NumberUtils.formatWithMultiplier(ethers.utils.formatEther(tvl), 2);
@@ -83,9 +84,13 @@ const TokenStatsSection = () => {
           <Typography variant="dynamic-number-label" color="inverted">
             CURRENT PRICE
           </Typography>
-          <Typography variant="token-stat-value" color="inverted">
-            {priceFormatted}
-          </Typography>
+          {priceFormatted ? (
+            <Typography variant="token-stat-value" color="inverted">
+              {priceFormatted}
+            </Typography>
+          ) : (
+            <Loader />
+          )}
         </div>
 
         <div className="tf__tokenStatsSection-stat-container">
@@ -93,9 +98,13 @@ const TokenStatsSection = () => {
             CIRCULATING SUPPLY
           </Typography>
 
-          <Typography variant="token-stat-value" color="inverted">
-            {circulatingSupplyFormatted}
-          </Typography>
+          {circulatingSupplyFormatted ? (
+            <Typography variant="token-stat-value" color="inverted">
+              {circulatingSupplyFormatted}
+            </Typography>
+          ) : (
+            <Loader />
+          )}
         </div>
 
         <div className="tf__tokenStatsSection-stat-container">
@@ -103,18 +112,26 @@ const TokenStatsSection = () => {
             MARKET CAP
           </Typography>
 
-          <Typography variant="token-stat-value" color="inverted">
-            {marketCapFormatted}
-          </Typography>
+          {marketCapFormatted ? (
+            <Typography variant="token-stat-value" color="inverted">
+              {marketCapFormatted}
+            </Typography>
+          ) : (
+            <Loader />
+          )}
         </div>
 
         <div className="tf__tokenStatsSection-stat-container">
           <Typography variant="dynamic-number-label" color="inverted">
             TOTAL VALUE LOCKED
           </Typography>
-          <Typography variant="token-stat-value" color="inverted">
-            ${tvlFormatted}
-          </Typography>
+          {tvlFormatted ? (
+            <Typography variant="token-stat-value" color="inverted">
+              ${tvlFormatted}
+            </Typography>
+          ) : (
+            <Loader />
+          )}
         </div>
       </div>
     </div>

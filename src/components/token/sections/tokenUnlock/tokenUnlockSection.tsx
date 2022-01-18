@@ -218,8 +218,8 @@ const TokenUnlockSection = () => {
             <Typography variant="token-section-text" color="inverted">
               Of the 1 billion TEMP minted at genesis, 70M TEMP were sold (and immediately unlocked) in a fair launch
               auction in November 2021. The remaining 930M TEMP will unlock gradually. The Tempus team has a 36-month
-              vesting schedule and investorsAndAdvisors have a 30-month vesting schedule starting after Tempus&apos;
-              mainnet launch in 15 December 2021.
+              vesting schedule and investors and advisors have a 30-month vesting schedule starting after Tempus&apos;
+              mainnet launch on 15 December 2021.
             </Typography>
           </div>
           <div className="tf__tokenUnlockSection-column">

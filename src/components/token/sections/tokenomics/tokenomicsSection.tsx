@@ -22,9 +22,9 @@ const TokenomicsSection = () => (
       </div>
       <Spacer size={25} type="vertical" />
       <Typography variant="token-section-text">
-        TEMP is the Tempus ERC-20 native token. It serves three roles: governance, paying fees and staking to receive a
-        share in network fees. One billion TEMP tokens were minted at genesis and will become available over the course
-        of three years.
+        TEMP is the Tempus ERC-20 native token. It serves three roles: governance, staking to receive a share in network
+        fees, and paying protocol fees. 1 billion TEMP tokens were minted at genesis and will become available over the
+        course of three years.
       </Typography>
       <Spacer size={40} type="vertical" />
       <div className="tf__tokenomicsSection-cards">
