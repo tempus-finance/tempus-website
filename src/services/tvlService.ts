@@ -9,7 +9,7 @@ class TVLService {
     const fetchPromises: Promise<BigNumber>[] = [];
 
     config.tempusPools.forEach((tempusPool) => {
-      fetchPromises.push(this.getTempusPoolTVL(tempusPool.address));
+      fetchPromises.push(this.getTempusPoolTVL(tempusPool.address, tempusPool.backingTokenTicker));
     });
 
     const results = await Promise.all(fetchPromises);
@@ -22,10 +22,10 @@ class TVLService {
     return totalTVL;
   }
 
-  private async getTempusPoolTVL(tempusPool: string) {
+  private async getTempusPoolTVL(tempusPool: string, backingToken: string) {
     const statsContract = await this.getStatsContract();
 
-    const chainlinkAggregatorEnsHash = ethers.utils.namehash('eth-usd.data.eth');
+    const chainlinkAggregatorEnsHash = ethers.utils.namehash(`${backingToken.toLowerCase()}-usd.data.eth`);
 
     return statsContract.totalValueLockedAtGivenRate(tempusPool, chainlinkAggregatorEnsHash);
   }
