@@ -3,13 +3,16 @@ import { AlchemyProvider } from '@ethersproject/providers';
 import StatsABI from '../abi/Stats.json';
 import { Stats } from '../abi/Stats';
 import config from '../config';
+import { increasePrecision } from '../utils/weiMath';
 
 class TVLService {
   async getTVL() {
     const fetchPromises: Promise<BigNumber>[] = [];
 
     config.tempusPools.forEach((tempusPool) => {
-      fetchPromises.push(this.getTempusPoolTVL(tempusPool.address, tempusPool.backingTokenTicker));
+      fetchPromises.push(
+        this.getTempusPoolTVL(tempusPool.address, tempusPool.backingTokenTicker, tempusPool.backingPrecision),
+      );
     });
 
     const results = await Promise.all(fetchPromises);
@@ -22,12 +25,18 @@ class TVLService {
     return totalTVL;
   }
 
-  private async getTempusPoolTVL(tempusPool: string, backingToken: string) {
+  private async getTempusPoolTVL(tempusPool: string, backingToken: string, backingPrecision: number) {
     const statsContract = await this.getStatsContract();
 
     const chainlinkAggregatorEnsHash = ethers.utils.namehash(`${backingToken.toLowerCase()}-usd.data.eth`);
 
-    return statsContract.totalValueLockedAtGivenRate(tempusPool, chainlinkAggregatorEnsHash);
+    let result = await statsContract.totalValueLockedAtGivenRate(tempusPool, chainlinkAggregatorEnsHash);
+
+    if (backingPrecision < 18) {
+      result = increasePrecision(result, 18 - backingPrecision);
+    }
+
+    return result;
   }
 
   private async getStatsContract() {

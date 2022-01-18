@@ -10,6 +10,7 @@ export default {
       principals: '0x5A5cBa78Ae5ebd7142D0B8C796565388BA4B5732',
       yields: '0x1f436309fBfB405192Acdc80d5C284De45e520EB',
       backingTokenTicker: 'ETH',
+      backingPrecision: 18,
     },
     {
       address: '0x0697B0a2cBb1F947f51a9845b715E9eAb3f89B4F',
@@ -18,6 +19,7 @@ export default {
       principals: '0x2C4AC125044e853F0f6d66b95365CBBa204fFCFD',
       yields: '0xfFaCF0b02851e440FA207Ea2f9AfDF7FfE0bE095',
       backingTokenTicker: 'ETH',
+      backingPrecision: 18,
     },
     {
       address: '0xc58b8DD0075f7ae7B1CF54a56F899D8b25a7712E',
@@ -26,6 +28,7 @@ export default {
       principals: '0xBaF9434C102000F3f80BBE3c4b89018fAc43EB76',
       yields: '0x2a7b99156256Bd6A75B92D5073C53C0ee574a9f6',
       backingTokenTicker: 'USDC',
+      backingPrecision: 6,
     },
   ],
 };
