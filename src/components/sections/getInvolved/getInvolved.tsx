@@ -30,7 +30,7 @@ const GetInvolved = () => (
           title="Governance Proposals"
           description="Vote on official Tempus proposals and view current and past governance proposals on Snapshot."
           actionText="Vote on Snapshot"
-          actionLink="https://snapshot.org/#/tempusgov.eth"
+          actionLink="https://vote.tempus.finance"
         />
       </div>
     </div>

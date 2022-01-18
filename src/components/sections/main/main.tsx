@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Button from '../../button/button';
 import DiscordLogo from '../../icons/discordLogo';
 import Spacer from '../../spacer/spacer';
@@ -7,6 +7,10 @@ import Typography from '../../typography/typography';
 import './main.scss';
 
 const Main = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const onLaunchAppClick = () => {
     window.open('https://app.tempus.finance', '_blank');
   };

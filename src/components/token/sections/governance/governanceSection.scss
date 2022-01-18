@@ -1,0 +1,27 @@
+.tf__governanceSection {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 67px;
+
+  @media screen and (max-width: 1024px) {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+}
+
+.tf__governanceSection-content {
+  width: 1024px;
+
+  @media screen and (max-width: 1024px) {
+    width: 90%;
+  }
+}
+
+.tf__governanceSection-background-title {
+  position: absolute;
+
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
+}

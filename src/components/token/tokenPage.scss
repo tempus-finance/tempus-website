@@ -1,0 +1,13 @@
+.tf__tokenPage-section-header-spacer {
+  height: 160px;
+
+  @media screen and (max-width: 1024px) {
+    height: 38px;
+  }
+}
+
+.tf__tokenPage-section-header {
+  @media screen and (max-width: 1024px) {
+    text-align: center !important;
+  }
+}

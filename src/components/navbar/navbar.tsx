@@ -47,7 +47,11 @@ const Navbar = () => {
   };
 
   const onTokenClick = () => {
-    window.open('https://www.coingecko.com/en/coins/tempus', '_blank');
+    // window.open('https://www.coingecko.com/en/coins/tempus', '_blank');
+
+    history.push('/token');
+
+    setMenuOpen(false);
   };
 
   const onDocsClick = () => {
@@ -92,6 +96,8 @@ const Navbar = () => {
 
   const onLogoClick = () => {
     history.push('/');
+
+    setMenuOpen(false);
   };
 
   let containerClasses = 'tf__navbar__container';

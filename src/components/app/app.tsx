@@ -18,6 +18,7 @@ import Security from '../sections/security/security';
 import Social from '../sections/social/social';
 import Stats from '../sections/stats/stats';
 import TermsOfService from '../termsOfService/termsOfService';
+import TokenPage from '../token/tokenPage';
 
 import './app.scss';
 
@@ -26,6 +27,16 @@ const App = () => (
     <Router>
       <Navbar />
       <Switch>
+        <Route path="/token">
+          <TokenPage />
+          <div className="tf__app__sections-gradient-wrapper">
+            <Social />
+            <Footer />
+            <div className="tf__app__sections-footer-logo">
+              <FooterLogo />
+            </div>
+          </div>
+        </Route>
         <Route path="/disclaimer">
           <Disclaimer />
         </Route>

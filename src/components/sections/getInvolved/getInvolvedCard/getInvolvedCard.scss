@@ -3,6 +3,10 @@
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+
+  @media screen and (max-width: 1024px) {
+    text-align: center !important;
+  }
 }
 
 .tf__get-involved-card__action-button-container {
