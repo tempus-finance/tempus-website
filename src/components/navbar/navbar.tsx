@@ -5,8 +5,10 @@ import ArrowDown from '../icons/arrow-down';
 import CrossIcon from '../icons/cross';
 import DiscordLogo from '../icons/discordLogo';
 import GitHubIcon from '../icons/gitHubIcon';
+import GovernanceIcon from '../icons/governanceNavbarIcon';
 import MediumIcon from '../icons/mediumIcon';
 import MenuIcon from '../icons/menuIcon';
+import SersIcon from '../icons/sersIcon';
 import TelegramIcon from '../icons/telegramIcon';
 import TwitterIcon from '../icons/twitter-icon';
 import Logo from '../logo/logo';
@@ -64,6 +66,10 @@ const Navbar = () => {
 
   const onLaunchAppClick = () => {
     window.open('https://app.tempus.finance', '_blank');
+  };
+
+  const onGovernanceClick = () => {
+    window.open('https://forum.tempus.finance/', '_blank');
   };
 
   const onTwitterClick = () => {
@@ -144,6 +150,13 @@ const Navbar = () => {
             <ArrowDown fillColor={pageScrolledDown ? '#222222' : '#ffffff'} />
             {communityOpen && (
               <div className="tf__navbar-dropdown">
+                <div className="tf__navbar-dropdown-item" onClick={onGovernanceClick} aria-hidden="true">
+                  <GovernanceIcon />
+                  <Spacer size={10} type="horizontal" />
+                  <Typography variant="body-text" clickable>
+                    Goverance
+                  </Typography>
+                </div>
                 <div className="tf__navbar-dropdown-item" onClick={onTwitterClick} aria-hidden="true">
                   <TwitterIcon />
                   <Spacer size={10} type="horizontal" />
@@ -193,6 +206,13 @@ const Navbar = () => {
                     Tempus 中文社區
                   </Typography>
                 </div>
+                <div className="tf__navbar-dropdown-item" onClick={onSersClick} aria-hidden="true">
+                  <SersIcon />
+                  <Spacer size={10} type="horizontal" />
+                  <Typography variant="body-text" clickable>
+                    Sers
+                  </Typography>
+                </div>
               </div>
             )}
           </div>
@@ -200,10 +220,6 @@ const Navbar = () => {
           <Spacer size={45} type="horizontal" />
           <Typography color={textColor} variant="header-label" onClick={onDocsClick} clickable underline>
             DOCS
-          </Typography>
-          <Spacer size={45} type="horizontal" />
-          <Typography color={textColor} variant="header-label" onClick={onSersClick} clickable underline>
-            SERS
           </Typography>
           <Spacer size={45} type="horizontal" />
           <Button>
@@ -231,6 +247,13 @@ const Navbar = () => {
             <div className="tf__navbar-dropdown-item" onClick={onDocsClick} aria-hidden="true">
               <Typography variant="body-text" clickable>
                 Documentation
+              </Typography>
+            </div>
+            <div className="tf__navbar-dropdown-item" onClick={onGovernanceClick} aria-hidden="true">
+              <GovernanceIcon />
+              <Spacer size={10} type="horizontal" />
+              <Typography variant="body-text" clickable>
+                Goverance
               </Typography>
             </div>
             <div className="tf__navbar-dropdown-item" onClick={onTwitterClick} aria-hidden="true">
@@ -280,6 +303,13 @@ const Navbar = () => {
               <Spacer size={10} type="horizontal" />
               <Typography variant="body-text" clickable>
                 Tempus 中文社區
+              </Typography>
+            </div>
+            <div className="tf__navbar-dropdown-item" onClick={onSersClick} aria-hidden="true">
+              <SersIcon />
+              <Spacer size={10} type="horizontal" />
+              <Typography variant="body-text" clickable>
+                Sers
               </Typography>
             </div>
           </div>

@@ -23,7 +23,7 @@ import BalancerPoolABI from '../abi/BalancerPoolABI.json';
 import UniswapPositionManagerABI from '../abi/UniswapPositionManagerABI.json';
 import TokenPriceService from './tokenPriceService';
 import { div18f, mul18f } from '../utils/weiMath';
-import config from '../config';
+import config from '../config/config';
 
 class TreasuryValueService {
   async getValue() {
@@ -52,10 +52,10 @@ class TreasuryValueService {
     const statsContract = await this.getStatsContract();
 
     const values = await Promise.all(
-      config.tempusPools.map(async (tempusPoolConfig) => {
-        const principalsContract = await this.getTokenContract(tempusPoolConfig.principals);
-        const yieldsContract = await this.getTokenContract(tempusPoolConfig.yields);
-        const lpContract = await this.getTokenContract(tempusPoolConfig.amm);
+      config.ethereum.tempusPools.map(async (tempusPoolConfig) => {
+        const principalsContract = await this.getTokenContract(tempusPoolConfig.principalsAddress);
+        const yieldsContract = await this.getTokenContract(tempusPoolConfig.yieldsAddress);
+        const lpContract = await this.getTokenContract(tempusPoolConfig.ammAddress);
 
         const [principalsBalance, yieldsBalance, lpTokenBalance, backingTokenRate] = await Promise.all([
           principalsContract.balanceOf(treasuryAddress),
@@ -68,7 +68,7 @@ class TreasuryValueService {
         const estimateExitToBackingToken = true;
 
         const exitEstimate = await statsContract.estimateExitAndRedeem(
-          tempusPoolConfig.amm,
+          tempusPoolConfig.ammAddress,
           lpTokenBalance,
           principalsBalance,
           yieldsBalance,
@@ -209,7 +209,7 @@ class TreasuryValueService {
   private async getStatsContract() {
     const provider = await this.getProvider();
 
-    return new ethers.Contract(config.statsContract, StatsABI, provider) as Stats;
+    return new ethers.Contract(config.ethereum.statisticsContract, StatsABI, provider) as Stats;
   }
 
   private async getBalancerVaultContract() {

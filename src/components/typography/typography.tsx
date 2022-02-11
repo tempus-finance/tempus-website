@@ -31,7 +31,12 @@ type TypographyVariant =
   | 'token-section-background'
   | 'token-section-text'
   | 'token-legend-label'
-  | 'token-pie-chart-label';
+  | 'token-pie-chart-label'
+  | 'tempus-description-header'
+  | 'tempus-description-body'
+  | 'network-card-title'
+  | 'network-card-text'
+  | 'network-card-button';
 type TypographyColor = 'default' | 'accent' | 'inverted' | 'link' | 'gray';
 
 const typographyStyleMap = new Map<TypographyVariant, CSSProperties>();
@@ -232,6 +237,41 @@ typographyStyleMap.set('token-pie-chart-label', {
   fontSize: '20px',
   lineHeight: '27px',
 });
+typographyStyleMap.set('tempus-description-header', {
+  fontFamily: "'Manrope', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 700,
+  fontSize: '28px',
+  lineHeight: '38.25px',
+});
+typographyStyleMap.set('tempus-description-body', {
+  fontFamily: "'Source Sans Pro', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 400,
+  fontSize: '20px',
+  lineHeight: '32px',
+});
+typographyStyleMap.set('network-card-title', {
+  fontFamily: "'Manrope', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 600,
+  fontSize: '28px',
+  lineHeight: '110%',
+});
+typographyStyleMap.set('network-card-text', {
+  fontFamily: "'Source Sans Pro', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 700,
+  fontSize: '24px',
+  lineHeight: '110%',
+});
+typographyStyleMap.set('network-card-button', {
+  fontFamily: "'Source Sans Pro', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 600,
+  fontSize: '16px',
+  lineHeight: '160%',
+});
 
 const typographyMobileStyleMap = new Map<TypographyVariant, CSSProperties>();
 typographyMobileStyleMap.set('h1', {
@@ -427,8 +467,44 @@ typographyMobileStyleMap.set('token-pie-chart-label', {
   fontSize: '20px',
   lineHeight: '27px',
 });
+typographyMobileStyleMap.set('tempus-description-header', {
+  fontFamily: "'Manrope', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 700,
+  fontSize: '28px',
+  lineHeight: '38.25px',
+});
+typographyMobileStyleMap.set('tempus-description-body', {
+  fontFamily: "'Source Sans Pro', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 400,
+  fontSize: '20px',
+  lineHeight: '32px',
+});
+typographyMobileStyleMap.set('network-card-title', {
+  fontFamily: "'Manrope', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 600,
+  fontSize: '28px',
+  lineHeight: '110%',
+});
+typographyMobileStyleMap.set('network-card-text', {
+  fontFamily: "'Source Sans Pro', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 700,
+  fontSize: '24px',
+  lineHeight: '110%',
+});
+typographyMobileStyleMap.set('network-card-button', {
+  fontFamily: "'Source Sans Pro', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 600,
+  fontSize: '16px',
+  lineHeight: '160%',
+});
 
 interface TypographyProps {
+  className?: string;
   variant: TypographyVariant;
   color?: TypographyColor;
   opacity?: number;
@@ -444,6 +520,7 @@ interface TypographyProps {
 
 const Typography: FC<TypographyProps> = (props) => {
   const {
+    className,
     color,
     opacity,
     capitalize,
@@ -486,7 +563,7 @@ const Typography: FC<TypographyProps> = (props) => {
     }
   };
 
-  let classes = '';
+  let classes = className;
   if (underline) {
     classes += 'tf__typography_underline_hover';
   }
@@ -534,6 +611,7 @@ const Typography: FC<TypographyProps> = (props) => {
 };
 
 Typography.defaultProps = {
+  className: '',
   color: 'default',
   opacity: 1,
   align: 'unset',

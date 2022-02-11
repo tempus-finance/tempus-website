@@ -7,7 +7,7 @@ import { Stats } from '../abi/Stats';
 import { TempusController } from '../abi/TempusController';
 import { Vault } from '../abi/Vault';
 import { TypedEvent } from '../abi/commons';
-import config from '../config';
+import config from '../config/config';
 import { BLOCK_DURATION_SECONDS, SECONDS_IN_A_DAY } from '../constants';
 import { div18f, mul18f } from '../utils/weiMath';
 
@@ -54,8 +54,8 @@ class VolumeService {
   async getVolume() {
     const fetchPromises: Promise<BigNumber>[] = [];
 
-    config.tempusPools.forEach((tempusPool) => {
-      fetchPromises.push(this.getTempusPoolVolume(tempusPool.address, tempusPool.id, tempusPool.principals));
+    config.ethereum.tempusPools.forEach((tempusPool) => {
+      fetchPromises.push(this.getTempusPoolVolume(tempusPool.address, tempusPool.poolId, tempusPool.principalsAddress));
     });
 
     const results = await Promise.all(fetchPromises);
@@ -189,19 +189,23 @@ class VolumeService {
   private async getVaultContract() {
     const provider = await this.getProvider();
 
-    return new ethers.Contract(config.vaultContract, VaultABI, provider) as Vault;
+    return new ethers.Contract(config.ethereum.vaultContract, VaultABI, provider) as Vault;
   }
 
   private async getTempusControllerContract() {
     const provider = await this.getProvider();
 
-    return new ethers.Contract(config.tempusControllerContract, TempusControllerABI, provider) as TempusController;
+    return new ethers.Contract(
+      config.ethereum.tempusControllerContract,
+      TempusControllerABI,
+      provider,
+    ) as TempusController;
   }
 
   private async getStatsContract() {
     const provider = await this.getProvider();
 
-    return new ethers.Contract(config.statsContract, StatsABI, provider) as Stats;
+    return new ethers.Contract(config.ethereum.statisticsContract, StatsABI, provider) as Stats;
   }
 
   private async getProvider(): Promise<any> {

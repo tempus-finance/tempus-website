@@ -5,10 +5,14 @@
   position: fixed;
   width: 100%;
   z-index: 100;
+
+  @media screen and (max-width: 1024px) {
+    justify-content: space-between;
+  }
 }
 
 .tf__navbar__container-scrolled {
-  background-color: #ffffff;
+  background-color: #288195;
 }
 
 .tf__navbar__content {
@@ -19,9 +23,9 @@
   justify-content: space-between;
 
   @media screen and (max-width: 1024px) {
-    width: 90%;
-    margin-left: 10px;
+    width: 220px;
     box-sizing: border-box;
+    margin: 0 20px;
   }
 }
 
@@ -73,7 +77,7 @@
   @media screen and (max-width: 1024px) {
     display: flex;
     align-items: center;
-    margin-right: 10px;
+    width: 36px;
     box-sizing: border-box;
   }
 }
