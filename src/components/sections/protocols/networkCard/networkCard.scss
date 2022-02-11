@@ -1,0 +1,166 @@
+.tf__network-card__content {
+  width: 486px;
+  height: 235px;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  margin: 50px 22px 0 22px;
+
+  .tf__network-card__mask-layer {
+    position: absolute;
+    width: 486px;
+    height: 235px;
+    border-radius: 30px;
+
+    .tf__network-card__mask-container {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+
+      .tf__network-card__mask-blur {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    @media screen and (max-width: 1024px) {
+      display: none;
+    }
+  }
+
+  .tf__network-card__icon {
+    position: absolute;
+    background-color: #fff;
+    border: 6px solid #fff;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    transform: translate(36px, -30px);
+  }
+
+  .tf__network-card__protocol-icons {
+    display: flex;
+    justify-content: center;
+
+    .tf__protocols__icon-container {
+      width: 32px;
+      height: 32px;
+      margin: 0 3px;
+      border-radius: 50%;
+      background-color: #fff;
+      border: 4px solid #fff;
+      cursor: pointer;
+
+      svg {
+        width: 32px;
+        height: 32px;
+      }
+    }
+  }
+
+  .tf__network-card__action-button-container {
+    .tf__button__container {
+      width: 129px;
+      height: 42px;
+      margin: auto;
+    }
+  }
+
+  &.ethereum-network {
+    background: linear-gradient(97.53deg, #5098a9 0%, #285a95 100%);
+
+    .tf__network-card__mask-container {
+      .tf__network-card__mask-blur {
+        &::after {
+          content: ' ';
+          position: absolute;
+          width: 120px;
+          height: 180px;
+          background: #6fcdf5;
+          filter: blur(80px);
+          transform: translate(380px, 24px) matrix(-0.58, -0.63, 1.16, -0.42, 0, 0);
+        }
+      }
+
+      &::before {
+        content: ' ';
+        position: absolute;
+        right: 0;
+        box-shadow: 30px -30px 0 0 #ffffff;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        z-index: 1;
+      }
+
+      &::after {
+        content: ' ';
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        box-shadow: 30px 30px 0 0 #ffffff;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        z-index: 1;
+      }
+    }
+  }
+
+  &.fantom-network {
+    background: radial-gradient(34.45% 56.55% at 84.54% 17.33%, rgba(0, 194, 255, 0.2) 0%, rgba(0, 87, 255, 0.126) 100%),
+      linear-gradient(117.67deg, #222222 6.84%, #0bb6ac 84.65%);
+
+    .tf__network-card__mask-container {
+      .tf__network-card__mask-blur {
+        &::after {
+          content: ' ';
+          position: absolute;
+          width: 120px;
+          height: 180px;
+          background: #0fabb8;
+          filter: blur(80px);
+          transform: translate(-60px, 40px) matrix(0.67, -0.5, 1.17, 0.62, 0, 0);
+        }
+      }
+
+      &::before {
+        content: ' ';
+        position: absolute;
+        box-shadow: -30px -30px 0 0 #ffffff;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        z-index: 1;
+      }
+
+      &::after {
+        content: ' ';
+        position: absolute;
+        bottom: 0;
+        box-shadow: -30px 30px 0 0 #ffffff;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        z-index: 1;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+    margin: 50px 0 0 0;
+
+    &::after {
+      content: ' ';
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      box-shadow: 30px 30px 0 0 #ffffff;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+  }
+}

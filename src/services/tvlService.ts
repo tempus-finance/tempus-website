@@ -2,16 +2,16 @@ import { BigNumber, ethers } from 'ethers';
 import { AlchemyProvider } from '@ethersproject/providers';
 import StatsABI from '../abi/Stats.json';
 import { Stats } from '../abi/Stats';
-import config from '../config';
+import config from '../config/config';
 import { increasePrecision } from '../utils/weiMath';
 
 class TVLService {
   async getTVL() {
     const fetchPromises: Promise<BigNumber>[] = [];
 
-    config.tempusPools.forEach((tempusPool) => {
+    config.ethereum.tempusPools.forEach((tempusPool) => {
       fetchPromises.push(
-        this.getTempusPoolTVL(tempusPool.address, tempusPool.backingTokenTicker, tempusPool.backingPrecision),
+        this.getTempusPoolTVL(tempusPool.address, tempusPool.backingToken, tempusPool.tokenPrecision.backingToken),
       );
     });
 
@@ -42,7 +42,7 @@ class TVLService {
   private async getStatsContract() {
     const provider = await this.getProvider();
 
-    return new ethers.Contract(config.statsContract, StatsABI, provider) as Stats;
+    return new ethers.Contract(config.ethereum.statisticsContract, StatsABI, provider) as Stats;
   }
 
   private async getProvider(): Promise<any> {
