@@ -24,6 +24,7 @@ import UniswapPositionManagerABI from '../abi/UniswapPositionManagerABI.json';
 import TokenPriceService from './tokenPriceService';
 import { div18f, mul18f } from '../utils/weiMath';
 import config from '../config/config';
+import { Chain } from '../interfaces/Chain';
 
 class TreasuryValueService {
   async getValue() {
@@ -49,38 +50,48 @@ class TreasuryValueService {
   }
 
   private async getTempusPoolsValue() {
-    const statsContract = await this.getStatsContract();
+    const values = await Object.keys(config).reduce(async (promise, key: string) => {
+      const previous = await promise;
+      const chain = key as Chain;
 
-    const values = await Promise.all(
-      config.ethereum.tempusPools.map(async (tempusPoolConfig) => {
-        const principalsContract = await this.getTokenContract(tempusPoolConfig.principalsAddress);
-        const yieldsContract = await this.getTokenContract(tempusPoolConfig.yieldsAddress);
-        const lpContract = await this.getTokenContract(tempusPoolConfig.ammAddress);
+      const statsContract = await this.getStatsContract(chain);
 
-        const [principalsBalance, yieldsBalance, lpTokenBalance, backingTokenRate] = await Promise.all([
-          principalsContract.balanceOf(treasuryAddress),
-          yieldsContract.balanceOf(treasuryAddress),
-          lpContract.balanceOf(treasuryAddress),
-          this.getETHRateToUSD(),
-        ]);
+      const values = await Promise.all(
+        config[chain].tempusPools.map(async (tempusPoolConfig) => {
+          const principalsContract = await this.getTokenContract(tempusPoolConfig.principalsAddress);
+          const yieldsContract = await this.getTokenContract(tempusPoolConfig.yieldsAddress);
+          const lpContract = await this.getTokenContract(tempusPoolConfig.ammAddress);
 
-        const maxLeftoverShares = principalsBalance.add(yieldsBalance).add(lpTokenBalance).div(BigNumber.from('1000'));
-        const estimateExitToBackingToken = true;
+          const [principalsBalance, yieldsBalance, lpTokenBalance, backingTokenRate] = await Promise.all([
+            principalsContract.balanceOf(treasuryAddress),
+            yieldsContract.balanceOf(treasuryAddress),
+            lpContract.balanceOf(treasuryAddress),
+            this.getETHRateToUSD(),
+          ]);
 
-        const exitEstimate = await statsContract.estimateExitAndRedeem(
-          tempusPoolConfig.ammAddress,
-          lpTokenBalance,
-          principalsBalance,
-          yieldsBalance,
-          maxLeftoverShares,
-          estimateExitToBackingToken,
-        );
+          const maxLeftoverShares = principalsBalance
+            .add(yieldsBalance)
+            .add(lpTokenBalance)
+            .div(BigNumber.from('1000'));
+          const estimateExitToBackingToken = true;
 
-        const userPoolBalanceInBackingTokens = exitEstimate.tokenAmount;
+          const exitEstimate = await statsContract.estimateExitAndRedeem(
+            tempusPoolConfig.ammAddress,
+            lpTokenBalance,
+            principalsBalance,
+            yieldsBalance,
+            maxLeftoverShares,
+            estimateExitToBackingToken,
+          );
 
-        return mul18f(userPoolBalanceInBackingTokens, backingTokenRate);
-      }),
-    );
+          const userPoolBalanceInBackingTokens = exitEstimate.tokenAmount;
+
+          return mul18f(userPoolBalanceInBackingTokens, backingTokenRate);
+        }),
+      );
+
+      return previous.concat(values);
+    }, Promise.resolve([] as BigNumber[]));
 
     let totalValue = BigNumber.from('0');
     values.forEach((value) => {
@@ -197,7 +208,7 @@ class TreasuryValueService {
   }
 
   private async getETHRateToUSD() {
-    const statisticsContract = await this.getStatsContract();
+    const statisticsContract = await this.getStatsContract('ethereum');
 
     const ensNameHash = ethers.utils.namehash('eth-usd.data.eth');
 
@@ -206,10 +217,10 @@ class TreasuryValueService {
     return div18f(rate, rateDenominator);
   }
 
-  private async getStatsContract() {
+  private async getStatsContract(chain: Chain) {
     const provider = await this.getProvider();
 
-    return new ethers.Contract(config.ethereum.statisticsContract, StatsABI, provider) as Stats;
+    return new ethers.Contract(config[chain].statisticsContract, StatsABI, provider) as Stats;
   }
 
   private async getBalancerVaultContract() {

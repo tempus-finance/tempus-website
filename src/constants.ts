@@ -1,4 +1,5 @@
 import { BigNumber } from '@ethersproject/bignumber';
+import { Ticker } from './interfaces/Token';
 
 export const balancerSubgraphUrl = 'https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-v2';
 export const poolId = '0x89d4a55ca51192109bb85083ff7d9a13ab24c8a10002000000000000000000bc';
@@ -62,12 +63,14 @@ export const dashboardChildMaturityFormat = 'd MMMM yyyy';
 
 export const POLLING_INTERVAL = 30 * 1000;
 
-export const tokenPrecision: { [ticker: string]: number } = {
+export const tokenPrecision: { [ticker in Ticker]?: number } = {
   ETH: 18,
   USDC: 6,
   DAI: 18,
   USDT: 6,
+  fUSDT: 6,
   WBTC: 8,
+  BTC: 8,
   WETH: 18,
   YFI: 18,
 };
@@ -83,7 +86,7 @@ export enum SupportedChainId {
   TEMPUS_AWS = 31337,
 }
 
-export const supportedChainIds = [
+export const supportedChainIds: SupportedChainId[] = [
   SupportedChainId.MAINNET,
   SupportedChainId.LOCAL,
   SupportedChainId.TEMPUS_AWS,
