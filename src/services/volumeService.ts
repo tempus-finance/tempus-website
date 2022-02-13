@@ -10,6 +10,7 @@ import { TypedEvent } from '../abi/commons';
 import config from '../config/config';
 import { BLOCK_DURATION_SECONDS, SECONDS_IN_A_DAY } from '../constants';
 import { div18f, mul18f } from '../utils/weiMath';
+import { Chain } from '../interfaces/Chain';
 
 // I need to define event types like this, because TypeChain plugin for Hardhat does not generate them.
 // TODO - Use event types from auto generated contract typings file when TypeChain plugin for Hardhat adds them.
@@ -54,8 +55,14 @@ class VolumeService {
   async getVolume() {
     const fetchPromises: Promise<BigNumber>[] = [];
 
-    config.ethereum.tempusPools.forEach((tempusPool) => {
-      fetchPromises.push(this.getTempusPoolVolume(tempusPool.address, tempusPool.poolId, tempusPool.principalsAddress));
+    Object.keys(config).forEach((key: string) => {
+      const chain = key as Chain;
+      const chainConfig = config[chain];
+      chainConfig.tempusPools.forEach((tempusPool) => {
+        fetchPromises.push(
+          this.getTempusPoolVolume(chain, tempusPool.address, tempusPool.poolId, tempusPool.principalsAddress),
+        );
+      });
     });
 
     const results = await Promise.all(fetchPromises);
@@ -68,7 +75,7 @@ class VolumeService {
     return totalVolume;
   }
 
-  private async getTempusPoolVolume(tempusPool: string, tempusPoolId: string, principals: string) {
+  private async getTempusPoolVolume(chain: Chain, tempusPool: string, tempusPoolId: string, principals: string) {
     const provider = await this.getProvider();
 
     const latestBlock = await provider.getBlock('latest');
@@ -82,16 +89,22 @@ class VolumeService {
     const eventsForUser = undefined;
     const [depositEvents, redeemEvents, swapEvents] = await Promise.all([
       this.getDepositedEvents({
+        chain,
         forPool: tempusPool,
         forUser: eventsForUser,
         fromBlock: fetchFromBlock,
       }),
       this.getRedeemedEvents({
+        chain,
         forPool: tempusPool,
         forUser: eventsForUser,
         fromBlock: fetchFromBlock,
       }),
-      this.getSwapEvents({ forPoolId: tempusPoolId, fromBlock: fetchFromBlock }),
+      this.getSwapEvents({
+        chain,
+        forPoolId: tempusPoolId,
+        fromBlock: fetchFromBlock,
+      }),
     ]);
 
     const poolBackingTokenRate = await this.getETHRateToUSD();
@@ -124,7 +137,7 @@ class VolumeService {
   }
 
   private async getETHRateToUSD() {
-    const statisticsContract = await this.getStatsContract();
+    const statisticsContract = await this.getStatsContract('ethereum');
 
     const ensNameHash = ethers.utils.namehash('eth-usd.data.eth');
 
@@ -146,12 +159,13 @@ class VolumeService {
   }
 
   private async getDepositedEvents(filters: {
+    chain: Chain;
     forPool?: string;
     forUser?: string;
     fromBlock?: number;
     toBlock?: number;
   }): Promise<DepositedEvent[]> {
-    const tempusControllerContract = await this.getTempusControllerContract();
+    const tempusControllerContract = await this.getTempusControllerContract(filters.chain);
 
     return tempusControllerContract.queryFilter(
       tempusControllerContract.filters.Deposited(filters.forPool, filters.forUser),
@@ -161,12 +175,13 @@ class VolumeService {
   }
 
   private async getRedeemedEvents(filters: {
+    chain: Chain;
     forPool?: string;
     forUser?: string;
     fromBlock?: number;
     toBlock?: number;
   }): Promise<RedeemedEvent[]> {
-    const tempusControllerContract = await this.getTempusControllerContract();
+    const tempusControllerContract = await this.getTempusControllerContract(filters.chain);
 
     const fetchEventsForRedeemer = undefined;
     return tempusControllerContract.queryFilter(
@@ -177,35 +192,36 @@ class VolumeService {
   }
 
   private async getSwapEvents(filters: {
+    chain: Chain;
     forPoolId?: string;
     fromBlock?: number;
     toBlock?: number;
   }): Promise<SwapEvent[]> {
-    const vaultContract = await this.getVaultContract();
+    const vaultContract = await this.getVaultContract(filters.chain);
 
     return vaultContract.queryFilter(vaultContract.filters.Swap(filters.forPoolId), filters.fromBlock, filters.toBlock);
   }
 
-  private async getVaultContract() {
+  private async getVaultContract(chain: Chain) {
     const provider = await this.getProvider();
 
-    return new ethers.Contract(config.ethereum.vaultContract, VaultABI, provider) as Vault;
+    return new ethers.Contract(config[chain].vaultContract, VaultABI, provider) as Vault;
   }
 
-  private async getTempusControllerContract() {
+  private async getTempusControllerContract(chain: Chain) {
     const provider = await this.getProvider();
 
     return new ethers.Contract(
-      config.ethereum.tempusControllerContract,
+      config[chain].tempusControllerContract,
       TempusControllerABI,
       provider,
     ) as TempusController;
   }
 
-  private async getStatsContract() {
+  private async getStatsContract(chain: Chain) {
     const provider = await this.getProvider();
 
-    return new ethers.Contract(config.ethereum.statisticsContract, StatsABI, provider) as Stats;
+    return new ethers.Contract(config[chain].statisticsContract, StatsABI, provider) as Stats;
   }
 
   private async getProvider(): Promise<any> {

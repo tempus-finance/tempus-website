@@ -4,18 +4,35 @@ import StatsABI from '../abi/Stats.json';
 import { Stats } from '../abi/Stats';
 import config from '../config/config';
 import { increasePrecision } from '../utils/weiMath';
+import { Chain } from '../interfaces/Chain';
+import { Ticker } from '../interfaces/Token';
+import getStatisticsService from './getStatisticsService';
+import NumberUtils from './numberUtils';
 
 class TVLService {
   async getTVL() {
     const fetchPromises: Promise<BigNumber>[] = [];
 
-    config.ethereum.tempusPools.forEach((tempusPool) => {
-      fetchPromises.push(
-        this.getTempusPoolTVL(tempusPool.address, tempusPool.backingToken, tempusPool.tokenPrecision.backingToken),
-      );
+    Object.keys(config).forEach((key: string) => {
+      const chain = key as Chain;
+      const chainConfig = config[chain];
+      chainConfig.tempusPools.forEach((tempusPool) => {
+        const promise = this.getTempusPoolTVL(
+          chain,
+          tempusPool.address,
+          tempusPool.backingToken,
+          tempusPool.tokenPrecision.backingToken,
+        );
+        promise.catch((e) => {
+          console.error('TVLService.getTVL()', e);
+        });
+        fetchPromises.push(promise);
+      });
     });
 
-    const results = await Promise.all(fetchPromises);
+    const results = (await Promise.allSettled(fetchPromises))
+      .filter((promise) => promise.status === 'fulfilled')
+      .map((promise) => (promise as PromiseFulfilledResult<BigNumber>).value);
 
     let totalTVL = BigNumber.from('0');
     results.forEach((result) => {
@@ -25,24 +42,20 @@ class TVLService {
     return totalTVL;
   }
 
-  private async getTempusPoolTVL(tempusPool: string, backingToken: string, backingPrecision: number) {
-    const statsContract = await this.getStatsContract();
+  private async getTempusPoolTVL(chain: Chain, tempusPool: string, backingToken: string, backingPrecision: number) {
+    let tvl = BigNumber.from(0);
 
-    const chainlinkAggregatorEnsHash = ethers.utils.namehash(`${backingToken.toLowerCase()}-usd.data.eth`);
+    const statService = getStatisticsService(chain);
+    tvl = await statService.totalValueLockedUSD(chain, tempusPool, backingToken as Ticker);
+    tvl = backingPrecision < 18 ? increasePrecision(tvl, 18 - backingPrecision) : tvl;
 
-    let result = await statsContract.totalValueLockedAtGivenRate(tempusPool, chainlinkAggregatorEnsHash);
-
-    if (backingPrecision < 18) {
-      result = increasePrecision(result, 18 - backingPrecision);
-    }
-
-    return result;
+    return tvl;
   }
 
-  private async getStatsContract() {
+  private async getStatsContract(chain: Chain) {
     const provider = await this.getProvider();
 
-    return new ethers.Contract(config.ethereum.statisticsContract, StatsABI, provider) as Stats;
+    return new ethers.Contract(config[chain].statisticsContract, StatsABI, provider) as Stats;
   }
 
   private async getProvider(): Promise<any> {
