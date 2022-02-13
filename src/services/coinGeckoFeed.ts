@@ -27,7 +27,10 @@ export const getCoingeckoRate = async (token: Ticker, precision: number): Promis
 
   const cachedResponse = coinGeckoCache.get(coinGeckoTokenId);
   if (cachedResponse && cachedResponse.cachedAt > Date.now() - 60000) {
-    return ethers.utils.parseEther((await cachedResponse.promise).data[coinGeckoTokenId].usd.toString());
+    return ethers.utils.parseUnits(
+      (await cachedResponse.promise).data[coinGeckoTokenId].usd?.toString() ?? '0',
+      precision,
+    );
   }
 
   let value: BigNumber;
