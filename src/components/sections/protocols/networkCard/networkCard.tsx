@@ -30,11 +30,7 @@ const NetworkCard = (props: NetworkCardProps) => {
 
   return (
     <div className={`tf__network-card__content ${className}`}>
-      <div className="tf__network-card__mask-layer">
-        <div className="tf__network-card__mask-container">
-          <div className="tf__network-card__mask-blur" />
-        </div>
-      </div>
+      <div className="tf__network-card__mask-layer" />
       <div className="tf__network-card__icon">{networkIcon}</div>
       <Spacer size={30} type="vertical" />
       <Typography variant="network-card-title" color="inverted" align="left">
