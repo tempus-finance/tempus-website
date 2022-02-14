@@ -1,15 +1,17 @@
 .tf__network-card__content {
+  position: relative;
   width: 486px;
-  height: 235px;
+  height: 206px;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
-  border-radius: 30px;
+  border-radius: 16px;
   margin: 50px 22px 0 22px;
+  z-index: 1;
 
   .tf__network-card__mask-layer {
     position: absolute;
     width: 486px;
-    height: 235px;
-    border-radius: 30px;
+    height: 206px;
+    border-radius: 16px;
 
     .tf__network-card__mask-container {
       position: relative;
@@ -33,36 +35,58 @@
     background-color: #fff;
     border: 6px solid #fff;
     border-radius: 50%;
+    top: -30px;
+    right: 32px;
     width: 48px;
     height: 48px;
-    transform: translate(36px, -30px);
+  }
+
+  > .tf__typography-desktop,
+  > .tf__typography-mobile {
+    margin: 0 32px;
+    z-index: 10;
   }
 
   .tf__network-card__protocol-icons {
     display: flex;
-    justify-content: center;
+    position: absolute;
+    left: 32px;
+    bottom: 33px;
+    z-index: 10;
 
     .tf__protocols__icon-container {
-      width: 32px;
-      height: 32px;
-      margin: 0 3px;
-      border-radius: 50%;
-      background-color: #fff;
-      border: 4px solid #fff;
-      cursor: pointer;
+      width: 33px;
 
-      svg {
-        width: 32px;
-        height: 32px;
+      .tf__protocols__icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+          width: 32px;
+          height: 32px;
+        }
       }
     }
   }
 
   .tf__network-card__action-button-container {
+    position: absolute;
+    right: 32px;
+    bottom: 32px;
+
     .tf__button__container {
       width: 129px;
       height: 42px;
       margin: auto;
+    }
+
+    @media screen and (max-width: 1024px) {
+      display: none;
     }
   }
 
@@ -71,7 +95,7 @@
 
     .tf__network-card__mask-container {
       .tf__network-card__mask-blur {
-        &::after {
+        &::after1 {
           content: ' ';
           position: absolute;
           width: 120px;
@@ -86,9 +110,9 @@
         content: ' ';
         position: absolute;
         right: 0;
-        box-shadow: 30px -30px 0 0 #ffffff;
-        width: 60px;
-        height: 60px;
+        box-shadow: 16px -16px 0 0 #ffffff;
+        width: 32px;
+        height: 32px;
         border-radius: 50%;
         z-index: 1;
       }
@@ -98,9 +122,9 @@
         position: absolute;
         right: 0;
         bottom: 0;
-        box-shadow: 30px 30px 0 0 #ffffff;
-        width: 60px;
-        height: 60px;
+        box-shadow: 16px 16px 0 0 #ffffff;
+        width: 32px;
+        height: 32px;
         border-radius: 50%;
         z-index: 1;
       }
@@ -113,7 +137,7 @@
 
     .tf__network-card__mask-container {
       .tf__network-card__mask-blur {
-        &::after {
+        &::after1 {
           content: ' ';
           position: absolute;
           width: 120px;
@@ -127,9 +151,9 @@
       &::before {
         content: ' ';
         position: absolute;
-        box-shadow: -30px -30px 0 0 #ffffff;
-        width: 60px;
-        height: 60px;
+        box-shadow: -16px -16px 0 0 #ffffff;
+        width: 32px;
+        height: 32px;
         border-radius: 50%;
         z-index: 1;
       }
@@ -138,9 +162,9 @@
         content: ' ';
         position: absolute;
         bottom: 0;
-        box-shadow: -30px 30px 0 0 #ffffff;
-        width: 60px;
-        height: 60px;
+        box-shadow: -16px 16px 0 0 #ffffff;
+        width: 32px;
+        height: 32px;
         border-radius: 50%;
         z-index: 1;
       }
@@ -156,9 +180,9 @@
       position: absolute;
       right: 0;
       bottom: 0;
-      box-shadow: 30px 30px 0 0 #ffffff;
-      width: 60px;
-      height: 60px;
+      box-shadow: 16px 16px 0 0 #ffffff;
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
       z-index: 1;
     }

@@ -1,7 +1,11 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import getVariableRateService from '../../../../services/getVariableRateService';
 import FantomNetworkIcon from '../../../icons/fantomNetworkLogo';
-import YearnProtocol from '../../../icons/yearn-protocol';
+import TokenUsdcIcon from '../../../icons/tokenUsdcIcon';
+import TokenEthIcon from '../../../icons/tokenEthIcon';
+import TokenUsdtIcon from '../../../icons/tokenUsdtIcon';
+import TokenDaiIcon from '../../../icons/tokenDaiIcon';
+import TokenYfiIcon from '../../../icons/tokenYfiIcon';
 import NetworkCard from './networkCard';
 
 const FantomNetworkCard = () => {
@@ -14,14 +18,34 @@ const FantomNetworkCard = () => {
     setInterval(fetching, 60 * 1000);
   }, []);
 
-  const onYearnClick = useCallback(() => {
-    window.open('https://yearn.finance/', '_blank');
-  }, []);
-
   const supportedProtocolIcons = (
-    <div className="tf__protocols__icon-container" title="Yearn" onClick={onYearnClick} aria-hidden="true">
-      <YearnProtocol />
-    </div>
+    <>
+      <div className="tf__protocols__icon-container" aria-hidden="true">
+        <div className="tf__protocols__icon">
+          <TokenUsdcIcon />
+        </div>
+      </div>
+      <div className="tf__protocols__icon-container" aria-hidden="true">
+        <div className="tf__protocols__icon">
+          <TokenEthIcon />
+        </div>
+      </div>
+      <div className="tf__protocols__icon-container" aria-hidden="true">
+        <div className="tf__protocols__icon">
+          <TokenUsdtIcon />
+        </div>
+      </div>
+      <div className="tf__protocols__icon-container" aria-hidden="true">
+        <div className="tf__protocols__icon">
+          <TokenDaiIcon />
+        </div>
+      </div>
+      <div className="tf__protocols__icon-container" aria-hidden="true">
+        <div className="tf__protocols__icon">
+          <TokenYfiIcon />
+        </div>
+      </div>
+    </>
   );
 
   return (
