@@ -118,7 +118,7 @@ const Navbar = () => {
 
   const textColor = pageScrolledDown ? 'default' : 'inverted';
 
-  let logoColor = pageScrolledDown ? 'black' : 'white';
+  let logoColor = pageScrolledDown ? '#222222' : 'white';
 
   // In case menu is open on mobile - we want to have black logo shown regardless of the scroll position
   if (menuOpen) {
@@ -223,7 +223,12 @@ const Navbar = () => {
           </Typography>
           <Spacer size={45} type="horizontal" />
           <Button>
-            <Typography variant="header-label" onClick={onLaunchAppClick} clickable>
+            <Typography
+              color={pageScrolledDown ? 'inverted' : 'default'}
+              variant="header-label"
+              onClick={onLaunchAppClick}
+              clickable
+            >
               LAUNCH APP
             </Typography>
           </Button>

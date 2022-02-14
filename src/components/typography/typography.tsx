@@ -254,8 +254,8 @@ typographyStyleMap.set('tempus-description-body', {
 typographyStyleMap.set('network-card-title', {
   fontFamily: "'Manrope', sans-serif",
   fontStyle: 'normal',
-  fontWeight: 600,
-  fontSize: '28px',
+  fontWeight: 700,
+  fontSize: '32px',
   lineHeight: '110%',
 });
 typographyStyleMap.set('network-card-text', {
@@ -484,8 +484,8 @@ typographyMobileStyleMap.set('tempus-description-body', {
 typographyMobileStyleMap.set('network-card-title', {
   fontFamily: "'Manrope', sans-serif",
   fontStyle: 'normal',
-  fontWeight: 600,
-  fontSize: '28px',
+  fontWeight: 700,
+  fontSize: '32px',
   lineHeight: '110%',
 });
 typographyMobileStyleMap.set('network-card-text', {

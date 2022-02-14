@@ -12,7 +12,13 @@
 }
 
 .tf__navbar__container-scrolled {
-  background-color: #288195;
+  background-color: #ffffff;
+
+  .tf__navbar-actions-desktop {
+    .tf__button__container {
+      background-color: #288195;
+    }
+  }
 }
 
 .tf__navbar__content {

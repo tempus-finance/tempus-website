@@ -99,12 +99,12 @@ const FAQ = () => {
               text="Yield bearing tokens (YBT) are derivatives that appreciate in value as a result of their participation in some form of yield farming. Some examples of YBT are aDai (Aave Interest Bearing Dai), XSushi (staked Sushi) or stETH (Lido staked ETH)."
             />
             <Expandable
-              title="What are Principals?"
-              text="Principals are split out of YBT together with the Yields. The Principal is a zero-coupon bond that is redeemable for face value on maturity."
+              title="What are Capital tokens?"
+              text="Capital tokens are split out of YBT together with the Yield tokens. The Capital token is a zero-coupon bond that is redeemable for face value on maturity."
             />
             <Expandable
-              title="What are Yields?"
-              text="Yields are split out of YBT together with the Principals. The Yield is a zero-coupon bond that is redeemable for the amount of yield that accrues on each unit of Principals on maturity."
+              title="What are Yield tokens?"
+              text="Yield tokens are split out of YBT together with the Capital tokens. The Yield is a zero-coupon bond that is redeemable for the amount of yield that accrues on each unit of Capital on maturity."
             />
           </>
         )}

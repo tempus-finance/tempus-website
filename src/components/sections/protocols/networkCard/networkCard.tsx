@@ -30,22 +30,18 @@ const NetworkCard = (props: NetworkCardProps) => {
 
   return (
     <div className={`tf__network-card__content ${className}`}>
-      <div className="tf__network-card__mask-layer">
-        <div className="tf__network-card__mask-container">
-          <div className="tf__network-card__mask-blur" />
-        </div>
-      </div>
+      <div className="tf__network-card__mask-layer" />
       <div className="tf__network-card__icon">{networkIcon}</div>
       <Spacer size={30} type="vertical" />
-      <Typography variant="network-card-title" color="inverted" align="center">
+      <Typography variant="network-card-title" color="inverted" align="left">
         {networkName}
       </Typography>
-      <Spacer size={16} type="vertical" />
-      <div className="tf__network-card__protocol-icons">{supportedProtocolIcons}</div>
-      <Spacer size={18} type="vertical" />
-      <Typography variant="network-card-text" color="inverted" align="center">
-        APR up to {formattedAPY}
+      <Spacer size={15} type="vertical" />
+      <Typography variant="network-card-text" color="inverted" align="left">
+        Up to {formattedAPY} APR
       </Typography>
+      <Spacer size={22} type="vertical" />
+      <div className="tf__network-card__protocol-icons">{supportedProtocolIcons}</div>
       <Spacer size={18} type="vertical" />
       <div className="tf__network-card__action-button-container">
         <Button onClick={onBtnClick}>

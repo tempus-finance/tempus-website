@@ -13,7 +13,7 @@ const Protocols = () => (
     </Typography>
     <Spacer size={24} type="vertical" />
     <Typography className="tf__protocols__desc_body" variant="tempus-description-body" align="center">
-      Tempus lets you fix your yield on many networks. Choose your preferred network below to get started.
+      Choose your preferred network below to get started.
     </Typography>
     <Spacer size={15} type="vertical" />
     <div className="tf__protocols__networks">

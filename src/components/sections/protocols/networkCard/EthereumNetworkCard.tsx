@@ -1,8 +1,8 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import getVariableRateService from '../../../../services/getVariableRateService';
 import EthereumNetworkIcon from '../../../icons/ethereumNetworkLogo';
-import LidoProtocol from '../../../icons/lido-protocol';
-import RariCapitalLogo from '../../../icons/rariCapitalLogo';
+import TokenUsdcIcon from '../../../icons/tokenUsdcIcon';
+import TokenEthIcon from '../../../icons/tokenEthIcon';
 import NetworkCard from './networkCard';
 
 const EtherueumNetworkCard = () => {
@@ -15,22 +15,17 @@ const EtherueumNetworkCard = () => {
     setInterval(fetching, 60 * 1000);
   }, []);
 
-  const onLidoClick = useCallback(() => {
-    window.open('https://lido.fi/', '_blank');
-  }, []);
-
-  const onRariClick = useCallback(() => {
-    window.open('https://rari.capital/', '_blank');
-  }, []);
-
   const supportedProtocolIcons = (
     <>
-      <div className="tf__protocols__icon-container" title="Lido" onClick={onLidoClick} aria-hidden="true">
-        <LidoProtocol />
+      <div className="tf__protocols__icon-container" aria-hidden="true">
+        <div className="tf__protocols__icon">
+          <TokenUsdcIcon />
+        </div>
       </div>
-
-      <div className="tf__protocols__icon-container" title="Rari Capital" onClick={onRariClick} aria-hidden="true">
-        <RariCapitalLogo />
+      <div className="tf__protocols__icon-container" aria-hidden="true">
+        <div className="tf__protocols__icon">
+          <TokenEthIcon />
+        </div>
       </div>
     </>
   );
