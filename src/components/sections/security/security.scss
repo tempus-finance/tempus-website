@@ -7,16 +7,10 @@
 }
 
 .tf__security-cards-container {
-  display: grid;
-  grid-template-columns: repeat(4, 242px);
-  column-gap: 14px;
-
-  @media screen and (max-width: 1024px) {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, 1fr);
-    column-gap: 0px;
-    row-gap: 14px;
-  }
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 800px;
 }
 
 .tf__security-card {
@@ -30,6 +24,11 @@
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
   box-sizing: border-box;
   background-color: white;
+  margin: 16px 7px;
+
+  @media screen and (max-width: 1024px) {
+    margin: 7px 7px;
+  }
 }
 
 .tf__security-logo-container {
