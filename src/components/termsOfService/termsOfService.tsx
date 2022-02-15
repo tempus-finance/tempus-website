@@ -32,7 +32,7 @@ const TermsOfService = () => {
           Virgin Islands (the “Issuer”) in association with Tempus Foundation Company, a foundation company based in the
           Cayman Islands (the “Foundation”) (the Issuer and the Foundation together, “Tempus”, “we”, “our”, or “us”). We
           own and operate the website <Link to="/">https://tempus.finance</Link> which acts as a front-end to the
-          decentralized finance application (known as “Tempus Protocol”) available at
+          decentralized finance application (known as “Tempus Protocol”) available at{' '}
           <a href="https://app.tempus.finance"> https://app.tempus.finance</a> (the website and application together the
           “Site”). These Terms apply to you (“You”) as a user of the Site, including all the products, services, tools
           and information made available on the Site.
@@ -48,6 +48,8 @@ const TermsOfService = () => {
           <br />
           Our <Link to="/privacy-policy">Privacy Policy</Link> and <Link to="/disclaimer">Disclaimer</Link> are
           incorporated into these Terms by reference and also apply to your use of the Site.
+          <br />
+          <br />
         </Typography>
 
         <Spacer size={60} type="vertical" />
@@ -72,16 +74,17 @@ const TermsOfService = () => {
         <Spacer size={20} type="vertical" />
         <Typography variant="body-text" color="inverted">
           As part of the Site, Tempus provides access to the decentralized finance application Tempus Protocol on the
-          Ethereum blockchain, that allows suppliers and borrowers of certain cryptoassets to earn yields using smart
-          contracts (“Smart Contracts”).
+          relevant blockchain (which includes any blockchain that Tempus contracts are deployed on, including but not
+          limited to Ethereum and Fantom), that allows suppliers and borrowers of certain cryptoassets to earn yields
+          using smart contracts (“Smart Contracts”).
           <br />
           <br />
-          Using the Tempus Protocol may require that you pay a fee, such as gas costs on the Ethereum network, to
-          perform a transaction. You acknowledge and agree that Tempus has no control over any transactions made over
-          Tempus Protocol, the method of payment of any transactions or any actual payments of transactions.
-          Accordingly, you must ensure that you have a sufficient balance of the applicable cryptocurrency tokens stored
-          at your Tempus Protocol-compatible wallet address (“Cryptocurrency Wallet”) to complete any transaction on the
-          Tempus Protocol or the Ethereum network before initiating such transaction.
+          Using the Tempus Protocol may require that you pay a fee, such as gas costs for using the networks supported
+          by Tempus, to perform a transaction. You acknowledge and agree that Tempus has no control over any
+          transactions made over Tempus Protocol, the method of payment of any transactions or any actual payments of
+          transactions. Accordingly, you must ensure that you have a sufficient balance of the applicable cryptocurrency
+          tokens stored at your Tempus Protocol-compatible wallet address (“Cryptocurrency Wallet”) to complete any
+          transaction on the Tempus Protocol or the relevant network before initiating such transaction.
         </Typography>
 
         <Spacer size={60} type="vertical" />
@@ -163,10 +166,10 @@ const TermsOfService = () => {
               limit your ability to access or use the Site.
             </li>
             <li>
-              You understand that the Ethereum blockchain remains under development, which creates technological and
+              You understand that the relevant blockchain remains under development, which creates technological and
               security risks when using the Site in addition to uncertainty relating to cryptoassets and transactions
-              therein. You acknowledge that the cost of transacting on the Ethereum blockchain is variable and may
-              increase at any time causing impact to any activities taking place on the Ethereum blockchain, which may
+              therein. You acknowledge that the cost of transacting on the relevant blockchain is variable and may
+              increase at any time causing impact to any activities taking place on the relevant blockchain, which may
               result in price fluctuations or increased costs when using the Site.
             </li>
             <li>
@@ -193,7 +196,7 @@ const TermsOfService = () => {
             <li>
               You alone are responsible for securing the private key(s) associated with your Smart Contracts. You
               acknowledge that we do not have access to your private key(s) and that losing control of your private
-              key(s) will permanently and irreversibly deny you access to cryptoassets on the Ethereum blockchain.
+              key(s) will permanently and irreversibly deny you access to cryptoassets on the relevant blockchain.
               Neither Tempus nor any other person or entity will be able to retrieve or protect your cryptoassets. If
               your private key(s) are lost, then you will not be able to transfer your cryptoassets to any other
               blockchain address or wallet. If this occurs, then you will not be able to realize any value or utility
@@ -244,7 +247,7 @@ const TermsOfService = () => {
           <br />
           <br />
           The Tempus Protocol (available at <a href="https://app.tempus.finance">https://app.tempus.finance</a>) is
-          comprised entirely of open-source or source-available software running on the public Ethereum blockchain.
+          comprised entirely of open-source or source-available software running on the public relevant blockchain.
           <br />
           <br />
           <Link to="/">https://tempus.finance</Link> is the uniform resource locator (“URL”) of Tempus. You will not
@@ -280,9 +283,9 @@ const TermsOfService = () => {
           and our service providers&apos; treatment of your information.
           <br />
           <br />
-          Please also note that when you use the Site, you are interacting with the Ethereum blockchain, which provides
+          Please also note that when you use the Site, you are interacting with the relevant blockchain, which provides
           transparency into your transactions. Tempus does not control and is not responsible for any information you
-          make public on the Ethereum blockchain by taking actions through the Site.
+          make public on the relevant blockchain by taking actions through the Site.
         </Typography>
 
         <Spacer size={60} type="vertical" />
@@ -410,7 +413,7 @@ const TermsOfService = () => {
           We are not registered with any government agencies as a national securities exchange or in any other capacity.
           No government agencies have reviewed or approved the use of Tempus-developed software. You understand and
           acknowledge that we do not broker swaps on your behalf. We also do not facilitate the execution or settlement
-          of your swaps, which occur entirely on the public distributed Ethereum blockchain.
+          of your swaps, which occur entirely on the public distributed blockchain.
         </Typography>
 
         <Spacer size={60} type="vertical" />
@@ -465,13 +468,13 @@ const TermsOfService = () => {
           <br />
           You further understand that the markets for these digital assets are highly volatile due to factors including
           (but not limited to) adoption, speculation, technology, security, and regulation. You acknowledge and accept
-          that the cost and speed of transacting with cryptographic and blockchain-based systems such as Ethereum are
-          variable and may increase dramatically at any time. You further acknowledge and accept the risk that your
-          digital assets may lose some or all of their value while they are supplied to the Site, you may suffer loss
-          due to the fluctuation of prices of tokens in a pool, and experience significant price slippage and cost. You
-          further acknowledge that we are not responsible for any of these variables or risks and cannot be held liable
-          for any resulting losses that you experience while accessing or using the Site. Accordingly, you understand
-          and agree to assume full responsibility for all of the risks of accessing and using the Site.
+          that the cost and speed of transacting with cryptographic and blockchain-based systems are variable and may
+          increase dramatically at any time. You further acknowledge and accept the risk that your digital assets may
+          lose some or all of their value while they are supplied to the Site, you may suffer loss due to the
+          fluctuation of prices of tokens in a pool, and experience significant price slippage and cost. You further
+          acknowledge that we are not responsible for any of these variables or risks and cannot be held liable for any
+          resulting losses that you experience while accessing or using the Site. Accordingly, you understand and agree
+          to assume full responsibility for all of the risks of accessing and using the Site.
         </Typography>
 
         <Spacer size={60} type="vertical" />
@@ -499,9 +502,9 @@ const TermsOfService = () => {
           You agree to hold harmless, release, defend, and indemnify us and our officers, directors, employees,
           contractors, agents, affiliates, and subsidiaries from and against all claims, damages, obligations, losses,
           liabilities, costs, and expenses arising from: (a) your access and use of the Site; (b) cryptoassets
-          associated with your Ethereum address; (c) your violation of any term or condition of these Terms, the right
-          of any third party, or any other applicable law, rule, or regulation; and (d) any other party&apos;s access
-          and use of the Site with your assistance or using any device or account that you own or control.
+          associated with your wallet address; (c) your violation of any term or condition of these Terms, the right of
+          any third party, or any other applicable law, rule, or regulation; and (d) any other party&apos;s access and
+          use of the Site with your assistance or using any device or account that you own or control.
         </Typography>
 
         <Spacer size={60} type="vertical" />
