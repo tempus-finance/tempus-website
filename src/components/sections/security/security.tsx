@@ -27,7 +27,10 @@ const Security = () => {
   }, []);
 
   const onSherlockClick = useCallback(() => {
-    window.open('https://drive.google.com/file/d/1nPf2pewSvyzYZbNIN9fXXnhkB5zJv664/view', '_blank');
+    window.open(
+      'https://medium.com/tempusfinance/tempus-partners-with-sherlock-for-smart-contract-exploit-protection-b51a2b38434',
+      '_blank',
+    );
   }, []);
 
   return (
