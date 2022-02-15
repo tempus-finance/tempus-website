@@ -154,7 +154,7 @@ const Navbar = () => {
                   <GovernanceIcon />
                   <Spacer size={10} type="horizontal" />
                   <Typography variant="body-text" clickable>
-                    Goverance
+                    Governance
                   </Typography>
                 </div>
                 <div className="tf__navbar-dropdown-item" onClick={onTwitterClick} aria-hidden="true">
@@ -204,13 +204,6 @@ const Navbar = () => {
                   <Spacer size={10} type="horizontal" />
                   <Typography variant="body-text" clickable>
                     Tempus 中文社區
-                  </Typography>
-                </div>
-                <div className="tf__navbar-dropdown-item" onClick={onSersClick} aria-hidden="true">
-                  <SersIcon />
-                  <Spacer size={10} type="horizontal" />
-                  <Typography variant="body-text" clickable>
-                    Sers
                   </Typography>
                 </div>
               </div>
@@ -308,13 +301,6 @@ const Navbar = () => {
               <Spacer size={10} type="horizontal" />
               <Typography variant="body-text" clickable>
                 Tempus 中文社區
-              </Typography>
-            </div>
-            <div className="tf__navbar-dropdown-item" onClick={onSersClick} aria-hidden="true">
-              <SersIcon />
-              <Spacer size={10} type="horizontal" />
-              <Typography variant="body-text" clickable>
-                Sers
               </Typography>
             </div>
           </div>
