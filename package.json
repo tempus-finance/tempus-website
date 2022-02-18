@@ -21,7 +21,7 @@
     "rari-sdk": "https://github.com/tempus-finance/RariSDK#2838cbd",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-html-parser": "^2.0.2",
+    "html-react-parser": "^1.4.0",
     "react-router-dom": "^5.3.0",
     "recharts": "^2.1.8",
     "rxjs": "^7.5.4"
@@ -30,20 +30,20 @@
     "@types/node": "^12.20.36",
     "@types/react": "^17.0.33",
     "@types/react-dom": "^17.0.10",
-    "@types/react-html-parser": "^2.0.2",
     "@types/react-router-dom": "^5.3.2",
     "@typescript-eslint/eslint-plugin": "^5.2.0",
     "@typescript-eslint/parser": "^5.2.0",
     "eslint": "^7.11.0",
     "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-airbnb-typescript": "^14.0.1",
+    "eslint-config-airbnb-typescript": "^16.1.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.26.1",
     "eslint-plugin-react-hooks": "^4.2.0",
     "react-scripts": "4.0.3",
     "sass": "^1.43.3",
-    "typescript": "^4.4.4"
+    "typescript": "^4.4.4",
+    "react-error-overlay": "6.0.9"
   },
   "browserslist": {
     "production": [

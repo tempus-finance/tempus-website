@@ -102,6 +102,8 @@ const config: Config = {
     nativeTokenPrecision: 18,
     blockExplorerName: 'Etherscan',
     blockExplorerUrl: 'https://etherscan.io/',
+    tempusTokenAddress: '0xa36fdbbae3c9d55a1d67ee5821d53b50b63a1ab9',
+    treasuryAddress: '0xaB40A7e3cEF4AfB323cE23B6565012Ac7c76BFef',
   },
   fantom: {
     tempusPools: [
@@ -267,7 +269,7 @@ const config: Config = {
     tempusControllerContract: '0x8c47924b35C3667F59Df579F3ec061F8d7603242',
     vaultContract: '0xfCD78cA49368D3E5A93171335d2f31705d00Ca38',
     lidoOracle: '', // We need to set if we want to add Lido pools for Fantom chain
-    publicNetworkUrl: `https://rpc.ftm.tools/`,
+    publicNetworkUrl: 'https://rpc.ftm.tools/',
     privateNetworkUrl: FANTOM_MAINNET_RPC_ENDPOINT,
     networkName: 'fantom-mainnet',
     alchemyKey: '', // We don't need alchemy for Fantom chain
@@ -277,6 +279,8 @@ const config: Config = {
     nativeTokenPrecision: 18,
     blockExplorerName: 'FTMScan',
     blockExplorerUrl: 'https://ftmscan.com/',
+    tempusTokenAddress: '0x1c174f6ab0753162befbb916c69def2cc1bfdec1',
+    treasuryAddress: '0x51252c520375C6A236Bb56DdF0C407A099B2EC0e',
   },
 };
 
