@@ -7,3 +7,6 @@
 # Firebase cache
 .firebase
 .history
+
+.env.development
+.env.production

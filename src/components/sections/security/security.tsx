@@ -3,6 +3,7 @@ import Code423n4Logo from '../../icons/code423n4-logo';
 import CoinspectLogo from '../../icons/coinspect-logo';
 import HatsLogo from '../../icons/HatsLogo';
 import ImmunefiLogo from '../../icons/immunefiLogo';
+import SherlockLogo from '../../icons/SherlockLogo';
 import Spacer from '../../spacer/spacer';
 import Typography from '../../typography/typography';
 
@@ -23,6 +24,13 @@ const Security = () => {
 
   const onHatsClick = useCallback(() => {
     window.open('https://app.hats.finance/vaults', '_blank');
+  }, []);
+
+  const onSherlockClick = useCallback(() => {
+    window.open(
+      'https://medium.com/tempusfinance/tempus-partners-with-sherlock-for-smart-contract-exploit-protection-b51a2b38434',
+      '_blank',
+    );
   }, []);
 
   return (
@@ -49,7 +57,7 @@ const Security = () => {
             <ImmunefiLogo />
           </div>
           <Spacer size={22} type="vertical" />
-          <Typography variant="security-card-label">$150,000 Bug Bounty</Typography>
+          <Typography variant="security-card-label">$1,000,000 Bug Bounty</Typography>
         </div>
         <div className="tf__security-card" onClick={onHatsClick} aria-hidden="true" style={{ cursor: 'pointer' }}>
           <div className="tf__security-logo-container">
@@ -57,6 +65,15 @@ const Security = () => {
           </div>
           <Spacer size={22} type="vertical" />
           <Typography variant="security-card-label">$150,000 Bug Bounty</Typography>
+        </div>
+        <div className="tf__security-card" onClick={onSherlockClick} aria-hidden="true" style={{ cursor: 'pointer' }}>
+          <div className="tf__security-logo-container">
+            <SherlockLogo />
+          </div>
+          <Spacer size={22} type="vertical" />
+          <Typography variant="security-card-label" align="center">
+            $10mm protocol-level exploit coverage
+          </Typography>
         </div>
       </div>
     </div>

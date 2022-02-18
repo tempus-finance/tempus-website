@@ -16,6 +16,7 @@ export const bucketSize = 10 * 60 * 1000;
 export const initialPrice = 0.506;
 export const treasuryAddress = '0xaB40A7e3cEF4AfB323cE23B6565012Ac7c76BFef';
 export const balancerVaultAddress = '0xba12222222228d8ba445958a75a0704d566bf2c8';
+export const spookySwapPoolAddress = '0x3b00de93e05815609c58ef936dc202d388802a44';
 export const ignoreHolderAddresses = [
   '0xba12222222228d8ba445958a75a0704d566bf2c8',
   '0xf41f9fc0b622eb112445fd7b32fc5190d0c0d3f4',
