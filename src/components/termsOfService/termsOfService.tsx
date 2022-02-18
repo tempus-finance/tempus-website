@@ -32,7 +32,7 @@ const TermsOfService = () => {
           Virgin Islands (the “Issuer”) in association with Tempus Foundation Company, a foundation company based in the
           Cayman Islands (the “Foundation”) (the Issuer and the Foundation together, “Tempus”, “we”, “our”, or “us”). We
           own and operate the website <Link to="/">https://tempus.finance</Link> which acts as a front-end to the
-          decentralized finance application (known as “Tempus Protocol”) available at{' '}
+          decentralized finance application (known as “Tempus Protocol”) available at
           <a href="https://app.tempus.finance"> https://app.tempus.finance</a> (the website and application together the
           “Site”). These Terms apply to you (“You”) as a user of the Site, including all the products, services, tools
           and information made available on the Site.
@@ -48,8 +48,6 @@ const TermsOfService = () => {
           <br />
           Our <Link to="/privacy-policy">Privacy Policy</Link> and <Link to="/disclaimer">Disclaimer</Link> are
           incorporated into these Terms by reference and also apply to your use of the Site.
-          <br />
-          <br />
         </Typography>
 
         <Spacer size={60} type="vertical" />
