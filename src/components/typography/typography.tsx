@@ -1,5 +1,5 @@
 import React, { CSSProperties, FC } from 'react';
-import ReactHTMLParser from 'react-html-parser';
+import parse from 'html-react-parser';
 
 import './typography.scss';
 
@@ -587,7 +587,7 @@ const Typography: FC<TypographyProps> = (props) => {
         aria-hidden="true"
         onClick={handleClick}
       >
-        {html ? ReactHTMLParser(html) : children}
+        {html ? parse(html) : children}
       </div>
       {!desktopOnly && (
         <div
@@ -603,7 +603,7 @@ const Typography: FC<TypographyProps> = (props) => {
           aria-hidden="true"
           onClick={handleClick}
         >
-          {html ? ReactHTMLParser(html) : children}
+          {html ? parse(html) : children}
         </div>
       )}
     </>

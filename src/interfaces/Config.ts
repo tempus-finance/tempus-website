@@ -20,6 +20,8 @@ export interface ChainConfig {
   nativeTokenPrecision: number;
   blockExplorerName: 'Etherscan' | 'FTMScan';
   blockExplorerUrl: string;
+  tempusTokenAddress: string;
+  treasuryAddress: string;
 }
 
 export type Config = {

@@ -1,4 +1,4 @@
-import { AlchemyProvider } from '@ethersproject/providers';
+import { AlchemyProvider, JsonRpcProvider } from '@ethersproject/providers';
 import { BigNumber, ethers } from 'ethers';
 import { Pool, Position } from '@uniswap/v3-sdk';
 import { Token } from '@uniswap/sdk-core';
@@ -12,6 +12,7 @@ import {
   treasuryAddress,
   uniswapPoolAddress,
   usdcAddress,
+  spookySwapPoolAddress,
 } from '../constants';
 import ERC20ABI from '../abi/ERC20.json';
 import { ERC20 } from '../abi/ERC20';
@@ -21,89 +22,118 @@ import VaultABI from '../abi/Vault.json';
 import { Vault } from '../abi/Vault';
 import BalancerPoolABI from '../abi/BalancerPoolABI.json';
 import UniswapPositionManagerABI from '../abi/UniswapPositionManagerABI.json';
+import SpookySwapABI from '../abi/SpookySwapABI.json';
 import TokenPriceService from './tokenPriceService';
 import { div18f, mul18f } from '../utils/weiMath';
 import config from '../config/config';
 import { Chain } from '../interfaces/Chain';
+import { Ticker } from '../interfaces/Token';
+import getChainlinkFeed from './getChainlinkFeed';
 
 class TreasuryValueService {
   async getValue() {
-    const [tempTokenValue, tempusPoolsValue, balancerPoolValue, uniswapPoolValue] = await Promise.all([
-      this.getTempTokenValue(),
-      this.getTempusPoolsValue(),
-      this.getBalancerPoolValue(),
-      this.getUniswapPoolValue(),
-    ]);
+    const [tempTokenValue, tempusPoolsValue, balancerPoolValue, uniswapPoolValue, spookySwapPoolValue] =
+      await Promise.all([
+        this.getTempTokenValue(),
+        this.getTempusPoolsValue(),
+        this.getBalancerPoolValue(),
+        this.getUniswapPoolValue(),
+        this.getSpookySwapLPTempValue(),
+      ]);
 
-    return tempTokenValue.add(tempusPoolsValue).add(balancerPoolValue).add(uniswapPoolValue);
+    return tempTokenValue.add(tempusPoolsValue).add(balancerPoolValue).add(uniswapPoolValue).add(spookySwapPoolValue);
   }
 
-  private async getTempTokenValue() {
-    const tokenContract = await this.getTokenContract(tokenAddress);
+  /**
+   * Calculates TEMP token value in USD across all chains that Tempus Treasuries are holding.
+   * We have one treasury per chain.
+   * @returns TEMP Token value in USD stored in Tempus Treasuries across all chains.
+   */
+  private async getTempTokenValue(): Promise<BigNumber> {
+    const tokenPrice = await this.getTempTokenPrice();
 
-    const [tokenAmount, tokenPrice] = await Promise.all([
-      tokenContract.balanceOf(treasuryAddress),
-      this.getTempTokenPrice(),
-    ]);
+    const results = await Promise.all(
+      Object.keys(config).map(async (key) => {
+        const chain = key as Chain;
 
-    return mul18f(tokenAmount, tokenPrice);
-  }
+        const tokenContract = await this.getTokenContract(chain, config[chain].tempusTokenAddress);
 
-  private async getTempusPoolsValue() {
-    const values = await Object.keys(config).reduce(async (promise, key: string) => {
-      const previous = await promise;
-      const chain = key as Chain;
+        const tokenAmount = await tokenContract.balanceOf(config[chain].treasuryAddress);
 
-      const statsContract = await this.getStatsContract(chain);
-
-      const values = await Promise.all(
-        config[chain].tempusPools.map(async (tempusPoolConfig) => {
-          const principalsContract = await this.getTokenContract(tempusPoolConfig.principalsAddress);
-          const yieldsContract = await this.getTokenContract(tempusPoolConfig.yieldsAddress);
-          const lpContract = await this.getTokenContract(tempusPoolConfig.ammAddress);
-
-          const [principalsBalance, yieldsBalance, lpTokenBalance, backingTokenRate] = await Promise.all([
-            principalsContract.balanceOf(treasuryAddress),
-            yieldsContract.balanceOf(treasuryAddress),
-            lpContract.balanceOf(treasuryAddress),
-            this.getETHRateToUSD(),
-          ]);
-
-          const maxLeftoverShares = principalsBalance
-            .add(yieldsBalance)
-            .add(lpTokenBalance)
-            .div(BigNumber.from('1000'));
-          const estimateExitToBackingToken = true;
-
-          const exitEstimate = await statsContract.estimateExitAndRedeem(
-            tempusPoolConfig.ammAddress,
-            lpTokenBalance,
-            principalsBalance,
-            yieldsBalance,
-            maxLeftoverShares,
-            estimateExitToBackingToken,
-          );
-
-          const userPoolBalanceInBackingTokens = exitEstimate.tokenAmount;
-
-          return mul18f(userPoolBalanceInBackingTokens, backingTokenRate);
-        }),
-      );
-
-      return previous.concat(values);
-    }, Promise.resolve([] as BigNumber[]));
+        return mul18f(tokenAmount, tokenPrice);
+      }),
+    );
 
     let totalValue = BigNumber.from('0');
-    values.forEach((value) => {
-      totalValue = totalValue.add(value);
+    results.forEach((result) => {
+      totalValue = totalValue.add(result);
+    });
+
+    return totalValue;
+  }
+
+  /**
+   * Calculates USD value (TVL) of all Tempus Pool across all chains.
+   * @returns Tempus Pools combined value (TVL) in USD across all chains.
+   */
+  private async getTempusPoolsValue() {
+    const chainValues = await Promise.all(
+      Object.keys(config).map(async (key: string) => {
+        const chain = key as Chain;
+
+        const statsContract = await this.getStatsContract(chain);
+
+        const tempusPoolsValue = await Promise.all(
+          config[chain].tempusPools.map(async (tempusPoolConfig) => {
+            const principalsContract = await this.getTokenContract(chain, tempusPoolConfig.principalsAddress);
+            const yieldsContract = await this.getTokenContract(chain, tempusPoolConfig.yieldsAddress);
+            const lpContract = await this.getTokenContract(chain, tempusPoolConfig.ammAddress);
+
+            const [principalsBalance, yieldsBalance, lpTokenBalance, backingTokenRate] = await Promise.all([
+              principalsContract.balanceOf(config[chain].treasuryAddress),
+              yieldsContract.balanceOf(config[chain].treasuryAddress),
+              lpContract.balanceOf(config[chain].treasuryAddress),
+              this.getTokenRateToUSD(chain, tempusPoolConfig.backingToken),
+            ]);
+
+            const maxLeftoverShares = principalsBalance
+              .add(yieldsBalance)
+              .add(lpTokenBalance)
+              .div(BigNumber.from('1000'));
+
+            const exitEstimate = await statsContract.estimateExitAndRedeem(
+              tempusPoolConfig.ammAddress,
+              lpTokenBalance,
+              principalsBalance,
+              yieldsBalance,
+              maxLeftoverShares,
+              true,
+            );
+
+            return mul18f(exitEstimate.tokenAmount, backingTokenRate);
+          }),
+        );
+
+        let totalValue = BigNumber.from('0');
+        tempusPoolsValue.forEach((tempusPoolValue) => {
+          totalValue = totalValue.add(tempusPoolValue);
+        });
+
+        return totalValue;
+      }),
+    );
+
+    let totalValue = BigNumber.from('0');
+    chainValues.forEach((chainValue) => {
+      totalValue = totalValue.add(chainValue);
     });
 
     return totalValue;
   }
 
   private async getBalancerPoolValue() {
-    const balancerVaultContract = await this.getBalancerVaultContract();
-    const balancerPoolContract = await this.getBalancerPoolContract();
+    const balancerVaultContract = await this.getBalancerVaultContract('ethereum');
+    const balancerPoolContract = await this.getBalancerPoolContract('ethereum');
 
     const lpTokenBalance = await balancerPoolContract.balanceOf(treasuryAddress);
     const lpTokenTotalSupply = await balancerPoolContract.totalSupply();
@@ -114,7 +144,10 @@ class TreasuryValueService {
     const tempTokenAmount = lpTokenBalance.mul(tempTokenInfo.cash).div(lpTokenTotalSupply);
     const ethTokenAmount = lpTokenBalance.mul(ethTokenInfo.cash).div(lpTokenTotalSupply);
 
-    const [tempPrice, ethPrice] = await Promise.all([this.getTempTokenPrice(), this.getETHRateToUSD()]);
+    const [tempPrice, ethPrice] = await Promise.all([
+      this.getTempTokenPrice(),
+      this.getTokenRateToUSD('ethereum', 'ETH'),
+    ]);
 
     const tempValue = mul18f(tempPrice, tempTokenAmount);
     const ethValue = mul18f(ethPrice, ethTokenAmount);
@@ -123,7 +156,7 @@ class TreasuryValueService {
   }
 
   private async getUniswapPoolState() {
-    const uniswapPoolContract = await this.getUniswapPoolContract();
+    const uniswapPoolContract = await this.getUniswapPoolContract('ethereum');
 
     const [liquidity, slot] = await Promise.all([uniswapPoolContract.liquidity(), uniswapPoolContract.slot0()]);
 
@@ -154,7 +187,7 @@ class TreasuryValueService {
       state.tick,
     );
 
-    const uniswapPositionManagerContract = await this.getUniswapPositionManagerContract();
+    const uniswapPositionManagerContract = await this.getUniswapPositionManagerContract('ethereum');
 
     const positionsBalance = await uniswapPositionManagerContract.balanceOf(treasuryAddress);
 
@@ -203,72 +236,90 @@ class TreasuryValueService {
     return tempValue.add(usdcAmount);
   }
 
+  private async getSpookySwapLPTempValue() {
+    const spookySwapPoolContract = await this.getSpookySwapPoolContract('fantom');
+
+    const treasuryTokenBalance = await spookySwapPoolContract.balanceOf(config.fantom.treasuryAddress);
+    const tokenTotalSupply = await spookySwapPoolContract.totalSupply();
+
+    const fantomTempTokenContract = await this.getTokenContract('fantom', config.fantom.tempusTokenAddress);
+
+    const poolTempBalance = await fantomTempTokenContract.balanceOf(spookySwapPoolContract.address);
+
+    const valueInTemp = treasuryTokenBalance.mul(poolTempBalance).div(tokenTotalSupply);
+
+    const tempTokenPrice = await this.getTempTokenPrice();
+
+    return mul18f(valueInTemp, tempTokenPrice);
+  }
+
   private getTempTokenPrice() {
     return TokenPriceService.getPrice();
   }
 
-  private async getETHRateToUSD() {
-    const statisticsContract = await this.getStatsContract('ethereum');
+  private async getTokenRateToUSD(chain: Chain, token: Ticker) {
+    const statisticsContract = await this.getStatsContract(chain);
 
-    const ensNameHash = ethers.utils.namehash('eth-usd.data.eth');
+    const chainLinkAggregator = getChainlinkFeed(chain, token);
 
-    const [rate, rateDenominator] = await statisticsContract.getRate(ensNameHash);
+    const [rate, rateDenominator] = await statisticsContract.getRate(chainLinkAggregator);
 
     return div18f(rate, rateDenominator);
   }
 
   private async getStatsContract(chain: Chain) {
-    const provider = await this.getProvider();
+    const provider = await this.getProvider(chain);
 
     return new ethers.Contract(config[chain].statisticsContract, StatsABI, provider) as Stats;
   }
 
-  private async getBalancerVaultContract() {
-    const provider = await this.getProvider();
+  private async getBalancerVaultContract(chain: Chain) {
+    const provider = await this.getProvider(chain);
 
     return new ethers.Contract(balancerVaultAddress, VaultABI, provider) as Vault;
   }
 
-  private async getBalancerPoolContract() {
-    const provider = await this.getProvider();
+  private async getSpookySwapPoolContract(chain: Chain) {
+    const provider = await this.getProvider(chain);
+
+    return new ethers.Contract(spookySwapPoolAddress, SpookySwapABI, provider);
+  }
+
+  private async getBalancerPoolContract(chain: Chain) {
+    const provider = await this.getProvider(chain);
 
     return new ethers.Contract(balancerPoolAddress, BalancerPoolABI, provider);
   }
 
-  private async getUniswapPoolContract() {
-    const provider = await this.getProvider();
+  private async getUniswapPoolContract(chain: Chain) {
+    const provider = await this.getProvider(chain);
 
     return new ethers.Contract(uniswapPoolAddress, UniswapPoolABI, provider);
   }
 
-  private async getTokenContract(address: string) {
-    const provider = await this.getProvider();
+  private async getTokenContract(chain: Chain, address: string) {
+    const provider = await this.getProvider(chain);
 
     return new ethers.Contract(address, ERC20ABI, provider) as ERC20;
   }
 
-  private async getUniswapPositionManagerContract() {
-    const provider = await this.getProvider();
+  private async getUniswapPositionManagerContract(chain: Chain) {
+    const provider = await this.getProvider(chain);
 
     return new ethers.Contract('0xC36442b4a4522E871399CD717aBDD847Ab11FE88', UniswapPositionManagerABI, provider);
   }
 
-  private async getProvider(): Promise<any> {
-    if ((window as any).ethereum && !(window as any).ethereum.chainId) {
-      await this.wait();
-      return this.getProvider();
+  private async getProvider(chain: Chain): Promise<any> {
+    if (chain === 'fantom') {
+      return new JsonRpcProvider('https://rpc.ftm.tools/', { chainId: 250, name: 'Fantom Opera' });
     }
 
-    if ((window as any).ethereum && parseInt((window as any).ethereum.chainId, 16) === 1) {
-      return new ethers.providers.Web3Provider((window as any).ethereum, 'any');
+    const browserProvider = (window as any).ethereum;
+
+    if (browserProvider && browserProvider.chainId && parseInt(browserProvider.chainId, 16) === 1) {
+      return new ethers.providers.Web3Provider(browserProvider, 'any');
     }
     return new AlchemyProvider('homestead', 'Hz57g3uvMUx9K9mCmAODf75Wba8N2Fjp');
-  }
-
-  private async wait() {
-    return new Promise((resolve) => {
-      setTimeout(resolve, 100);
-    });
   }
 }
 export default TreasuryValueService;
