@@ -36,7 +36,11 @@ type TypographyVariant =
   | 'tempus-description-body'
   | 'network-card-title'
   | 'network-card-text'
-  | 'network-card-button';
+  | 'network-card-button'
+  | 'team-title'
+  | 'team-company'
+  | 'team-member-name'
+  | 'team-member-desc';
 type TypographyColor = 'default' | 'accent' | 'inverted' | 'link' | 'gray';
 
 const typographyStyleMap = new Map<TypographyVariant, CSSProperties>();
@@ -221,7 +225,7 @@ typographyStyleMap.set('token-section-text', {
   fontStyle: 'normal',
   fontWeight: 400,
   fontSize: '18px',
-  lineHeight: '23px',
+  lineHeight: '28px',
 });
 typographyStyleMap.set('token-legend-label', {
   fontFamily: "'Source Sans Pro', sans-serif",
@@ -271,6 +275,34 @@ typographyStyleMap.set('network-card-button', {
   fontWeight: 600,
   fontSize: '16px',
   lineHeight: '160%',
+});
+typographyStyleMap.set('team-title', {
+  fontFamily: "'Manrope', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 700,
+  fontSize: '55px',
+  lineHeight: '110%',
+});
+typographyStyleMap.set('team-company', {
+  fontFamily: "'Source Sans Pro', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 700,
+  fontSize: '36px',
+  lineHeight: '50.4px',
+});
+typographyStyleMap.set('team-member-name', {
+  fontFamily: "'Manrope', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 700,
+  fontSize: '28px',
+  lineHeight: '38.25px',
+});
+typographyStyleMap.set('team-member-desc', {
+  fontFamily: "'Manrope', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 700,
+  fontSize: '16px',
+  lineHeight: '21.86px',
 });
 
 const typographyMobileStyleMap = new Map<TypographyVariant, CSSProperties>();
@@ -451,7 +483,7 @@ typographyMobileStyleMap.set('token-section-text', {
   fontStyle: 'normal',
   fontWeight: 400,
   fontSize: '18px',
-  lineHeight: '23px',
+  lineHeight: '28px',
 });
 typographyMobileStyleMap.set('token-legend-label', {
   fontFamily: "'Source Sans Pro', sans-serif",
@@ -501,6 +533,34 @@ typographyMobileStyleMap.set('network-card-button', {
   fontWeight: 600,
   fontSize: '16px',
   lineHeight: '160%',
+});
+typographyMobileStyleMap.set('team-title', {
+  fontFamily: "'Manrope', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 700,
+  fontSize: '38px',
+  lineHeight: '110%',
+});
+typographyMobileStyleMap.set('team-company', {
+  fontFamily: "'Source Sans Pro', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 700,
+  fontSize: '24px',
+  lineHeight: '33.6px',
+});
+typographyMobileStyleMap.set('team-member-name', {
+  fontFamily: "'Manrope', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 700,
+  fontSize: '28px',
+  lineHeight: '38.25px',
+});
+typographyMobileStyleMap.set('team-member-desc', {
+  fontFamily: "'Manrope', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: 700,
+  fontSize: '16px',
+  lineHeight: '21.86px',
 });
 
 interface TypographyProps {

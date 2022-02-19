@@ -17,6 +17,7 @@ import Protocols from '../sections/protocols/protocols';
 import Security from '../sections/security/security';
 import Social from '../sections/social/social';
 import Stats from '../sections/stats/stats';
+import TeamPage from '../team/teamPage';
 import TermsOfService from '../termsOfService/termsOfService';
 import TokenPage from '../token/tokenPage';
 
@@ -27,6 +28,16 @@ const App = () => (
     <Router>
       <Navbar />
       <Switch>
+        <Route path="/team">
+          <TeamPage />
+          <div className="tf__app__sections-gradient-wrapper">
+            <Social />
+            <Footer />
+            <div className="tf__app__sections-footer-logo">
+              <FooterLogo />
+            </div>
+          </div>
+        </Route>
         <Route path="/token">
           <TokenPage />
           <div className="tf__app__sections-gradient-wrapper">

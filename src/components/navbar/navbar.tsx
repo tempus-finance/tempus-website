@@ -20,6 +20,7 @@ import './navbar.scss';
 const Navbar = () => {
   const history = useHistory();
 
+  const [aboutOpen, setAboutOpen] = useState<boolean>(false);
   const [communityOpen, setCommunityOpen] = useState<boolean>(false);
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const [pageScrolledDown, setPageScrolledDown] = useState<boolean>(false);
@@ -40,12 +41,21 @@ const Navbar = () => {
     };
   }, []);
 
+  const onAboutClick = () => {
+    setAboutOpen((prevValue) => !prevValue);
+  };
+
   const onCommunityClick = () => {
     setCommunityOpen((prevValue) => !prevValue);
   };
 
   const onMenuClick = () => {
     setMenuOpen((prevValue) => !prevValue);
+  };
+
+  const onTeamClick = () => {
+    history.push('/team');
+    setMenuOpen(false);
   };
 
   const onTokenClick = () => {
@@ -134,9 +144,28 @@ const Navbar = () => {
           </div>
         </div>
         <div className="tf__navbar-actions-desktop">
-          <Typography color={textColor} variant="header-label" onClick={onTokenClick} clickable underline>
-            TOKEN
-          </Typography>
+          <div className="tf__flex-row-center-v tf__navbar-dropdown-label" onClick={onAboutClick} aria-hidden="true">
+            <Typography color={textColor} variant="header-label" clickable underline>
+              ABOUT
+            </Typography>
+            <Spacer size={6} type="horizontal" />
+            <ArrowDown fillColor={pageScrolledDown ? '#222222' : '#ffffff'} />
+            {aboutOpen && (
+              <div className="tf__navbar-dropdown">
+                <div className="tf__navbar-dropdown-item" onClick={onTokenClick} aria-hidden="true">
+                  <Typography variant="body-text" clickable>
+                    Tokenomics
+                  </Typography>
+                </div>
+                <div className="tf__navbar-dropdown-item" onClick={onTeamClick} aria-hidden="true">
+                  <Typography variant="body-text" clickable>
+                    Team
+                  </Typography>
+                </div>
+              </div>
+            )}
+          </div>
+          {aboutOpen && <div className="tf__backdrop" onClick={onAboutClick} aria-hidden="true" />}
           <Spacer size={45} type="horizontal" />
           <div
             className="tf__flex-row-center-v tf__navbar-dropdown-label"
