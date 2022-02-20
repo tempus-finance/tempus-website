@@ -7,7 +7,6 @@
       rgba(0, 87, 255, 0.189) 100%
     ),
     linear-gradient(116.06deg, #4b4b4b 7.43%, #0bb694 101.55%);
-
   background-attachment: fixed;
 
   .tf__team-page-title {
@@ -75,6 +74,7 @@
   }
 
   .tf__team-page-company-title {
+    position: relative;
     max-width: 700px;
     margin: auto;
 
@@ -84,6 +84,7 @@
   }
 
   .tf__team-page-companies {
+    position: relative;
     width: 100%;
     height: 180px;
     background: #ffffff;
@@ -203,12 +204,30 @@
     }
   }
 
-  @media screen and (max-width: 1024px) {
+  .tf__team-page__breakpoint {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    top: 50%;
+  }
+
+  &::before {
+    content: ' ';
+    position: absolute;
+    width: 100%;
+    height: 100%;
     background-image: radial-gradient(
         34.45% 56.55% at 84.54% 17.33%,
         rgba(0, 194, 255, 0.3) 0%,
         rgba(0, 87, 255, 0.189) 100%
       ),
-      linear-gradient(116.06deg, #4b4b4b 7.43%, #0bb694 101.55%);
+      linear-gradient(116.06deg, #656565 7.43%, #0b78b6 101.55%);
+    background-attachment: fixed;
+    opacity: 0;
+    transition: opacity 1s;
+  }
+
+  &.scrolled-down::before {
+    opacity: 1;
   }
 }

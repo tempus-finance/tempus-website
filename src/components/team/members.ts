@@ -18,6 +18,7 @@ import rtpImg from './members/rtp.png';
 import stefanImg from './members/stefan.png';
 import tianImg from './members/tian.png';
 import timImg from './members/tim.png';
+import weileiImg from './members/weilei.png';
 import vukasinImg from './members/vukasin.png';
 import yuvalImg from './members/yuval.png';
 
@@ -28,7 +29,7 @@ const members: Profile[] = [
     title: 'Founder',
     twitter: 'https://twitter.com/davgarai',
     linkedIn: 'https://www.linkedin.com/in/davidgarai/',
-    desc: 'GM.',
+    desc: 'David is responsible for providing strategic, financial and operational leadership at Tempus. Before founding Tempus with Djordje, he worked as a structured finance lawyer in London and Tokyo. In his spare time, David enjoys shitposting on Twitter.',
   },
   {
     name: 'Đorđe Mijović',
@@ -77,6 +78,7 @@ const members: Profile[] = [
     name: 'Dhruv Bhatia',
     avatar: dhruvImg,
     title: 'Business Development Manager',
+    linkedIn: 'https://www.linkedin.com/in/dhruv-bhatia-2719738a',
     desc: 'Prior to joining Tempus, Dhruv worked as a debt finance lawyer at a US law firm where he represented private equity sponsors on leveraged acquisitions.',
   },
   {
@@ -153,7 +155,7 @@ const members: Profile[] = [
     avatar: tianImg,
     title: 'UX Designer',
     twitter: 'https://twitter.com/spidertianz',
-    desc: 'Tian is a product designer at Tempus Labs and has been designing both Web2 such as RBC, Paymi, and Flinks and Web3 products of all shapes & sizes such as with ConsenSys, Kleros, Linum Labs, Braintrust, and Valora ever since 2015 when I fisrt met Vitalik Buterin as a student specializing in human factors engineering.',
+    desc: 'Tian is a product designer at Tempus Labs who has been designing both Web2 & Web3 products such as with RBC, Paymi, Flinks, ConsenSys, Kleros, and Valora ever since 2015 when I first met Vitalik Buterin as a student specializing in human factors engineering.',
   },
   {
     name: 'Tim Liu',
@@ -174,7 +176,10 @@ const members: Profile[] = [
   },
   {
     name: 'Weilei Yu',
+    avatar: weileiImg,
     title: 'Head of Growth',
+    twitter: 'https://twitter.com/WeileiY',
+    linkedIn: 'https://www.linkedin.com/in/weileiyu',
     desc: 'With 5 years of experience growing crypto ecosystems, Weilei was previously the Head of Marketing at Flow blockchain, leading the public launch and global growth. Before that, he led the adoption of Streamr on Ethereum in 2017.',
   },
   {

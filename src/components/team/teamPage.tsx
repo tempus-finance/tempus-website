@@ -1,3 +1,5 @@
+import { useCallback, useState } from 'react';
+import { InView } from 'react-intersection-observer';
 import Spacer from '../spacer/spacer';
 import Typography from '../typography/typography';
 import ProfileCard from './profile/profileCard';
@@ -16,8 +18,11 @@ import companyImg09 from './companies/Swedbank.png';
 import './teamPage.scss';
 
 const TeamPage = () => {
+  const [scrolledDown, setScrolledDown] = useState<boolean>(false);
+  const setInView = useCallback((inView) => setScrolledDown(inView), [setScrolledDown]);
+
   return (
-    <div className="tf__team-page">
+    <div className={`tf__team-page ${scrolledDown ? 'scrolled-down' : ''}`}>
       <div className="tf__team-page-title">
         <Typography variant="team-title">Meet the Tempus Labs team</Typography>
       </div>
@@ -82,6 +87,7 @@ const TeamPage = () => {
           </div>
         </div>
       </div>
+      <InView as="div" className="tf__team-page__breakpoint" onChange={setInView} />
     </div>
   );
 };
