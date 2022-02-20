@@ -111,6 +111,17 @@
           display: flex;
           justify-content: space-evenly;
 
+          img {
+            max-width: 160px;
+            max-height: 120px;
+            object-fit: scale-down;
+
+            @media screen and (max-width: 1024px) {
+              max-width: 240px;
+              max-height: 120px;
+            }
+          }
+
           &.mobile {
             display: none;
 

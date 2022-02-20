@@ -9,11 +9,11 @@ import TwitterBtn from './twitterBtn';
 import './profile.scss';
 
 const ProfileCard = (props: Profile) => {
-  const { name, title, twitter, linkedIn, github, desc } = props;
+  const { name, avatar, title, twitter, linkedIn, github, desc } = props;
 
   return (
     <div className="tf__team-page__profile">
-      <ProfilePic />
+      <ProfilePic url={avatar} />
       <Spacer size={13} type="vertical" />
       <Typography variant="team-member-name" color="inverted">
         {name}

@@ -22,10 +22,12 @@ const AvatarTemplate = () => (
   </svg>
 );
 
-const ProfilePic = () => (
-  <div className="tf__team-page__profile-pic">
-    <AvatarTemplate />
-  </div>
+interface ProfilePicProps {
+  url?: string;
+}
+
+const ProfilePic = ({ url }: ProfilePicProps) => (
+  <div className="tf__team-page__profile-pic">{url ? <img src={url} /> : <AvatarTemplate />}</div>
 );
 
 export default ProfilePic;
