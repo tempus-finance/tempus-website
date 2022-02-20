@@ -29,7 +29,6 @@
   justify-content: space-between;
 
   @media screen and (max-width: 1024px) {
-    width: 220px;
     box-sizing: border-box;
     margin: 0 20px;
   }
@@ -65,6 +64,18 @@
   &:hover {
     background-color: #f2f2f2;
   }
+
+  &.tf__navbar-dropdown-highlight {
+    background-color: #f3f7f9;
+  }
+
+  &.tf__navbar-dropdown__subtitle {
+    height: 33px;
+  }
+
+  &.tf__navbar-dropdown-item-active {
+    font-weight: bold;
+  }
 }
 
 .tf__navbar-actions-desktop {
@@ -82,6 +93,7 @@
   @media screen and (max-width: 1024px) {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     width: 36px;
     box-sizing: border-box;
   }
@@ -97,4 +109,10 @@
   flex-direction: column;
   z-index: 999;
   background-color: #fcfcfc;
+
+  > .tf__navbar-dropdown-item {
+    border-top: 1px solid #e2e2e2;
+    display: flex;
+    align-items: center;
+  }
 }

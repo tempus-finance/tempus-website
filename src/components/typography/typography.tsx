@@ -41,7 +41,7 @@ type TypographyVariant =
   | 'team-company'
   | 'team-member-name'
   | 'team-member-desc';
-type TypographyColor = 'default' | 'accent' | 'inverted' | 'link' | 'gray';
+type TypographyColor = 'default' | 'accent' | 'inverted' | 'link' | 'gray' | 'orange';
 
 const typographyStyleMap = new Map<TypographyVariant, CSSProperties>();
 typographyStyleMap.set('h1', {
@@ -608,6 +608,9 @@ const Typography: FC<TypographyProps> = (props) => {
       break;
     case 'gray':
       colorCode = '#7A7A7A';
+      break;
+    case 'orange':
+      colorCode = '#FF842C';
       break;
     default:
       colorCode = '#222222';
