@@ -26,7 +26,6 @@ import { getChainConfig } from '../utils/getConfig';
 import { div18f, mul18f } from '../utils/weiMath';
 import getProviderFromSignerOrProvider from '../utils/getProviderFromSignerOrProvider';
 import { Chain } from '../interfaces/Chain';
-import config from '../config/config';
 
 const SECONDS_IN_A_WEEK = SECONDS_IN_A_DAY * 7;
 const HOURS_IN_A_YEAR = DAYS_IN_A_YEAR * 24;
@@ -48,14 +47,20 @@ class VariableRateService {
   }
 
   private aaveLendingPool: Contract | null = null;
+
   private lidoOracle: Contract | null = null;
+
   private rariVault: RariVault | null = null;
+
   private tempusPoolService: TempusPoolService | null = null;
+
   private vaultService: VaultService | null = null;
+
   private tempusAMMService: TempusAMMService | null = null;
+
   private tokenAddressToContractMap: { [tokenAddress: string]: ethers.Contract } = {};
+
   private signerOrProvider: JsonRpcSigner | JsonRpcProvider | null = null;
-  private chainConfig: ChainConfig | null = null;
 
   init(
     signerOrProvider: JsonRpcSigner | JsonRpcProvider,
@@ -77,25 +82,25 @@ class VariableRateService {
       this.tempusPoolService = tempusPoolService;
       this.vaultService = vaultService;
       this.tempusAMMService = tempusAMMService;
-      this.chainConfig = config;
     }
   }
 
   async getMaxAPY(chain: Chain): Promise<number> {
     const aprs = await Promise.all(
-      config[chain].tempusPools.map(async (tempusPool) => {
+      getChainConfig(chain).tempusPools.map(async (tempusPool) => {
         const fees = await this.calculateFees(
           tempusPool.ammAddress,
           tempusPool.address,
           tempusPool.principalsAddress,
           tempusPool.yieldsAddress,
           chain,
-          config[chain].averageBlockTime,
+          getChainConfig(chain).averageBlockTime,
         );
         const apr = await this.getAprRate(tempusPool.protocol, tempusPool.yieldBearingTokenAddress, fees);
         return apr;
       }),
     );
+
     return Math.max(...aprs);
   }
 
@@ -116,7 +121,7 @@ class VariableRateService {
       return Promise.reject();
     }
 
-    let provider = getProviderFromSignerOrProvider(this.signerOrProvider);
+    const provider = getProviderFromSignerOrProvider(this.signerOrProvider);
 
     const [latestBlock, swapFeePercentage] = await Promise.all([
       provider.getBlock('latest'),
@@ -133,7 +138,7 @@ class VariableRateService {
     const sortedEvents = await this.getSwapAndPoolBalanceChangedEvents(poolConfig, fetchEventsFromBlock);
 
     // Fetch current pool balance
-    let { principals, yields } = await this.getPoolTokens(poolConfig.poolId, principalsAddress, yieldsAddress);
+    const { principals, yields } = await this.getPoolTokens(poolConfig.poolId, principalsAddress, yieldsAddress);
 
     // Calculate current principals to yields ratio
     let currentPrincipalsToYieldsRatio = ethers.utils.parseEther('1');
@@ -143,6 +148,7 @@ class VariableRateService {
 
     // Total fees accumulated
     let totalFees = BigNumber.from('0');
+    let calculatedPrincipals;
 
     // Go over all events and accumulate total swap fees
     sortedEvents.forEach((event) => {
@@ -154,12 +160,12 @@ class VariableRateService {
           totalFees,
           swapFeePercentage,
         );
-        principals = adjust.principals;
+        calculatedPrincipals = adjust.principals;
         totalFees = adjust.totalFees;
       }
 
       if (isPoolBalanceChangedEvent(event)) {
-        principals = this.adjustPrincipalForPoolBalanceChangedEvent(event, principalsAddress, principals);
+        calculatedPrincipals = this.adjustPrincipalForPoolBalanceChangedEvent(event, principalsAddress, principals);
       }
     });
 
@@ -217,16 +223,17 @@ class VariableRateService {
     const swapFeesVolume = mul18f(eventVolume, swapFeePercentage);
     const liquidityProvided = principals.sub(swapFeesVolume);
     const feePerPrincipalShare = div18f(swapFeesVolume, liquidityProvided);
-    totalFees = totalFees.add(feePerPrincipalShare);
+    const calculatedTotalFees = totalFees.add(feePerPrincipalShare);
+    let calculatedPrincipals = BigNumber.from('0');
 
     // Adjust pool balance based on swapped amounts
     if (event.args.tokenIn === principalsAddress) {
-      principals = principals.sub(event.args.amountIn);
+      calculatedPrincipals = principals.sub(event.args.amountIn);
     } else if (event.args.tokenOut === principalsAddress) {
-      principals = principals.add(event.args.amountOut);
+      calculatedPrincipals = principals.add(event.args.amountOut);
     }
 
-    return { principals, totalFees };
+    return { principals: calculatedPrincipals, totalFees: calculatedTotalFees };
   }
 
   private adjustPrincipalForPoolBalanceChangedEvent(
@@ -239,11 +246,11 @@ class VariableRateService {
       (poolTokenAddress) => principalsAddress === poolTokenAddress,
     );
     const principalsDelta = event.args.deltas[principalsIndexInBalanceChange];
-    principals = principalsDelta.isNegative()
+    const calculatedPrincipals = principalsDelta.isNegative()
       ? principals.add(principalsDelta.abs())
       : principals.sub(principalsDelta.abs());
 
-    return principals;
+    return calculatedPrincipals;
   }
 
   async getAprRate(protocol: ProtocolName, yieldBearingTokenAddress: string, fees: BigNumber): Promise<number> {
@@ -328,7 +335,9 @@ class VariableRateService {
     }
   }
 
+  // eslint-disable-next-line
   // https://github.com/Rari-Capital/RariSDK/blob/d6293e09c36a4ac6914725f5a5528a9c1e7cb178/src/Vaults/pools/stable.ts#L473
+
   private async getRariAPR(fees: number) {
     if (!this.rariVault) {
       return Promise.reject();
@@ -372,7 +381,6 @@ class VariableRateService {
     }
 
     try {
-      let supplyRatePerBlock;
       if (this.tokenAddressToContractMap[yieldBearingTokenAddress] === undefined) {
         this.tokenAddressToContractMap[yieldBearingTokenAddress] = new Contract(
           yieldBearingTokenAddress,
@@ -380,7 +388,7 @@ class VariableRateService {
           this.signerOrProvider,
         );
       }
-      supplyRatePerBlock = await this.tokenAddressToContractMap[yieldBearingTokenAddress].supplyRatePerBlock();
+      const supplyRatePerBlock = await this.tokenAddressToContractMap[yieldBearingTokenAddress].supplyRatePerBlock();
       const supplyApy = Math.pow((supplyRatePerBlock / ethMantissa) * COMPOUND_BLOCKS_PER_DAY + 1, DAYS_IN_A_YEAR) - 1;
 
       return supplyApy;
@@ -402,7 +410,7 @@ class VariableRateService {
     return new Promise((resolve) => {
       this.fetchYearnData().subscribe((yearnData) => {
         if (yearnData) {
-          const data = yearnData.filter((data) => data.address === yieldBearingTokenAddress);
+          const data = yearnData.filter((localData) => localData.address === yieldBearingTokenAddress);
           if (data && data.length) {
             return resolve(data[0].apy.net_apy);
           }
@@ -414,14 +422,15 @@ class VariableRateService {
   }
 
   private fetchYearnData(): Observable<YearnData[] | null> {
-    if (!this.chainConfig) {
-      throw new Error(
-        'VariableRateService - fetchYearnData() - Attempted to use VariableRateService before initializing it!',
-      );
-    }
+    // if (!this.chainConfig) {
+    //   throw new Error(
+    //     'VariableRateService - fetchYearnData() - Attempted to use VariableRateService before initializing it!',
+    //   );
+    // }
 
     try {
-      const yearnEndpoint = `https://api.yearn.finance/v1/chains/${this.chainConfig?.chainId}/vaults/all`;
+      // HOW DOES IT EVEN WORK??
+      const yearnEndpoint = `https://api.yearn.finance/v1/chains/${getChainConfig('ethereum')}/vaults/all`;
 
       return from(fetch(yearnEndpoint)).pipe(
         debounceTime(intervalBetweenHttpRequestsInMilliseconds),

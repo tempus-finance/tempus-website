@@ -6,7 +6,6 @@ import { TypedEvent, TypedListener } from '../abi/commons';
 import { provideLiquidityGasIncrease, removeLiquidityGasIncrease, SECONDS_IN_AN_HOUR } from '../constants';
 import { getChainConfig } from '../utils/getConfig';
 import getDefaultProvider from './getDefaultProvider';
-import TempusAMMService from './TempusAMMService';
 import { Chain } from '../interfaces/Chain';
 
 type VaultServiceParameters = {
@@ -14,7 +13,6 @@ type VaultServiceParameters = {
   address: string;
   abi: typeof VaultABI;
   signerOrProvider: JsonRpcProvider | JsonRpcSigner;
-  tempusAMMService: TempusAMMService;
   chain: Chain;
 };
 
@@ -72,14 +70,12 @@ export enum TempusAMMExitKind {
 
 class VaultService {
   private chain: Chain | null = null;
-  private contract: Vault | null = null;
 
-  private tempusAMMService: TempusAMMService | null = null;
+  private contract: Vault | null = null;
 
   public init(params: VaultServiceParameters) {
     this.contract = new Contract(params.address, params.abi, params.signerOrProvider) as Vault;
 
-    this.tempusAMMService = params.tempusAMMService;
     this.chain = params.chain;
   }
 
@@ -88,7 +84,7 @@ class VaultService {
     fromBlock?: number;
     toBlock?: number;
   }): Promise<SwapEvent[]> {
-    if (!this.contract || !this.tempusAMMService || !this.chain) {
+    if (!this.contract || !this.chain) {
       console.error('VaultService - getSwapEvents() - Attempted to use VaultService before initializing it!');
       return Promise.reject();
     }
@@ -110,7 +106,7 @@ class VaultService {
           );
         });
       } catch (error) {
-        console.error(`VaultService - getSwapEvents() - Failed to get swap events!`, error);
+        console.error('VaultService - getSwapEvents() - Failed to get swap events!', error);
         return Promise.reject(error);
       }
     } else {
@@ -119,7 +115,7 @@ class VaultService {
           this.contract.queryFilter(this.contract.filters.Swap(filters.forPoolId), filters.fromBlock, filters.toBlock),
         );
       } catch (error) {
-        console.error(`VaultService - getSwapEvents() - Failed to get swap events!`, error);
+        console.error('VaultService - getSwapEvents() - Failed to get swap events!', error);
         return Promise.reject(error);
       }
     }
@@ -128,7 +124,7 @@ class VaultService {
   }
 
   public async getPoolBalanceChangedEvents(forPoolId?: string, fromBlock?: number): Promise<PoolBalanceChangedEvent[]> {
-    if (!this.contract || !this.tempusAMMService || !this.chain) {
+    if (!this.contract || !this.chain) {
       console.error(
         'VaultService - getPoolBalanceChangedEvents() - Attempted to use VaultService before initializing it!',
       );
@@ -150,7 +146,7 @@ class VaultService {
           );
         });
       } catch (error) {
-        console.error(`VaultService - getPoolBalanceChangedEvents() - Failed to get PoolBalanceChanged events!`, error);
+        console.error('VaultService - getPoolBalanceChangedEvents() - Failed to get PoolBalanceChanged events!', error);
         return Promise.reject(error);
       }
     } else {
@@ -159,7 +155,7 @@ class VaultService {
           this.contract.queryFilter(this.contract.filters.PoolBalanceChanged(forPoolId), fromBlock),
         );
       } catch (error) {
-        console.error(`VaultService - getPoolBalanceChangedEvents() - Failed to get PoolBalanceChanged events!`, error);
+        console.error('VaultService - getPoolBalanceChangedEvents() - Failed to get PoolBalanceChanged events!', error);
         return Promise.reject(error);
       }
     }
@@ -230,7 +226,7 @@ class VaultService {
       // If current liquidity is zero we need to init pool first
       if (poolTokens.balances[0].isZero() && poolTokens.balances[1].isZero()) {
         if (principalsIn.isZero() || yieldsIn.isZero()) {
-          return Promise.reject('Both tokens in must be non-zero amount when initializing the pool!');
+          return await Promise.reject(new Error('Both tokens in must be non-zero amount when initializing the pool!'));
         }
 
         kind = TempusAMMJoinKind.INIT;
@@ -243,7 +239,7 @@ class VaultService {
     const assets = [
       { address: principalsAddress, amount: principalsIn },
       { address: yieldsAddress, amount: yieldsIn },
-    ].sort((a, b) => parseInt(a.address) - parseInt(b.address));
+    ].sort((a, b) => parseInt(a.address, 10) - parseInt(b.address, 10));
 
     const initialBalances = assets.map(({ amount }) => amount);
 
@@ -289,7 +285,7 @@ class VaultService {
     const assets = [
       { address: principalAddress, minAmount: minPrincipalsReceived },
       { address: yieldsAddress, minAmount: minYieldsReceived },
-    ].sort((a, b) => parseInt(a.address) - parseInt(b.address));
+    ].sort((a, b) => parseInt(a.address, 10) - parseInt(b.address, 10));
 
     const exitUserData = ethers.utils.defaultAbiCoder.encode(
       ['uint256', 'uint256'],
@@ -336,12 +332,11 @@ class VaultService {
 
     try {
       if (overrides) {
-        return this.contract.getPoolTokens(poolId, overrides);
-      } else {
-        return this.contract.getPoolTokens(poolId);
+        return await this.contract.getPoolTokens(poolId, overrides);
       }
+      return await this.contract.getPoolTokens(poolId);
     } catch (error) {
-      console.error(`VaultService - getPoolTokens() - Failed to get pool tokens!`, error);
+      console.error('VaultService - getPoolTokens() - Failed to get pool tokens!', error);
       return Promise.reject(error);
     }
   }
