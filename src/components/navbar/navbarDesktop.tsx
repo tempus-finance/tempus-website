@@ -147,13 +147,6 @@ const NavbarDesktop: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onM
                   Tempus 中文社區
                 </Typography>
               </div>
-              <div className="tf__navbar-dropdown-item" data-target="sers" onClick={onSiteClick} aria-hidden="true">
-                <SersIcon />
-                <Spacer size={10} type="horizontal" />
-                <Typography variant="body-text" clickable>
-                  Sers
-                </Typography>
-              </div>
             </div>
           )}
         </div>

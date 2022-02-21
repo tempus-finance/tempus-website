@@ -1,0 +1,169 @@
+.tf__team-page__profile {
+  position: relative;
+  width: 318px;
+  height: 484px;
+  margin: 0 16px 80px 16px;
+
+  .tf__team-page__profile-pic {
+    border-radius: 50%;
+    width: 176px;
+    height: 176px;
+    overflow: hidden;
+
+    img {
+      width: 176px;
+      height: 176px;
+    }
+  }
+
+  .tf__team-page__profile-social {
+    height: 24px;
+
+    button {
+      border: none;
+      background: none;
+      cursor: pointer;
+      margin: 0 8px 0 0;
+      padding: 0;
+    }
+
+    @media screen and (max-width: 1024px) {
+      height: initial;
+    }
+  }
+
+  &:nth-of-type(3),
+  &:nth-of-type(5),
+  &:nth-of-type(7),
+  &:nth-of-type(21),
+  &:nth-of-type(23),
+  &:nth-of-type(25) {
+    .tf__team-page__profile-pic::before {
+      content: ' ';
+      position: absolute;
+      width: 2000px;
+      height: 254px;
+      border-radius: 450px;
+      opacity: 0.1;
+      background-image: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+      transform-origin: 1873px 127px;
+      transform: translate(-1775px, -39px) rotate(30deg);
+      transition: transform 2s;
+
+      @media screen and (max-width: 1024px) {
+        display: none;
+      }
+    }
+  }
+
+  &:nth-of-type(2),
+  &:nth-of-type(4),
+  &:nth-of-type(18),
+  &:nth-of-type(20),
+  &:nth-of-type(22) {
+    .tf__team-page__profile-pic::before {
+      content: ' ';
+      position: absolute;
+      width: 2000px;
+      height: 254px;
+      border-radius: 450px;
+      opacity: 0.1;
+      background-image: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+      transform-origin: 1873px 127px;
+      transform: translate(-1775px, -39px) rotate(30deg) translateX(-2000px);
+      transition: transform 2s;
+
+      @media screen and (max-width: 1024px) {
+        display: none;
+      }
+    }
+  }
+
+  &:nth-of-type(9),
+  &:nth-of-type(11),
+  &:nth-of-type(13) {
+    .tf__team-page__profile-pic::before {
+      content: ' ';
+      position: absolute;
+      width: 2000px;
+      height: 254px;
+      border-radius: 450px;
+      opacity: 0.1;
+      background-image: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+      transform-origin: 127px 127px;
+      transform: translate(-39px, -39px) rotate(30deg);
+      transition: transform 2s;
+
+      @media screen and (max-width: 1024px) {
+        display: none;
+      }
+    }
+  }
+
+  &:nth-of-type(6),
+  &:nth-of-type(8),
+  &:nth-of-type(10) {
+    .tf__team-page__profile-pic::before {
+      content: ' ';
+      position: absolute;
+      width: 2000px;
+      height: 254px;
+      border-radius: 450px;
+      opacity: 0.1;
+      background-image: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+      transform-origin: 127px 127px;
+      transform: translate(-39px, -39px) rotate(30deg) translateX(2000px);
+      transition: transform 2s;
+
+      @media screen and (max-width: 1024px) {
+        display: none;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    height: initial;
+    margin: 0 16px 60px 16px;
+  }
+}
+
+.scrolled-down {
+  .tf__team-page__profile {
+    &:nth-of-type(3),
+    &:nth-of-type(5),
+    &:nth-of-type(7),
+    &:nth-of-type(21),
+    &:nth-of-type(23),
+    &:nth-of-type(25) {
+      .tf__team-page__profile-pic::before {
+        transform: translate(-1775px, -39px) rotate(30deg) translateX(-2000px);
+      }
+    }
+
+    &:nth-of-type(2),
+    &:nth-of-type(4),
+    &:nth-of-type(18),
+    &:nth-of-type(20),
+    &:nth-of-type(22) {
+      .tf__team-page__profile-pic::before {
+        transform: translate(-1775px, -39px) rotate(30deg);
+      }
+    }
+
+    &:nth-of-type(9),
+    &:nth-of-type(11),
+    &:nth-of-type(13) {
+      .tf__team-page__profile-pic::before {
+        transform: translate(-39px, -39px) rotate(30deg) translateX(2000px);
+      }
+    }
+
+    &:nth-of-type(6),
+    &:nth-of-type(8),
+    &:nth-of-type(10) {
+      .tf__team-page__profile-pic::before {
+        transform: translate(-39px, -39px) rotate(30deg);
+      }
+    }
+  }
+}

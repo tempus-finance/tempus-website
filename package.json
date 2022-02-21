@@ -18,10 +18,11 @@
     "copy-to-clipboard": "^3.3.1",
     "date-fns": "^2.25.0",
     "ethers": "^5.5.1",
+    "html-react-parser": "^1.4.0",
     "rari-sdk": "https://github.com/tempus-finance/RariSDK#2838cbd",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "html-react-parser": "^1.4.0",
+    "react-intersection-observer": "^8.33.1",
     "react-router-dom": "^5.3.0",
     "recharts": "^2.1.8",
     "rxjs": "^7.5.4"
@@ -40,10 +41,10 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.26.1",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "react-error-overlay": "6.0.9",
     "react-scripts": "4.0.3",
     "sass": "^1.43.3",
-    "typescript": "^4.4.4",
-    "react-error-overlay": "6.0.9"
+    "typescript": "^4.4.4"
   },
   "browserslist": {
     "production": [

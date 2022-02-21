@@ -67,10 +67,6 @@ const Navbar = () => {
         url = 'https://t.me/joinchat/SaOp74Uqe2BiMGM1';
         break;
 
-      case 'sers':
-        url = 'https://thesers.com/';
-        break;
-
       case 'docs':
         url = 'http://docs.tempus.finance/';
         break;

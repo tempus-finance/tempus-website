@@ -1,0 +1,234 @@
+.tf__team-page {
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(
+      34.45% 56.55% at 84.54% 17.33%,
+      rgba(0, 194, 255, 0.3) 0%,
+      rgba(0, 87, 255, 0.189) 100%
+    ),
+    linear-gradient(116.06deg, #4b4b4b 7.43%, #0bb694 101.55%);
+  background-attachment: fixed;
+
+  .tf__team-page-title {
+    position: absolute;
+    top: 167px;
+    right: calc(50% - 40px);
+    z-index: 1;
+    width: 1533px;
+    height: 180px;
+    background: #ffffff;
+    border-radius: 450px;
+    display: flex;
+    align-items: center;
+
+    .tf__typography-desktop {
+      position: absolute;
+      right: 74px;
+      width: 486px;
+      background-image: radial-gradient(
+          100% 169.51% at 100% 0%,
+          rgba(0, 194, 255, 0.3) 0%,
+          rgba(0, 87, 255, 0.189) 100%
+        ),
+        linear-gradient(120.92deg, #4b4b4b 0%, #0bb694 100%) !important;
+      background-clip: text;
+      color: transparent !important;
+      -webkit-background-clip: text;
+    }
+
+    .tf__typography-mobile {
+      position: absolute;
+      right: 30px;
+      width: 80vw;
+      background-image: radial-gradient(
+          100% 169.51% at 100% 0%,
+          rgba(0, 194, 255, 0.3) 0%,
+          rgba(0, 87, 255, 0.189) 100%
+        ),
+        linear-gradient(120.92deg, #4b4b4b 0%, #0bb694 100%) !important;
+      background-clip: text;
+      color: transparent !important;
+      -webkit-background-clip: text;
+    }
+
+    @media screen and (max-width: 1024px) {
+      right: 15px;
+    }
+  }
+
+  .tf__team-page-profiles {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 1080px;
+    margin: auto;
+
+    .tf__team-page__profile {
+      @media screen and (max-width: 1024px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+    }
+  }
+
+  .tf__team-page-company-title {
+    position: relative;
+    max-width: 700px;
+    margin: auto;
+
+    @media screen and (max-width: 1024px) {
+      padding: 0 15px;
+    }
+  }
+
+  .tf__team-page-companies {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .tf__team-page-company-images {
+      width: 990px;
+      height: 143px;
+      overflow: hidden;
+
+      .tf__team-page-company-images-container {
+        width: 300%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        transition: all 800ms cubic-bezier(0.77, 0, 0.175, 1);
+        transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+        animation: slide3 12300ms infinite;
+
+        .tf__team-page-company-slide {
+          width: 33.33%;
+          float: left;
+          display: flex;
+          justify-content: space-evenly;
+
+          img {
+            max-width: 160px;
+            max-height: 120px;
+            object-fit: scale-down;
+
+            @media screen and (max-width: 1024px) {
+              max-width: 240px;
+              max-height: 120px;
+            }
+          }
+
+          &.mobile {
+            display: none;
+
+            @media screen and (max-width: 1024px) {
+              display: flex;
+            }
+          }
+
+          &:not(.mobile) {
+            @media screen and (max-width: 1024px) {
+              display: none;
+            }
+          }
+
+          @media screen and (max-width: 1024px) {
+            width: 11.11%;
+          }
+        }
+
+        @keyframes slide3 {
+          0%,
+          25% {
+            margin-left: 0;
+          }
+          33%,
+          58% {
+            margin-left: -100%;
+          }
+          67%,
+          92% {
+            margin-left: -200%;
+          }
+        }
+
+        @keyframes slide9 {
+          0%,
+          8% {
+            margin-left: 0;
+          }
+          11%,
+          19% {
+            margin-left: -100%;
+          }
+          22%,
+          30% {
+            margin-left: -200%;
+          }
+          33%,
+          41% {
+            margin-left: -300%;
+          }
+          44%,
+          52% {
+            margin-left: -400%;
+          }
+          55%,
+          63% {
+            margin-left: -500%;
+          }
+          66%,
+          74% {
+            margin-left: -600%;
+          }
+          77%,
+          85% {
+            margin-left: -700%;
+          }
+          88%,
+          96% {
+            margin-left: -800%;
+          }
+        }
+
+        @media screen and (max-width: 1024px) {
+          width: 900%;
+          animation: slide9 36900ms infinite;
+        }
+      }
+    }
+  }
+
+  .tf__team-page__breakpoint {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    top: 50%;
+    z-index: -1;
+  }
+
+  &::before {
+    content: ' ';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(
+        34.45% 56.55% at 84.54% 17.33%,
+        rgba(0, 194, 255, 0.3) 0%,
+        rgba(0, 87, 255, 0.189) 100%
+      ),
+      linear-gradient(116.06deg, #656565 7.43%, #0b78b6 101.55%);
+    background-attachment: fixed;
+    opacity: 0;
+    transition: opacity 1s;
+  }
+
+  &.scrolled-down::before {
+    opacity: 1;
+  }
+}
