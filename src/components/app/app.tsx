@@ -38,7 +38,7 @@ const App = () => (
             </div>
           </div>
         </Route>
-        <Route path="/token">
+        <Route path={['/token', '/tokenomics']}>
           <TokenPage />
           <div className="tf__app__sections-gradient-wrapper">
             <Social />
