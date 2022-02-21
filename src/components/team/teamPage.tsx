@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { InView } from 'react-intersection-observer';
 import Spacer from '../spacer/spacer';
 import Typography from '../typography/typography';
@@ -20,6 +20,10 @@ import './teamPage.scss';
 const TeamPage = () => {
   const [scrolledDown, setScrolledDown] = useState<boolean>(false);
   const setInView = useCallback((inView) => setScrolledDown(inView), [setScrolledDown]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className={`tf__team-page ${scrolledDown ? 'scrolled-down' : ''}`}>

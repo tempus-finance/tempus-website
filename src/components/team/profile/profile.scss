@@ -11,13 +11,17 @@
     overflow: hidden;
 
     img {
+      position: relative;
       width: 176px;
       height: 176px;
+      z-index: 1;
     }
   }
 
   .tf__team-page__profile-social {
+    position: relative;
     height: 24px;
+    z-index: 1;
 
     button {
       border: none;
@@ -32,12 +36,15 @@
     }
   }
 
-  &:nth-of-type(3),
-  &:nth-of-type(5),
-  &:nth-of-type(7),
-  &:nth-of-type(21),
-  &:nth-of-type(23),
-  &:nth-of-type(25) {
+  .tf__typography-desktop,
+  .tf__typography-mobile {
+    position: relative;
+    z-index: 1;
+  }
+
+  &:nth-of-type(18n + 3),
+  &:nth-of-type(18n + 5),
+  &:nth-of-type(18n + 7) {
     .tf__team-page__profile-pic::before {
       content: ' ';
       position: absolute;
@@ -56,11 +63,9 @@
     }
   }
 
-  &:nth-of-type(2),
-  &:nth-of-type(4),
-  &:nth-of-type(18),
-  &:nth-of-type(20),
-  &:nth-of-type(22) {
+  &:nth-of-type(18n),
+  &:nth-of-type(18n + 2),
+  &:nth-of-type(18n + 4) {
     .tf__team-page__profile-pic::before {
       content: ' ';
       position: absolute;
@@ -79,9 +84,9 @@
     }
   }
 
-  &:nth-of-type(9),
-  &:nth-of-type(11),
-  &:nth-of-type(13) {
+  &:nth-of-type(18n + 9),
+  &:nth-of-type(18n + 11),
+  &:nth-of-type(18n + 13) {
     .tf__team-page__profile-pic::before {
       content: ' ';
       position: absolute;
@@ -100,9 +105,9 @@
     }
   }
 
-  &:nth-of-type(6),
-  &:nth-of-type(8),
-  &:nth-of-type(10) {
+  &:nth-of-type(18n + 6),
+  &:nth-of-type(18n + 8),
+  &:nth-of-type(18n + 10) {
     .tf__team-page__profile-pic::before {
       content: ' ';
       position: absolute;
@@ -129,38 +134,33 @@
 
 .scrolled-down {
   .tf__team-page__profile {
-    &:nth-of-type(3),
-    &:nth-of-type(5),
-    &:nth-of-type(7),
-    &:nth-of-type(21),
-    &:nth-of-type(23),
-    &:nth-of-type(25) {
+    &:nth-of-type(18n + 3),
+    &:nth-of-type(18n + 5),
+    &:nth-of-type(18n + 7) {
       .tf__team-page__profile-pic::before {
         transform: translate(-1775px, -39px) rotate(30deg) translateX(-2000px);
       }
     }
 
-    &:nth-of-type(2),
-    &:nth-of-type(4),
-    &:nth-of-type(18),
-    &:nth-of-type(20),
-    &:nth-of-type(22) {
+    &:nth-of-type(18n),
+    &:nth-of-type(18n + 2),
+    &:nth-of-type(18n + 4) {
       .tf__team-page__profile-pic::before {
         transform: translate(-1775px, -39px) rotate(30deg);
       }
     }
 
-    &:nth-of-type(9),
-    &:nth-of-type(11),
-    &:nth-of-type(13) {
+    &:nth-of-type(18n + 9),
+    &:nth-of-type(18n + 11),
+    &:nth-of-type(18n + 13) {
       .tf__team-page__profile-pic::before {
         transform: translate(-39px, -39px) rotate(30deg) translateX(2000px);
       }
     }
 
-    &:nth-of-type(6),
-    &:nth-of-type(8),
-    &:nth-of-type(10) {
+    &:nth-of-type(18n + 6),
+    &:nth-of-type(18n + 8),
+    &:nth-of-type(18n + 10) {
       .tf__team-page__profile-pic::before {
         transform: translate(-39px, -39px) rotate(30deg);
       }
