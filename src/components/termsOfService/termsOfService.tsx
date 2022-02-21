@@ -20,7 +20,7 @@ const TermsOfService = () => {
         </Typography>
         <Spacer size={26} type="vertical" />
         <Typography variant="h5" color="inverted">
-          Last updated: 1 December 2021
+          Last updated: 21 February 2022
         </Typography>
         <Spacer size={129} type="vertical" />
         <Typography variant="h3" color="inverted">

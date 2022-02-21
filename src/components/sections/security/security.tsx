@@ -72,7 +72,9 @@ const Security = () => {
           </div>
           <Spacer size={22} type="vertical" />
           <Typography variant="security-card-label" align="center">
-            $10mm protocol-level exploit coverage
+            $10,000,000
+            <br />
+            Exploit Coverage
           </Typography>
         </div>
       </div>
