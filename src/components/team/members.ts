@@ -18,7 +18,7 @@ import rtpImg from './members/rtp.png';
 import stefanImg from './members/stefan.png';
 import tianImg from './members/tian.png';
 import timImg from './members/tim.png';
-import weileiImg from './members/weilei.png';
+//import weileiImg from './members/weilei.png';
 import vukasinImg from './members/vukasin.png';
 import yuvalImg from './members/yuval.png';
 
@@ -40,7 +40,7 @@ const members: Profile[] = [
     twitter: 'https://twitter.com/mijovic988',
     linkedIn: 'https://www.linkedin.com/in/mijovic88',
     github: 'https://github.com/mijovic',
-    desc: 'Đorđe has 11 years of software engineering experience including work at Microsoft and a couple of computer vision startups. Prior to starting Tempus with David, Đorđe worked as a core solidity compiler developer at Ethereum Foundation.',
+    desc: 'Đorđe takes responsibility for technological oversight at Tempus. Before co-founding Tempus with David, he worked as a core Solidity compiler developer at Ethereum Foundation.',
   },
   {
     name: 'Alex B',
@@ -50,7 +50,7 @@ const members: Profile[] = [
     twitter: 'https://twitter.com/alexberegszaszi',
     linkedIn: 'https://www.linkedin.com/in/alexberegszaszi/',
     github: 'https://github.com/axic',
-    desc: 'GM.',
+    desc: 'Alex B enjoys thinking about protocol designs at Tempus. He has worked in embedded software development, fintech, and for the past 10 years with blockchain systems.',
   },
   {
     name: 'Alex H',
@@ -59,7 +59,7 @@ const members: Profile[] = [
     title: 'Operations Manager',
     twitter: 'https://twitter.com/alexhirsu',
     linkedIn: 'https://www.linkedin.com/in/alex-hirsu-14838177/',
-    desc: 'Alex has had more than 4 years of experience in Operations and Expansion at both late-stage companies like HP Enterprise and Uber, and early-stage startups like Voi Technology.',
+    desc: "Alex H is responsible for ensuring Tempus operates smoothly. He has over 4 years' of experience at both late-stage companies (e.g. HP Enterprise and Uber) and early-stage startups such as Voi Technology.",
   },
   {
     name: 'Cristiano',
@@ -68,7 +68,7 @@ const members: Profile[] = [
     title: 'Quantitative Analyst',
     twitter: 'https://twitter.com/Cristianoventr2',
     linkedIn: 'https://www.linkedin.com/in/cristiano-ventricelli-844b7077/',
-    desc: 'Cristiano has more than 7 years of experience in financial modeling and risk analytics matured in banks, insurance companies and asset management firms.',
+    desc: "Cristiano is our resident quantitative guru. He has over 7 years' experience in financial modeling and risk analytics in banks, insurance companies, and asset management firms.",
   },
   {
     name: 'Daniele',
@@ -78,7 +78,7 @@ const members: Profile[] = [
     twitter: 'https://twitter.com/_danieledamiani',
     linkedIn: 'https://www.linkedin.com/in/danieledamiani/',
     github: 'https://github.com/danieledamiani',
-    desc: "Daniele's experience ranges from startups to corporates, in a wide array of industries such as Gaming, Insurtech, Fintech, Banking and now DeFi. Main focus is Front-end development in all flavours.",
+    desc: "Daniele is one of Tempus' frontend engineers. He has worked in a wide array of industries, including gaming, insurance, fintech, banking, and now DeFi.",
   },
   {
     name: 'Dhruv',
@@ -86,7 +86,7 @@ const members: Profile[] = [
     avatar: dhruvImg,
     title: 'Business Development Manager',
     linkedIn: 'https://www.linkedin.com/in/dhruv-bhatia-2719738a',
-    desc: 'Prior to joining Tempus, Dhruv worked as a debt finance lawyer at a US law firm where he represented private equity sponsors on leveraged acquisitions.',
+    desc: "Dhruv manages relationships with Tempus' partners. Before joining Tempus, Dhruv worked as a debt finance lawyer at a major US law firm where he represented private equity sponsors on leveraged acquisitions.",
   },
   {
     name: 'George',
@@ -94,7 +94,7 @@ const members: Profile[] = [
     avatar: georgeImg,
     title: 'Head of Research',
     linkedIn: 'https://www.linkedin.com/in/george-cao-3aa07625/',
-    desc: 'George has over 15 years experiences working in global hedge fund, investment banks, fintech company, doing research, training and trading.',
+    desc: "George heads up research at Tempus. He has over 15 years' experience working in global hedge funds, investment banks, and fintechs, where he has researched, trained, and traded.",
   },
   {
     name: 'Irinel',
@@ -104,7 +104,7 @@ const members: Profile[] = [
     twitter: 'https://twitter.com/TapalagaIrinel',
     linkedIn: 'https://www.linkedin.com/in/irinel-tapalaga/',
     github: 'https://github.com/irinelT',
-    desc: '5 years of manual and automated QA. PhD in Physics, experience in Data Science and a published per review paper on AI implementation.',
+    desc: "Irinel is responsible for ensuring Tempus meets specified requirements. He has over 5 years' experience of manual and automated QA. He also has a PhD in Physics.",
   },
   {
     name: 'Jorma',
@@ -114,7 +114,7 @@ const members: Profile[] = [
     twitter: 'https://twitter.com/jorma_rebane',
     linkedIn: 'https://www.linkedin.com/in/jorma-rebane-319067126/',
     github: 'https://github.com/RedFox20',
-    desc: 'Jorma has over 12 years of software engineering experience with high performance computing and high frequency trading, now bringing his knowledge to improve Tempus.',
+    desc: "Jorma is one of Tempus' blockchain engineers. He has over 12 years' software engineering experience with high performance computing and high frequency trading.",
   },
   {
     name: 'Josh',
@@ -123,7 +123,7 @@ const members: Profile[] = [
     title: 'Business Development Manager',
     twitter: 'https://twitter.com/joshkez95',
     linkedIn: 'https://www.linkedin.com/in/joshuakelly35/',
-    desc: 'Before joining Tempus, Josh worked as a financial services regulatory lawyer (first at Allen & Overy, then at Farrer & Co).',
+    desc: 'Josh is responsible for building new partnerships with Tempus. Before joining the crypto scene, he previously worked as a financial services regulatory lawyer.',
   },
   {
     name: 'Lazar',
@@ -132,14 +132,14 @@ const members: Profile[] = [
     title: 'Frontend Engineer',
     linkedIn: 'https://www.linkedin.com/in/lazarmitic/',
     github: 'https://github.com/lazarmitic',
-    desc: 'Lazar has over 6 years of software engineering experience. Previously worked as a software graphics engineer making 3D and VR applications. He joined Tempus in mid 2021 to make DeFi an awesome place for everyone.',
+    desc: "Lazar is one of Tempus' frontend engineers. He has over 6 years' software engineering experience. Before joining Tempus, he worked as a software graphics engineer making 3D and VR applications.",
   },
   {
     name: 'Olaf',
     fullname: 'Olaf Kuusik',
     avatar: olafImg,
     title: 'UX Designer',
-    desc: 'Olaf is a UX/UI Designer for Tempus. He has over 8+ years of prior experience as a designer working in both traditional finance and various design agencies making web and product designs.',
+    desc: "Olaf is responsible for making Tempus as easy to use as possible. He has over 8 years' experience as a designer working in both traditional finance and various design agencies making web and product designs.",
   },
   {
     name: 'Pujeet',
@@ -148,7 +148,7 @@ const members: Profile[] = [
     title: 'Business Development Manager',
     twitter: 'https://twitter.com/pujeetmanot',
     linkedIn: 'https://www.linkedin.com/in/pujeetmanot/',
-    desc: 'Pujeet is an MSc Economics student at the London School of Economics and is the Director of the London Blockchain Labs.',
+    desc: "Pujeet handles Tempus' relationship with its various partners. He is an MSc Economics student at the London School of Economics and is also the Director of London Blockchain Labs.",
   },
   {
     name: 'Richard',
@@ -157,14 +157,14 @@ const members: Profile[] = [
     title: 'Product Manager',
     twitter: 'https://twitter.com/RTPthefirst',
     linkedIn: 'https://www.linkedin.com/in/rtp/',
-    desc: "Richard is a Product Manager at Tempus Labs, responsible for shipping products users love. He previously worked at some of the largest banks focused on global markets and derivatives. He has a Master's degree in Cognitive and Decision Sciences from UCL.",
+    desc: 'Richard is responsible for shipping products that users love. He previously worked at some of the largest banks focusing on global markets and derivatives. He also has a Masters degree in Cognitive and Decision Sciences from UCL.',
   },
   {
     name: 'Stefan',
     fullname: 'Stefan Vitorović',
     avatar: stefanImg,
     title: 'Blockchain Engineer',
-    desc: 'Blockchain and smart contract engineer with 8+ years of Full Stack and System Architect experience in developing and implementing different systems. Before Tempus, worked on Composable Finance and a few projects such as Glide Finance.',
+    desc: "Stefan is one of Tempus' blockchain engineers. He has over 8 years' full stack and system architect experience in developing and implementing different systems. Before joining Tempus, Stefan worked at Composable Finance.",
   },
   {
     name: 'Tian-Yuan',
@@ -172,7 +172,7 @@ const members: Profile[] = [
     avatar: tianImg,
     title: 'UX Designer',
     twitter: 'https://twitter.com/spidertianz',
-    desc: 'Tian is a product designer at Tempus Labs who has been designing both Web2 & Web3 products such as with RBC, Paymi, Flinks, ConsenSys, Kleros, and Valora ever since 2015 when I first met Vitalik Buterin as a student specializing in human factors engineering.',
+    desc: 'Tian wants to make Tempus as accessible as possible for users. He has been designing both Web2 and Web3 products at companies such as RBC, Paymi, Flinks, ConsenSys, Kleros, and Valora, which was inspired when he met Vitalik Buterin in 2015 while a student.',
   },
   {
     name: 'Tim',
@@ -181,7 +181,7 @@ const members: Profile[] = [
     title: 'Frontend Engineer',
     twitter: 'https://twitter.com/shawtim_eth',
     github: 'https://github.com/ShawTim/',
-    desc: 'Tim has 8+ yrs of experiences in IBM and 5+ yrs in several startups as a developer who is professional on web and blockchain technology. DOGE meme lover.',
+    desc: "Tim is one of Tempus' frontend engineers. He worked at IBM for over 8 years and for a further 5 years as a developer in various startups. He is also a Doge meme lover.",
   },
   {
     name: 'Vukašin',
@@ -191,7 +191,7 @@ const members: Profile[] = [
     twitter: 'https://twitter.com/iamvukasin',
     linkedIn: 'https://linkedin.com/in/vukasin-manojlovic',
     github: 'https://github.com/iamvukasin',
-    desc: 'Vukašin has more than 1.5 years of software engineering experience. Before joining Tempus, has was an intern at the Microsoft Mixed Reality & AI Lab team and worked as an iOS developer at a Swiss video-oriented start-up.',
+    desc: "Vukašin is one of Tempus' frontend engineers. Before joining Tempus, he was an intern at the Microsoft Mixed Reality & AI Lab team and worked as an iOS developer at a Swiss video-oriented start-up.",
   },
   /*
   {
@@ -201,7 +201,7 @@ const members: Profile[] = [
     title: 'Head of Growth',
     twitter: 'https://twitter.com/WeileiY',
     linkedIn: 'https://www.linkedin.com/in/weileiyu',
-    desc: 'With 5 years of experience growing crypto ecosystems, Weilei was previously the Head of Marketing at Flow blockchain, leading the public launch and global growth. Before that, he led the adoption of Streamr on Ethereum in 2017.',
+    desc: 'Weilei is responsible for growing Tempus. He was previously the Head of Marketing at Flow blockchain, leading its public launch and global growth. Before that, he led the adoption of Streamr on Ethereum in 2017.',
   },
   */
   {
@@ -211,7 +211,7 @@ const members: Profile[] = [
     title: 'Blockchain Engineer',
     linkedIn: 'https://www.linkedin.com/in/yuval-weiss-610b5816a/',
     github: 'https://github.com/yuval-weiss',
-    desc: 'Yuval has over 5 years of experience as a software engineer at both web3 startups such as Bancor, and web2 software companies such as Microsoft.',
+    desc: "Yuval is one of Tempus' blockchain engineers. He has over 5 years' experience at both Web3 startups such as Bancor and Web2 software companies like Microsoft.",
   },
 ];
 
