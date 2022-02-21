@@ -19,11 +19,6 @@ const EtherueumNetworkCard = () => {
     <>
       <div className="tf__protocols__icon-container" aria-hidden="true">
         <div className="tf__protocols__icon">
-          <TokenUsdcIcon />
-        </div>
-      </div>
-      <div className="tf__protocols__icon-container" aria-hidden="true">
-        <div className="tf__protocols__icon">
           <TokenEthIcon />
         </div>
       </div>
