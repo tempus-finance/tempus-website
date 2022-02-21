@@ -128,7 +128,7 @@ class VariableRateService {
     const laterBlock = Math.max(poolConfig.startDate, earlierBlock.timestamp * 1000);
     const hoursBetweenLatestAndLater = ((latestBlock.timestamp * 1000 - laterBlock) / (60 * 60 * 1000)).toFixed(18);
 
-    const fetchEventsFromBlock = latestBlock.number - earlierBlock.number;
+    const fetchEventsFromBlock = earlierBlock.number;
 
     const sortedEvents = await this.getSwapAndPoolBalanceChangedEvents(poolConfig, fetchEventsFromBlock);
 
