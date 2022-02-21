@@ -30,7 +30,7 @@ const members: Profile[] = [
     title: 'Founder',
     twitter: 'https://twitter.com/davgarai',
     linkedIn: 'https://www.linkedin.com/in/davidgarai/',
-    desc: 'David is responsible for providing strategic, financial and operational leadership at Tempus. Before founding Tempus with Djordje, he worked as a structured finance lawyer in London and Tokyo. In his spare time, David enjoys shitposting on Twitter.',
+    desc: 'David is responsible for providing strategic, financial and operational leadership at Tempus. Before founding Tempus with Đorđe, he worked as a structured finance lawyer in London and Tokyo. In his spare time, David enjoys shitposting on Twitter.',
   },
   {
     name: 'Đorđe Mijović',
@@ -139,7 +139,7 @@ const members: Profile[] = [
     fullname: 'Olaf Kuusik',
     avatar: olafImg,
     title: 'UX Designer',
-    desc: 'Lord of the Banners.',
+    desc: 'Olaf is a UX/UI Designer for Tempus. He has over 8+ years of prior experience as a designer working in both traditional finance and various design agencies making web and product designs.',
   },
   {
     name: 'Pujeet',
