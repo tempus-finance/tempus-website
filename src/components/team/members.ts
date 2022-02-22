@@ -139,6 +139,8 @@ const members: Profile[] = [
     fullname: 'Olaf Kuusik',
     avatar: olafImg,
     title: 'UX Designer',
+    twitter: 'https://twitter.com/OlafKuusik',
+    linkedIn: 'https://www.linkedin.com/in/olaf-k-37943ab4/',
     desc: "Olaf is responsible for making Tempus as easy to use as possible. He has over 8 years' experience as a designer working in both traditional finance and various design agencies making web and product designs.",
   },
   {
@@ -163,6 +165,8 @@ const members: Profile[] = [
     name: 'Stefan',
     fullname: 'Stefan Vitorović',
     avatar: stefanImg,
+    twitter: 'https://twitter.com/StefanVitorovic',
+    linkedIn: 'https://www.linkedin.com/in/stefan-vitorovi%C4%87-317b5170/',
     title: 'Blockchain Engineer',
     desc: "Stefan is one of Tempus' blockchain engineers. He has over 8 years' full stack and system architect experience in developing and implementing different systems. Before joining Tempus, Stefan worked at Composable Finance.",
   },
