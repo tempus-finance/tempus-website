@@ -1,4 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { useState as useHookState } from '@hookstate/core';
+import { dynamicPoolDataState } from '../../../../state/PoolDataState';
+import { getChainConfig } from '../../../../utils/getConfig';
 import getVariableRateService from '../../../../services/getVariableRateService';
 import FantomNetworkIcon from '../../../icons/fantomNetworkLogo';
 import TokenUsdcIcon from '../../../icons/tokenUsdcIcon';
@@ -9,14 +12,23 @@ import TokenYfiIcon from '../../../icons/tokenYfiIcon';
 import NetworkCard from './networkCard';
 
 const FantomNetworkCard = () => {
-  const [maxApy, setMaxApy] = useState<number>(0);
+  const dynamicPoolData = useHookState(dynamicPoolDataState);
+  const [maxVarApy, setMaxVarApy] = useState<number>(0);
+  const [maxFixedApy, setMaxFixedApy] = useState<number>(0);
 
   useEffect(() => {
     const variableRateService = getVariableRateService('fantom');
-    const fetching = () => variableRateService.getMaxAPY('fantom').then(setMaxApy);
+    const fetching = () => variableRateService.getMaxAPY('fantom').then(setMaxVarApy);
     fetching();
     setInterval(fetching, 60 * 1000);
   }, []);
+
+  useEffect(() => {
+    const fixedAPRs = getChainConfig('fantom')
+      .tempusPools.map((tempusPool) => dynamicPoolData[tempusPool.address].fixedAPR.get())
+      .map((apr) => (!apr || apr === 'fetching' ? 0 : apr));
+    setMaxFixedApy(Math.max(...fixedAPRs));
+  }, [dynamicPoolData]);
 
   const supportedProtocolIcons = (
     <>
@@ -54,7 +66,7 @@ const FantomNetworkCard = () => {
       networkIcon={<FantomNetworkIcon />}
       networkName="Fantom"
       supportedProtocolIcons={supportedProtocolIcons}
-      maxApy={maxApy}
+      maxApy={Math.max(maxVarApy, maxFixedApy)}
       appUrl="https://app.tempus.finance/?network=fantom"
     />
   );

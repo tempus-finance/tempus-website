@@ -1,4 +1,5 @@
 import React from 'react';
+import FixedAPRProvider from '../../../providers/fixedAPRProvider';
 import Spacer from '../../spacer/spacer';
 import Typography from '../../typography/typography';
 import EthereumNetworkCard from './networkCard/EthereumNetworkCard';
@@ -20,6 +21,7 @@ const Protocols = () => (
       <EthereumNetworkCard />
       <FantomNetworkCard />
     </div>
+    <FixedAPRProvider />
   </div>
 );
 export default Protocols;
