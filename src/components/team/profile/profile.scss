@@ -9,6 +9,7 @@
     width: 176px;
     height: 176px;
     overflow: hidden;
+    isolation: isolate; /* this fix for mobile safari overflow: hidden + border-radius issue */
 
     img {
       position: relative;
