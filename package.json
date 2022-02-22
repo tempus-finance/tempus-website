@@ -11,6 +11,7 @@
   "dependencies": {
     "@ethersproject/bignumber": "^5.5.0",
     "@ethersproject/providers": "^5.5.0",
+    "@hookstate/core": "^3.0.13",
     "@uniswap/sdk-core": "^3.0.1",
     "@uniswap/v3-core": "^1.0.0",
     "@uniswap/v3-sdk": "^3.8.1",
