@@ -2,8 +2,7 @@ import Profile from '../../interfaces/Profile';
 
 import davidImg from './members/david.png';
 import dordeImg from './members/dorde.png';
-import alexbImg from './members/alexb.png';
-import alexhImg from './members/alexh.png';
+import alexImg from './members/alex.png';
 import cristianoImg from './members/cristiano.png';
 import danieleImg from './members/daniele.png';
 import dhruvImg from './members/dhruv.png';
@@ -43,23 +42,14 @@ const members: Profile[] = [
     desc: 'Đorđe takes responsibility for technological oversight at Tempus. Before co-founding Tempus with David, he worked as a core Solidity compiler developer at Ethereum Foundation.',
   },
   {
-    name: 'Alex B',
+    name: 'Alex',
     fullname: 'Alex Beregszaszi',
-    avatar: alexbImg,
+    avatar: alexImg,
     title: 'Blockchain Engineer',
     twitter: 'https://twitter.com/alexberegszaszi',
     linkedIn: 'https://www.linkedin.com/in/alexberegszaszi/',
     github: 'https://github.com/axic',
-    desc: 'Alex B enjoys thinking about protocol designs at Tempus. He has worked in embedded software development, fintech, and for the past 10 years with blockchain systems.',
-  },
-  {
-    name: 'Alex H',
-    fullname: 'Alex Hirsu',
-    avatar: alexhImg,
-    title: 'Operations Manager',
-    twitter: 'https://twitter.com/alexhirsu',
-    linkedIn: 'https://www.linkedin.com/in/alex-hirsu-14838177/',
-    desc: "Alex H is responsible for ensuring Tempus operates smoothly. He has over 4 years' of experience at both late-stage companies (e.g. HP Enterprise and Uber) and early-stage startups such as Voi Technology.",
+    desc: 'Alex enjoys thinking about protocol designs at Tempus. He has worked in embedded software development, fintech, and for the past 10 years with blockchain systems.',
   },
   {
     name: 'Cristiano',
