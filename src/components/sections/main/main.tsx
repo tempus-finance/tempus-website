@@ -22,7 +22,7 @@ const Main = () => {
   return (
     <div className="tf__main__container">
       <div className="tf__main__title">
-        <Typography variant="h1" color="inverted" html="Decentralized Fixed Income" />
+        <Typography variant="h1" color="inverted" html="Multi-Chain Fixed Income" />
       </div>
       <Spacer size={39} type="vertical" />
 
