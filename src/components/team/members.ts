@@ -113,7 +113,7 @@ const members: Profile[] = [
     title: 'Business Development Lead',
     twitter: 'https://twitter.com/joshkez95',
     linkedIn: 'https://www.linkedin.com/in/joshuakelly35/',
-    desc: 'Josh is responsible for building new partnerships with Tempus. Before joining the crypto scene, he previously worked as a financial services regulatory lawyer.',
+    desc: 'Josh is in charge of overseeing business development (including partnerships and integrations) at Tempus. Before joining the crypto scene, he previously worked as a financial services regulatory lawyer.',
   },
   {
     name: 'Lazar',
