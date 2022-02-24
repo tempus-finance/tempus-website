@@ -67,7 +67,7 @@ const FantomNetworkCard = () => {
       networkName="Fantom"
       supportedProtocolIcons={supportedProtocolIcons}
       maxApy={Math.max(maxVarApy, maxFixedApy)}
-      appUrl="https://app.tempus.finance/?network=fantom"
+      appUrl="https://app.tempus.finance/"
     />
   );
 };

@@ -43,7 +43,7 @@ const EtherueumNetworkCard = () => {
       networkName="Ethereum"
       supportedProtocolIcons={supportedProtocolIcons}
       maxApy={Math.max(maxVarApy, maxFixedApy)}
-      appUrl="https://app.tempus.finance/?network=ethereum"
+      appUrl="https://app.tempus.finance/"
     />
   );
 };
