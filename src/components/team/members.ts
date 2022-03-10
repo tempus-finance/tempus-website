@@ -11,13 +11,13 @@ import irinelImg from './members/irinel.png';
 import jormaImg from './members/jorma.png';
 import joshImg from './members/josh.png';
 import lazarImg from './members/lazar.png';
+import milicaImg from './members/milica.png';
 import olafImg from './members/olaf.png';
 import pujeetImg from './members/pujeet.png';
 import rtpImg from './members/rtp.png';
 import stefanImg from './members/stefan.png';
 import tianImg from './members/tian.png';
 import timImg from './members/tim.png';
-//import weileiImg from './members/weilei.png';
 import vukasinImg from './members/vukasin.png';
 import yuvalImg from './members/yuval.png';
 
@@ -125,6 +125,15 @@ const members: Profile[] = [
     desc: "Lazar is one of Tempus' frontend engineers. He has over 6 years' software engineering experience. Before joining Tempus, he worked as a software graphics engineer making 3D and VR applications.",
   },
   {
+    name: 'Milica',
+    fullname: 'Milica Cakić',
+    avatar: milicaImg,
+    title: 'Office Manager',
+    twitter: 'https://twitter.com/MilicaCakic',
+    linkedIn: 'https://www.linkedin.com/in/milica-cakic-551745137/',
+    desc: "Milica is responsible for the general operation of Tempus' office. Before joining Tempus, Milica worked for the Embassy of Canada in Serbia, where she supported activities related to Protocol, Education, Culture and Trade.",
+  },
+  {
     name: 'Olaf',
     fullname: 'Olaf Kuusik',
     avatar: olafImg,
@@ -187,17 +196,6 @@ const members: Profile[] = [
     github: 'https://github.com/iamvukasin',
     desc: "Vukašin is one of Tempus' frontend engineers. Before joining Tempus, he was an intern at the Microsoft Mixed Reality & AI Lab team and worked as an iOS developer at a Swiss video-oriented start-up.",
   },
-  /*
-  {
-    name: 'Weilei',
-    fullname: 'Weilei Yu',
-    avatar: weileiImg,
-    title: 'Head of Growth',
-    twitter: 'https://twitter.com/WeileiY',
-    linkedIn: 'https://www.linkedin.com/in/weileiyu',
-    desc: 'Weilei is responsible for growing Tempus. He was previously the Head of Marketing at Flow blockchain, leading its public launch and global growth. Before that, he led the adoption of Streamr on Ethereum in 2017.',
-  },
-  */
   {
     name: 'Yuval',
     fullname: 'Yuval Weiss',
