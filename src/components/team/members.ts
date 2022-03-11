@@ -64,7 +64,7 @@ const members: Profile[] = [
     name: 'Daniele',
     fullname: 'Daniele Damiani',
     avatar: danieleImg,
-    title: 'Frontend Engineer',
+    title: 'Frontend Lead',
     twitter: 'https://twitter.com/_danieledamiani',
     linkedIn: 'https://www.linkedin.com/in/danieledamiani/',
     github: 'https://github.com/danieledamiani',
