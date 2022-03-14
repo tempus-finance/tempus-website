@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import ExternalLink from '../../common/externalLink';
 
 const LinkedInIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -20,14 +20,10 @@ const LinkedInBtn = (props: BtnProps) => {
 
   if (!url) return null;
 
-  const onBtnClick = useCallback(() => {
-    window.open(url, '_blank');
-  }, [url]);
-
   return (
-    <button onClick={onBtnClick}>
+    <ExternalLink href={url}>
       <LinkedInIcon />
-    </button>
+    </ExternalLink>
   );
 };
 
