@@ -126,15 +126,15 @@ const NavbarMobile: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onMe
                   About
                 </Typography>
               </div>
-              <Link className="tf__navbar-dropdown-item" to={getNavbarLink('team')} aria-hidden="true">
+              <Link
+                className={`tf__navbar-dropdown-item ${activeLink === 'team' ? 'tf__navbar-dropdown-item-active' : ''}`}
+                to={getNavbarLink('team')} aria-hidden="true">
                 <Typography variant={activeLink === 'team' ? 'security-card-label' : 'body-text'} clickable>
                   Team
                 </Typography>
-                className={`tf__navbar-dropdown-item ${
-                  activeLink === 'tokenomics' ? 'tf__navbar-dropdown-item-active' : ''
-                }`}
               </Link>
               <Link
+                className={`tf__navbar-dropdown-item ${activeLink === 'tokenomics' ? 'tf__navbar-dropdown-item-active' : ''}`}
                 to={getNavbarLink('tokenomics')}
                 aria-hidden="true"
               >
