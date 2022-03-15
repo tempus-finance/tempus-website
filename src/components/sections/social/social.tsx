@@ -24,7 +24,7 @@ const Social = () => {
             Get notified about major developments in Tempus
           </Typography>
           <Spacer size={23} type="vertical" />
-          <Button width="180px">
+          <Button className="tf__social-action-button">
             <ExternalLink href="https://discord.com/invite/6gauHECShr">
               <DiscordLogo />
               <Spacer size={11} type="horizontal" />
@@ -42,7 +42,7 @@ const Social = () => {
             We’re always looking for talented people to join the team
           </Typography>
           <Spacer size={23} type="vertical" />
-          <Button width="180px">
+          <Button className="tf__social-action-button">
             <ExternalLink href="https://angel.co/company/tempusfinance">
               <Typography variant="get-involved-card-button" clickable>
                 See openings

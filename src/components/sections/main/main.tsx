@@ -19,15 +19,13 @@ const Main = () => {
       </div>
       <Spacer size={39} type="vertical" />
 
-      <div className="tf__main-button">
-        <Button width="206px" height="55px">
-          <ExternalLink href="https://app.tempus.finance">
-            <Typography variant="get-involved-card-button" clickable>
-              INVEST NOW
-            </Typography>
-          </ExternalLink>
-        </Button>
-      </div>
+      <Button className="tf__main-button">
+        <ExternalLink href="https://app.tempus.finance">
+          <Typography variant="get-involved-card-button" clickable>
+            INVEST NOW
+          </Typography>
+        </ExternalLink>
+      </Button>
       <div className="tf__main-button-mobile">
         <div>
           <Typography variant="header-label" clickable>

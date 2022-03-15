@@ -21,7 +21,7 @@ const TokenMainSection = () => {
           </Typography>
         </div>
         <div className="tf__tokenMainSection-actions">
-          <Button width="200px" height="48px">
+          <Button className="tf__tokenMainSection-action">
             <ExternalLink href="https://www.coingecko.com/en/coins/tempus">
               <CoinGeckoLogo />
               <Spacer size={10} type="horizontal" />
@@ -31,7 +31,7 @@ const TokenMainSection = () => {
             </ExternalLink>
           </Button>
           <Spacer size={20} type="box" />
-          <Button width="200px" height="48px">
+          <Button className="tf__tokenMainSection-action">
             <ExternalLink href="https://coinmarketcap.com/currencies/tempus/">
               <CoinMarketCapLogo />
               <Spacer size={10} type="horizontal" />
