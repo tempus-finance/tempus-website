@@ -22,10 +22,11 @@ type NavbarDesktopProps = {
   menuOpen: boolean;
   pageScrolledDown: boolean;
   onMenuClick: (open: boolean, mobile?: boolean) => void;
+  closeMenu: () => void;
   getNavbarLink: (target: NavbarLinkTarget) => string;
 };
 
-const NavbarMobile: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onMenuClick, getNavbarLink }) => {
+const NavbarMobile: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onMenuClick, closeMenu, getNavbarLink }) => {
   const [baseMenuOpen, setBaseMenuOpen] = useState<boolean>(true);
   const [aboutOpen, setAboutOpen] = useState<boolean>(false);
   const [communityOpen, setCommunityOpen] = useState<boolean>(false);
@@ -128,7 +129,10 @@ const NavbarMobile: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onMe
               </div>
               <Link
                 className={`tf__navbar-dropdown-item ${activeLink === 'team' ? 'tf__navbar-dropdown-item-active' : ''}`}
-                to={getNavbarLink('team')} aria-hidden="true">
+                to={getNavbarLink('team')}
+                onClick={closeMenu}
+                aria-hidden="true"
+              >
                 <Typography variant={activeLink === 'team' ? 'security-card-label' : 'body-text'} clickable>
                   Team
                 </Typography>
@@ -136,6 +140,7 @@ const NavbarMobile: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onMe
               <Link
                 className={`tf__navbar-dropdown-item ${activeLink === 'tokenomics' ? 'tf__navbar-dropdown-item-active' : ''}`}
                 to={getNavbarLink('tokenomics')}
+                onClick={closeMenu}
                 aria-hidden="true"
               >
                 <Typography variant={activeLink === 'tokenomics' ? 'security-card-label' : 'body-text'} clickable>

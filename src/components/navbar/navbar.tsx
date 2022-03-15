@@ -67,6 +67,11 @@ const Navbar = () => {
     }
   };
 
+  const closeMenu = () => {
+    setMenuOpen(false);
+    setMobileMenuOpen(false);
+  };
+
   let logoColor;
   let containerClasses = 'tf__navbar__container';
 
@@ -97,6 +102,7 @@ const Navbar = () => {
           menuOpen={menuOpen}
           pageScrolledDown={pageScrolledDown}
           onMenuClick={handleMenuClick}
+          closeMenu={closeMenu}
           getNavbarLink={getNavbarLink}
         />
       </div>
