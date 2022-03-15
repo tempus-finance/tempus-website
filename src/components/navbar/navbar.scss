@@ -34,6 +34,10 @@
   }
 }
 
+.tf__navbar-item {
+  color: transparent;
+}
+
 .tf__navbar-dropdown-label {
   cursor: pointer;
   position: relative;
@@ -59,7 +63,7 @@
   align-items: center;
   height: 54px;
   padding-left: 20px;
-  cursor: pointer;
+  color: transparent;
 
   &:hover {
     background-color: #f2f2f2;

@@ -1,4 +1,6 @@
-import React, { FC, MouseEvent, useCallback, useEffect, useState } from 'react';
+import React, { FC, useCallback, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import ExternalLink from '../common/externalLink';
 import ChevronLeft from '../icons/chevronLeft';
 import ChevronRight from '../icons/chevronRight';
 import CrossIcon from '../icons/cross';
@@ -12,6 +14,7 @@ import TelegramIcon from '../icons/telegramIcon';
 import TwitterIcon from '../icons/twitter-icon';
 import Spacer from '../spacer/spacer';
 import Typography from '../typography/typography';
+import { NavbarLinkTarget } from './navbar';
 
 import './navbar.scss';
 
@@ -19,10 +22,10 @@ type NavbarDesktopProps = {
   menuOpen: boolean;
   pageScrolledDown: boolean;
   onMenuClick: (open: boolean, mobile?: boolean) => void;
-  onSiteClick: (event: MouseEvent<HTMLDivElement>) => void;
+  getNavbarLink: (target: NavbarLinkTarget) => string;
 };
 
-const NavbarMobile: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onMenuClick, onSiteClick }) => {
+const NavbarMobile: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onMenuClick, getNavbarLink }) => {
   const [baseMenuOpen, setBaseMenuOpen] = useState<boolean>(true);
   const [aboutOpen, setAboutOpen] = useState<boolean>(false);
   const [communityOpen, setCommunityOpen] = useState<boolean>(false);
@@ -38,11 +41,10 @@ const NavbarMobile: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onMe
     setBaseMenuOpen(false);
   };
 
-  const onBackClick = (event: MouseEvent<HTMLDivElement>) => {
+  const onBackClick = () => {
     setAboutOpen(false);
     setCommunityOpen(false);
     setBaseMenuOpen(true);
-    onSiteClick(event);
   };
 
   const handleMenuClick = useCallback(() => {
@@ -98,11 +100,11 @@ const NavbarMobile: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onMe
                 <Spacer size={6} type="horizontal" />
                 <ChevronRight />
               </div>
-              <div className="tf__navbar-dropdown-item" data-target="docs" onClick={onSiteClick} aria-hidden="true">
+              <ExternalLink className="tf__navbar-dropdown-item" href={getNavbarLink('docs')} aria-hidden="true">
                 <Typography variant="body-text" clickable>
                   Docs
                 </Typography>
-              </div>
+              </ExternalLink>
             </div>
           )}
           {aboutOpen && (
@@ -124,23 +126,22 @@ const NavbarMobile: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onMe
                   About
                 </Typography>
               </div>
-              <div className="tf__navbar-dropdown-item" data-target="team" onClick={onSiteClick} aria-hidden="true">
+              <Link className="tf__navbar-dropdown-item" to={getNavbarLink('team')} aria-hidden="true">
                 <Typography variant={activeLink === 'team' ? 'security-card-label' : 'body-text'} clickable>
                   Team
                 </Typography>
-              </div>
-              <div
                 className={`tf__navbar-dropdown-item ${
                   activeLink === 'tokenomics' ? 'tf__navbar-dropdown-item-active' : ''
                 }`}
-                data-target="tokenomics"
-                onClick={onSiteClick}
+              </Link>
+              <Link
+                to={getNavbarLink('tokenomics')}
                 aria-hidden="true"
               >
                 <Typography variant={activeLink === 'tokenomics' ? 'security-card-label' : 'body-text'} clickable>
                   Tokenomics
                 </Typography>
-              </div>
+              </Link>
             </div>
           )}
           {communityOpen && (
@@ -161,10 +162,9 @@ const NavbarMobile: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onMe
                   Community
                 </Typography>
               </div>
-              <div
+              <ExternalLink
                 className="tf__navbar-dropdown-item"
-                data-target="governance"
-                onClick={onSiteClick}
+                href={getNavbarLink('governance')}
                 aria-hidden="true"
               >
                 <GovernanceIcon />
@@ -172,39 +172,38 @@ const NavbarMobile: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onMe
                 <Typography variant="body-text" clickable>
                   Governance
                 </Typography>
-              </div>
-              <div className="tf__navbar-dropdown-item" data-target="twitter" onClick={onSiteClick} aria-hidden="true">
+              </ExternalLink>
+              <ExternalLink className="tf__navbar-dropdown-item" href={getNavbarLink('twitter')} aria-hidden="true">
                 <TwitterIcon />
                 <Spacer size={10} type="horizontal" />
                 <Typography variant="body-text" clickable>
                   Twitter
                 </Typography>
-              </div>
-              <div className="tf__navbar-dropdown-item" data-target="discord" onClick={onSiteClick} aria-hidden="true">
+              </ExternalLink>
+              <ExternalLink className="tf__navbar-dropdown-item" href={getNavbarLink('discord')} aria-hidden="true">
                 <DiscordLogo width="20" height="15" />
                 <Spacer size={10} type="horizontal" />
                 <Typography variant="body-text" clickable>
                   Discord
                 </Typography>
-              </div>
-              <div className="tf__navbar-dropdown-item" data-target="medium" onClick={onSiteClick} aria-hidden="true">
+              </ExternalLink>
+              <ExternalLink className="tf__navbar-dropdown-item" href={getNavbarLink('medium')} aria-hidden="true">
                 <MediumIcon />
                 <Spacer size={10} type="horizontal" />
                 <Typography variant="body-text" clickable>
                   Medium
                 </Typography>
-              </div>
-              <div className="tf__navbar-dropdown-item" data-target="github" onClick={onSiteClick} aria-hidden="true">
+              </ExternalLink>
+              <ExternalLink className="tf__navbar-dropdown-item" href={getNavbarLink('github')} aria-hidden="true">
                 <GitHubIcon />
                 <Spacer size={10} type="horizontal" />
                 <Typography variant="body-text" clickable>
                   GitHub
                 </Typography>
-              </div>
-              <div
+              </ExternalLink>
+              <ExternalLink
                 className="tf__navbar-dropdown-item"
-                data-target="announcements"
-                onClick={onSiteClick}
+                href={getNavbarLink('announcements')}
                 aria-hidden="true"
               >
                 <TelegramIcon />
@@ -212,21 +211,21 @@ const NavbarMobile: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onMe
                 <Typography variant="body-text" clickable>
                   Tempus Announcements
                 </Typography>
-              </div>
-              <div className="tf__navbar-dropdown-item" data-target="chat" onClick={onSiteClick} aria-hidden="true">
+              </ExternalLink>
+              <ExternalLink className="tf__navbar-dropdown-item" href={getNavbarLink('chat')} aria-hidden="true">
                 <TelegramIcon />
                 <Spacer size={10} type="horizontal" />
                 <Typography variant="body-text" clickable>
                   Tempus Chat
                 </Typography>
-              </div>
-              <div className="tf__navbar-dropdown-item" data-target="chinese" onClick={onSiteClick} aria-hidden="true">
+              </ExternalLink>
+              <ExternalLink className="tf__navbar-dropdown-item" href={getNavbarLink('chinese')} aria-hidden="true">
                 <TelegramIcon />
                 <Spacer size={10} type="horizontal" />
                 <Typography variant="body-text" clickable>
                   Tempus 中文社區
                 </Typography>
-              </div>
+              </ExternalLink>
             </div>
           )}
         </>
