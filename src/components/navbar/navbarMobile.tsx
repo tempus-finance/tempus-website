@@ -1,4 +1,6 @@
-import React, { FC, MouseEvent, useCallback, useEffect, useState } from 'react';
+import React, { FC, useCallback, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import ExternalLink from '../common/externalLink';
 import ChevronLeft from '../icons/chevronLeft';
 import ChevronRight from '../icons/chevronRight';
 import CrossIcon from '../icons/cross';
@@ -19,10 +21,10 @@ type NavbarDesktopProps = {
   menuOpen: boolean;
   pageScrolledDown: boolean;
   onMenuClick: (open: boolean, mobile?: boolean) => void;
-  onSiteClick: (event: MouseEvent<HTMLDivElement>) => void;
+  closeMenu: () => void;
 };
 
-const NavbarMobile: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onMenuClick, onSiteClick }) => {
+const NavbarMobile: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onMenuClick, closeMenu }) => {
   const [baseMenuOpen, setBaseMenuOpen] = useState<boolean>(true);
   const [aboutOpen, setAboutOpen] = useState<boolean>(false);
   const [communityOpen, setCommunityOpen] = useState<boolean>(false);
@@ -38,11 +40,10 @@ const NavbarMobile: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onMe
     setBaseMenuOpen(false);
   };
 
-  const onBackClick = (event: MouseEvent<HTMLDivElement>) => {
+  const onBackClick = () => {
     setAboutOpen(false);
     setCommunityOpen(false);
     setBaseMenuOpen(true);
-    onSiteClick(event);
   };
 
   const handleMenuClick = useCallback(() => {
@@ -98,11 +99,15 @@ const NavbarMobile: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onMe
                 <Spacer size={6} type="horizontal" />
                 <ChevronRight />
               </div>
-              <div className="tf__navbar-dropdown-item" data-target="docs" onClick={onSiteClick} aria-hidden="true">
+              <ExternalLink
+                className="tf__navbar-dropdown-item"
+                href="http://docs.tempus.finance/"
+                aria-hidden="true"
+              >
                 <Typography variant="body-text" clickable>
                   Docs
                 </Typography>
-              </div>
+              </ExternalLink>
             </div>
           )}
           {aboutOpen && (
@@ -124,23 +129,26 @@ const NavbarMobile: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onMe
                   About
                 </Typography>
               </div>
-              <div className="tf__navbar-dropdown-item" data-target="team" onClick={onSiteClick} aria-hidden="true">
+              <Link
+                className={`tf__navbar-dropdown-item ${activeLink === 'team' ? 'tf__navbar-dropdown-item-active' : ''}`}
+                to="/team"
+                onClick={closeMenu}
+                aria-hidden="true"
+              >
                 <Typography variant={activeLink === 'team' ? 'security-card-label' : 'body-text'} clickable>
                   Team
                 </Typography>
-              </div>
-              <div
-                className={`tf__navbar-dropdown-item ${
-                  activeLink === 'tokenomics' ? 'tf__navbar-dropdown-item-active' : ''
-                }`}
-                data-target="tokenomics"
-                onClick={onSiteClick}
+              </Link>
+              <Link
+                className={`tf__navbar-dropdown-item ${activeLink === 'tokenomics' ? 'tf__navbar-dropdown-item-active' : ''}`}
+                to="/tokenomics"
+                onClick={closeMenu}
                 aria-hidden="true"
               >
                 <Typography variant={activeLink === 'tokenomics' ? 'security-card-label' : 'body-text'} clickable>
                   Tokenomics
                 </Typography>
-              </div>
+              </Link>
             </div>
           )}
           {communityOpen && (
@@ -161,10 +169,9 @@ const NavbarMobile: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onMe
                   Community
                 </Typography>
               </div>
-              <div
+              <ExternalLink
                 className="tf__navbar-dropdown-item"
-                data-target="governance"
-                onClick={onSiteClick}
+                href="https://forum.tempus.finance/"
                 aria-hidden="true"
               >
                 <GovernanceIcon />
@@ -172,39 +179,54 @@ const NavbarMobile: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onMe
                 <Typography variant="body-text" clickable>
                   Governance
                 </Typography>
-              </div>
-              <div className="tf__navbar-dropdown-item" data-target="twitter" onClick={onSiteClick} aria-hidden="true">
+              </ExternalLink>
+              <ExternalLink
+                className="tf__navbar-dropdown-item"
+                href="https://twitter.com/tempusfinance"
+                aria-hidden="true"
+              >
                 <TwitterIcon />
                 <Spacer size={10} type="horizontal" />
                 <Typography variant="body-text" clickable>
                   Twitter
                 </Typography>
-              </div>
-              <div className="tf__navbar-dropdown-item" data-target="discord" onClick={onSiteClick} aria-hidden="true">
+              </ExternalLink>
+              <ExternalLink
+                className="tf__navbar-dropdown-item"
+                href="https://discord.com/invite/6gauHECShr"
+                aria-hidden="true"
+              >
                 <DiscordLogo width="20" height="15" />
                 <Spacer size={10} type="horizontal" />
                 <Typography variant="body-text" clickable>
                   Discord
                 </Typography>
-              </div>
-              <div className="tf__navbar-dropdown-item" data-target="medium" onClick={onSiteClick} aria-hidden="true">
+              </ExternalLink>
+              <ExternalLink
+                className="tf__navbar-dropdown-item"
+                href="https://medium.com/tempusfinance"
+                aria-hidden="true"
+              >
                 <MediumIcon />
                 <Spacer size={10} type="horizontal" />
                 <Typography variant="body-text" clickable>
                   Medium
                 </Typography>
-              </div>
-              <div className="tf__navbar-dropdown-item" data-target="github" onClick={onSiteClick} aria-hidden="true">
+              </ExternalLink>
+              <ExternalLink
+                className="tf__navbar-dropdown-item"
+                href="https://github.com/tempus-finance"
+                aria-hidden="true"
+              >
                 <GitHubIcon />
                 <Spacer size={10} type="horizontal" />
                 <Typography variant="body-text" clickable>
                   GitHub
                 </Typography>
-              </div>
-              <div
+              </ExternalLink>
+              <ExternalLink
                 className="tf__navbar-dropdown-item"
-                data-target="announcements"
-                onClick={onSiteClick}
+                href="https://t.me/tempusfinance"
                 aria-hidden="true"
               >
                 <TelegramIcon />
@@ -212,21 +234,29 @@ const NavbarMobile: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onMe
                 <Typography variant="body-text" clickable>
                   Tempus Announcements
                 </Typography>
-              </div>
-              <div className="tf__navbar-dropdown-item" data-target="chat" onClick={onSiteClick} aria-hidden="true">
+              </ExternalLink>
+              <ExternalLink
+                className="tf__navbar-dropdown-item"
+                href="https://t.me/tempuschat"
+                aria-hidden="true"
+              >
                 <TelegramIcon />
                 <Spacer size={10} type="horizontal" />
                 <Typography variant="body-text" clickable>
                   Tempus Chat
                 </Typography>
-              </div>
-              <div className="tf__navbar-dropdown-item" data-target="chinese" onClick={onSiteClick} aria-hidden="true">
+              </ExternalLink>
+              <ExternalLink
+                className="tf__navbar-dropdown-item"
+                href="https://t.me/joinchat/SaOp74Uqe2BiMGM1"
+                aria-hidden="true"
+              >
                 <TelegramIcon />
                 <Spacer size={10} type="horizontal" />
                 <Typography variant="body-text" clickable>
                   Tempus 中文社區
                 </Typography>
-              </div>
+              </ExternalLink>
             </div>
           )}
         </>

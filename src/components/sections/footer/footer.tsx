@@ -1,51 +1,41 @@
-import React, { useCallback } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import ExternalLink from '../../common/externalLink';
 import Typography from '../../typography/typography';
 
 import './footer.scss';
 
 const Footer = () => {
-  const history = useHistory();
-
-  const onPrivacyPolicyClick = useCallback(() => {
-    history.push('/privacy-policy');
-  }, []);
-
-  const onDisclaimerClick = useCallback(() => {
-    history.push('/disclaimer');
-  }, []);
-
-  const onTermsOfServiceClick = useCallback(() => {
-    history.push('/terms-of-service');
-  }, []);
-
-  const onContactClick = useCallback(() => {
-    window.open('mailto:contact@tempus.finance', '_blank');
-  }, []);
-
   return (
     <div className="tf__footer__container">
-      <Typography variant="join-body" color="inverted" clickable underline onClick={onTermsOfServiceClick}>
-        Terms of Service
-      </Typography>
+      <Link to="/terms-of-service">
+        <Typography variant="join-body" color="inverted" clickable underline>
+          Terms of Service
+        </Typography>
+      </Link>
       <Typography variant="join-body" color="inverted" desktopOnly>
         &nbsp;-&nbsp;
       </Typography>
-      <Typography variant="join-body" color="inverted" clickable underline onClick={onDisclaimerClick}>
-        Disclaimer
-      </Typography>
+      <Link to="/disclaimer">
+        <Typography variant="join-body" color="inverted" clickable underline>
+          Disclaimer
+        </Typography>
+      </Link>
       <Typography variant="join-body" color="inverted" desktopOnly>
         &nbsp;-&nbsp;
       </Typography>
-      <Typography variant="join-body" color="inverted" clickable underline onClick={onPrivacyPolicyClick}>
-        Privacy Policy
-      </Typography>
+      <Link to="/privacy-policy">
+        <Typography variant="join-body" color="inverted" clickable underline>
+          Privacy Policy
+        </Typography>
+      </Link>
       <Typography variant="join-body" color="inverted" desktopOnly>
         &nbsp;-&nbsp;
       </Typography>
-      <Typography variant="join-body" color="inverted" clickable underline onClick={onContactClick}>
-        Contact
-      </Typography>
+      <ExternalLink href="mailto:contact@tempus.finance">
+        <Typography variant="join-body" color="inverted" clickable underline>
+          Contact
+        </Typography>
+      </ExternalLink>
     </div>
   );
 };

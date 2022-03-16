@@ -12,4 +12,10 @@
   &:hover {
     background-color: #f2f2f2;
   }
+
+  a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+  }
 }

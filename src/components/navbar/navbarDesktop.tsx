@@ -1,5 +1,7 @@
 import React, { FC, MouseEvent, useCallback, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Button from '../button/button';
+import ExternalLink from '../common/externalLink';
 import ArrowDown from '../icons/arrow-down';
 import DiscordLogo from '../icons/discordLogo';
 import GitHubIcon from '../icons/gitHubIcon';
@@ -17,10 +19,9 @@ type NavbarDesktopProps = {
   menuOpen: boolean;
   pageScrolledDown: boolean;
   onMenuClick: (open: boolean) => void;
-  onSiteClick: (event: MouseEvent<HTMLDivElement>) => void;
 };
 
-const NavbarDesktop: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onMenuClick, onSiteClick }) => {
+const NavbarDesktop: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onMenuClick }) => {
   const [aboutOpen, setAboutOpen] = useState<boolean>(false);
   const [communityOpen, setCommunityOpen] = useState<boolean>(false);
 
@@ -36,10 +37,6 @@ const NavbarDesktop: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onM
     onMenuClick(!menuOpen);
   }, []);
 
-  const onLaunchAppClick = () => {
-    window.open('https://app.tempus.finance', '_blank');
-  };
-
   const textColor = pageScrolledDown ? 'default' : 'inverted';
 
   return (
@@ -53,21 +50,24 @@ const NavbarDesktop: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onM
           <ArrowDown fillColor={pageScrolledDown ? '#222222' : '#ffffff'} />
           {aboutOpen && (
             <div className="tf__navbar-dropdown">
-              <div
+              <Link
                 className="tf__navbar-dropdown-item"
-                data-target="tokenomics"
-                onClick={onSiteClick}
+                to="/tokenomics"
                 aria-hidden="true"
               >
                 <Typography variant="body-text" clickable>
                   Tokenomics
                 </Typography>
-              </div>
-              <div className="tf__navbar-dropdown-item" data-target="team" onClick={onSiteClick} aria-hidden="true">
+              </Link>
+              <Link
+                className="tf__navbar-dropdown-item"
+                to="/team"
+                aria-hidden="true"
+              >
                 <Typography variant="body-text" clickable>
                   Team
                 </Typography>
-              </div>
+              </Link>
             </div>
           )}
         </div>
@@ -81,10 +81,9 @@ const NavbarDesktop: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onM
           <ArrowDown fillColor={pageScrolledDown ? '#222222' : '#ffffff'} />
           {communityOpen && (
             <div className="tf__navbar-dropdown">
-              <div
+              <ExternalLink
                 className="tf__navbar-dropdown-item"
-                data-target="governance"
-                onClick={onSiteClick}
+                href="https://forum.tempus.finance/"
                 aria-hidden="true"
               >
                 <GovernanceIcon />
@@ -92,39 +91,54 @@ const NavbarDesktop: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onM
                 <Typography variant="body-text" clickable>
                   Governance
                 </Typography>
-              </div>
-              <div className="tf__navbar-dropdown-item" data-target="twitter" onClick={onSiteClick} aria-hidden="true">
+              </ExternalLink>
+              <ExternalLink
+                className="tf__navbar-dropdown-item"
+                href="https://twitter.com/tempusfinance"
+                aria-hidden="true"
+              >
                 <TwitterIcon />
                 <Spacer size={10} type="horizontal" />
                 <Typography variant="body-text" clickable>
                   Twitter
                 </Typography>
-              </div>
-              <div className="tf__navbar-dropdown-item" data-target="discord" onClick={onSiteClick} aria-hidden="true">
+              </ExternalLink>
+              <ExternalLink
+                className="tf__navbar-dropdown-item"
+                href="https://discord.com/invite/6gauHECShr"
+                aria-hidden="true"
+              >
                 <DiscordLogo width="20" height="15" />
                 <Spacer size={10} type="horizontal" />
                 <Typography variant="body-text" clickable>
                   Discord
                 </Typography>
-              </div>
-              <div className="tf__navbar-dropdown-item" data-target="medium" onClick={onSiteClick} aria-hidden="true">
+              </ExternalLink>
+              <ExternalLink
+                className="tf__navbar-dropdown-item"
+                href="https://medium.com/tempusfinance"
+                aria-hidden="true"
+              >
                 <MediumIcon />
                 <Spacer size={10} type="horizontal" />
                 <Typography variant="body-text" clickable>
                   Medium
                 </Typography>
-              </div>
-              <div className="tf__navbar-dropdown-item" data-target="github" onClick={onSiteClick} aria-hidden="true">
+              </ExternalLink>
+              <ExternalLink
+                className="tf__navbar-dropdown-item"
+                href="https://github.com/tempus-finance"
+                aria-hidden="true"
+              >
                 <GitHubIcon />
                 <Spacer size={10} type="horizontal" />
                 <Typography variant="body-text" clickable>
                   GitHub
                 </Typography>
-              </div>
-              <div
+              </ExternalLink>
+              <ExternalLink
                 className="tf__navbar-dropdown-item"
-                data-target="announcements"
-                onClick={onSiteClick}
+                href="https://t.me/tempusfinance"
                 aria-hidden="true"
               >
                 <TelegramIcon />
@@ -132,36 +146,46 @@ const NavbarDesktop: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onM
                 <Typography variant="body-text" clickable>
                   Tempus Announcements
                 </Typography>
-              </div>
-              <div className="tf__navbar-dropdown-item" data-target="chat" onClick={onSiteClick} aria-hidden="true">
+              </ExternalLink>
+              <ExternalLink
+                className="tf__navbar-dropdown-item"
+                href="https://t.me/tempuschat"
+                aria-hidden="true"
+              >
                 <TelegramIcon />
                 <Spacer size={10} type="horizontal" />
                 <Typography variant="body-text" clickable>
                   Tempus Chat
                 </Typography>
-              </div>
-              <div className="tf__navbar-dropdown-item" data-target="chinese" onClick={onSiteClick} aria-hidden="true">
+              </ExternalLink>
+              <ExternalLink
+                className="tf__navbar-dropdown-item"
+                href="https://t.me/joinchat/SaOp74Uqe2BiMGM1"
+                aria-hidden="true"
+              >
                 <TelegramIcon />
                 <Spacer size={10} type="horizontal" />
                 <Typography variant="body-text" clickable>
                   Tempus 中文社區
                 </Typography>
-              </div>
+              </ExternalLink>
             </div>
           )}
         </div>
         {communityOpen && <div className="tf__backdrop" onClick={onCommunityClick} aria-hidden="true" />}
         <Spacer size={45} type="horizontal" />
-        <div data-target="docs" onClick={onSiteClick}>
-          <Typography color={textColor} variant="header-label" clickable underline>
+        <ExternalLink className="tf__navbar-item" href="http://docs.tempus.finance/">
+          <Typography color={textColor} variant="header-label" underline clickable>
             DOCS
           </Typography>
-        </div>
+        </ExternalLink>
         <Spacer size={45} type="horizontal" />
-        <Button onClick={onLaunchAppClick}>
-          <Typography color={pageScrolledDown ? 'inverted' : 'default'} variant="header-label" clickable>
-            LAUNCH APP
-          </Typography>
+        <Button>
+          <ExternalLink href="https://app.tempus.finance">
+            <Typography color={pageScrolledDown ? 'inverted' : 'default'} variant="header-label" clickable>
+              LAUNCH APP
+            </Typography>
+          </ExternalLink>
         </Button>
       </div>
       {menuOpen && <div className="tf__backdrop" onClick={handleMenuClick} aria-hidden="true" />}

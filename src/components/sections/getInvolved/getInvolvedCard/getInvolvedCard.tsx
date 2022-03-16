@@ -1,5 +1,6 @@
 import React, { FC, useCallback } from 'react';
 import Button from '../../../button/button';
+import ExternalLink from '../../../common/externalLink';
 import LinkIcon from '../../../icons/linkIcon';
 import Spacer from '../../../spacer/spacer';
 import Typography from '../../../typography/typography';
@@ -34,11 +35,13 @@ const GetInvolvedCard: FC<GetInvolvedCardProps> = (props) => {
       <Spacer size={30} type="vertical" />
       <div className="tf__get-involved-card__action-button-container">
         <Button onClick={onActionClick}>
-          <Typography variant="get-involved-card-button" clickable>
-            {actionText}
-          </Typography>
-          <Spacer size={10} type="horizontal" />
-          <LinkIcon />
+          <ExternalLink href={actionLink}>
+            <Typography variant="get-involved-card-button" clickable>
+              {actionText}
+            </Typography>
+            <Spacer size={10} type="horizontal" />
+            <LinkIcon />
+          </ExternalLink>
         </Button>
       </div>
     </div>

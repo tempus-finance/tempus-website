@@ -31,6 +31,8 @@
 
 .tf__main-button {
   display: flex;
+  width: 206px;
+  height: 55px;
   margin: auto;
   padding-top: 10px;
 
@@ -62,6 +64,7 @@
 
 .tf__main-button-discord {
   display: none;
+  text-decoration: none;
 
   @media screen and (max-width: 1024px) {
     display: flex !important;

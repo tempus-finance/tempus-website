@@ -1,8 +1,9 @@
-import React, { ReactNode, useCallback, useMemo } from 'react';
+import { ReactNode, useMemo } from 'react';
 import Button from '../../../button/button';
 import Spacer from '../../../spacer/spacer';
 import Typography from '../../../typography/typography';
 import NumberUtils from '../../../../services/numberUtils';
+import ExternalLink from '../../../common/externalLink';
 
 import './networkCard.scss';
 
@@ -17,10 +18,6 @@ type NetworkCardProps = {
 
 const NetworkCard = (props: NetworkCardProps) => {
   const { className, networkIcon, networkName, supportedProtocolIcons, maxApy, appUrl } = props;
-
-  const onBtnClick = useCallback(() => {
-    window.open(appUrl, '_blank');
-  }, [appUrl]);
 
   const formattedAPY = useMemo(() => {
     if (!maxApy) return '-%';
@@ -44,10 +41,12 @@ const NetworkCard = (props: NetworkCardProps) => {
       <div className="tf__network-card__protocol-icons">{supportedProtocolIcons}</div>
       <Spacer size={18} type="vertical" />
       <div className="tf__network-card__action-button-container">
-        <Button onClick={onBtnClick}>
-          <Typography variant="network-card-button" clickable>
-            INVEST NOW
-          </Typography>
+        <Button width="206px" height="55px">
+          <ExternalLink href="https://app.tempus.finance">
+            <Typography variant="network-card-button" clickable>
+              INVEST NOW
+            </Typography>
+          </ExternalLink>
         </Button>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import React, { FC, useCallback } from 'react';
+import ExternalLink from '../../../common/externalLink';
 import Spacer from '../../../spacer/spacer';
 import Typography from '../../../typography/typography';
 
@@ -15,10 +16,6 @@ interface NewsCardProps {
 const NewsCard: FC<NewsCardProps> = (props) => {
   const { date, title, description, link, thumbnail } = props;
 
-  const onReadMoreClick = useCallback(() => {
-    window.open(link, '_blank');
-  }, []);
-
   return (
     <div className="tf__newsCard">
       <div className="tf__newsCard-image" style={{ backgroundImage: `url('${thumbnail}')` }} />
@@ -33,11 +30,11 @@ const NewsCard: FC<NewsCardProps> = (props) => {
           <Typography variant="body-text" html={description} />
         </div>
         <Spacer size={20} type="vertical" />
-        <div className="tf__newsCard-action">
-          <Typography variant="body-text" color="accent" clickable onClick={onReadMoreClick}>
+        <ExternalLink className="tf__newsCard-action" href={link}>
+          <Typography variant="body-text" color="accent" clickable>
             Read More
           </Typography>
-        </div>
+        </ExternalLink>
       </div>
     </div>
   );
