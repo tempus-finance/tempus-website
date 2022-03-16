@@ -12,7 +12,6 @@ import TelegramIcon from '../icons/telegramIcon';
 import TwitterIcon from '../icons/twitter-icon';
 import Spacer from '../spacer/spacer';
 import Typography from '../typography/typography';
-import { NavbarLinkTarget } from './navbar';
 
 import './navbar.scss';
 
@@ -20,10 +19,9 @@ type NavbarDesktopProps = {
   menuOpen: boolean;
   pageScrolledDown: boolean;
   onMenuClick: (open: boolean) => void;
-  getNavbarLink: (target: NavbarLinkTarget) => string;
 };
 
-const NavbarDesktop: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onMenuClick, getNavbarLink }) => {
+const NavbarDesktop: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onMenuClick }) => {
   const [aboutOpen, setAboutOpen] = useState<boolean>(false);
   const [communityOpen, setCommunityOpen] = useState<boolean>(false);
 
@@ -54,7 +52,7 @@ const NavbarDesktop: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onM
             <div className="tf__navbar-dropdown">
               <Link
                 className="tf__navbar-dropdown-item"
-                to={getNavbarLink('tokenomics')}
+                to="/tokenomics"
                 aria-hidden="true"
               >
                 <Typography variant="body-text" clickable>
@@ -63,7 +61,7 @@ const NavbarDesktop: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onM
               </Link>
               <Link
                 className="tf__navbar-dropdown-item"
-                to={getNavbarLink('team')}
+                to="/team"
                 aria-hidden="true"
               >
                 <Typography variant="body-text" clickable>
@@ -85,7 +83,7 @@ const NavbarDesktop: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onM
             <div className="tf__navbar-dropdown">
               <ExternalLink
                 className="tf__navbar-dropdown-item"
-                href={getNavbarLink('governance')}
+                href="https://forum.tempus.finance/"
                 aria-hidden="true"
               >
                 <GovernanceIcon />
@@ -96,7 +94,7 @@ const NavbarDesktop: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onM
               </ExternalLink>
               <ExternalLink
                 className="tf__navbar-dropdown-item"
-                href={getNavbarLink('twitter')}
+                href="https://twitter.com/tempusfinance"
                 aria-hidden="true"
               >
                 <TwitterIcon />
@@ -107,7 +105,7 @@ const NavbarDesktop: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onM
               </ExternalLink>
               <ExternalLink
                 className="tf__navbar-dropdown-item"
-                href={getNavbarLink('discord')}
+                href="https://discord.com/invite/6gauHECShr"
                 aria-hidden="true"
               >
                 <DiscordLogo width="20" height="15" />
@@ -118,7 +116,7 @@ const NavbarDesktop: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onM
               </ExternalLink>
               <ExternalLink
                 className="tf__navbar-dropdown-item"
-                href={getNavbarLink('medium')}
+                href="https://medium.com/tempusfinance"
                 aria-hidden="true"
               >
                 <MediumIcon />
@@ -129,7 +127,7 @@ const NavbarDesktop: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onM
               </ExternalLink>
               <ExternalLink
                 className="tf__navbar-dropdown-item"
-                href={getNavbarLink('github')}
+                href="https://github.com/tempus-finance"
                 aria-hidden="true"
               >
                 <GitHubIcon />
@@ -140,7 +138,7 @@ const NavbarDesktop: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onM
               </ExternalLink>
               <ExternalLink
                 className="tf__navbar-dropdown-item"
-                href={getNavbarLink('announcements')}
+                href="https://t.me/tempusfinance"
                 aria-hidden="true"
               >
                 <TelegramIcon />
@@ -151,7 +149,7 @@ const NavbarDesktop: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onM
               </ExternalLink>
               <ExternalLink
                 className="tf__navbar-dropdown-item"
-                href={getNavbarLink('chat')}
+                href="https://t.me/tempuschat"
                 aria-hidden="true"
               >
                 <TelegramIcon />
@@ -162,7 +160,7 @@ const NavbarDesktop: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onM
               </ExternalLink>
               <ExternalLink
                 className="tf__navbar-dropdown-item"
-                href={getNavbarLink('chinese')}
+                href="https://t.me/joinchat/SaOp74Uqe2BiMGM1"
                 aria-hidden="true"
               >
                 <TelegramIcon />
@@ -176,7 +174,7 @@ const NavbarDesktop: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onM
         </div>
         {communityOpen && <div className="tf__backdrop" onClick={onCommunityClick} aria-hidden="true" />}
         <Spacer size={45} type="horizontal" />
-        <ExternalLink className="tf__navbar-item" href={getNavbarLink('docs')}>
+        <ExternalLink className="tf__navbar-item" href="http://docs.tempus.finance/">
           <Typography color={textColor} variant="header-label" underline clickable>
             DOCS
           </Typography>
