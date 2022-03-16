@@ -56,7 +56,7 @@ const Navbar = () => {
     <div className={containerClasses}>
       <div className="tf__navbar__content">
         <div className="tf__flex-row-center-v">
-          <Link to="/" aria-hidden="true">
+          <Link to="/" onClick={closeMenu} aria-hidden="true">
             <Logo fillColor={logoColor} />
           </Link>
         </div>
