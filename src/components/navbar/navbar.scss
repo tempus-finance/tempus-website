@@ -1,6 +1,7 @@
 .tf__navbar__container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   background-color: transparent;
   position: fixed;
   width: 100%;
@@ -8,6 +9,7 @@
 
   @media screen and (max-width: 1024px) {
     justify-content: space-between;
+    flex-direction: row;
   }
 }
 

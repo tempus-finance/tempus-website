@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Announcement from '../announcement/announcement';
 import Logo from '../logo/logo';
 import NavbarDesktop from './navbarDesktop';
 import NavbarMobile from './navbarMobile';
@@ -54,17 +55,14 @@ const Navbar = () => {
 
   return (
     <div className={containerClasses}>
+      <Announcement />
       <div className="tf__navbar__content">
         <div className="tf__flex-row-center-v">
           <Link to="/" onClick={closeMenu} aria-hidden="true">
             <Logo fillColor={logoColor} />
           </Link>
         </div>
-        <NavbarDesktop
-          menuOpen={menuOpen}
-          pageScrolledDown={pageScrolledDown}
-          onMenuClick={handleMenuClick}
-        />
+        <NavbarDesktop menuOpen={menuOpen} pageScrolledDown={pageScrolledDown} onMenuClick={handleMenuClick} />
         <NavbarMobile
           menuOpen={menuOpen}
           pageScrolledDown={pageScrolledDown}

@@ -1,0 +1,24 @@
+.tf__announcement__container {
+  background: linear-gradient(97.53deg, #4ea3c8 0%, #285a95 100%);
+  width: 100%;
+  height: 62px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  a {
+    text-decoration: none;
+  }
+
+  button {
+    position: absolute;
+    right: 23px;
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
+}

@@ -7,7 +7,6 @@ import DiscordLogo from '../icons/discordLogo';
 import GitHubIcon from '../icons/gitHubIcon';
 import GovernanceIcon from '../icons/governanceNavbarIcon';
 import MediumIcon from '../icons/mediumIcon';
-import SersIcon from '../icons/sersIcon';
 import TelegramIcon from '../icons/telegramIcon';
 import TwitterIcon from '../icons/twitter-icon';
 import Spacer from '../spacer/spacer';
@@ -50,20 +49,12 @@ const NavbarDesktop: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onM
           <ArrowDown fillColor={pageScrolledDown ? '#222222' : '#ffffff'} />
           {aboutOpen && (
             <div className="tf__navbar-dropdown">
-              <Link
-                className="tf__navbar-dropdown-item"
-                to="/tokenomics"
-                aria-hidden="true"
-              >
+              <Link className="tf__navbar-dropdown-item" to="/tokenomics" aria-hidden="true">
                 <Typography variant="body-text" clickable>
                   Tokenomics
                 </Typography>
               </Link>
-              <Link
-                className="tf__navbar-dropdown-item"
-                to="/team"
-                aria-hidden="true"
-              >
+              <Link className="tf__navbar-dropdown-item" to="/team" aria-hidden="true">
                 <Typography variant="body-text" clickable>
                   Team
                 </Typography>
@@ -136,22 +127,14 @@ const NavbarDesktop: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onM
                   GitHub
                 </Typography>
               </ExternalLink>
-              <ExternalLink
-                className="tf__navbar-dropdown-item"
-                href="https://t.me/tempusfinance"
-                aria-hidden="true"
-              >
+              <ExternalLink className="tf__navbar-dropdown-item" href="https://t.me/tempusfinance" aria-hidden="true">
                 <TelegramIcon />
                 <Spacer size={10} type="horizontal" />
                 <Typography variant="body-text" clickable>
                   Tempus Announcements
                 </Typography>
               </ExternalLink>
-              <ExternalLink
-                className="tf__navbar-dropdown-item"
-                href="https://t.me/tempuschat"
-                aria-hidden="true"
-              >
+              <ExternalLink className="tf__navbar-dropdown-item" href="https://t.me/tempuschat" aria-hidden="true">
                 <TelegramIcon />
                 <Spacer size={10} type="horizontal" />
                 <Typography variant="body-text" clickable>
