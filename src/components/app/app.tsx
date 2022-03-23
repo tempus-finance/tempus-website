@@ -26,9 +26,9 @@ import './app.scss';
 const App = () => (
   <div className="tf__app__content">
     <Router>
-      <Navbar />
       <Switch>
         <Route path="/team">
+          <Navbar showAnnouncement />
           <TeamPage />
           <div className="tf__app__sections-gradient-wrapper">
             <Social />
@@ -39,6 +39,7 @@ const App = () => (
           </div>
         </Route>
         <Route path={['/token', '/tokenomics']}>
+          <Navbar showAnnouncement />
           <TokenPage />
           <div className="tf__app__sections-gradient-wrapper">
             <Social />
@@ -49,15 +50,19 @@ const App = () => (
           </div>
         </Route>
         <Route path="/disclaimer">
+          <Navbar />
           <Disclaimer />
         </Route>
         <Route path="/privacy-policy">
+          <Navbar />
           <PrivacyPolicy />
         </Route>
         <Route path="/terms-of-service">
+          <Navbar />
           <TermsOfService />
         </Route>
         <Route path="/">
+          <Navbar showAnnouncement />
           <Background />
           <Main />
           <div className="tf__mobile-only">

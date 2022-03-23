@@ -7,7 +7,11 @@ import NavbarMobile from './navbarMobile';
 
 import './navbar.scss';
 
-const Navbar = () => {
+interface NavbarProps {
+  showAnnouncement?: boolean;
+}
+
+const Navbar = ({ showAnnouncement = false }: NavbarProps) => {
   const [pageScrolledDown, setPageScrolledDown] = useState<boolean>(false);
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
@@ -55,7 +59,7 @@ const Navbar = () => {
 
   return (
     <div className={containerClasses}>
-      {!pageScrolledDown && <Announcement />}
+      {showAnnouncement && !pageScrolledDown && <Announcement />}
       <div className="tf__navbar__content">
         <div className="tf__flex-row-center-v">
           <Link to="/" onClick={closeMenu} aria-hidden="true">

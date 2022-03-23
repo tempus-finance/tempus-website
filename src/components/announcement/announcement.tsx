@@ -27,7 +27,11 @@ const Announcement = () => {
       </Typography>
       <Spacer type="horizontal" size={8} />
       <Typography variant="h5" color="inverted">
-        Check out this article for more info
+        Check out this
+        <ExternalLink href="https://medium.com/tempusfinance/introducing-the-tempus-defi-treasury-management-solution-5bf1d8fb3f95">
+          &nbsp;article&nbsp;
+        </ExternalLink>
+        for more info
       </Typography>
       <Spacer type="horizontal" size={16} />
       <ExternalLink href="https://medium.com/tempusfinance/introducing-the-tempus-defi-treasury-management-solution-5bf1d8fb3f95">
