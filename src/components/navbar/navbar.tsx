@@ -55,7 +55,7 @@ const Navbar = () => {
 
   return (
     <div className={containerClasses}>
-      <Announcement />
+      {!pageScrolledDown && <Announcement />}
       <div className="tf__navbar__content">
         <div className="tf__flex-row-center-v">
           <Link to="/" onClick={closeMenu} aria-hidden="true">
