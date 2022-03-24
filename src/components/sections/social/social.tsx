@@ -43,7 +43,7 @@ const Social = () => {
           </Typography>
           <Spacer size={23} type="vertical" />
           <Button className="tf__social-action-button">
-            <ExternalLink href="https://angel.co/company/tempusfinance">
+            <ExternalLink href="https://angel.co/company/tempusfinance/jobs">
               <Typography variant="get-involved-card-button" clickable>
                 See openings
               </Typography>
