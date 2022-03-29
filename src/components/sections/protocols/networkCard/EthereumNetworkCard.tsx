@@ -5,6 +5,8 @@ import { getChainConfig } from '../../../../utils/getConfig';
 import getVariableRateService from '../../../../services/getVariableRateService';
 import EthereumNetworkIcon from '../../../icons/ethereumNetworkLogo';
 import TokenEthIcon from '../../../icons/tokenEthIcon';
+import TokenUsdcIcon from '../../../icons/tokenUsdcIcon';
+import TokenDaiIcon from '../../../icons/tokenDaiIcon';
 import NetworkCard from './networkCard';
 
 const EtherueumNetworkCard = () => {
@@ -31,6 +33,16 @@ const EtherueumNetworkCard = () => {
       <div className="tf__protocols__icon-container" aria-hidden="true">
         <div className="tf__protocols__icon">
           <TokenEthIcon />
+        </div>
+      </div>
+      <div className="tf__protocols__icon-container" aria-hidden="true">
+        <div className="tf__protocols__icon">
+          <TokenUsdcIcon />
+        </div>
+      </div>
+      <div className="tf__protocols__icon-container" aria-hidden="true">
+        <div className="tf__protocols__icon">
+          <TokenDaiIcon />
         </div>
       </div>
     </>
