@@ -10,6 +10,7 @@ import georgeImg from './members/george.png';
 import irinelImg from './members/irinel.png';
 import jormaImg from './members/jorma.png';
 import joshImg from './members/josh.png';
+import krumImg from './members/krum.png';
 import lazarImg from './members/lazar.png';
 import milicaImg from './members/milica.png';
 import olafImg from './members/olaf.png';
@@ -114,6 +115,14 @@ const members: Profile[] = [
     twitter: 'https://twitter.com/joshkez95',
     linkedIn: 'https://www.linkedin.com/in/joshuakelly35/',
     desc: 'Josh is in charge of overseeing business development (including partnerships and integrations) at Tempus. Before joining the crypto scene, he previously worked as a financial services regulatory lawyer.',
+  },
+  {
+    name: 'Krum',
+    fullname: 'Krum Pashov',
+    avatar: krumImg,
+    title: 'Blockchain Engineer',
+    linkedIn: 'https://www.linkedin.com/in/krum-krasimirov-pashov/',
+    desc: 'Krum is one of Tempus’ blockchain engineers. He has experience in a variety of sectors, including finance, cloud, and crypto. Prior to joining Tempus, he worked at Nexo where he built and scaled crypto exchange products and carried out integrations with various DeFi projects.',
   },
   {
     name: 'Lazar',
