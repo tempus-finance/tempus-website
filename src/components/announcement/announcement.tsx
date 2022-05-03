@@ -19,22 +19,14 @@ const Announcement = () => {
   return (
     <div className="tf__announcement__container">
       <Typography variant="h5" color="inverted">
-        Treasury Management solution now live
-      </Typography>
-      <Spacer type="horizontal" size={4} />
-      <Typography variant="h5" color="inverted">
-        🎉
-      </Typography>
-      <Spacer type="horizontal" size={8} />
-      <Typography variant="h5" color="inverted">
-        Check out this
-        <ExternalLink href="https://medium.com/tempusfinance/introducing-the-tempus-defi-treasury-management-solution-5bf1d8fb3f95">
-          &nbsp;article&nbsp;
+        Tempus DAO is broadening its horizons beyond just fixed income. 🏜️ Check out our our&nbsp;
+        <ExternalLink href="https://medium.com/tempusfinance/tempus-the-road-ahead-6acffd441d6a">
+          recent blog post
         </ExternalLink>
-        for more info
+        &nbsp;to find out more.
       </Typography>
       <Spacer type="horizontal" size={16} />
-      <ExternalLink href="https://medium.com/tempusfinance/introducing-the-tempus-defi-treasury-management-solution-5bf1d8fb3f95">
+      <ExternalLink href="https://medium.com/tempusfinance/tempus-the-road-ahead-6acffd441d6a">
         <ArrowRight2 />
       </ExternalLink>
       <button onClick={onClose}>
