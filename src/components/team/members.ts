@@ -2,6 +2,7 @@ import Profile from '../../interfaces/Profile';
 
 import davidImg from './members/david.png';
 import dordeImg from './members/dorde.png';
+import adriImg from './members/adri.png';
 import alexImg from './members/alex.png';
 import cristianoImg from './members/cristiano.png';
 import danieleImg from './members/daniele.png';
@@ -41,6 +42,15 @@ const members: Profile[] = [
     linkedIn: 'https://www.linkedin.com/in/mijovic88',
     github: 'https://github.com/mijovic',
     desc: 'Đorđe takes responsibility for technological oversight at Tempus. Before co-founding Tempus with David, he worked as a core Solidity compiler developer at Ethereum Foundation.',
+  },
+  {
+    name: 'Adri',
+    fullname: 'Adrienn Orosz',
+    avatar: adriImg,
+    title: 'Executive Assistant',
+    twitter: 'https://twitter.com/oroszadri',
+    linkedIn: 'https://www.linkedin.com/in/adriennorosz1227/',
+    desc: "Adri is responsible for assisting with the smooth running of Tempus' operational affairs. Before joining Tempus, Adri worked in the FMCG sector at Danone and Mars as an internal and external communications specialist.",
   },
   {
     name: 'Alex',
