@@ -72,11 +72,11 @@ const App = () => (
           <Protocols />
           <Graph />
           <GetInvolved />
-          <FAQ />
+          <News />
           <Security />
           <div className="tf__app__sections-gradient-wrapper">
             <Investors />
-            <News />
+            <FAQ />
             <Social />
             <Footer />
             <div className="tf__app__sections-footer-logo">

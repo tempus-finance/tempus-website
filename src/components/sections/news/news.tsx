@@ -45,7 +45,7 @@ const News = () => {
   return (
     <div className="tf__news__container">
       <Typography variant="h3" color="inverted">
-        News
+        Check out our blog
       </Typography>
       <Spacer size={41} type="vertical" />
       <div className="tf__news__cards-container">

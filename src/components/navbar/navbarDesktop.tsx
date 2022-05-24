@@ -107,17 +107,6 @@ const NavbarDesktop: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onM
               </ExternalLink>
               <ExternalLink
                 className="tf__navbar-dropdown-item"
-                href="https://medium.com/tempusfinance"
-                aria-hidden="true"
-              >
-                <MediumIcon />
-                <Spacer size={10} type="horizontal" />
-                <Typography variant="body-text" clickable>
-                  Medium
-                </Typography>
-              </ExternalLink>
-              <ExternalLink
-                className="tf__navbar-dropdown-item"
                 href="https://github.com/tempus-finance"
                 aria-hidden="true"
               >
@@ -156,6 +145,12 @@ const NavbarDesktop: FC<NavbarDesktopProps> = ({ menuOpen, pageScrolledDown, onM
           )}
         </div>
         {communityOpen && <div className="tf__backdrop" onClick={onCommunityClick} aria-hidden="true" />}
+        <Spacer size={45} type="horizontal" />
+        <ExternalLink className="tf__navbar-item" href="https://medium.com/tempusfinance">
+          <Typography color={textColor} variant="header-label" underline clickable>
+            BLOG
+          </Typography>
+        </ExternalLink>
         <Spacer size={45} type="horizontal" />
         <ExternalLink className="tf__navbar-item" href="http://docs.tempus.finance/">
           <Typography color={textColor} variant="header-label" underline clickable>
