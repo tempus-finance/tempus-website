@@ -3,6 +3,8 @@
   flex-direction: column;
   background-color: white;
   border-radius: 10px 10px 5px 5px;
+  height: 100%;
+  text-decoration: none;
 }
 
 .tf__newsCard-content {
@@ -11,18 +13,16 @@
   padding: 5px 15px 15px 15px;
   height: 100%;
   word-break: break-word;
+
+  .tf__newsCard-readmore {
+    align-self: flex-end;
+    margin-top: auto;
+  }
 }
 
 .tf__newsCard-date {
   display: flex;
   flex-direction: row-reverse;
-}
-
-.tf__newsCard-action {
-  display: flex;
-  flex-direction: row-reverse;
-  margin-top: auto;
-  text-decoration: none;
 }
 
 .tf__newsCard-image {
