@@ -18,7 +18,6 @@ import olafImg from './members/olaf.png';
 import pujeetImg from './members/pujeet.png';
 import rtpImg from './members/rtp.png';
 import stefanImg from './members/stefan.png';
-import tianImg from './members/tian.png';
 import timImg from './members/tim.png';
 import vukasinImg from './members/vukasin.png';
 import yuvalImg from './members/yuval.png';
@@ -187,14 +186,6 @@ const members: Profile[] = [
     linkedIn: 'https://www.linkedin.com/in/stefan-vitorovi%C4%87-317b5170/',
     title: 'Blockchain Engineer',
     desc: "Stefan is one of Tempus' blockchain engineers. He has over 8 years' full stack and system architect experience in developing and implementing different systems. Before joining Tempus, Stefan worked at Composable Finance.",
-  },
-  {
-    name: 'Tian-Yuan',
-    fullname: 'Tian-Yuan Zhao',
-    avatar: tianImg,
-    title: 'UX Designer',
-    twitter: 'https://twitter.com/spidertianz',
-    desc: 'Tian wants to make Tempus as accessible as possible for users. He has been designing both Web2 and Web3 products at companies such as RBC, Paymi, Flinks, ConsenSys, Kleros, and Valora, which was inspired when he met Vitalik Buterin in 2015 while a student.',
   },
   {
     name: 'Tim',
