@@ -19,6 +19,7 @@ import pujeetImg from './members/pujeet.png';
 import rtpImg from './members/rtp.png';
 import stefanImg from './members/stefan.png';
 import timImg from './members/tim.png';
+import tonyImg from './members/tony.png';
 import vukasinImg from './members/vukasin.png';
 import yuvalImg from './members/yuval.png';
 
@@ -195,6 +196,15 @@ const members: Profile[] = [
     twitter: 'https://twitter.com/shawtim_eth',
     github: 'https://github.com/ShawTim/',
     desc: "Tim is one of Tempus' frontend engineers. He worked at IBM for over 8 years and for a further 5 years as a developer in various startups. He is also a Doge meme lover.",
+  },
+  {
+    name: 'Tony',
+    fullname: 'Tony T',
+    avatar: tonyImg,
+    title: 'Head of Marketing',
+    twitter: 'https://twitter.com/0xToro',
+    linkedIn: 'https://www.linkedin.com/in/0xtoro/',
+    desc: 'Tony leads our efforts to make Tempus well known in the multiverse. He’s a degen from the 2017 class who’s been working in the marketing teams of financial and blockchain companies for the last decade. Previously, he led communications at Polygon Hermez.',
   },
   {
     name: 'Vukašin',
