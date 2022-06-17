@@ -15,16 +15,14 @@ const Security = () => {
       <Typography variant="h3">Security</Typography>
       <Spacer size={20} type="vertical" />
       <div className="tf__security-cards-container">
-        <ExternalLink
-          className="tf__security-card"
-          href="https://www.coinspect.com/tempus-audit"
-          aria-hidden="true"
-        >
+        <ExternalLink className="tf__security-card" href="https://www.coinspect.com/tempus-audit" aria-hidden="true">
           <div className="tf__security-logo-container">
             <CoinspectLogo />
           </div>
           <Spacer size={22} type="vertical" />
-          <Typography variant="security-card-label" clickable>Security Audit</Typography>
+          <Typography variant="security-card-label" clickable>
+            Security Audit
+          </Typography>
         </ExternalLink>
         <ExternalLink
           className="tf__security-card"
@@ -35,25 +33,27 @@ const Security = () => {
             <Code423n4Logo />
           </div>
           <Spacer size={22} type="vertical" />
-          <Typography variant="security-card-label" clickable>Security Audit</Typography>
+          <Typography variant="security-card-label" clickable>
+            Security Audit
+          </Typography>
         </ExternalLink>
-        <ExternalLink
-          className="tf__security-card"
-          href="https://immunefi.com/bounty/tempus/"
-          aria-hidden="true"
-        >
+        <ExternalLink className="tf__security-card" href="https://immunefi.com/bounty/tempus/" aria-hidden="true">
           <div className="tf__security-logo-container">
             <ImmunefiLogo />
           </div>
           <Spacer size={22} type="vertical" />
-          <Typography variant="security-card-label" clickable>$1,000,000 Bug Bounty</Typography>
+          <Typography variant="security-card-label" clickable>
+            $1,000,000 Bug Bounty
+          </Typography>
         </ExternalLink>
         <ExternalLink className="tf__security-card" href="https://app.hats.finance/vaults" aria-hidden="true">
           <div className="tf__security-logo-container">
             <HatsLogo />
           </div>
           <Spacer size={22} type="vertical" />
-          <Typography variant="security-card-label" clickable>$150,000 Bug Bounty</Typography>
+          <Typography variant="security-card-label" clickable>
+            1M $TEMP Bug Bounty
+          </Typography>
         </ExternalLink>
         <ExternalLink
           className="tf__security-card"
