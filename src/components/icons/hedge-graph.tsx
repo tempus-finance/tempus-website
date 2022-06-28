@@ -1,3 +1,5 @@
+import React from 'react';
+
 const HedgeGraph = () => (
   <svg width="932" height="428" viewBox="0 0 932 428" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path

@@ -8,34 +8,34 @@ import TempusPoolService from './TempusPoolService';
 import getDefaultProvider from './getDefaultProvider';
 import getERC20TokenService from './getERC20TokenService';
 
-let tempusPoolServices = new Map<Chain, TempusPoolService>();
+const tempusPoolServiceMap = new Map<Chain, TempusPoolService>();
 const getTempusPoolService = (chain: Chain, signerOrProvider?: JsonRpcSigner | JsonRpcProvider) => {
-  if (!tempusPoolServices.get(chain)) {
+  if (!tempusPoolServiceMap.get(chain)) {
     const defaultProvider = getDefaultProvider(chain);
 
     const tempusPoolService = new TempusPoolService();
     tempusPoolService.init({
       Contract,
-      tempusPoolAddresses: getChainConfig(chain).tempusPools.map(tempusPoolConfig => tempusPoolConfig.address),
-      TempusPoolABI: TempusPoolABI,
+      tempusPoolAddresses: getChainConfig(chain).tempusPools.map((tempusPoolConfig) => tempusPoolConfig.address),
+      TempusPoolABI,
       signerOrProvider: defaultProvider,
       eRC20TokenServiceGetter: getERC20TokenService,
       chain,
     });
-    tempusPoolServices.set(chain, tempusPoolService);
+    tempusPoolServiceMap.set(chain, tempusPoolService);
   }
 
-  const tempusPoolService = tempusPoolServices.get(chain);
+  const tempusPoolService = tempusPoolServiceMap.get(chain);
   if (!tempusPoolService) {
     throw new Error(`Failed to get TempusPoolService for ${chain} chain!`);
   }
 
   if (signerOrProvider) {
     tempusPoolService.init({
-      Contract: Contract,
-      tempusPoolAddresses: getChainConfig(chain).tempusPools.map(tempusPoolConfig => tempusPoolConfig.address),
-      TempusPoolABI: TempusPoolABI,
-      signerOrProvider: signerOrProvider,
+      Contract,
+      tempusPoolAddresses: getChainConfig(chain).tempusPools.map((tempusPoolConfig) => tempusPoolConfig.address),
+      TempusPoolABI,
+      signerOrProvider,
       eRC20TokenServiceGetter: getERC20TokenService,
       chain,
     });

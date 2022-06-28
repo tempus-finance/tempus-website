@@ -7,35 +7,38 @@ import TempusAMMService from './TempusAMMService';
 import getDefaultProvider from './getDefaultProvider';
 import getTempusPoolService from './getTempusPoolService';
 import getERC20TokenService from './getERC20TokenService';
+import getVaultService from './getVaultService';
 
-let tempusAMMServices = new Map<Chain, TempusAMMService>();
+const tempusAMMServiceMap = new Map<Chain, TempusAMMService>();
 const getTempusAMMService = (chain: Chain, signerOrProvider?: JsonRpcSigner | JsonRpcProvider): TempusAMMService => {
-  if (!tempusAMMServices.get(chain)) {
+  if (!tempusAMMServiceMap.get(chain)) {
     const tempusAMMService = new TempusAMMService();
     tempusAMMService.init({
       Contract,
-      tempusAMMAddresses: getChainConfig(chain).tempusPools.map(tempusPoolConfig => tempusPoolConfig.ammAddress),
-      TempusAMMABI: TempusAMMABI,
+      tempusAMMAddresses: getChainConfig(chain).tempusPools.map((tempusPoolConfig) => tempusPoolConfig.ammAddress),
+      TempusAMMABI,
       signerOrProvider: getDefaultProvider(chain),
       tempusPoolService: getTempusPoolService(chain),
+      vaultService: getVaultService(chain),
       eRC20TokenServiceGetter: getERC20TokenService,
       chain,
     });
-    tempusAMMServices.set(chain, tempusAMMService);
+    tempusAMMServiceMap.set(chain, tempusAMMService);
   }
 
-  const tempusAMMService = tempusAMMServices.get(chain);
+  const tempusAMMService = tempusAMMServiceMap.get(chain);
   if (!tempusAMMService) {
     throw new Error(`Failed to get TempusAMMService for ${chain} chain!`);
   }
 
   if (signerOrProvider) {
     tempusAMMService.init({
-      Contract: Contract,
-      tempusAMMAddresses: getChainConfig(chain).tempusPools.map(tempusPoolConfig => tempusPoolConfig.ammAddress),
-      TempusAMMABI: TempusAMMABI,
-      signerOrProvider: signerOrProvider,
+      Contract,
+      tempusAMMAddresses: getChainConfig(chain).tempusPools.map((tempusPoolConfig) => tempusPoolConfig.ammAddress),
+      TempusAMMABI,
+      signerOrProvider,
       tempusPoolService: getTempusPoolService(chain, signerOrProvider),
+      vaultService: getVaultService(chain),
       eRC20TokenServiceGetter: getERC20TokenService,
       chain,
     });

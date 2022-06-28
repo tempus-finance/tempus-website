@@ -8,7 +8,7 @@ import { getChainConfig } from '../utils/getConfig';
 import { ChainConfig } from '../interfaces/Config';
 import { Chain } from '../interfaces/Chain';
 import TempusPoolService from './TempusPoolService';
-import getVaultService from './getVaultService';
+import VaultService from './VaultService';
 import getERC20TokenService from './getERC20TokenService';
 
 interface TempusPoolAddressData {
@@ -22,22 +22,29 @@ type TempusAMMServiceParameters = {
   TempusAMMABI: typeof TempusAMMABI;
   signerOrProvider: JsonRpcSigner | JsonRpcProvider;
   tempusPoolService: TempusPoolService;
+  vaultService: VaultService;
   eRC20TokenServiceGetter: typeof getERC20TokenService;
   chain: Chain;
 };
 
 class TempusAMMService {
   private tempusAMMMap: Map<string, TempusAMM> = new Map<string, TempusAMM>();
+
   private tempusPoolService: TempusPoolService | null = null;
+
   private eRC20TokenServiceGetter: typeof getERC20TokenService | null = null;
 
+  private vaultService: VaultService | null = null;
+
   private chain: Chain | null = null;
+
   private config: ChainConfig | null = null;
 
   public init({
     tempusAMMAddresses,
     signerOrProvider,
     tempusPoolService,
+    vaultService,
     chain,
     eRC20TokenServiceGetter,
   }: TempusAMMServiceParameters) {
@@ -53,6 +60,7 @@ class TempusAMMService {
 
     this.tempusPoolService = tempusPoolService;
     this.eRC20TokenServiceGetter = eRC20TokenServiceGetter;
+    this.vaultService = vaultService;
 
     this.chain = chain;
     this.config = getChainConfig(this.chain);
@@ -106,9 +114,6 @@ class TempusAMMService {
       return Promise.reject();
     }
 
-    // If we try to inject vault service in AMM it create infinite dependency loop - this is a quick workaround.
-    const vaultService = getVaultService(this.chain);
-
     const service = this.tempusAMMMap.get(tempusAMM);
     if (service) {
       const YIELD_TO_PRINCIPAL = true;
@@ -119,41 +124,42 @@ class TempusAMMService {
         return Promise.reject();
       }
 
-      let poolPrincipalsBalance: BigNumber;
-      try {
-        const poolTokens = await vaultService.getPoolTokens(tempusPool.poolId);
+      if (this.vaultService) {
+        let poolPrincipalsBalance: BigNumber;
+        try {
+          const poolTokens = await this.vaultService.getPoolTokens(tempusPool.poolId);
 
-        const principalsIndex = poolTokens.tokens.findIndex(
-          (poolTokenAddress) => principalsAddress === poolTokenAddress,
-        );
-        poolPrincipalsBalance = poolTokens.balances[principalsIndex];
+          const principalsIndex = poolTokens.tokens.findIndex(
+            (poolTokenAddress) => principalsAddress === poolTokenAddress,
+          );
+          poolPrincipalsBalance = poolTokens.balances[principalsIndex];
 
-        if (poolTokens.balances[0].isZero() || poolTokens.balances[1].isZero()) {
+          if (poolTokens.balances[0].isZero() || poolTokens.balances[1].isZero()) {
+            return null;
+          }
+        } catch (error) {
+          console.error('TempusAMMService - getFixedAPR() - Failed to fetch pool balances!', error);
+          return Promise.reject(error);
+        }
+        const spotPrice = poolPrincipalsBalance.div(BigNumber.from('100'));
+
+        let expectedReturn: BigNumber;
+        try {
+          expectedReturn = await service.getExpectedReturnGivenIn(spotPrice, YIELD_TO_PRINCIPAL);
+        } catch (error) {
+          console.error('TempusAMMService - getFixedAPR() - Failed to get expected return for yield share tokens!');
+          console.log(`Spot price: ${spotPrice}`);
+          console.log(`YieldsToPrincipals" ${YIELD_TO_PRINCIPAL}`);
           return null;
         }
-      } catch (error) {
-        console.error('TempusAMMService - getFixedAPR() - Failed to fetch pool balances!', error);
-        return Promise.reject(error);
+
+        // Convert poolDuration from milliseconds to seconds.
+        const poolDuration = (tempusPool.maturityDate - tempusPool.startDate) / 1000;
+
+        const scaleFactor = ethers.utils.parseEther(((SECONDS_IN_A_DAY * DAYS_IN_A_YEAR) / poolDuration).toString());
+
+        return Number(ethers.utils.formatEther(mul18f(div18f(expectedReturn, spotPrice), scaleFactor)));
       }
-
-      const spotPrice = poolPrincipalsBalance.div(BigNumber.from('100'));
-
-      let expectedReturn: BigNumber;
-      try {
-        expectedReturn = await service.getExpectedReturnGivenIn(spotPrice, YIELD_TO_PRINCIPAL);
-      } catch (error) {
-        console.error('TempusAMMService - getFixedAPR() - Failed to get expected return for yield share tokens!');
-        console.log(`Spot price: ${spotPrice}`);
-        console.log(`YieldsToPrincipals" ${YIELD_TO_PRINCIPAL}`);
-        return null;
-      }
-
-      // Convert poolDuration from milliseconds to seconds.
-      const poolDuration = (tempusPool.maturityDate - tempusPool.startDate) / 1000;
-
-      const scaleFactor = ethers.utils.parseEther(((SECONDS_IN_A_DAY * DAYS_IN_A_YEAR) / poolDuration).toString());
-
-      return Number(ethers.utils.formatEther(mul18f(div18f(expectedReturn, spotPrice), scaleFactor)));
     }
     throw new Error(`TempusAMMService - getFixedAPR() - TempusAMM with address '${tempusAMM}' does not exist`);
   }
@@ -197,7 +203,7 @@ class TempusAMMService {
         const assets = [
           { address: principalsAddress, amount: principalsIn },
           { address: yieldsAddress, amount: yieldsIn },
-        ].sort((a, b) => parseInt(a.address) - parseInt(b.address));
+        ].sort((a, b) => parseInt(a.address, 10) - parseInt(b.address, 10));
         const amountsIn = assets.map(({ amount }) => amount);
 
         return await tempusAMM.getExpectedLPTokensForTokensIn(amountsIn);

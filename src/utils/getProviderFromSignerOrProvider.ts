@@ -5,7 +5,6 @@ export default function getProviderFromSignerOrProvider(
 ): JsonRpcProvider {
   if (signerOrProvider instanceof JsonRpcSigner) {
     return signerOrProvider.provider;
-  } else {
-    return signerOrProvider;
   }
+  return signerOrProvider;
 }

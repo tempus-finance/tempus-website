@@ -4,36 +4,33 @@ import VaultABI from '../abi/Vault.json';
 import VaultService from './VaultService';
 import getDefaultProvider from './getDefaultProvider';
 import { getChainConfig } from '../utils/getConfig';
-import getTempusAMMService from './getTempusAMMService';
 import { Chain } from '../interfaces/Chain';
 
-let vaultServices = new Map<Chain, VaultService>();
+const vaultServiceMap = new Map<Chain, VaultService>();
 const getVaultService = (chain: Chain, signerOrProvider?: JsonRpcSigner): VaultService => {
-  if (!vaultServices.get(chain)) {
+  if (!vaultServiceMap.get(chain)) {
     const vaultService = new VaultService();
     vaultService.init({
-      Contract: Contract,
+      Contract,
       address: getChainConfig(chain).vaultContract,
       abi: VaultABI,
       signerOrProvider: getDefaultProvider(chain),
-      tempusAMMService: getTempusAMMService(chain),
       chain,
     });
-    vaultServices.set(chain, vaultService);
+    vaultServiceMap.set(chain, vaultService);
   }
 
-  const vaultService = vaultServices.get(chain);
+  const vaultService = vaultServiceMap.get(chain);
   if (!vaultService) {
     throw new Error(`Failed to get VaultService for ${chain} chain!`);
   }
 
   if (signerOrProvider) {
     vaultService.init({
-      Contract: Contract,
+      Contract,
       address: getChainConfig(chain).vaultContract,
       abi: VaultABI,
       signerOrProvider,
-      tempusAMMService: getTempusAMMService(chain, signerOrProvider),
       chain,
     });
   }

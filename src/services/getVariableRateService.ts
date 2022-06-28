@@ -9,9 +9,9 @@ import { Chain } from '../interfaces/Chain';
 import VariableRateService from './VariableRateService';
 import getDefaultProvider from './getDefaultProvider';
 
-let variableRateServices = new Map<Chain, VariableRateService>();
+const variableRateServiceMap = new Map<Chain, VariableRateService>();
 const getVariableRateService = (chain: Chain, signer?: JsonRpcSigner): VariableRateService => {
-  if (!variableRateServices.get(chain)) {
+  if (!variableRateServiceMap.get(chain)) {
     const variableRateService = new VariableRateService();
     variableRateService.init(
       getDefaultProvider(chain),
@@ -21,10 +21,10 @@ const getVariableRateService = (chain: Chain, signer?: JsonRpcSigner): VariableR
       new RariVault(getDefaultProvider(chain)),
       getChainConfig(chain),
     );
-    variableRateServices.set(chain, variableRateService);
+    variableRateServiceMap.set(chain, variableRateService);
   }
 
-  const variableRateService = variableRateServices.get(chain);
+  const variableRateService = variableRateServiceMap.get(chain);
   if (!variableRateService) {
     throw new Error(`Failed to get VariableRateService for ${chain} chain!`);
   }

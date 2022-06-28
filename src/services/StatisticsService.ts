@@ -45,9 +45,8 @@ class StatisticsService {
     try {
       if (overrides) {
         return await this.stats.totalValueLockedInBackingTokens(tempusPool, overrides);
-      } else {
-        return await this.stats.totalValueLockedInBackingTokens(tempusPool);
       }
+      return await this.stats.totalValueLockedInBackingTokens(tempusPool);
     } catch (error) {
       console.error(
         'StatisticsService - totalValueLockedInBackingTokens() - Failed to get total value locked in backing tokens!',
@@ -88,12 +87,12 @@ class StatisticsService {
       let backingTokensLocked: BigNumber;
       try {
         backingTokensLocked = await this.stats.totalValueLockedInBackingTokens(tempusPool);
-      } catch (error) {
+      } catch (innerError) {
         console.error(
           'StatisticsService - totalValueLockedUSD() - Failed to get total value locked in backing tokens!',
           error,
         );
-        return Promise.reject(error);
+        return Promise.reject(innerError);
       }
 
       return mul18f(rate, backingTokensLocked, precision);
@@ -103,15 +102,15 @@ class StatisticsService {
   }
 
   /**
-   * Returns conversion rate of specified token to USD
-   **/
+   *  Returns conversion rate of specified token to USD
+   */
   public async getRate(chain: Chain, tokenTicker: Ticker, overrides?: CallOverrides): Promise<BigNumber> {
     if (!this.stats) {
       console.error(
         'StatisticsService totalValueLockedUSD Attempted to use statistics contract before initializing it...',
       );
 
-      return Promise.reject(0);
+      return Promise.reject(BigNumber.from('0'));
     }
 
     const chainLinkAggregator = getChainlinkFeed(chain, tokenTicker);
@@ -139,9 +138,9 @@ class StatisticsService {
     return div18f(rate, rateDenominator, precision);
   }
 
-  /**
+  /*
    * Returns estimated amount of Principals tokens on fixed yield deposit
-   **/
+   */
   async estimatedDepositAndFix(
     tempusAmmAddress: string,
     tokenAmount: BigNumber,
@@ -151,25 +150,25 @@ class StatisticsService {
       console.error(
         'StatisticsService - estimatedDepositAndFix: Attempted to use statistics contract before initializing it...',
       );
-      return Promise.reject(0);
+      return Promise.reject(BigNumber.from('0'));
     }
 
     if (!tempusAmmAddress || !tokenAmount) {
       console.error('StatisticsService - estimatedDepositAndFix: invalid tempusAmmAddress or tokenAmount');
-      return Promise.reject(0);
+      return Promise.reject(BigNumber.from('0'));
     }
 
     try {
-      return this.stats.estimatedDepositAndFix(tempusAmmAddress, tokenAmount, isBackingToken);
+      return await this.stats.estimatedDepositAndFix(tempusAmmAddress, tokenAmount, isBackingToken);
     } catch (error) {
-      console.error(`StatisticsService - estimatedDepositAndFix - Failed to get estimated fixed deposit amount`, error);
-      return Promise.reject(0);
+      console.error('StatisticsService - estimatedDepositAndFix - Failed to get estimated fixed deposit amount', error);
+      return Promise.reject(BigNumber.from('0'));
     }
   }
 
-  /**
+  /*
    * Returns estimated amount of Principals tokens on variable yield deposit
-   **/
+   */
   async estimatedDepositAndProvideLiquidity(
     tempusAmmAddress: string,
     tokenAmount: BigNumber,
@@ -179,20 +178,20 @@ class StatisticsService {
       console.error(
         'StatisticsService estimatedDepositAndProvideLiquidity Attempted to use statistics contract before initializing it...',
       );
-      return Promise.reject(0);
+      return Promise.reject(BigNumber.from('0'));
     }
 
     try {
-      return this.stats.estimatedDepositAndProvideLiquidity(tempusAmmAddress, tokenAmount, isBackingToken);
+      return await this.stats.estimatedDepositAndProvideLiquidity(tempusAmmAddress, tokenAmount, isBackingToken);
     } catch (error) {
-      console.error(`Failed to get estimated variable deposit amount`, error);
-      return Promise.reject(0);
+      console.error('Failed to get estimated variable deposit amount', error);
+      return Promise.reject(BigNumber.from('0'));
     }
   }
 
-  /**
+  /*
    * Returns estimated amount of Backing/Yield Bearing tokens on deposit
-   **/
+   */
   async estimateExitAndRedeem(
     tempusPoolAddress: string,
     tempusAmmAddress: string,
@@ -233,7 +232,7 @@ class StatisticsService {
       lpTokensAmountParsed = decreasePrecision(lpAmount, lpTokenPrecision - principalsPrecision);
     }
 
-    let maxLeftoverShares = this.tempusAMMService.getMaxLeftoverShares(
+    const maxLeftoverShares = this.tempusAMMService.getMaxLeftoverShares(
       principalAmount,
       yieldsAmount,
       lpTokensAmountParsed,
@@ -250,18 +249,17 @@ class StatisticsService {
           isBackingToken,
           overrides,
         );
-      } else {
-        return await this.stats.estimateExitAndRedeem(
-          tempusAmmAddress,
-          lpAmount,
-          principalAmount,
-          yieldsAmount,
-          maxLeftoverShares,
-          isBackingToken,
-        );
       }
+      return await this.stats.estimateExitAndRedeem(
+        tempusAmmAddress,
+        lpAmount,
+        principalAmount,
+        yieldsAmount,
+        maxLeftoverShares,
+        isBackingToken,
+      );
     } catch (error) {
-      console.error(`Failed to get estimated withdraw amount`, error);
+      console.error('Failed to get estimated withdraw amount', error);
       console.log('Debug info:');
       console.log(`TempusAMM address: ${tempusAmmAddress}`);
       console.log(`LP Token amount: ${lpAmount.toHexString()} ${ethers.utils.formatEther(lpAmount)}`);
@@ -291,9 +289,8 @@ class StatisticsService {
     try {
       if (overrides) {
         return await this.stats.estimatedMintedShares(tempusPool, amount, isBackingToken, overrides);
-      } else {
-        return await this.stats.estimatedMintedShares(tempusPool, amount, isBackingToken);
       }
+      return await this.stats.estimatedMintedShares(tempusPool, amount, isBackingToken);
     } catch (error) {
       console.error('StatisticsService - estimatedMintedShares() - Failed to fetch estimated minted shares!', error);
       return Promise.reject(error);
@@ -314,7 +311,7 @@ class StatisticsService {
     }
 
     try {
-      return this.stats.estimatedRedeem(tempusPool, principalsAmount, yieldsAmount, toBackingToken);
+      return await this.stats.estimatedRedeem(tempusPool, principalsAmount, yieldsAmount, toBackingToken);
     } catch (error) {
       console.error('StatisticsService - estimatedRedeem() - Failed to fetch estimated redeem amount!');
       return Promise.reject(error);

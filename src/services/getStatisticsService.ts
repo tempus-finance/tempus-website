@@ -7,30 +7,30 @@ import StatisticsService from './StatisticsService';
 import getDefaultProvider from './getDefaultProvider';
 import getTempusAMMService from './getTempusAMMService';
 
-let statisticsServices = new Map<Chain, StatisticsService>();
+const statisticsServiceMap = new Map<Chain, StatisticsService>();
 const getStatisticsService = (chain: Chain, signerOrProvider?: JsonRpcSigner | JsonRpcProvider) => {
-  if (!statisticsServices.get(chain)) {
+  if (!statisticsServiceMap.get(chain)) {
     const statisticsService = new StatisticsService();
     statisticsService.init({
-      Contract: Contract,
+      Contract,
       abi: StatisticsABI,
       signerOrProvider: getDefaultProvider(chain),
       tempusAMMService: getTempusAMMService(chain),
       address: getChainConfig(chain).statisticsContract,
     });
-    statisticsServices.set(chain, statisticsService);
+    statisticsServiceMap.set(chain, statisticsService);
   }
 
-  const statisticsService = statisticsServices.get(chain);
+  const statisticsService = statisticsServiceMap.get(chain);
   if (!statisticsService) {
     throw new Error(`Failed to get StatisticsService for ${chain} chain!`);
   }
 
   if (signerOrProvider) {
     statisticsService.init({
-      Contract: Contract,
+      Contract,
       abi: StatisticsABI,
-      signerOrProvider: signerOrProvider,
+      signerOrProvider,
       tempusAMMService: getTempusAMMService(chain, signerOrProvider),
       address: getChainConfig(chain).statisticsContract,
     });

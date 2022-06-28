@@ -29,13 +29,11 @@ export function getConfigForPoolWithId(poolId: string): TempusPool {
   const configData = getConfig();
 
   const tempusPoolsConfig: TempusPool[] = [];
-  for (const networkName in configData) {
+  Object.keys(config).forEach((networkName: string) => {
     tempusPoolsConfig.push(...configData[networkName as Chain].tempusPools);
-  }
-
-  const poolConfig = tempusPoolsConfig.find(tempusPool => {
-    return tempusPool.poolId === poolId;
   });
+
+  const poolConfig = tempusPoolsConfig.find((tempusPool) => tempusPool.poolId === poolId);
   if (!poolConfig) {
     throw new Error(`Failed to get pool config with pool id ${poolId}`);
   }
@@ -47,13 +45,11 @@ export function getConfigForPoolWithAddress(poolAddress: string): TempusPool {
   const configData = getConfig();
 
   const tempusPoolsConfig: TempusPool[] = [];
-  for (const networkName in configData) {
+  Object.keys(config).forEach((networkName: string) => {
     tempusPoolsConfig.push(...configData[networkName as Chain].tempusPools);
-  }
-
-  const poolConfig = tempusPoolsConfig.find(tempusPool => {
-    return tempusPool.address === poolAddress;
   });
+
+  const poolConfig = tempusPoolsConfig.find((tempusPool) => tempusPool.address === poolAddress);
   if (!poolConfig) {
     throw new Error(`Failed to get pool config with pool address ${poolAddress}`);
   }
@@ -70,10 +66,13 @@ export function getChainConfigForPool(poolAddress: string): ChainConfig {
 
   const configData = getConfig();
 
-  for (const chainName in configData) {
+  const configDataKeys = Object.keys(configData);
+
+  for (let i = 0; i < configDataKeys.length; i++) {
+    const chainName = configDataKeys[i];
     const chainConfig = configData[chainName as Chain];
 
-    const poolIndex = chainConfig.tempusPools.findIndex(tempusPoolConfig => tempusPoolConfig.address === poolAddress);
+    const poolIndex = chainConfig.tempusPools.findIndex((tempusPoolConfig) => tempusPoolConfig.address === poolAddress);
 
     if (poolIndex > -1) {
       poolToChainConfigMap.set(poolAddress, chainConfig);
